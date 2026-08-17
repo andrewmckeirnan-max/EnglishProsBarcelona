@@ -34,6 +34,41 @@ Email is still captured on every lead as the paper trail for following up
 and for invoicing partners. Once volume justifies it, swap the `wa.me` links
 for the WhatsApp Business Platform API to receive replies inbound too.
 
+## Directory coverage (as of the last research sweep)
+
+32 real, web-verified listings across 16 categories x 4 areas (64 possible
+combinations, so ~50% filled). Every listing links to the business's own
+site or a verifiable directory page — nothing fabricated. Where a search
+turned up a business but couldn't confirm *both* an area tie *and*
+English-speaking service, it was deliberately left out rather than guessed.
+
+| Category | Covered areas | Gaps |
+|---|---|---|
+| Dentist | Eixample, Sarrià, Les Corts | Poblenou |
+| Dermatologist | Poblenou, Eixample, Sarrià | Les Corts |
+| Doctor | Poblenou, Eixample, Les Corts | Sarrià |
+| Physiotherapist | Eixample, Sarrià, Les Corts | Poblenou |
+| Lawyer | Eixample | Poblenou, Sarrià, Les Corts |
+| Psychologist | Poblenou, Eixample, Sarrià | Les Corts |
+| Tax advisor | Eixample | Poblenou, Sarrià, Les Corts |
+| Property advisor | Poblenou | Eixample, Sarrià, Les Corts |
+| Chiropractor | Poblenou, Eixample, Sarrià | Les Corts |
+| Acupuncturist | Eixample, Sarrià | Poblenou, Les Corts |
+| Fertility & IVF | Eixample, Sarrià | Poblenou, Les Corts |
+| Plastic/cosmetic surgeon | Sarrià | Poblenou, Eixample, Les Corts |
+| LASIK & eye surgery | Sarrià | Poblenou, Eixample, Les Corts |
+| Nutritionist | Sarrià | Poblenou, Eixample, Les Corts |
+| Naturopath | Eixample | Poblenou, Sarrià, Les Corts |
+| Veterinarian | Poblenou, Eixample | Sarrià, Les Corts |
+
+Two web-search sweeps (see git log) closed most of the initial gaps,
+especially tax advisor and property advisor which started at zero. The
+remaining gaps mostly reflect genuine absence of an English-specific
+practice with a confirmable web presence in that exact neighbourhood, not
+missed research — a live Google Maps cross-check (once Claude in Chrome is
+connected, or manually) is the logical next pass to catch anything
+web-search-indexing missed, particularly newer or less-SEO'd businesses.
+
 ## Data model (`src/lib/`)
 
 - `data.ts` — the 4 areas and 8 highest-LTV service categories (dentist,
