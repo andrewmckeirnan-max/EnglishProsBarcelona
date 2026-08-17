@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { areas, categories, getCategory } from "@/lib/data";
 import type { AreaSlug, CategorySlug } from "@/lib/types";
 import { businessWaLink } from "@/lib/whatsapp";
+import { sentenceLower } from "@/lib/text";
 
 interface LeadFormProps {
   defaultAreaSlug?: AreaSlug;
@@ -75,7 +76,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   if (status === "done") {
     const area = areas.find((a) => a.slug === areaSlug);
     const category = categorySlug ? getCategory(categorySlug) : undefined;
-    const waMessage = `Hi! I just requested help finding ${category?.pluralName.toLowerCase() ?? "a professional"} in ${area?.name ?? "Barcelona"} on BCN English Pros. My name is ${name || "..."}.`;
+    const waMessage = `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on BCN English Pros. My name is ${name || "..."}.`;
     return (
       <div className="rounded-2xl border border-border bg-surface p-6 text-center">
         <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
@@ -83,7 +84,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         </div>
         <h3 className="text-lg font-semibold mb-1">Request received</h3>
         <p className="text-sm text-foreground/70 mb-5">
-          We&apos;re matching you with a suitable English-speaking {selectedCategory?.name.toLowerCase() ?? "professional"} near{" "}
+          We&apos;re matching you with a suitable English-speaking {selectedCategory ? sentenceLower(selectedCategory.name) : "professional"} near{" "}
           {areas.find((a) => a.slug === areaSlug)?.name ?? "you"}. We&apos;ll reach out on WhatsApp and email shortly — usually within a few hours.
         </p>
         <a
@@ -157,7 +158,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
       {currentStep === "need" && (
         <div>
           <h3 className="text-lg font-semibold mb-4">
-            What do you need for your {selectedCategory?.name.toLowerCase() ?? "appointment"}?
+            What do you need for your {selectedCategory ? sentenceLower(selectedCategory.name) : "appointment"}?
           </h3>
           <div className="flex flex-col gap-2">
             {(selectedCategory?.needOptions ?? ["Other"]).map((n) => (

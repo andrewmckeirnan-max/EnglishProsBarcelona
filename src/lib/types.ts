@@ -8,7 +8,13 @@ export type CategorySlug =
   | "tax-advisor"
   | "property-advisor"
   | "chiropractor"
-  | "acupuncturist";
+  | "acupuncturist"
+  | "nutritionist"
+  | "naturopath"
+  | "veterinarian"
+  | "lasik"
+  | "fertility-clinic"
+  | "plastic-surgeon";
 
 export type AreaSlug = "poblenou" | "eixample" | "sarria-sant-gervasi" | "les-corts";
 

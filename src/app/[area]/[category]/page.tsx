@@ -5,6 +5,7 @@ import { areas, categories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { LeadForm } from "@/components/LeadForm";
+import { sentenceLower } from "@/lib/text";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => categories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -41,7 +42,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                 {area.name} &middot; {area.district}
               </p>
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance">
-                English-speaking {category.name.toLowerCase()} in {area.name}, Barcelona
+                English-speaking {sentenceLower(category.name)} in {area.name}, Barcelona
               </h1>
               <p className="mt-4 text-foreground/70 max-w-xl">{category.shortPitch}</p>
 
@@ -99,7 +100,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
             <p className="font-semibold">We don&apos;t have a featured partner in {area.name} yet.</p>
             <p className="text-sm text-foreground/60 mt-1 max-w-md mx-auto">
               Tell us what you need using the form above and we&apos;ll hand-match you with a
-              vetted English-speaking {category.name.toLowerCase()} nearby.
+              vetted English-speaking {sentenceLower(category.name)} nearby.
             </p>
           </div>
         )}
