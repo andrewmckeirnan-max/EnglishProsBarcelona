@@ -1,0 +1,105 @@
+import type { Metadata } from "next";
+import { ProfessionalCard } from "@/components/ProfessionalCard";
+import { exampleProfessional } from "@/lib/professionals";
+import { businessWaLink } from "@/lib/whatsapp";
+
+export const metadata: Metadata = {
+  title: "List Your Practice — Get English-Speaking Patient Enquiries",
+  description:
+    "We send qualified English-speaking enquiries from Barcelona residents directly to one recommended partner per area and service. No cost unless it converts to enquiries you want.",
+};
+
+const faqs = [
+  {
+    q: "How is this different from SEO or ads?",
+    a: "We already rank for narrow, high-intent searches like \"English dentist Poblenou\". Instead of paying for clicks, you pay for qualified enquiries from people actively looking for an English-speaking provider in your area.",
+  },
+  {
+    q: "How many partners per area/service?",
+    a: "One. Your listing is featured exclusively for your service and area — we don't sell the same enquiry stream to your direct competitors.",
+  },
+  {
+    q: "What do I get?",
+    a: "A featured card on the relevant area + service page, priority placement in the lead-matching flow, and enquiries forwarded to you by WhatsApp and email as they come in.",
+  },
+  {
+    q: "What does it cost?",
+    a: "We start with a trial period so you can see real enquiry volume before committing to a monthly rate. Get in touch and we'll talk specifics for your service and area.",
+  },
+];
+
+export default function PartnersPage() {
+  const waMessage = "Hi! I run a clinic/practice in Barcelona and I'd like to hear more about becoming a featured partner on BCN English Pros.";
+
+  return (
+    <div>
+      <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
+        <div className="container-page py-16 sm:py-20 text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight max-w-2xl mx-auto text-balance">
+            Get qualified English-speaking patient &amp; client enquiries
+          </h1>
+          <p className="mt-4 text-foreground/70 max-w-xl mx-auto">
+            We match Barcelona&apos;s English-speaking residents and expats with one
+            recommended professional per service, per neighbourhood. Be the one they find.
+          </p>
+          <a
+            href={businessWaLink(waMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white text-sm font-semibold px-6 py-3 hover:bg-brand-dark transition"
+          >
+            Talk to us on WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <section className="container-page py-16">
+        <h2 className="text-2xl font-semibold mb-6 text-center">What your featured listing looks like</h2>
+        <div className="max-w-xl mx-auto">
+          <ProfessionalCard professional={exampleProfessional} />
+          <p className="text-xs text-foreground/50 mt-3 text-center">
+            Example preview — not a real listing.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-surface-muted border-y border-border">
+        <div className="container-page py-16 grid sm:grid-cols-3 gap-8 text-center">
+          <div>
+            <p className="text-3xl mb-2">🎯</p>
+            <p className="font-semibold">Qualified, not generic</p>
+            <p className="text-sm text-foreground/60 mt-1">
+              Every enquiry includes what they need, how urgent it is, and how to reach them.
+            </p>
+          </div>
+          <div>
+            <p className="text-3xl mb-2">🔒</p>
+            <p className="font-semibold">Exclusive per area</p>
+            <p className="text-sm text-foreground/60 mt-1">
+              One partner per service, per neighbourhood — never shared with a direct competitor.
+            </p>
+          </div>
+          <div>
+            <p className="text-3xl mb-2">💬</p>
+            <p className="font-semibold">Delivered by WhatsApp</p>
+            <p className="text-sm text-foreground/60 mt-1">
+              Enquiries land where you already work — no new dashboard to check.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="container-page py-16 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-semibold mb-6">Questions</h2>
+        <div className="flex flex-col divide-y divide-border">
+          {faqs.map((f) => (
+            <div key={f.q} className="py-5">
+              <p className="font-semibold">{f.q}</p>
+              <p className="text-sm text-foreground/60 mt-1">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

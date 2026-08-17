@@ -1,0 +1,205 @@
+import type { Professional } from "./types";
+
+// ---------------------------------------------------------------------------
+// DIRECTORY LISTINGS (real businesses, NOT paying partners)
+// ---------------------------------------------------------------------------
+// Sourced from public web search results, August 2026. These are genuine,
+// findable English-speaking practices — nothing here is invented. But:
+//
+//  - None of these businesses have agreed to be featured or to receive
+//    leads from this site. `isPartner` is false for all of them — they get
+//    no special placement, just an honest directory entry.
+//  - Contact details are deliberately NOT included (no phone/WhatsApp
+//    number). Search-result summaries can misattribute phone numbers and
+//    addresses, and publishing a wrong number against a real clinic's name
+//    is worse than publishing nothing. `bookingUrl` links straight to the
+//    business's own site (taken directly from the search result URL, not
+//    summarized) so visitors — and you — can verify everything there.
+//  - `addressArea` is kept at neighbourhood level and only used where the
+//    source explicitly ties the business to that district.
+//  - Spot-check every entry (still operating, still English-speaking,
+//    still at that location) before this ever reaches a partner conversation
+//    or a real user, and swap in a real paying partner via `isPartner: true`
+//    the moment you sign one for that area + category.
+// ---------------------------------------------------------------------------
+export const professionals: Professional[] = [
+  {
+    id: "poblenou-doctor-english-doctor-barcelona",
+    name: "English Doctor Barcelona",
+    categorySlug: "doctor",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General practice", "Dermatology"],
+    languages: ["English", "Spanish"],
+    addressArea: "Poblenou, Sant Martí",
+    bookingUrl: "https://englishdoctorbarcelona.com",
+  },
+  {
+    id: "les-corts-doctor-googol",
+    name: "Googol Medical Centre",
+    categorySlug: "doctor",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General practice"],
+    languages: ["English", "Spanish"],
+    addressArea: "Les Corts",
+  },
+  {
+    id: "sarria-dermatologist-turo-park",
+    name: "Turó Park Medical Centre",
+    categorySlug: "dermatologist",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General & cosmetic dermatology", "Skin checks"],
+    languages: ["English", "Spanish", "and other languages"],
+    addressArea: "Sarrià-Sant Gervasi, near Turó Park",
+    bookingUrl: "https://turoparkmedical.com/medical-services/dermatology/",
+  },
+  {
+    id: "les-corts-dentist-campi",
+    name: "Campi Dental Clinic",
+    categorySlug: "dentist",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General & family dentistry"],
+    languages: ["English", "Spanish", "Catalan", "and other languages"],
+    addressArea: "Les Corts / Sarrià border",
+    bookingUrl: "https://www.clinicadentalcampi.com/en/",
+  },
+  {
+    id: "poblenou-chiropractor-puravida",
+    name: "Puravida Chiropractic",
+    categorySlug: "chiropractor",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Spinal adjustment", "General chiropractic care"],
+    languages: ["English", "Spanish", "Catalan", "Portuguese", "French"],
+    addressArea: "Poblenou, Sant Martí",
+    bookingUrl: "https://puravidaquiropractica.com/en/",
+  },
+  {
+    id: "eixample-chiropractor-quiropractica-eixample",
+    name: "Quiropráctica Eixample",
+    categorySlug: "chiropractor",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Chiropractic care", "Posture correction"],
+    languages: ["English", "Spanish"],
+    addressArea: "Eixample",
+    bookingUrl: "https://www.quiropracticaeixample.com/en/",
+  },
+  {
+    id: "sarria-chiropractor-sarria-quiropractica",
+    name: "Sarrià Quiropráctica",
+    categorySlug: "chiropractor",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Family chiropractic care"],
+    languages: ["English", "Spanish"],
+    addressArea: "Sarrià-Sant Gervasi",
+    bookingUrl: "https://sarriaquiropractica.es/en/",
+  },
+  {
+    id: "eixample-acupuncturist-tania-spearman",
+    name: "Tania Spearman Acupuncture",
+    categorySlug: "acupuncturist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Acupuncture", "Traditional Chinese Medicine"],
+    languages: ["English", "Spanish", "German"],
+    addressArea: "Eixample",
+    bookingUrl: "https://taniaspearman.com",
+  },
+  {
+    id: "sarria-acupuncturist-acubarcelona",
+    name: "AcuBarcelona",
+    categorySlug: "acupuncturist",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Acupuncture", "Traditional Chinese Medicine"],
+    languages: ["English"],
+    addressArea: "Sarrià-Sant Gervasi",
+    bookingUrl: "https://acubarcelona.com",
+  },
+  {
+    id: "sarria-physiotherapist-physio-barcelona",
+    name: "Physiotherapy Barcelona",
+    categorySlug: "physiotherapist",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General physiotherapy", "Sports injuries", "Rehabilitation"],
+    languages: ["English", "Dutch", "German", "Spanish"],
+    addressArea: "Sant Gervasi",
+    bookingUrl: "https://www.physiotherapybarcelona.com/en",
+  },
+  {
+    id: "eixample-physiotherapist-dpn",
+    name: "DPN Fisioterapia",
+    categorySlug: "physiotherapist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Physiotherapy", "Rehabilitation"],
+    languages: ["English", "Spanish", "Portuguese"],
+    addressArea: "Eixample",
+    bookingUrl: "https://dpnfisioterapia.com/en/home/",
+  },
+  {
+    id: "eixample-lawyer-myspainvisa",
+    name: "MySpain Visa",
+    categorySlug: "lawyer",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Immigration law", "Real estate law"],
+    languages: ["English", "Spanish"],
+    addressArea: "Eixample",
+    bookingUrl: "https://myspainvisa.com/immigration-lawyers-barcelona/",
+  },
+  {
+    id: "eixample-psychologist-therapy-in-barcelona",
+    name: "Therapy in Barcelona",
+    categorySlug: "psychologist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Individual therapy", "Group therapy", "Expat community support"],
+    languages: ["English", "and other languages"],
+    addressArea: "Eixample",
+    bookingUrl: "https://www.therapyinbarcelona.com/",
+  },
+];
+
+// Used only on the internal /partners sales-preview page to show a prospective
+// partner what their featured card will look like. Never rendered on public
+// area/category pages.
+export const exampleProfessional: Professional = {
+  id: "example-preview",
+  name: "Your Clinic Name",
+  categorySlug: "dentist",
+  areaSlug: "poblenou",
+  isPartner: true,
+  isPlaceholder: true,
+  specialties: ["Implants", "Invisalign", "Cosmetic dentistry"],
+  languages: ["English", "Spanish", "Catalan"],
+  addressArea: "Poblenou, Barcelona",
+  phoneDisplay: "+34 9XX XXX XXX",
+  bookingUrl: "#",
+  ratingLabel: "Recommended partner",
+};
+
+export function getProfessionals(areaSlug: string, categorySlug: string): Professional[] {
+  return professionals
+    .filter((p) => p.areaSlug === areaSlug && p.categorySlug === categorySlug)
+    .sort((a, b) => Number(b.isPartner) - Number(a.isPartner));
+}
