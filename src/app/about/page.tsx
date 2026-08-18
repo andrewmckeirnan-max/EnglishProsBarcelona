@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { areas } from "@/lib/data";
+import { areas, cultureImages } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -55,7 +55,7 @@ export default function AboutPage() {
       <div id="photo-credits" className="mt-14 pt-8 border-t border-border scroll-mt-20">
         <h2 className="text-lg font-semibold mb-3">Photo credits</h2>
         <p className="text-sm text-foreground/60 mb-4">
-          Neighbourhood photos are sourced from Wikimedia Commons under free licenses.
+          Neighbourhood and Barcelona-life photos are sourced from Wikimedia Commons under free licenses.
         </p>
         <ul className="text-sm text-foreground/60 space-y-1.5">
           {areas.map((a) => (
@@ -64,6 +64,16 @@ export default function AboutPage() {
               {a.imageCredit.photographer} (
               <a href={a.imageCredit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">
                 {a.imageCredit.license}
+              </a>
+              )
+            </li>
+          ))}
+          {cultureImages.map((img) => (
+            <li key={img.src}>
+              <span className="font-medium text-foreground/80">{img.caption}</span>: photo by{" "}
+              {img.credit.photographer} (
+              <a href={img.credit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">
+                {img.credit.license}
               </a>
               )
             </li>

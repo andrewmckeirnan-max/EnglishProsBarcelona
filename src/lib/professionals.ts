@@ -33,6 +33,8 @@ export const professionals: Professional[] = [
     specialties: ["General practice", "Dermatology"],
     languages: ["English", "Spanish"],
     addressArea: "Poblenou, Sant Martí",
+    lat: 41.403733,
+    lng: 2.2033544,
     bookingUrl: "https://englishdoctorbarcelona.com",
   },
   {
@@ -45,6 +47,8 @@ export const professionals: Professional[] = [
     specialties: ["General practice", "Psychiatry"],
     languages: ["English", "Spanish"],
     addressArea: "Les Corts",
+    lat: 41.3872483,
+    lng: 2.1205352,
     bookingUrl: "http://www.googolmedicalcentre.com/General_practice.html",
   },
   {
@@ -81,6 +85,8 @@ export const professionals: Professional[] = [
     specialties: ["Spinal adjustment", "General chiropractic care"],
     languages: ["English", "Spanish", "Catalan", "Portuguese", "French"],
     addressArea: "Poblenou, Sant Martí",
+    lat: 41.403733,
+    lng: 2.2033544,
     bookingUrl: "https://puravidaquiropractica.com/en/",
   },
   {
@@ -105,6 +111,8 @@ export const professionals: Professional[] = [
     specialties: ["Family chiropractic care"],
     languages: ["English", "Spanish"],
     addressArea: "Sarrià-Sant Gervasi",
+    lat: 41.4022603,
+    lng: 2.1304579,
     bookingUrl: "https://sarriaquiropractica.es/en/",
   },
   {
@@ -129,6 +137,8 @@ export const professionals: Professional[] = [
     specialties: ["Acupuncture", "Traditional Chinese Medicine"],
     languages: ["English"],
     addressArea: "Sarrià-Sant Gervasi",
+    lat: 41.4022603,
+    lng: 2.1304579,
     bookingUrl: "https://acubarcelona.com",
   },
   {
@@ -141,6 +151,8 @@ export const professionals: Professional[] = [
     specialties: ["General physiotherapy", "Sports injuries", "Rehabilitation"],
     languages: ["English", "Dutch", "German", "Spanish"],
     addressArea: "Sant Gervasi",
+    lat: 41.4010463,
+    lng: 2.1471173,
     bookingUrl: "https://www.physiotherapybarcelona.com/en",
   },
   {
@@ -201,6 +213,8 @@ export const professionals: Professional[] = [
     specialties: ["Facial plastic surgery", "Cosmetic procedures"],
     languages: ["English", "Spanish"],
     addressArea: "Via Augusta, Sarrià-Sant Gervasi",
+    lat: 41.3978023,
+    lng: 2.1390417,
     bookingUrl: "https://barcelonafacialplastics.com/",
   },
   {
@@ -213,6 +227,8 @@ export const professionals: Professional[] = [
     specialties: ["LASIK", "Refractive surgery", "General ophthalmology"],
     languages: ["English", "Spanish"],
     addressArea: "Sarrià-Sant Gervasi",
+    lat: 41.4022603,
+    lng: 2.1304579,
     bookingUrl: "https://www.teknon.es/en/specialities/fernandez-agrafojo-dora/refractive-surgery",
   },
   {
@@ -225,6 +241,8 @@ export const professionals: Professional[] = [
     specialties: ["Check-ups", "Vaccinations"],
     languages: ["English", "Spanish"],
     addressArea: "Poblenou, Sant Martí",
+    lat: 41.403733,
+    lng: 2.2033544,
     bookingUrl: "https://guia.barcelona.cat/en/detall/clinica-veterinaria-poblenou_75990015511.html",
   },
   {
@@ -297,6 +315,8 @@ export const professionals: Professional[] = [
     specialties: ["Buying, selling & renting property"],
     languages: ["English", "Spanish"],
     addressArea: "Poblenou",
+    lat: 41.4036418,
+    lng: 2.2032751,
     bookingUrl: "https://immobarcelo.es/en/",
   },
   {
@@ -357,6 +377,8 @@ export const professionals: Professional[] = [
     specialties: ["Mental health clinic", "American-trained psychologists"],
     languages: ["English"],
     addressArea: "Sarrià-Sant Gervasi",
+    lat: 41.4022603,
+    lng: 2.1304579,
   },
   {
     id: "poblenou-dermatologist-english-doctor-barcelona",
@@ -368,6 +390,8 @@ export const professionals: Professional[] = [
     specialties: ["Dermatology consultations", "Diagnostics & specialist referrals"],
     languages: ["English", "Spanish", "French", "Hindi", "Arabic"],
     addressArea: "Poblenou, Sant Martí",
+    lat: 41.403733,
+    lng: 2.2033544,
     bookingUrl: "https://englishdoctorbarcelona.com",
   },
   {
@@ -403,6 +427,8 @@ export const professionals: Professional[] = [
     specialties: ["Physiotherapy", "Sports physiotherapy", "Osteopathy"],
     languages: ["English", "Spanish"],
     addressArea: "Les Corts",
+    lat: 41.3872483,
+    lng: 2.1205352,
     bookingUrl: "https://www.mesfisioterapia.com/home_en",
   },
   {
@@ -427,6 +453,8 @@ export const professionals: Professional[] = [
     specialties: ["Obstetrics", "Gynaecology"],
     languages: ["English", "Spanish"],
     addressArea: "Sarrià-Sant Gervasi",
+    lat: 41.4022603,
+    lng: 2.1304579,
     bookingUrl: "https://www.barcelona-metropolitan.com/locations/centro-medico-teknon-Onbargi-gynecologist/",
   },
   {
@@ -439,6 +467,8 @@ export const professionals: Professional[] = [
     specialties: ["Doula support", "Birth & postpartum accompaniment"],
     languages: ["English", "Spanish"],
     addressArea: "Poblenou, Sant Martí",
+    lat: 41.403733,
+    lng: 2.2033544,
     bookingUrl: "https://tribuhouse.com/en/services/acompanamiento-doula/",
   },
   {
@@ -451,6 +481,8 @@ export const professionals: Professional[] = [
     specialties: ["General pediatrics", "Diagnostics"],
     languages: ["English", "Spanish"],
     addressArea: "Sarrià-Sant Gervasi",
+    lat: 41.4022603,
+    lng: 2.1304579,
     bookingUrl: "https://turoparkmedical.com/english-speaking-pediatrician/",
   },
   {
@@ -510,6 +542,8 @@ export const professionals: Professional[] = [
     specialties: ["Invisalign", "Lingual orthodontics", "Invisible braces"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer Francesc Pérez Cabrero, Sarrià-Sant Gervasi",
+    lat: 41.3940027,
+    lng: 2.1402136,
     bookingUrl: "https://turoparkmedical.com/dental-clinic-barcelona/orthodontist/",
   },
   {
@@ -522,6 +556,8 @@ export const professionals: Professional[] = [
     specialties: ["Invisalign", "SureSmile", "Lingual orthodontics"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Balmes, Sarrià-Sant Gervasi",
+    lat: 41.4098394,
+    lng: 2.1367887,
     bookingUrl: "https://dentalspaclinics.com/en/",
   },
   {
@@ -534,6 +570,8 @@ export const professionals: Professional[] = [
     specialties: ["Invisalign clear aligners", "Orthodontic bite correction"],
     languages: ["English", "Spanish"],
     addressArea: "Poblenou, Sant Martí",
+    lat: 41.403733,
+    lng: 2.2033544,
     bookingUrl: "https://www.mabadental.es/we-speak-english",
   },
   {
@@ -570,6 +608,8 @@ export const professionals: Professional[] = [
     specialties: ["Health insurance", "Home insurance", "Car insurance"],
     languages: ["English", "French", "Spanish", "Portuguese", "Russian"],
     addressArea: "Via Augusta, Sant Gervasi",
+    lat: 41.4031522,
+    lng: 2.1190967,
     bookingUrl: "https://www.inovexpat.com/en/inov-expat-en/",
   },
   {
@@ -582,6 +622,8 @@ export const professionals: Professional[] = [
     specialties: ["Expat wealth management", "Investment planning"],
     languages: ["English", "Spanish"],
     addressArea: "Ronda General Mitre, Sarrià-Sant Gervasi",
+    lat: 41.393967,
+    lng: 2.1331549,
     bookingUrl: "https://www.w1m.com/individuals-families/expats-europe/",
   },
   {
@@ -594,6 +636,8 @@ export const professionals: Professional[] = [
     specialties: ["Property purchase signings", "Document certification"],
     languages: ["English", "Spanish"],
     addressArea: "Avinguda Diagonal, Eixample",
+    lat: 41.4020719,
+    lng: 2.1810243,
     bookingUrl: "https://www.jlanotarios.com/en_GB/",
   },
   {
@@ -606,6 +650,8 @@ export const professionals: Professional[] = [
     specialties: ["Property purchase signings", "Power of attorney"],
     languages: ["English", "Spanish"],
     addressArea: "Avinguda Diagonal, Eixample",
+    lat: 41.4020719,
+    lng: 2.1810243,
     bookingUrl: "https://en.jesusbenavides.es/",
   },
   // -------------------------------------------------------------------
@@ -626,6 +672,8 @@ export const professionals: Professional[] = [
     specialties: ["Property purchase signings", "Document certification"],
     languages: ["English", "Spanish"],
     addressArea: "Passeig de Gràcia, Eixample",
+    lat: 41.3886375,
+    lng: 2.1690444,
     ratingLabel: "4.8 (188 reviews) on Google Maps",
   },
   {
@@ -638,6 +686,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Passeig de Sant Joan, Eixample",
+    lat: 41.3943206,
+    lng: 2.1763974,
     ratingLabel: "4.9 (99 reviews) on Google Maps",
   },
   {
@@ -650,6 +700,8 @@ export const professionals: Professional[] = [
     specialties: ["General & family dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer del Comte d'Urgell, Eixample",
+    lat: 41.3915361,
+    lng: 2.1460555,
     ratingLabel: "4.9 (149 reviews) on Google Maps",
   },
   {
@@ -662,6 +714,8 @@ export const professionals: Professional[] = [
     specialties: ["International & property law"],
     languages: ["English", "Spanish"],
     addressArea: "Gran Via de les Corts Catalanes, Eixample",
+    lat: 41.3807295,
+    lng: 2.1570349,
     ratingLabel: "4.7 (253 reviews) on Google Maps",
   },
   {
@@ -674,6 +728,8 @@ export const professionals: Professional[] = [
     specialties: ["International law"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de València, Eixample",
+    lat: 41.3796806,
+    lng: 2.1460278,
     ratingLabel: "4.8 (202 reviews) on Google Maps",
   },
   {
@@ -686,6 +742,8 @@ export const professionals: Professional[] = [
     specialties: ["General dermatology"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Muntaner, Eixample",
+    lat: 41.3928905,
+    lng: 2.1511332,
     ratingLabel: "4.6 (1,898 reviews) on Google Maps",
   },
   {
@@ -698,6 +756,8 @@ export const professionals: Professional[] = [
     specialties: ["General dermatology"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Casp, Eixample",
+    lat: 41.3896345,
+    lng: 2.1710881,
     ratingLabel: "4.6 (390 reviews) on Google Maps",
   },
   {
@@ -710,6 +770,8 @@ export const professionals: Professional[] = [
     specialties: ["General practice", "Home visits", "Online consultations"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Aragó, Eixample",
+    lat: 41.3943745,
+    lng: 2.1677928,
     ratingLabel: "4.9 (132 reviews) on Google Maps",
   },
   {
@@ -734,6 +796,8 @@ export const professionals: Professional[] = [
     specialties: ["Physiotherapy", "Osteopathy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Ausiàs Marc, Eixample",
+    lat: 41.3947794,
+    lng: 2.1802144,
     ratingLabel: "4.9 (501 reviews) on Google Maps",
   },
   {
@@ -746,6 +810,8 @@ export const professionals: Professional[] = [
     specialties: ["Meditation & mindfulness coaching", "Individual therapy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Enric Granados, Eixample",
+    lat: 41.3877184,
+    lng: 2.1624778,
     ratingLabel: "5.0 (24 reviews) on Google Maps",
   },
   {
@@ -758,6 +824,8 @@ export const professionals: Professional[] = [
     specialties: ["Individual therapy", "Counseling"],
     languages: ["English", "Russian", "Spanish", "Catalan"],
     addressArea: "Passeig de Sant Joan, Eixample",
+    lat: 41.3943206,
+    lng: 2.1763974,
     ratingLabel: "4.4 (11 reviews) on Google Maps",
   },
   {
@@ -782,6 +850,8 @@ export const professionals: Professional[] = [
     specialties: ["IVF", "Egg donation", "Fertility treatment"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Balmes, Eixample",
+    lat: 41.3901726,
+    lng: 2.1615338,
     ratingLabel: "4.2 (633 reviews) on Google Maps",
   },
   {
@@ -794,6 +864,8 @@ export const professionals: Professional[] = [
     specialties: ["Spinal adjustment", "General chiropractic care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer del Bruc, Eixample",
+    lat: 41.3937337,
+    lng: 2.1703063,
     ratingLabel: "4.9 (633 reviews) on Google Maps",
   },
   {
@@ -806,6 +878,8 @@ export const professionals: Professional[] = [
     specialties: ["Chiropractic care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Roger de Llúria, Eixample",
+    lat: 41.3930782,
+    lng: 2.1689314,
     ratingLabel: "4.7 (89 reviews) on Google Maps",
   },
   {
@@ -818,6 +892,8 @@ export const professionals: Professional[] = [
     specialties: ["US tax services", "Cross-border tax"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de la Diputació, Eixample",
+    lat: 41.3962747,
+    lng: 2.174889,
     ratingLabel: "5.0 (288 reviews) on Google Maps",
   },
   {
@@ -830,6 +906,8 @@ export const professionals: Professional[] = [
     specialties: ["Expat tax advice"],
     languages: ["English", "Spanish"],
     addressArea: "Avinguda Diagonal, Eixample",
+    lat: 41.4020719,
+    lng: 2.1810243,
     ratingLabel: "4.9 (19 reviews) on Google Maps",
   },
   {
@@ -842,6 +920,8 @@ export const professionals: Professional[] = [
     specialties: ["Acupuncture"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Aribau, Eixample",
+    lat: 41.3894737,
+    lng: 2.1579001,
     ratingLabel: "4.7 (229 reviews) on Google Maps",
   },
   {
@@ -854,6 +934,8 @@ export const professionals: Professional[] = [
     specialties: ["Acupuncture", "Traditional Chinese Medicine"],
     languages: ["English", "French", "Spanish"],
     addressArea: "Carrer de los Castillejos, Eixample",
+    lat: 41.400976,
+    lng: 2.1855785,
     bookingUrl: "https://centreholistic.com/",
     ratingLabel: "4.9 (36 reviews) on Google Maps",
   },
@@ -867,6 +949,8 @@ export const professionals: Professional[] = [
     specialties: ["Plastic surgery", "American Board of Plastic Surgery diplomate"],
     languages: ["English", "Spanish"],
     addressArea: "Rambla de Catalunya, Eixample",
+    lat: 41.3915136,
+    lng: 2.1628426,
     ratingLabel: "4.9 (114 reviews) on Google Maps",
   },
   {
@@ -891,6 +975,8 @@ export const professionals: Professional[] = [
     specialties: ["General ophthalmology", "Eye emergencies"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer dels Madrazo, Sarrià-Sant Gervasi",
+    lat: 41.396721,
+    lng: 2.1443579,
     ratingLabel: "5.0 (585 reviews) on Google Maps",
   },
   {
@@ -903,6 +989,8 @@ export const professionals: Professional[] = [
     specialties: ["Nutrition planning", "Vegan diets"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de la Diputació, Eixample",
+    lat: 41.3962747,
+    lng: 2.174889,
     ratingLabel: "4.9 (56 reviews) on Google Maps",
   },
   {
@@ -927,6 +1015,8 @@ export const professionals: Professional[] = [
     specialties: ["Osteopathy", "Massage therapy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Pau Claris, Eixample",
+    lat: 41.3900884,
+    lng: 2.1706024,
     ratingLabel: "5.0 (18 reviews) on Google Maps",
   },
   {
@@ -939,6 +1029,8 @@ export const professionals: Professional[] = [
     specialties: ["Osteopathy", "Physiotherapy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Ausiàs Marc, Eixample",
+    lat: 41.3947794,
+    lng: 2.1802144,
     ratingLabel: "4.9 (501 reviews) on Google Maps",
   },
   {
@@ -951,6 +1043,8 @@ export const professionals: Professional[] = [
     specialties: ["General practice", "Home visits", "Pediatric care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Bilbao, Poblenou",
+    lat: 41.4070924,
+    lng: 2.1977852,
     ratingLabel: "4.8 (688 reviews) on Google Maps",
   },
   {
@@ -963,6 +1057,8 @@ export const professionals: Professional[] = [
     specialties: ["Corporate & business law"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Roger de Llúria, Eixample",
+    lat: 41.3930782,
+    lng: 2.1689314,
     ratingLabel: "5.0 (50 reviews) on Google Maps",
   },
   {
@@ -975,6 +1071,8 @@ export const professionals: Professional[] = [
     specialties: ["Company formation", "Corporate law"],
     languages: ["English", "Spanish"],
     addressArea: "Avinguda Diagonal, Eixample",
+    lat: 41.4020719,
+    lng: 2.1810243,
     ratingLabel: "4.5 (364 reviews) on Google Maps",
   },
   {
@@ -987,6 +1085,8 @@ export const professionals: Professional[] = [
     specialties: ["Startup & business law", "Company formation"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Aribau, Eixample",
+    lat: 41.3894737,
+    lng: 2.1579001,
     ratingLabel: "4.6 (53 reviews) on Google Maps",
   },
   {
@@ -999,6 +1099,8 @@ export const professionals: Professional[] = [
     specialties: ["Health insurance", "General insurance brokerage"],
     languages: ["English", "Spanish", "German"],
     addressArea: "Rambla de Catalunya, Eixample",
+    lat: 41.3915136,
+    lng: 2.1628426,
     ratingLabel: "5.0 (101 reviews) on Google Maps",
   },
   {
@@ -1011,6 +1113,8 @@ export const professionals: Professional[] = [
     specialties: ["Expat insurance brokerage"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de la Diputació, Eixample",
+    lat: 41.3962747,
+    lng: 2.174889,
     ratingLabel: "5.0 (61 reviews) on Google Maps",
   },
   {
@@ -1023,6 +1127,8 @@ export const professionals: Professional[] = [
     specialties: ["Autónomo tax filings", "Cross-border accounting"],
     languages: ["English", "Spanish", "French"],
     addressArea: "Carrer de Padilla, Eixample",
+    lat: 41.3993793,
+    lng: 2.1855769,
     ratingLabel: "4.8 (86 reviews) on Google Maps",
   },
   {
@@ -1035,6 +1141,8 @@ export const professionals: Professional[] = [
     specialties: ["Freelancer & autónomo accounting", "Financial consulting"],
     languages: ["English", "Spanish"],
     addressArea: "Plaça d'Urquinaona, Eixample",
+    lat: 41.3892445,
+    lng: 2.1731707,
     ratingLabel: "5.0 (54 reviews) on Google Maps",
   },
   {
@@ -1047,6 +1155,8 @@ export const professionals: Professional[] = [
     specialties: ["Autónomo & freelancer tax filings"],
     languages: ["English", "Spanish"],
     addressArea: "Rambla de Catalunya, Eixample",
+    lat: 41.3915136,
+    lng: 2.1628426,
     ratingLabel: "4.5 (176 reviews) on Google Maps",
   },
   {
@@ -1059,6 +1169,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Pujades, Poblenou",
+    lat: 41.404162,
+    lng: 2.2039578,
     ratingLabel: "4.9 (944 reviews) on Google Maps",
   },
   {
@@ -1071,6 +1183,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Ramon Turró, Poblenou",
+    lat: 41.3917708,
+    lng: 2.1920682,
     ratingLabel: "4.4 (361 reviews) on Google Maps",
   },
   {
@@ -1083,6 +1197,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Bilbao, Poblenou",
+    lat: 41.4070924,
+    lng: 2.1977852,
     ratingLabel: "4.8 (65 reviews) on Google Maps",
   },
   {
@@ -1095,6 +1211,8 @@ export const professionals: Professional[] = [
     specialties: ["Tax advice & filings"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Ramon Turró, Poblenou",
+    lat: 41.3917708,
+    lng: 2.1920682,
     ratingLabel: "5.0 (99 reviews) on Google Maps",
   },
   {
@@ -1107,6 +1225,8 @@ export const professionals: Professional[] = [
     specialties: ["Therapy for expats", "Individual therapy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer del Joncar, Poblenou",
+    lat: 41.4003655,
+    lng: 2.2034699,
     ratingLabel: "5.0 (35 reviews) on Google Maps",
   },
   {
@@ -1119,6 +1239,8 @@ export const professionals: Professional[] = [
     specialties: ["General pediatrics"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Carrer de Marià Aguiló, Poblenou",
+    lat: 41.400922,
+    lng: 2.2037105,
     ratingLabel: "4.8 (262 reviews) on Google Maps",
   },
   {
@@ -1143,6 +1265,8 @@ export const professionals: Professional[] = [
     specialties: ["Chiropractic care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer del Laberint, Poblenou",
+    lat: 41.3993632,
+    lng: 2.206888,
     ratingLabel: "5.0 (106 reviews) on Google Maps",
   },
   {
@@ -1155,6 +1279,8 @@ export const professionals: Professional[] = [
     specialties: ["Osteopathy", "Physiotherapy"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Carrer de Pujades, Poblenou",
+    lat: 41.404162,
+    lng: 2.2039578,
     ratingLabel: "5.0 (211 reviews) on Google Maps",
   },
   // Personally used and recommended by the site owner, not sourced from
@@ -1178,6 +1304,8 @@ export const professionals: Professional[] = [
     ],
     languages: ["English", "French", "Spanish"],
     addressArea: "Carrer de los Castillejos, Eixample",
+    lat: 41.400976,
+    lng: 2.1855785,
     bookingUrl: "https://centreholistic.com/",
     ratingLabel: "4.9 (36 reviews) on Google Maps",
   },
@@ -1191,6 +1319,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de les Escoles Pies, Sarrià",
+    lat: 41.3958606,
+    lng: 2.1354445,
     ratingLabel: "4.9 (485 reviews) on Google Maps",
   },
   {
@@ -1203,6 +1333,8 @@ export const professionals: Professional[] = [
     specialties: ["Immigration law"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Balmes, Sarrià-Sant Gervasi",
+    lat: 41.4098394,
+    lng: 2.1367887,
     ratingLabel: "4.9 (92 reviews) on Google Maps",
   },
   {
@@ -1215,6 +1347,8 @@ export const professionals: Professional[] = [
     specialties: ["Immigration & residency law"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Beethoven, Sarrià",
+    lat: 41.3924878,
+    lng: 2.1417949,
     ratingLabel: "4.8 (81 reviews) on Google Maps",
   },
   {
@@ -1227,6 +1361,8 @@ export const professionals: Professional[] = [
     specialties: ["Employment law", "General legal advice"],
     languages: ["English", "Spanish"],
     addressArea: "Avinguda Diagonal, Sarrià-Sant Gervasi",
+    lat: 41.3931415,
+    lng: 2.1460954,
     ratingLabel: "4.8 (208 reviews) on Google Maps",
   },
   {
@@ -1239,6 +1375,8 @@ export const professionals: Professional[] = [
     specialties: ["Individual therapy", "Group therapy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Angel Guimerà, Sarrià-Sant Gervasi",
+    lat: 41.3963995,
+    lng: 2.1325293,
     ratingLabel: "5.0 (18 reviews) on Google Maps",
   },
   {
@@ -1251,6 +1389,8 @@ export const professionals: Professional[] = [
     specialties: ["General veterinary care"],
     languages: ["English", "Spanish"],
     addressArea: "Plaça de la Bonanova, Sarrià",
+    lat: 41.4067119,
+    lng: 2.1336586,
     ratingLabel: "4.8 (303 reviews) on Google Maps",
   },
   {
@@ -1263,6 +1403,8 @@ export const professionals: Professional[] = [
     specialties: ["General veterinary care"],
     languages: ["English", "Spanish"],
     addressArea: "Avinguda de Sarrià, Sarrià",
+    lat: 41.3918446,
+    lng: 2.1348534,
     ratingLabel: "4.8 (51 reviews) on Google Maps",
   },
   {
@@ -1275,6 +1417,8 @@ export const professionals: Professional[] = [
     specialties: ["General veterinary care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Salvador Mundí, Sarrià",
+    lat: 41.3994604,
+    lng: 2.122896,
     ratingLabel: "4.7 (206 reviews) on Google Maps",
   },
   {
@@ -1299,6 +1443,8 @@ export const professionals: Professional[] = [
     specialties: ["Educational psychology", "Expat parenting support"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer d'Europa, Les Corts",
+    lat: 41.3874015,
+    lng: 2.1311603,
     ratingLabel: "4.9 (11 reviews) on Google Maps",
   },
   {
@@ -1311,6 +1457,8 @@ export const professionals: Professional[] = [
     specialties: ["Physiotherapy", "Yoga"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Salvador Espriu, Vila Olímpica",
+    lat: 41.3878104,
+    lng: 2.1957104,
     ratingLabel: "4.9 (55 reviews) on Google Maps",
   },
   {
@@ -1323,6 +1471,8 @@ export const professionals: Professional[] = [
     specialties: ["Individual therapy", "Online therapy"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Plaça de Gal·la Placídia, Gràcia",
+    lat: 41.3991632,
+    lng: 2.1530199,
     ratingLabel: "5.0 (14 reviews) on Google Maps",
   },
   {
@@ -1335,6 +1485,8 @@ export const professionals: Professional[] = [
     specialties: ["Psychotherapy"],
     languages: ["English", "German", "Spanish"],
     addressArea: "Carrer de Mozart, Gràcia",
+    lat: 41.3991241,
+    lng: 2.1584803,
     ratingLabel: "5.0 (1 review) on Google Maps",
   },
   {
@@ -1347,6 +1499,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Puigmartí, Gràcia",
+    lat: 41.4023529,
+    lng: 2.1606189,
     ratingLabel: "5.0 (218 reviews) on Google Maps",
   },
   {
@@ -1383,6 +1537,8 @@ export const professionals: Professional[] = [
     specialties: ["International law"],
     languages: ["English", "Spanish"],
     addressArea: "Passeig de Gràcia, Eixample",
+    lat: 41.3886375,
+    lng: 2.1690444,
     ratingLabel: "5.0 (67 reviews) on Google Maps",
   },
   {
@@ -1407,6 +1563,8 @@ export const professionals: Professional[] = [
     specialties: ["Sworn/certified translation", "Legal document translation", "Official document translation"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Carrer d'Aribau, 168, Eixample",
+    lat: 41.3929361,
+    lng: 2.15356,
     ratingLabel: "4.8 (320 reviews) on Google Maps",
   },
   {
@@ -1419,6 +1577,8 @@ export const professionals: Professional[] = [
     specialties: ["Sworn/certified translation", "Legal document translation"],
     languages: ["English", "Spanish"],
     addressArea: "Passeig de Gràcia, 19, Eixample",
+    lat: 41.3899832,
+    lng: 2.1670154,
     ratingLabel: "4.9 (121 reviews) on Google Maps",
   },
   {
@@ -1431,6 +1591,8 @@ export const professionals: Professional[] = [
     specialties: ["General practice", "Home visits", "Walk-in consultations"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de l'Arquitecte Sert, 16, Vila Olímpica",
+    lat: 41.3914014,
+    lng: 2.1988168,
     ratingLabel: "4.6 (233 reviews) on Google Maps",
   },
   {
@@ -1455,6 +1617,8 @@ export const professionals: Professional[] = [
     specialties: ["General dentistry", "Cosmetic dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Av. d'Icària, 134-138, Vila Olímpica",
+    lat: 41.3897354,
+    lng: 2.1954646,
     ratingLabel: "4.8 (243 reviews) on Google Maps",
   },
   {
@@ -1467,6 +1631,8 @@ export const professionals: Professional[] = [
     specialties: ["Physiotherapy", "Yoga therapy"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Salvador Espriu, 95, Vila Olímpica",
+    lat: 41.3931328,
+    lng: 2.2018177,
     ratingLabel: "4.9 (55 reviews) on Google Maps",
   },
   {
@@ -1479,6 +1645,8 @@ export const professionals: Professional[] = [
     specialties: ["Cosmetic dentistry", "General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer del Torrent de l'Olla, 58, Gràcia",
+    lat: 41.4016728,
+    lng: 2.1577384,
     ratingLabel: "4.8 (208 reviews) on Google Maps",
   },
   {
@@ -1503,6 +1671,8 @@ export const professionals: Professional[] = [
     specialties: ["Advanced smile design", "Cosmetic dentistry", "General dentistry"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Ca l'Alegre de Dalt, 69, Gràcia",
+    lat: 41.4100193,
+    lng: 2.1602259,
     ratingLabel: "5.0 (318 reviews) on Google Maps",
   },
   {
@@ -1515,6 +1685,8 @@ export const professionals: Professional[] = [
     specialties: ["Chiropractic care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Monistrol, 8a, Gràcia",
+    lat: 41.4013802,
+    lng: 2.1633169,
     ratingLabel: "5.0 (51 reviews) on Google Maps",
   },
   {
@@ -1527,6 +1699,8 @@ export const professionals: Professional[] = [
     specialties: ["Chiropractic care"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de l'Encarnació, 119, Gràcia",
+    lat: 41.4084571,
+    lng: 2.163211,
     ratingLabel: "5.0 (28 reviews) on Google Maps",
   },
 ];
@@ -1544,6 +1718,8 @@ export const exampleProfessional: Professional = {
   specialties: ["Implants", "Invisalign", "Cosmetic dentistry"],
   languages: ["English", "Spanish", "Catalan"],
   addressArea: "Poblenou, Barcelona",
+  lat: 41.4037049,
+  lng: 2.2033841,
   phoneDisplay: "+34 9XX XXX XXX",
   bookingUrl: "#",
   ratingLabel: "Recommended partner",

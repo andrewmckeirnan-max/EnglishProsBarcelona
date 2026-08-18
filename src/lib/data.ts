@@ -19,6 +19,7 @@ export const areas: Area[] = [
       license: "CC BY-SA 2.0",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Eixample_aire_cropped.jpg",
     },
+    mapCenter: { lat: 41.3931, lng: 2.1622 },
   },
   {
     slug: "poblenou",
@@ -32,6 +33,7 @@ export const areas: Area[] = [
       license: "Public domain",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:PereIV-HabitatSky.jpg",
     },
+    mapCenter: { lat: 41.4036, lng: 2.1994 },
   },
   {
     slug: "sarria-sant-gervasi",
@@ -45,6 +47,7 @@ export const areas: Area[] = [
       license: "CC BY-SA 3.0",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Sarria_Seu_Districte.JPG",
     },
+    mapCenter: { lat: 41.3985, lng: 2.1274 },
   },
   {
     slug: "les-corts",
@@ -58,6 +61,7 @@ export const areas: Area[] = [
       license: "CC0",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Camp_nou_2010.jpg",
     },
+    mapCenter: { lat: 41.3809, lng: 2.1228 },
   },
   {
     slug: "diagonal-mar",
@@ -71,6 +75,7 @@ export const areas: Area[] = [
       license: "CC BY 3.0",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:BCN-ParcForum-4923.jpg",
     },
+    mapCenter: { lat: 41.4092, lng: 2.2160 },
   },
   {
     slug: "gracia",
@@ -83,6 +88,48 @@ export const areas: Area[] = [
       photographer: "Txllxt TxllxT",
       license: "CC BY-SA 4.0",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:Barcelona_-_Carrer_Gran_de_Gr%C3%A0cia_-_View_SE.jpg",
+    },
+    mapCenter: { lat: 41.4036, lng: 2.1561 },
+  },
+];
+
+// ---------------------------------------------------------------------------
+// CULTURE PHOTOS
+// A small homepage strip showing the city itself, not just the service
+// listings. Same sourcing standard as area photos: real, license-verified
+// Wikimedia Commons photos with attribution, nothing stock or generated.
+// ---------------------------------------------------------------------------
+export const cultureImages = [
+  {
+    src: "/images/culture/festa-gracia.jpg",
+    caption: "Festa Major de Gràcia",
+    alt: "Decorated street during Festa Major de Gràcia, Barcelona's biggest neighbourhood festival",
+    credit: {
+      photographer: "KRLS",
+      license: "CC BY 4.0",
+      sourceUrl:
+        "https://commons.wikimedia.org/wiki/File:Festa_Major_de_Gr%C3%A0cia_2025_-_Carrer_de_Mozart_-_04.jpg",
+    },
+  },
+  {
+    src: "/images/culture/barceloneta-buskers.jpg",
+    caption: "Street music at Barceloneta beach",
+    alt: "Street musicians performing on the promenade at Barceloneta beach, Barcelona",
+    credit: {
+      photographer: "Joe Mabel",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Buskers_at_Platja_de_la_Barceloneta_01.jpg",
+    },
+  },
+  {
+    src: "/images/culture/passeig-de-gracia.jpg",
+    caption: "Passeig de Gràcia, Eixample",
+    alt: "Aerial view of Passeig de Gràcia, Barcelona's grand boulevard, seen from Casa Milà",
+    credit: {
+      photographer: "DimiTalen",
+      license: "CC0",
+      sourceUrl:
+        "https://commons.wikimedia.org/wiki/File:Passeig_de_Gr%C3%A0cia_and_Carrer_de_Proven%C3%A7a_crossroads_seen_from_Casa_Mil%C3%A0,_Barcelona,_2023.jpg",
     },
   },
 ];

@@ -64,6 +64,7 @@ export interface Area {
     license: string; // e.g. "CC BY-SA 4.0", "Public domain"
     sourceUrl: string; // Wikimedia Commons file page
   };
+  mapCenter: { lat: number; lng: number }; // default view for the embedded map
 }
 
 export interface Professional {
@@ -76,6 +77,8 @@ export interface Professional {
   specialties: string[];
   languages: string[];
   addressArea: string; // human-readable area description, not a precise street address
+  lat?: number; // geocoded from addressArea via scripts/geocode.mjs (OpenStreetMap Nominatim), for the map view
+  lng?: number;
   phoneDisplay?: string; // only set once a real, verified partner is onboarded
   whatsappNumber?: string; // E.164 format, only set for verified partners
   bookingUrl?: string;

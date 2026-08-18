@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { areas, visibleCategories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { ProfessionalCard, LockedProfessionalCard } from "@/components/ProfessionalCard";
+import { ProfessionalsMap } from "@/components/ProfessionalsMap";
 import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { sentenceLower } from "@/lib/text";
@@ -133,13 +134,18 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                   ? "Our featured partner, plus other English-speaking options we found nearby."
                   : "English-speaking options we found nearby. None of these are paying partners yet, this is an independent, informational list."}
             </p>
-            <div className="flex flex-col gap-4">
-              {visibleProfessionals.map((p) => (
-                <ProfessionalCard key={p.id} professional={p} />
-              ))}
-              {Array.from({ length: lockedCount }).map((_, i) => (
-                <LockedProfessionalCard key={`locked-${i}`} />
-              ))}
+            <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start">
+              <div className="flex flex-col gap-4">
+                {visibleProfessionals.map((p) => (
+                  <ProfessionalCard key={p.id} professional={p} />
+                ))}
+                {Array.from({ length: lockedCount }).map((_, i) => (
+                  <LockedProfessionalCard key={`locked-${i}`} />
+                ))}
+              </div>
+              <div className="hidden lg:block h-[520px] sticky top-24">
+                <ProfessionalsMap professionals={professionals} area={area} />
+              </div>
             </div>
             <p className="text-xs text-foreground/40 mt-4">
               <Link href="/about#how-we-verify" className="underline hover:text-foreground/60">

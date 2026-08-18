@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SearchBar } from "@/components/SearchBar";
 import { LeadForm } from "@/components/LeadForm";
-import { areas, visibleCategories } from "@/lib/data";
+import { areas, visibleCategories, cultureImages } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -84,6 +84,36 @@ export default function Home() {
             </Link>
           </p>
         </div>
+      </section>
+
+      {/* Culture strip */}
+      <section className="container-page py-16">
+        <h2 className="text-2xl font-semibold mb-1 text-center">Life in Barcelona</h2>
+        <p className="text-foreground/60 mb-6 text-center max-w-xl mx-auto">
+          The city, the streets and the community you&apos;ll be part of, not just a list of clinics.
+        </p>
+        <div className="grid sm:grid-cols-3 gap-4">
+          {cultureImages.map((img) => (
+            <div key={img.src} className="rounded-2xl overflow-hidden border border-border bg-surface">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-sm font-medium px-4 py-3">{img.caption}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-foreground/40 mt-4 text-center">
+          Photos via Wikimedia Commons.{" "}
+          <Link href="/about#photo-credits" className="underline hover:text-foreground/60">
+            Photo credits
+          </Link>
+        </p>
       </section>
 
       {/* How it works */}
