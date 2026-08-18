@@ -63,7 +63,9 @@ export default async function AreaPage(props: PageProps<"/[area]">) {
               className="rounded-2xl border border-border p-5 hover:border-brand hover:shadow-md transition bg-surface"
             >
               <span className="text-3xl">{c.icon}</span>
-              <p className="font-semibold mt-3">{c.pluralName}</p>
+              <p className="font-semibold mt-3 line-clamp-2">
+                English-speaking {c.pluralName} in {area.name}
+              </p>
               <p className="text-sm text-foreground/60 mt-1 line-clamp-2">{c.shortPitch}</p>
             </Link>
           ))}

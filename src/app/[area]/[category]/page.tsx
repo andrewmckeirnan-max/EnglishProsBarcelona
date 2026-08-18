@@ -36,7 +36,9 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   const visibleProfessionals = professionals.slice(0, FREE_PREVIEW_LIMIT);
   const lockedCount = Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
   const otherAreas = areas.filter((a) => a.slug !== area.slug);
-  const otherCategories = visibleCategories.filter((c) => c.slug !== category.slug).slice(0, 6);
+  // Every other profession, not just a handful — each one is a distinct
+  // "English-speaking X in {area}" search/AEO target worth linking.
+  const otherCategories = visibleCategories.filter((c) => c.slug !== category.slug);
 
   return (
     <div>
@@ -119,7 +121,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
 
       <section className="bg-surface-muted border-y border-border">
         <div className="container-page py-14">
-          <h2 className="text-xl font-semibold mb-6">Also popular in {area.name}</h2>
+          <h2 className="text-xl font-semibold mb-6">Other English-speaking professionals in {area.name}</h2>
           <div className="flex flex-wrap gap-2">
             {otherCategories.map((c) => (
               <Link
