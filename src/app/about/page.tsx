@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="container-page py-16 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold tracking-tight mb-4">About Barcelona English Pros</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">About Barcelona English Pros</h1>
       <div className="prose prose-sm text-foreground/70 space-y-4">
         <p>
           Barcelona English Pros helps English-speaking residents, expats and visitors in

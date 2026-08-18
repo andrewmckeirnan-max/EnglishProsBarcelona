@@ -125,8 +125,8 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
           </div>
         </section>
 
-        <section id="professionals-list" className="container-page py-14 scroll-mt-20">
-          <h2 className="text-2xl font-semibold mb-1">
+        <section id="professionals-list" className="container-page py-14 sm:py-20 scroll-mt-20">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">
             {category.pluralName} in {area.name}
           </h2>
 
@@ -144,8 +144,8 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
         </section>
       </UnlockProvider>
 
-      <section className="container-page py-14 max-w-3xl">
-        <h2 className="text-xl font-semibold mb-6">Questions</h2>
+      <section className="container-page py-14 sm:py-20 max-w-3xl">
+        <h2 className="text-2xl font-bold tracking-tight mb-6">Questions</h2>
         <div className="flex flex-col divide-y divide-border">
           {faqs.map((f) => (
             <div key={f.question} className="py-4">
@@ -157,27 +157,27 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
       </section>
 
       <section className="bg-surface-muted border-y border-border">
-        <div className="container-page py-14">
-          <h2 className="text-xl font-semibold mb-6">Other English-speaking professionals in {area.name}</h2>
+        <div className="container-page py-14 sm:py-20">
+          <h2 className="text-2xl font-bold tracking-tight mb-6">Other English-speaking professionals in {area.name}</h2>
           <div className="flex flex-wrap gap-2">
             {otherCategories.map((c) => (
               <Link
                 key={c.slug}
                 href={`/${area.slug}/${c.slug}`}
-                className="rounded-full border border-border bg-surface px-4 py-2 text-sm hover:border-brand hover:bg-brand-light transition"
+                className="rounded-full border border-border bg-surface px-4 py-2 text-sm hover:border-brand hover:bg-brand-light hover:shadow-soft transition-all"
               >
                 {c.icon} English {c.name} in {area.name}
               </Link>
             ))}
           </div>
 
-          <h2 className="text-xl font-semibold mt-10 mb-6">{category.name} in other areas</h2>
+          <h2 className="text-2xl font-bold tracking-tight mt-10 mb-6">{category.name} in other areas</h2>
           <div className="flex flex-wrap gap-2">
             {otherAreas.map((a) => (
               <Link
                 key={a.slug}
                 href={`/${a.slug}/${category.slug}`}
-                className="rounded-full border border-border bg-surface px-4 py-2 text-sm hover:border-brand hover:bg-brand-light transition"
+                className="rounded-full border border-border bg-surface px-4 py-2 text-sm hover:border-brand hover:bg-brand-light hover:shadow-soft transition-all"
               >
                 English {category.name} in {a.name}
               </Link>

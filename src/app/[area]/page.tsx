@@ -64,14 +64,14 @@ export default async function AreaPage(props: PageProps<"/[area]">) {
         </div>
       </section>
 
-      <section className="container-page py-14">
-        <h2 className="text-2xl font-semibold mb-6">Services in {area.name}</h2>
+      <section className="container-page py-14 sm:py-20">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">Services in {area.name}</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {visibleCategories.map((c) => (
             <Link
               key={c.slug}
               href={`/${area.slug}/${c.slug}`}
-              className="rounded-2xl border border-border p-5 hover:border-brand hover:shadow-md transition bg-surface"
+              className="rounded-2xl border border-border p-5 hover:border-brand/30 hover:shadow-soft hover:-translate-y-0.5 transition-all bg-surface"
             >
               <span className="text-3xl">{c.icon}</span>
               <p className="font-semibold mt-3 line-clamp-2">
@@ -84,8 +84,8 @@ export default async function AreaPage(props: PageProps<"/[area]">) {
       </section>
 
       <section className="bg-surface-muted border-y border-border">
-        <div className="container-page py-14 max-w-lg mx-auto">
-          <h2 className="text-2xl font-semibold mb-1 text-center">
+        <div className="container-page py-14 sm:py-20 max-w-lg mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-center">
             Not sure who you need in {area.name}?
           </h2>
           <p className="text-foreground/60 mb-6 text-center">Tell us and we&apos;ll match you.</p>

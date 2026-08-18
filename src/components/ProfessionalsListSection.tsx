@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { LockOpen } from "lucide-react";
 import { ProfessionalCard, LockedProfessionalCard } from "@/components/ProfessionalCard";
 import { ProfessionalsMap } from "@/components/ProfessionalsMap";
 import { useUnlock } from "@/components/UnlockContext";
@@ -24,9 +25,10 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
 
   return (
     <>
-      <p className="text-sm text-foreground/60 mb-6">
+      <p className="text-sm text-foreground/60 mb-6 flex items-center gap-1.5">
+        {unlocked && <LockOpen className="h-4 w-4 text-brand shrink-0" strokeWidth={2} />}
         {unlocked
-          ? "🔓 Unlocked, here's the full ranked list."
+          ? "Unlocked, here's the full ranked list."
           : lockedCount > 0
             ? `Showing ${visibleProfessionals.length} of ${professionals.length}. Tell us what you need to unlock the full ranked list.`
             : professionals.some((p) => p.isPartner)

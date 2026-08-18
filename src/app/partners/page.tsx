@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Target, Lock, MessageCircle } from "lucide-react";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { exampleProfessional } from "@/lib/professionals";
 import { businessWaLink } from "@/lib/whatsapp";
@@ -33,12 +34,12 @@ export default function PartnersPage() {
 
   return (
     <div>
-      <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
-        <div className="container-page py-16 sm:py-20 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight max-w-2xl mx-auto text-balance">
+      <section className="hero-gradient border-b border-border">
+        <div className="container-page py-16 sm:py-24 text-center">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight max-w-2xl mx-auto text-balance">
             Get qualified English-speaking patient &amp; client enquiries
           </h1>
-          <p className="mt-4 text-foreground/70 max-w-xl mx-auto">
+          <p className="mt-4 text-lg text-foreground/70 max-w-xl mx-auto">
             We match Barcelona&apos;s English-speaking residents and expats with one
             recommended professional per service, per neighbourhood. Be the one they find.
           </p>
@@ -46,15 +47,15 @@ export default function PartnersPage() {
             href={businessWaLink(waMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white text-sm font-semibold px-6 py-3 hover:bg-brand-dark transition"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-white text-sm font-semibold px-6 py-3.5 hover:bg-brand-dark transition-colors shadow-soft"
           >
             Talk to us on WhatsApp
           </a>
         </div>
       </section>
 
-      <section className="container-page py-16">
-        <h2 className="text-2xl font-semibold mb-6 text-center">What your featured listing looks like</h2>
+      <section className="container-page py-16 sm:py-20">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-8 text-center">What your featured listing looks like</h2>
         <div className="max-w-xl mx-auto">
           <ProfessionalCard professional={exampleProfessional} />
           <p className="text-xs text-foreground/50 mt-3 text-center">
@@ -64,23 +65,29 @@ export default function PartnersPage() {
       </section>
 
       <section className="bg-surface-muted border-y border-border">
-        <div className="container-page py-16 grid sm:grid-cols-3 gap-8 text-center">
+        <div className="container-page py-16 sm:py-20 grid sm:grid-cols-3 gap-8 text-center">
           <div>
-            <p className="text-3xl mb-2">🎯</p>
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
+              <Target className="h-5 w-5 text-brand" strokeWidth={2} />
+            </div>
             <p className="font-semibold">Qualified, not generic</p>
             <p className="text-sm text-foreground/60 mt-1">
               Every enquiry includes what they need, how urgent it is, and how to reach them.
             </p>
           </div>
           <div>
-            <p className="text-3xl mb-2">🔒</p>
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
+              <Lock className="h-5 w-5 text-brand" strokeWidth={2} />
+            </div>
             <p className="font-semibold">Exclusive per area</p>
             <p className="text-sm text-foreground/60 mt-1">
               One partner per service, per neighbourhood, never shared with a direct competitor.
             </p>
           </div>
           <div>
-            <p className="text-3xl mb-2">💬</p>
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
+              <MessageCircle className="h-5 w-5 text-brand" strokeWidth={2} />
+            </div>
             <p className="font-semibold">Delivered by WhatsApp</p>
             <p className="text-sm text-foreground/60 mt-1">
               Enquiries land where you already work, no new dashboard to check.
@@ -89,8 +96,8 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <section className="container-page py-16 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6">Questions</h2>
+      <section className="container-page py-16 sm:py-20 max-w-2xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">Questions</h2>
         <div className="flex flex-col divide-y divide-border">
           {faqs.map((f) => (
             <div key={f.q} className="py-5">
