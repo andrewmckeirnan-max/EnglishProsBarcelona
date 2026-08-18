@@ -32,9 +32,13 @@ new items come up, check it whenever you're wondering "what's left."
 - [ ] **Who's answering the WhatsApp inbox**, see the "Operating the
       WhatsApp inbox" section in README.md for the reply script; needs an
       owner once real leads start arriving.
-- [ ] **Domain name**, `NEXT_PUBLIC_SITE_URL` is `https://example.com`,
-      used in the sitemap and metadata. Needed before this is worth
-      launching publicly.
+- [ ] **Point the domain at a real deployment** — `barcelonaenglishpros.com`
+      is purchased and `NEXT_PUBLIC_SITE_URL` is set, but there's still no
+      live deployment for it to point *at* (see the Vercel deploy item
+      above). Once that exists, add the domain in Vercel's project
+      settings and update the DNS records there (this host's own "Connect
+      domain" step was for email, not the website — this is a separate
+      DNS configuration for the site itself).
 
 ## Not blocking, but worth deciding soon
 
@@ -71,6 +75,14 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Resolved
 
+- [x] **Domain purchased**: `barcelonaenglishpros.com` is bought, and a
+      `hello@barcelonaenglishpros.com` mailbox is set up with the
+      registrar's own email hosting (this handles *receiving* mail — a
+      visitor replying to one of our emails lands there). `NEXT_PUBLIC_SITE_URL`
+      updated to match, verified in the live sitemap. Still separate and
+      not yet done: verifying this domain in Resend (needed to *send*
+      email as this domain — see the blocking item above), and pointing
+      the domain at an actual deployment once one exists.
 - [x] **Resend account (email notifications to you)** — new API key created
       scoped to this project ("Sending access" only, not full account
       access), `RESEND_API_KEY` + `LEAD_NOTIFICATION_EMAIL` set in
