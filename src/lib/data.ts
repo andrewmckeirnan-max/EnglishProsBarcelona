@@ -12,42 +12,42 @@ export const areas: Area[] = [
     name: "Eixample",
     district: "Eixample",
     blurb:
-      "Barcelona's largest international population and highest concentration of English-speaking professionals, the anchor territory.",
+      "Barcelona's grand 19th-century grid: wide boulevards, Gaudí landmarks like Casa Batlló and La Pedrera, and the city's business and shopping core. Home to the largest international community in Barcelona.",
   },
   {
     slug: "poblenou",
     name: "Poblenou",
     district: "Sant Martí",
     blurb:
-      "Barcelona's tech and international-professional hub, with a fast-growing base of English-speaking residents.",
+      "A former industrial district turned tech and creative hub, loft-style buildings, beachfront promenade, and a young international crowd. Right on the coast in Sant Martí.",
   },
   {
     slug: "sarria-sant-gervasi",
     name: "Sarrià-Sant Gervasi",
     district: "Sarrià-Sant Gervasi",
     blurb:
-      "The city's highest-income district and the deepest concentration of established English-speaking private clinics.",
+      "Leafy, upscale and quiet, Barcelona's most established residential district for international families, close to several of the city's international schools.",
   },
   {
     slug: "les-corts",
     name: "Les Corts",
     district: "Les Corts",
     blurb:
-      "A quieter, family-oriented district popular with international residents who want private healthcare and schooling nearby.",
+      "A calm, residential district best known as home to Camp Nou, popular with international families who want good schools and private healthcare close by.",
   },
   {
     slug: "diagonal-mar",
     name: "Diagonal Mar & Vila Olímpica",
     district: "Sant Martí",
     blurb:
-      "Barcelona's most expensive beachfront district. Foreign buyers make up over a third of purchases here, with almost no English-branded professional services yet.",
+      "Barcelona's modern beachfront district: marina views, high-rise apartments and the 1992 Olympic waterfront. One of the city's most international, sea-view neighbourhoods.",
   },
   {
     slug: "gracia",
     name: "Gràcia",
     district: "Gràcia",
     blurb:
-      "The largest concentration of European expats of any Barcelona district, a strong fit for wellness, physiotherapy and psychology.",
+      "A bohemian, village-like neighbourhood of small squares, independent shops and a strong café culture, home to one of Barcelona's largest European communities.",
   },
 ];
 
