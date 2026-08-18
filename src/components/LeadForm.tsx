@@ -9,6 +9,8 @@ import type { AreaSlug, CategorySlug, Professional } from "@/lib/types";
 import { businessWaLink } from "@/lib/whatsapp";
 import { sentenceLower } from "@/lib/text";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
+import { ProfessionalsMap } from "@/components/ProfessionalsMap";
+import { useUnlock } from "@/components/UnlockContext";
 
 interface LeadFormProps {
   defaultAreaSlug?: AreaSlug;
@@ -59,6 +61,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   // and the request is silently dropped server-side.
   const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
+  const { unlock } = useUnlock();
 
   const selectedCategory = categorySlug ? getCategory(categorySlug) : undefined;
   const matches: Professional[] = categorySlug && areaSlug ? getProfessionals(areaSlug, categorySlug) : [];
@@ -135,6 +138,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("done");
+      if (matches.length > 0) unlock();
     } catch {
       setStatus("error");
     }
@@ -158,6 +162,32 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
       .join("\n");
 
     if (matches.length > 0) {
+      // On a category page, the professionals section further down this
+      // same page just flipped to fully unlocked (shared state via
+      // UnlockContext) and already has its own map — showing the full
+      // list again here too would just be a confusing duplicate. Point
+      // down to it instead.
+      if (bothPresetByPage) {
+        return (
+          <div className="rounded-2xl border border-border bg-surface p-6 text-center">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
+              🔓
+            </div>
+            <h3 className="text-lg font-semibold mb-1">Unlocked, {matches.length} match{matches.length === 1 ? "" : "es"} below</h3>
+            <p className="text-sm text-foreground/70 mb-5">
+              We&apos;ve also emailed a copy to {email || "you"} so you don&apos;t lose it.
+            </p>
+            <a
+              href="#professionals-list"
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-brand text-white text-sm font-semibold px-5 py-3 hover:bg-brand-dark transition"
+            >
+              See the full list ↓
+            </a>
+          </div>
+        );
+      }
+
+      const areaForMap = areas.find((a) => a.slug === areaSlug);
       return (
         <div className="rounded-2xl border border-border bg-surface p-6">
           <div className="text-center mb-5">
@@ -175,6 +205,11 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               <ProfessionalCard key={p.id} professional={p} />
             ))}
           </div>
+          {areaForMap && (
+            <div className="h-[320px] mt-4 rounded-2xl overflow-hidden">
+              <ProfessionalsMap professionals={matches} area={areaForMap} />
+            </div>
+          )}
         </div>
       );
     }
@@ -323,6 +358,14 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               </div>
             )}
           </div>
+          {(() => {
+            const areaForMap = areas.find((a) => a.slug === areaSlug);
+            return areaForMap ? (
+              <div className="h-[220px] mt-3 rounded-2xl overflow-hidden">
+                <ProfessionalsMap professionals={matches} area={areaForMap} />
+              </div>
+            ) : null;
+          })()}
           <button
             onClick={() => goTo("details")}
             className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition"

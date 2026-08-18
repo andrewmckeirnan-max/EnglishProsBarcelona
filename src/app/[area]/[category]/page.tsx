@@ -3,13 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { areas, visibleCategories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
-import { ProfessionalCard, LockedProfessionalCard } from "@/components/ProfessionalCard";
-import { ProfessionalsMap } from "@/components/ProfessionalsMap";
+import { ProfessionalsListSection } from "@/components/ProfessionalsListSection";
 import { LeadForm } from "@/components/LeadForm";
+import { UnlockProvider } from "@/components/UnlockContext";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { sentenceLower } from "@/lib/text";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCategoryFaqs } from "@/lib/schema";
-import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -33,11 +32,6 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   if (!area || !category || category.hidden) notFound();
 
   const professionals = getProfessionals(area.slug, category.slug);
-  // Show the first 3 openly; anything beyond that is a locked teaser until
-  // the visitor submits contact info via the lead form (which then shows
-  // the full, unfiltered list in its own success state).
-  const visibleProfessionals = professionals.slice(0, FREE_PREVIEW_LIMIT);
-  const lockedCount = Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
   const otherAreas = areas.filter((a) => a.slug !== area.slug);
   // Every other profession, not just a handful — each one is a distinct
   // "English-speaking X in {area}" search/AEO target worth linking.
@@ -63,106 +57,82 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
-        <div className="container-page pt-5">
-          <Breadcrumbs
-            items={[
-              { name: "Home", href: "/" },
-              { name: area.name, href: `/${area.slug}` },
-              { name: category.pluralName },
-            ]}
-          />
-        </div>
-        <div className="container-page py-8 sm:py-16">
-          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
-            <div>
-              <p className="text-sm font-semibold text-brand mb-2">
-                {area.name} &middot; {area.district}
-              </p>
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance">
-                English-speaking {sentenceLower(category.name)} in {area.name}, Barcelona
-              </h1>
-              <p className="mt-4 text-foreground/70 max-w-xl">{category.shortPitch}</p>
-              <p className="mt-3 text-sm text-foreground/60 max-w-xl">
-                {professionals.length > 0
-                  ? `We've verified ${professionals.length} English-speaking ${professionals.length === 1 ? sentenceLower(category.name) : sentenceLower(category.pluralName)} in ${area.name}, listed below with what they specialize in and what languages they speak.`
-                  : `We don't have a verified English-speaking ${sentenceLower(category.name)} listed in ${area.name} yet. Tell us what you need and we'll personally find one nearby.`}
-              </p>
+      <UnlockProvider>
+        <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
+          <div className="container-page pt-5">
+            <Breadcrumbs
+              items={[
+                { name: "Home", href: "/" },
+                { name: area.name, href: `/${area.slug}` },
+                { name: category.pluralName },
+              ]}
+            />
+          </div>
+          <div className="container-page py-8 sm:py-16">
+            <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
+              <div>
+                <p className="text-sm font-semibold text-brand mb-2">
+                  {area.name} &middot; {area.district}
+                </p>
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance">
+                  English-speaking {sentenceLower(category.name)} in {area.name}, Barcelona
+                </h1>
+                <p className="mt-4 text-foreground/70 max-w-xl">{category.shortPitch}</p>
+                <p className="mt-3 text-sm text-foreground/60 max-w-xl">
+                  {professionals.length > 0
+                    ? `We've verified ${professionals.length} English-speaking ${professionals.length === 1 ? sentenceLower(category.name) : sentenceLower(category.pluralName)} in ${area.name}, listed below with what they specialize in and what languages they speak.`
+                    : `We don't have a verified English-speaking ${sentenceLower(category.name)} listed in ${area.name} yet. Tell us what you need and we'll personally find one nearby.`}
+                </p>
 
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {category.seoKeywords.map((k) => (
-                  <li key={k} className="text-xs rounded-full bg-white/70 border border-border px-3 py-1 text-foreground/60 capitalize">
-                    {k}
-                  </li>
-                ))}
-              </ul>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {category.seoKeywords.map((k) => (
+                    <li key={k} className="text-xs rounded-full bg-white/70 border border-border px-3 py-1 text-foreground/60 capitalize">
+                      {k}
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
-                <div className="rounded-xl bg-white/60 border border-border p-4">
-                  <p className="font-semibold">🗣️ English-first</p>
-                  <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
-                </div>
-                <div className="rounded-xl bg-white/60 border border-border p-4">
-                  <p className="font-semibold">📍 Local to {area.name}</p>
-                  <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
-                </div>
-                <div className="rounded-xl bg-white/60 border border-border p-4">
-                  <p className="font-semibold">💬 WhatsApp friendly</p>
-                  <p className="text-foreground/60 mt-1">Fast replies, no phone-call anxiety.</p>
+                <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
+                  <div className="rounded-xl bg-white/60 border border-border p-4">
+                    <p className="font-semibold">🗣️ English-first</p>
+                    <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
+                  </div>
+                  <div className="rounded-xl bg-white/60 border border-border p-4">
+                    <p className="font-semibold">📍 Local to {area.name}</p>
+                    <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
+                  </div>
+                  <div className="rounded-xl bg-white/60 border border-border p-4">
+                    <p className="font-semibold">💬 WhatsApp friendly</p>
+                    <p className="text-foreground/60 mt-1">Fast replies, no phone-call anxiety.</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
-              <LeadForm defaultAreaSlug={area.slug} defaultCategorySlug={category.slug} />
+              <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
+                <LeadForm defaultAreaSlug={area.slug} defaultCategorySlug={category.slug} />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="container-page py-14">
-        <h2 className="text-2xl font-semibold mb-1">
-          {category.pluralName} in {area.name}
-        </h2>
+        <section id="professionals-list" className="container-page py-14 scroll-mt-20">
+          <h2 className="text-2xl font-semibold mb-1">
+            {category.pluralName} in {area.name}
+          </h2>
 
-        {professionals.length > 0 ? (
-          <>
-            <p className="text-sm text-foreground/60 mb-6">
-              {lockedCount > 0
-                ? `Showing ${visibleProfessionals.length} of ${professionals.length}. Tell us what you need to unlock the full ranked list.`
-                : professionals.some((p) => p.isPartner)
-                  ? "Our featured partner, plus other English-speaking options we found nearby."
-                  : "English-speaking options we found nearby. None of these are paying partners yet, this is an independent, informational list."}
-            </p>
-            <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start">
-              <div className="flex flex-col gap-4">
-                {visibleProfessionals.map((p) => (
-                  <ProfessionalCard key={p.id} professional={p} />
-                ))}
-                {Array.from({ length: lockedCount }).map((_, i) => (
-                  <LockedProfessionalCard key={`locked-${i}`} />
-                ))}
-              </div>
-              <div className="hidden lg:block h-[520px] sticky top-24">
-                <ProfessionalsMap professionals={professionals} area={area} />
-              </div>
+          {professionals.length > 0 ? (
+            <ProfessionalsListSection professionals={professionals} area={area} />
+          ) : (
+            <div className="rounded-2xl border border-dashed border-border p-8 text-center bg-surface-muted">
+              <p className="font-semibold">We don&apos;t have a featured partner in {area.name} yet.</p>
+              <p className="text-sm text-foreground/60 mt-1 max-w-md mx-auto">
+                Tell us what you need using the form above and we&apos;ll hand-match you with a
+                vetted English-speaking {sentenceLower(category.name)} nearby.
+              </p>
             </div>
-            <p className="text-xs text-foreground/40 mt-4">
-              <Link href="/about#how-we-verify" className="underline hover:text-foreground/60">
-                How we verify listings
-              </Link>
-            </p>
-          </>
-        ) : (
-          <div className="rounded-2xl border border-dashed border-border p-8 text-center bg-surface-muted">
-            <p className="font-semibold">We don&apos;t have a featured partner in {area.name} yet.</p>
-            <p className="text-sm text-foreground/60 mt-1 max-w-md mx-auto">
-              Tell us what you need using the form above and we&apos;ll hand-match you with a
-              vetted English-speaking {sentenceLower(category.name)} nearby.
-            </p>
-          </div>
-        )}
-      </section>
+          )}
+        </section>
+      </UnlockProvider>
 
       <section className="container-page py-14 max-w-3xl">
         <h2 className="text-xl font-semibold mb-6">Questions</h2>

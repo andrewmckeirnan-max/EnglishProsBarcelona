@@ -1,5 +1,6 @@
 import type { Professional } from "@/lib/types";
 import { waLink } from "@/lib/whatsapp";
+import { googleMapsSearchUrl } from "@/lib/maps";
 
 export function ProfessionalCard({ professional }: { professional: Professional }) {
   const initials = professional.name
@@ -60,6 +61,19 @@ export function ProfessionalCard({ professional }: { professional: Professional 
             className="flex-1 text-center rounded-full border border-brand text-brand text-sm font-semibold px-4 py-2 hover:bg-brand-light transition"
           >
             {professional.isPartner ? "Book" : "Visit website"}
+          </a>
+        )}
+        {/* Every listing needs at least one working action, even the ones
+            we haven't onboarded a WhatsApp number or website link for yet.
+            A Maps search is always buildable from name + addressArea alone. */}
+        {!professional.whatsappNumber && !professional.bookingUrl && (
+          <a
+            href={googleMapsSearchUrl(professional)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center rounded-full border border-brand text-brand text-sm font-semibold px-4 py-2 hover:bg-brand-light transition"
+          >
+            View on Google Maps
           </a>
         )}
       </div>
