@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { getArea, getCategory } from "@/lib/data";
+import { getProfessionals } from "@/lib/professionals";
 import type { LeadPayload } from "@/lib/types";
 
 // -----------------------------------------------------------------------
@@ -43,6 +44,58 @@ async function notifyEmail(lead: LeadPayload) {
       text: formatLeadText(lead),
     }),
   }).catch((err) => console.error("[lead] Email send failed:", err));
+}
+
+// Emails the VISITOR their matched list — this is the actual deliverable
+// promised on the site ("we'll send you the vetted list"). Fully
+// automatable, unlike WhatsApp (see note on notifyEmail below): a business
+// can't message someone on WhatsApp first without the WhatsApp Business
+// Platform (Cloud API + approved templates) — plain wa.me links only let
+// the *customer* start the conversation. Email has no such restriction.
+async function sendMatchEmailToVisitor(lead: LeadPayload) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.LEAD_FROM_EMAIL || "leads@bcnenglishpros.com";
+  if (!apiKey) {
+    console.log("[lead] Visitor match email skipped — RESEND_API_KEY not set.");
+    return;
+  }
+
+  const area = getArea(lead.areaSlug);
+  const category = getCategory(lead.categorySlug);
+  const matches = getProfessionals(lead.areaSlug, lead.categorySlug);
+  if (matches.length === 0) {
+    // No listing yet for this combination — this is the concierge case,
+    // handled by a human following up on WhatsApp/email, not an automated send.
+    return;
+  }
+
+  const listText = matches
+    .map((p, i) => `${i + 1}. ${p.name} — ${p.specialties.join(", ")}${p.bookingUrl ? `\n   ${p.bookingUrl}` : ""}`)
+    .join("\n\n");
+
+  const text = [
+    `Hi ${lead.name},`,
+    ``,
+    `Here's your vetted list of English-speaking ${category?.pluralName ?? "professionals"} in ${area?.name ?? "your area"}:`,
+    ``,
+    listText,
+    ``,
+    `No cost to you — reach out to whichever one fits best. Reply to this email or message us on WhatsApp if you'd like help choosing.`,
+  ].join("\n");
+
+  await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: fromEmail,
+      to: lead.email,
+      subject: `Your vetted ${category?.name ?? "professional"} options in ${area?.name ?? "Barcelona"}`,
+      text,
+    }),
+  }).catch((err) => console.error("[lead] Visitor match email failed:", err));
 }
 
 function formatLeadText(lead: LeadPayload): string {
@@ -110,7 +163,7 @@ export async function POST(request: NextRequest) {
     // notification path below is the more important delivery mechanism.
   }
 
-  await notifyEmail(body);
+  await Promise.all([notifyEmail(body), sendMatchEmailToVisitor(body)]);
 
   return NextResponse.json({ ok: true });
 }

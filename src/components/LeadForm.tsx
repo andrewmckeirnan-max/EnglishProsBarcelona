@@ -93,8 +93,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             </div>
             <h3 className="text-lg font-semibold mb-1">Good news — no waiting needed</h3>
             <p className="text-sm text-foreground/70">
-              We already have English-speaking options in {area?.name ?? "your area"}. We&apos;ve got your
-              details too, but you can reach out directly right now:
+              Here&apos;s your full vetted list for {area?.name ?? "your area"} — we&apos;ve also just emailed
+              it to {email || "you"} so you don&apos;t lose it. Contact whichever one fits best, directly:
             </p>
           </div>
           <div className="flex flex-col gap-3">
@@ -251,7 +251,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         >
           <h3 className="text-lg font-semibold mb-1">Where should we send your match?</h3>
           <p className="text-sm text-foreground/60 mb-4">
-            We need both — WhatsApp is fast, email means we can still reach you if WhatsApp doesn&apos;t work out.
+            We&apos;ll show you the top vetted options right here, plus email you the full list. WhatsApp&apos;s
+            for anything else we need to check with you — email means it reaches you either way.
           </p>
           <div className="flex flex-col gap-3">
             <input
@@ -296,7 +297,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             {status === "submitting" ? "Sending..." : "Find my match"}
           </button>
           <p className="text-xs text-foreground/50 mt-3 text-center">
-            No cost to you. We only share your details with the professional we match you with.
+            No cost to you. We&apos;ll send your vetted list here and to your email — your details aren&apos;t
+            shared with any professional unless you choose to contact them.
           </p>
         </form>
       )}
