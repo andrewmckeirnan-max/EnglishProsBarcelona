@@ -94,47 +94,6 @@ export const areas: Area[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// CULTURE PHOTOS
-// A small homepage strip showing the city itself, not just the service
-// listings. Same sourcing standard as area photos: real, license-verified
-// Wikimedia Commons photos with attribution, nothing stock or generated.
-// ---------------------------------------------------------------------------
-export const cultureImages = [
-  {
-    src: "/images/culture/festa-gracia.jpg",
-    caption: "Festa Major de Gràcia",
-    alt: "Decorated street during Festa Major de Gràcia, Barcelona's biggest neighbourhood festival",
-    credit: {
-      photographer: "KRLS",
-      license: "CC BY 4.0",
-      sourceUrl:
-        "https://commons.wikimedia.org/wiki/File:Festa_Major_de_Gr%C3%A0cia_2025_-_Carrer_de_Mozart_-_04.jpg",
-    },
-  },
-  {
-    src: "/images/culture/barceloneta-buskers.jpg",
-    caption: "Street music at Barceloneta beach",
-    alt: "Street musicians performing on the promenade at Barceloneta beach, Barcelona",
-    credit: {
-      photographer: "Joe Mabel",
-      license: "CC BY-SA 4.0",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Buskers_at_Platja_de_la_Barceloneta_01.jpg",
-    },
-  },
-  {
-    src: "/images/culture/passeig-de-gracia.jpg",
-    caption: "Passeig de Gràcia, Eixample",
-    alt: "Aerial view of Passeig de Gràcia, Barcelona's grand boulevard, seen from Casa Milà",
-    credit: {
-      photographer: "DimiTalen",
-      license: "CC0",
-      sourceUrl:
-        "https://commons.wikimedia.org/wiki/File:Passeig_de_Gr%C3%A0cia_and_Carrer_de_Proven%C3%A7a_crossroads_seen_from_Casa_Mil%C3%A0,_Barcelona,_2023.jpg",
-    },
-  },
-];
-
-// ---------------------------------------------------------------------------
 // CATEGORIES
 // Ranked (roughly) by lead value: dentistry, legal/tax and property carry the
 // highest lifetime value per referral, so they lead the list and the homepage.
