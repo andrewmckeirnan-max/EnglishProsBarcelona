@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description:
     "Find and book trusted English-speaking dentists, doctors, lawyers, tax advisors and more near you in Barcelona. Tell us what you need and we'll match you.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

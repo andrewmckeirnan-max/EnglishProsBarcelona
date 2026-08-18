@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { areas, visibleCategories } from "@/lib/data";
+import { Logo } from "@/components/Logo";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-surface/95 backdrop-blur border-b border-border">
       <div className="container-page flex items-center justify-between h-16 gap-4">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white font-bold text-sm">
-            BE
-          </span>
-          <span className="font-semibold text-[15px] tracking-tight">
-            Barcelona English Pros
-          </span>
+        <Link href="/" className="shrink-0">
+          <Logo />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1 text-sm">

@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { areas, visibleCategories } from "@/lib/data";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface-muted mt-24">
       <div className="container-page py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
         <div className="col-span-2 md:col-span-1">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white font-bold text-xs">
-              BE
-            </span>
-            <span className="font-semibold">Barcelona English Pros</span>
+          <div className="mb-3">
+            <Logo />
           </div>
           <p className="text-foreground/60 leading-relaxed">
             The English-speaking professional finder for Barcelona. We match
