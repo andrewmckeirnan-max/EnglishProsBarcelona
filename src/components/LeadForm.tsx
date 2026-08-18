@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Unlock, CheckCircle2, Lock } from "lucide-react";
 import { areas, visibleCategories, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { matchEnquiry } from "@/lib/match";
@@ -170,8 +171,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
       if (bothPresetByPage) {
         return (
           <div className="rounded-2xl border border-border bg-surface p-6 text-center">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
-              🔓
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
+              <Unlock className="h-5 w-5 text-brand" strokeWidth={2} />
             </div>
             <h3 className="text-lg font-semibold mb-1">Unlocked, {matches.length} match{matches.length === 1 ? "" : "es"} below</h3>
             <p className="text-sm text-foreground/70 mb-5">
@@ -191,8 +192,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
       return (
         <div className="rounded-2xl border border-border bg-surface p-6">
           <div className="text-center mb-5">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
-              🔓
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
+              <Unlock className="h-5 w-5 text-brand" strokeWidth={2} />
             </div>
             <h3 className="text-lg font-semibold mb-1">Unlocked, here&apos;s your full list</h3>
             <p className="text-sm text-foreground/70">
@@ -216,8 +217,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
 
     return (
       <div className="rounded-2xl border border-border bg-surface p-6 text-center">
-        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
-          ✅
+        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
+          <CheckCircle2 className="h-5 w-5 text-brand" strokeWidth={2} />
         </div>
         <h3 className="text-lg font-semibold mb-1">Request received</h3>
         <p className="text-sm text-foreground/70 mb-5">
@@ -354,7 +355,10 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             ))}
             {lockedCount > 0 && (
               <div className="rounded-xl border border-dashed border-border bg-surface-muted p-4 text-center">
-                <p className="text-sm font-medium">🔒 {lockedCount} more matched nearby</p>
+                <p className="text-sm font-medium flex items-center justify-center gap-1.5">
+                  <Lock className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  {lockedCount} more matched nearby
+                </p>
               </div>
             )}
           </div>

@@ -1,6 +1,8 @@
+import { Star, Lock } from "lucide-react";
 import type { Professional } from "@/lib/types";
 import { waLink } from "@/lib/whatsapp";
 import { googleMapsSearchUrl } from "@/lib/maps";
+import { parseRating } from "@/lib/text";
 
 export function ProfessionalCard({ professional }: { professional: Professional }) {
   const initials = professional.name
@@ -9,15 +11,23 @@ export function ProfessionalCard({ professional }: { professional: Professional 
     .slice(0, 2)
     .join("")
     .toUpperCase();
+  const rating = parseRating(professional.ratingLabel);
 
   return (
-    <div className="rounded-2xl border border-border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center">
+    <div className="rounded-2xl border border-border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center hover:shadow-soft hover:border-brand/20 transition-all">
       <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand font-bold">
         {initials}
       </div>
       <div className="flex-1">
         <div className="flex items-center gap-2 flex-wrap">
           <h3 className="font-semibold">{professional.name}</h3>
+          {rating && (
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-foreground/80">
+              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" strokeWidth={0} />
+              {rating.value}
+              <span className="font-normal text-foreground/50">({rating.count})</span>
+            </span>
+          )}
           {professional.isPartner && (
             <span
               className="inline-flex items-center gap-1 rounded-full bg-brand text-white text-[11px] font-semibold px-2 py-0.5 cursor-help"
@@ -105,9 +115,10 @@ export function LockedProfessionalCard() {
       <div className="absolute inset-0 flex items-center justify-center bg-surface-muted/60">
         <a
           href="#get-matched"
-          className="inline-flex items-center gap-1.5 rounded-full bg-brand text-white text-xs font-semibold px-4 py-2 shadow-sm hover:bg-brand-dark transition"
+          className="inline-flex items-center gap-1.5 rounded-full bg-brand text-white text-xs font-semibold px-4 py-2 shadow-soft hover:bg-brand-dark transition"
         >
-          🔒 Unlock this option
+          <Lock className="h-3 w-3" strokeWidth={2.5} />
+          Unlock this option
         </a>
       </div>
     </div>

@@ -39,3 +39,21 @@ body {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+
+/* Soft diffused elevation, on-brand tinted rather than neutral gray, the
+   "floating card" look from Fresha/Booksy/Planity-style booking sites:
+   generous blur, low opacity, no hard edge. Used on the hero search card
+   and anywhere we want something to read as lifted off the page without
+   a harsh dropshadow. */
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(63, 22, 113, 0.04), 0 12px 28px -8px rgba(63, 22, 113, 0.12);
+}
+.shadow-soft-lg {
+  box-shadow: 0 2px 4px rgba(63, 22, 113, 0.05), 0 24px 48px -12px rgba(63, 22, 113, 0.16);
+}
+
+/* Soft multi-tone gradient for hero sections, brand violet fading through
+   white into a faint warm accent, instead of a flat tint. */
+.hero-gradient {
+  background: linear-gradient(135deg, #ede4ff 0%, #f7f5fb 45%, #fff0ec 100%);
+}

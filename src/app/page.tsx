@@ -1,41 +1,48 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CheckCheck, ListFilter, Unlock } from "lucide-react";
 import { SearchBar } from "@/components/SearchBar";
 import { LeadForm } from "@/components/LeadForm";
 import { areas, visibleCategories } from "@/lib/data";
+import { professionals } from "@/lib/professionals";
 
 export default function Home() {
+  // Real, computed from the live dataset, not a placeholder stat - never
+  // drifts out of sync as more listings get added.
+  const verifiedCount = professionals.length;
+
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-brand-light to-background">
-        <div className="container-page pt-14 pb-20 sm:pt-20 sm:pb-28 text-center">
-          <span className="inline-block rounded-full bg-white/70 border border-border text-xs font-semibold px-3 py-1 text-brand mb-5">
-            Barcelona &middot; English-speaking professionals
+      <section className="relative overflow-hidden hero-gradient">
+        <div className="container-page pt-16 pb-20 sm:pt-24 sm:pb-28 text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 border border-border text-xs font-semibold px-3 py-1.5 text-brand mb-6 shadow-soft">
+            <CheckCheck className="h-3.5 w-3.5" strokeWidth={2.5} />
+            {verifiedCount} verified professionals &middot; 6 neighbourhoods
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-balance max-w-3xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-balance max-w-3xl mx-auto">
             Find an English-speaking professional in Barcelona
           </h1>
-          <p className="mt-4 text-lg text-foreground/70 max-w-xl mx-auto text-balance">
+          <p className="mt-5 text-lg text-foreground/70 max-w-xl mx-auto text-balance">
             Dentists, doctors, lawyers, tax advisors and more, matched to your
             neighbourhood, in a language you&apos;re fluent in.
           </p>
-          <div className="mt-8 max-w-2xl mx-auto">
+          <div className="mt-9 max-w-2xl mx-auto">
             <SearchBar />
           </div>
         </div>
       </section>
 
       {/* Category grid */}
-      <section className="container-page py-16">
-        <h2 className="text-2xl font-semibold mb-1">What are you looking for?</h2>
-        <p className="text-foreground/60 mb-6">Browse by service, then choose your neighbourhood.</p>
+      <section className="container-page py-16 sm:py-20">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">What are you looking for?</h2>
+        <p className="text-foreground/60 mb-8">Browse by service, then choose your neighbourhood.</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {visibleCategories.map((c) => (
             <Link
               key={c.slug}
               href={`/eixample/${c.slug}`}
-              className="rounded-2xl border border-border p-5 hover:border-brand hover:shadow-md transition bg-surface"
+              className="rounded-2xl border border-border p-5 hover:border-brand/30 hover:shadow-soft hover:-translate-y-0.5 transition-all bg-surface"
             >
               <span className="text-3xl">{c.icon}</span>
               <p className="font-semibold mt-3">{c.pluralName}</p>
@@ -47,9 +54,9 @@ export default function Home() {
 
       {/* Areas */}
       <section className="bg-surface-muted border-y border-border">
-        <div className="container-page py-16">
-          <h2 className="text-2xl font-semibold mb-1">Barcelona neighbourhoods we cover</h2>
-          <p className="text-foreground/60 mb-6">
+        <div className="container-page py-16 sm:py-20">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">Barcelona neighbourhoods we cover</h2>
+          <p className="text-foreground/60 mb-8">
             Starting with the areas with the largest English-speaking communities.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -57,7 +64,7 @@ export default function Home() {
               <Link
                 key={a.slug}
                 href={`/${a.slug}`}
-                className="group rounded-2xl border border-border bg-surface overflow-hidden hover:border-brand hover:shadow-md transition"
+                className="group rounded-2xl border border-border bg-surface overflow-hidden hover:border-brand/30 hover:shadow-soft-lg hover:-translate-y-1 transition-all"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-surface-muted">
                   <Image
@@ -87,17 +94,17 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="container-page py-16">
-        <h2 className="text-2xl font-semibold mb-8 text-center">How it works</h2>
+      <section className="container-page py-16 sm:py-20">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-10 text-center">How it works</h2>
         <div className="grid sm:grid-cols-3 gap-8">
           {[
-            { step: "1", title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
-            { step: "2", title: "See real matches instantly", body: "We show your top vetted options right on the page, not a generic list, before you give us anything." },
-            { step: "3", title: "Unlock the full ranked list", body: "Add your WhatsApp and email to unlock every match with contact details, Google Maps links and a cost comparison." },
+            { Icon: ListFilter, title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
+            { Icon: CheckCheck, title: "See real matches instantly", body: "We show your top vetted options right on the page, not a generic list, before you give us anything." },
+            { Icon: Unlock, title: "Unlock the full ranked list", body: "Add your WhatsApp and email to unlock every match with contact details, Google Maps links and a cost comparison." },
           ].map((s) => (
-            <div key={s.step} className="text-center">
-              <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white font-bold">
-                {s.step}
+            <div key={s.title} className="text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-soft">
+                <s.Icon className="h-5 w-5" strokeWidth={2} />
               </div>
               <p className="font-semibold">{s.title}</p>
               <p className="text-sm text-foreground/60 mt-1">{s.body}</p>

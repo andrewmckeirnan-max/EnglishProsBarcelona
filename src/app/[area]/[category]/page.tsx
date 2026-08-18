@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Languages, MapPinned, MessageCircle } from "lucide-react";
 import { areas, visibleCategories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { ProfessionalsListSection } from "@/components/ProfessionalsListSection";
@@ -94,15 +95,24 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
 
                 <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
                   <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold">🗣️ English-first</p>
+                    <p className="font-semibold flex items-center gap-1.5">
+                      <Languages className="h-4 w-4 text-brand" strokeWidth={2} />
+                      English-first
+                    </p>
                     <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
                   </div>
                   <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold">📍 Local to {area.name}</p>
+                    <p className="font-semibold flex items-center gap-1.5">
+                      <MapPinned className="h-4 w-4 text-brand" strokeWidth={2} />
+                      Local to {area.name}
+                    </p>
                     <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
                   </div>
                   <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold">💬 WhatsApp friendly</p>
+                    <p className="font-semibold flex items-center gap-1.5">
+                      <MessageCircle className="h-4 w-4 text-brand" strokeWidth={2} />
+                      WhatsApp friendly
+                    </p>
                     <p className="text-foreground/60 mt-1">Fast replies, no phone-call anxiety.</p>
                   </div>
                 </div>

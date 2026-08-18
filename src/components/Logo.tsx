@@ -8,7 +8,11 @@
 // decorative icon is itself the signal.
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`flex flex-col leading-none select-none ${className}`}>
+    // items-center: "ENGLISH PROS" is wider than "BARCELONA" once its wide
+    // letter-spacing is factored in, so plain left-alignment (flex-col's
+    // default) made the top line look off-center relative to the bottom
+    // one. Centering the two lines against each other fixes that.
+    <span className={`flex flex-col items-center leading-none select-none ${className}`}>
       <span className="font-bold tracking-tight text-[17px] text-foreground">BARCELONA</span>
       <span className="font-semibold text-[9px] tracking-[0.28em] text-brand mt-0.5">ENGLISH PROS</span>
     </span>
