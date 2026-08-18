@@ -102,6 +102,26 @@ Copy `.env.example` to `.env.local` and fill in what you have — the site
 works with none of it set (WhatsApp links fall back to a placeholder number,
 email notification just logs to the console).
 
+## Operating the WhatsApp inbox
+
+WhatsApp is the required contact channel on the site; email is optional and
+often skipped — especially by anyone using the "skip the form, WhatsApp us
+directly" link, which captures no contact details at all until you reply.
+So email capture happens in the conversation, not the form. First-reply
+template for whoever's answering:
+
+> Hi [name]! Thanks for reaching out via BCN English Pros — checking
+> availability with an English-speaking [service] near [area] now. What's
+> a good email too, in case WhatsApp drops or you want the details in
+> writing?
+
+Two reasons to ask early rather than late: it's the natural moment (you're
+already asking questions to route them), and it's the only reliable way to
+backfill email for the skip-the-form leads, who by definition gave you
+nothing else to work with. Log whatever email they give you back into
+`data/leads.jsonl` manually, or wire it into a real CRM once you're past
+the manual-reply stage.
+
 ## Suggested next steps
 
 1. Set `NEXT_PUBLIC_BUSINESS_WHATSAPP` to your real number and deploy
