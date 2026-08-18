@@ -1385,6 +1385,18 @@ export const professionals: Professional[] = [
     addressArea: "Passeig de Gràcia, Eixample",
     ratingLabel: "5.0 (67 reviews) on Google Maps",
   },
+  {
+    id: "les-corts-chiropractor-punto",
+    name: "Punto Quiropráctico Barcelona",
+    categorySlug: "chiropractor",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Chiropractic care"],
+    languages: ["English", "Spanish"],
+    addressArea: "Avinguda Diagonal, near Les Corts",
+    ratingLabel: "5.0 (101 reviews) on Google Maps",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
