@@ -20,7 +20,15 @@ export type CategorySlug =
   | "osteopath"
   | "autonomo-accountant"
   | "business-lawyer"
-  | "sworn-translator";
+  | "sworn-translator"
+  | "orthodontist"
+  | "podiatrist"
+  | "eye-care"
+  | "occupational-therapist"
+  | "speech-therapist"
+  | "insurance-broker"
+  | "wealth-manager"
+  | "notary";
 
 export type AreaSlug =
   | "poblenou"
