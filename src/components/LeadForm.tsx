@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { areas, visibleCategories, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
+import { matchEnquiry } from "@/lib/match";
 import type { AreaSlug, CategorySlug } from "@/lib/types";
 import { businessWaLink } from "@/lib/whatsapp";
 import { sentenceLower } from "@/lib/text";
@@ -23,15 +24,22 @@ const urgencyOptions: { value: Urgency; label: string }[] = [
 ];
 
 export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: LeadFormProps) {
+  // "Describe what you need" only makes sense when we don't already know
+  // the service + area (i.e. the general homepage form, not a category
+  // page where both are preset).
+  const generalEntry = !defaultCategorySlug && !defaultAreaSlug;
+
   const steps = useMemo(() => {
     const s: string[] = [];
+    if (generalEntry) s.push("describe");
     if (!defaultCategorySlug) s.push("category");
     if (!defaultAreaSlug) s.push("area");
     s.push("need", "urgency", "contact");
     return s;
-  }, [defaultAreaSlug, defaultCategorySlug]);
+  }, [defaultAreaSlug, defaultCategorySlug, generalEntry]);
 
   const [stepIndex, setStepIndex] = useState(0);
+  const [describeText, setDescribeText] = useState("");
   const [categorySlug, setCategorySlug] = useState<CategorySlug | undefined>(defaultCategorySlug);
   const [areaSlug, setAreaSlug] = useState<AreaSlug | undefined>(defaultAreaSlug);
   const [need, setNeed] = useState("");
@@ -47,6 +55,26 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
 
   function next() {
     setStepIndex((i) => Math.min(i + 1, steps.length - 1));
+  }
+
+  function handleDescribeSubmit() {
+    const match = matchEnquiry(describeText);
+    if (match.category) setCategorySlug(match.category.slug);
+    if (match.area) setAreaSlug(match.area.slug);
+    if (match.need) setNeed(match.need);
+    setNotes((prev) => prev || describeText);
+
+    // Jump to the first step (after "describe") whose value we couldn't
+    // confidently fill in, so the visitor only picks what the matcher
+    // actually missed.
+    const filled: Record<string, boolean> = {
+      category: !!match.category,
+      area: !!match.area,
+      need: !!match.need,
+    };
+    const rest = steps.slice(1);
+    const relativeIdx = rest.findIndex((s) => (s in filled ? !filled[s] : true));
+    setStepIndex(relativeIdx === -1 ? steps.length - 1 : relativeIdx + 1);
   }
 
   async function handleSubmit() {
@@ -150,6 +178,37 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
       >
         Or skip the form, WhatsApp us directly →
       </a>
+
+      {currentStep === "describe" && (
+        <div>
+          <h3 className="text-lg font-semibold mb-1">Describe what you need</h3>
+          <p className="text-sm text-foreground/60 mb-4">
+            In your own words, we&apos;ll work out the right service and area. Or skip straight to
+            picking manually.
+          </p>
+          <textarea
+            autoFocus
+            value={describeText}
+            onChange={(e) => setDescribeText(e.target.value)}
+            placeholder="e.g. I need an English-speaking dentist in Poblenou, my tooth's been killing me and I need someone this week"
+            rows={4}
+            className="w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand resize-none"
+          />
+          <button
+            onClick={handleDescribeSubmit}
+            disabled={!describeText.trim()}
+            className="mt-3 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition disabled:opacity-40"
+          >
+            Match me
+          </button>
+          <button
+            onClick={() => setStepIndex(1)}
+            className="mt-2 w-full text-center text-sm text-foreground/50 hover:text-foreground"
+          >
+            Or choose manually instead
+          </button>
+        </div>
+      )}
 
       {currentStep === "category" && (
         <div>
@@ -297,13 +356,14 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             {status === "submitting" ? "Sending..." : "Find my match"}
           </button>
           <p className="text-xs text-foreground/50 mt-3 text-center">
-            No cost to you. We&apos;ll send your vetted list here and to your email. Your details aren&apos;t
-            shared with any professional unless you choose to contact them.
+            Free, always, for the Barcelona English-speaking community. We&apos;re paid by
+            professionals who want to be found by you, never by you. Your details aren&apos;t shared
+            with any professional unless you choose to contact them.
           </p>
         </form>
       )}
 
-      {currentStep !== "category" && stepIndex > 0 && (
+      {stepIndex > 0 && (
         <button
           onClick={() => setStepIndex((i) => Math.max(i - 1, 0))}
           className="mt-4 text-sm text-foreground/50 hover:text-foreground"
