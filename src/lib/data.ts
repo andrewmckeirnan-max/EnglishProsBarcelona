@@ -35,6 +35,20 @@ export const areas: Area[] = [
     blurb:
       "A quieter, family-oriented district popular with international residents who want private healthcare and schooling nearby.",
   },
+  {
+    slug: "diagonal-mar",
+    name: "Diagonal Mar & Vila Olímpica",
+    district: "Sant Martí",
+    blurb:
+      "Barcelona's most expensive beachfront district — foreign buyers make up over a third of purchases here, with almost no English-branded professional services yet.",
+  },
+  {
+    slug: "gracia",
+    name: "Gràcia",
+    district: "Gràcia",
+    blurb:
+      "The largest concentration of European expats of any Barcelona district — a strong fit for wellness, physiotherapy and psychology.",
+  },
 ];
 
 // ---------------------------------------------------------------------------

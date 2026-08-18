@@ -22,6 +22,9 @@ async function saveLead(lead: LeadPayload & { receivedAt: string }) {
 async function notifyEmail(lead: LeadPayload) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.LEAD_NOTIFICATION_EMAIL;
+  // This notifies YOUR inbox that a lead came in — it doesn't require the
+  // lead to have given their own email, since WhatsApp is the required
+  // contact channel now.
   if (!apiKey || !to) {
     console.log("[lead] Email notification skipped — RESEND_API_KEY / LEAD_NOTIFICATION_EMAIL not set.");
     return;
@@ -53,8 +56,8 @@ function formatLeadText(lead: LeadPayload): string {
     `Need: ${lead.need}`,
     `Urgency: ${lead.urgency}`,
     `Name: ${lead.name}`,
-    `Email: ${lead.email}`,
     `WhatsApp: ${lead.whatsapp}`,
+    lead.email ? `Email: ${lead.email}` : undefined,
     lead.notes ? `Notes: ${lead.notes}` : undefined,
     `Page: ${lead.pageUrl}`,
   ]
@@ -70,10 +73,11 @@ function isValidLead(body: unknown): body is LeadPayload {
     typeof b.categorySlug === "string" &&
     typeof b.name === "string" &&
     b.name.trim().length > 0 &&
-    typeof b.email === "string" &&
-    b.email.includes("@") &&
     typeof b.whatsapp === "string" &&
-    b.whatsapp.trim().length >= 6
+    b.whatsapp.trim().length >= 6 &&
+    // email is optional — WhatsApp is the required contact channel — but if
+    // one is provided it should at least look like an email
+    (b.email === undefined || (typeof b.email === "string" && b.email.includes("@")))
   );
 }
 

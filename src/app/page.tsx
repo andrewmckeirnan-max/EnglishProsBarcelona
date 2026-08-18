@@ -74,7 +74,7 @@ export default function Home() {
           {[
             { step: "1", title: "Tell us what you need", body: "Pick a service, your area, and how soon you need an appointment." },
             { step: "2", title: "We match you", body: "We connect you with a vetted English-speaking professional nearby." },
-            { step: "3", title: "You get in touch", body: "We follow up on WhatsApp and email — usually within a few hours." },
+            { step: "3", title: "You get in touch", body: "Already have a match on your page? Contact them instantly. Otherwise we personally check availability and follow up on WhatsApp today." },
           ].map((s) => (
             <div key={s.step} className="text-center">
               <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white font-bold">

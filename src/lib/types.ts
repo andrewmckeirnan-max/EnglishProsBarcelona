@@ -16,7 +16,13 @@ export type CategorySlug =
   | "fertility-clinic"
   | "plastic-surgeon";
 
-export type AreaSlug = "poblenou" | "eixample" | "sarria-sant-gervasi" | "les-corts";
+export type AreaSlug =
+  | "poblenou"
+  | "eixample"
+  | "sarria-sant-gervasi"
+  | "les-corts"
+  | "diagonal-mar"
+  | "gracia";
 
 export interface Category {
   slug: CategorySlug;
@@ -57,8 +63,8 @@ export interface LeadPayload {
   need: string;
   urgency: "asap" | "this-week" | "flexible";
   name: string;
-  email: string;
   whatsapp: string;
+  email?: string; // optional — WhatsApp is the required contact channel, email is a bonus paper trail
   notes?: string;
   pageUrl: string;
 }

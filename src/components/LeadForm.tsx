@@ -2,9 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { areas, categories, getCategory } from "@/lib/data";
+import { getProfessionals } from "@/lib/professionals";
 import type { AreaSlug, CategorySlug } from "@/lib/types";
 import { businessWaLink } from "@/lib/whatsapp";
 import { sentenceLower } from "@/lib/text";
+import { ProfessionalCard } from "@/components/ProfessionalCard";
 
 interface LeadFormProps {
   defaultAreaSlug?: AreaSlug;
@@ -60,7 +62,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           need,
           urgency: urgency || "flexible",
           name,
-          email,
+          email: email.trim() || undefined,
           whatsapp,
           notes,
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
@@ -76,7 +78,34 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   if (status === "done") {
     const area = areas.find((a) => a.slug === areaSlug);
     const category = categorySlug ? getCategory(categorySlug) : undefined;
+    const matches = areaSlug && categorySlug ? getProfessionals(areaSlug, categorySlug) : [];
     const waMessage = `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on BCN English Pros. My name is ${name || "..."}.`;
+
+    // We already have a real listing for this exact area + service — hand it
+    // over immediately instead of making someone wait on a "we'll be in
+    // touch" promise when the answer is sitting right here.
+    if (matches.length > 0) {
+      return (
+        <div className="rounded-2xl border border-border bg-surface p-6">
+          <div className="text-center mb-5">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
+              ✅
+            </div>
+            <h3 className="text-lg font-semibold mb-1">Good news — no waiting needed</h3>
+            <p className="text-sm text-foreground/70">
+              We already have English-speaking options in {area?.name ?? "your area"}. We&apos;ve got your
+              details too, but you can reach out directly right now:
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            {matches.map((p) => (
+              <ProfessionalCard key={p.id} professional={p} />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="rounded-2xl border border-border bg-surface p-6 text-center">
         <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
@@ -84,8 +113,9 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         </div>
         <h3 className="text-lg font-semibold mb-1">Request received</h3>
         <p className="text-sm text-foreground/70 mb-5">
-          We&apos;re matching you with a suitable English-speaking {selectedCategory ? sentenceLower(selectedCategory.name) : "professional"} near{" "}
-          {areas.find((a) => a.slug === areaSlug)?.name ?? "you"}. We&apos;ll reach out on WhatsApp and email shortly — usually within a few hours.
+          We don&apos;t have a listed English-speaking {selectedCategory ? sentenceLower(selectedCategory.name) : "professional"} in{" "}
+          {areas.find((a) => a.slug === areaSlug)?.name ?? "your area"} yet, so we&apos;ll personally check
+          real availability with one nearby and follow up on WhatsApp today.
         </p>
         <a
           href={businessWaLink(waMessage)}
@@ -99,9 +129,11 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
     );
   }
 
+  const skipWaMessage = `Hi! I'm looking for ${selectedCategory ? sentenceLower(selectedCategory.pluralName) : "an English-speaking professional"}${areaSlug ? ` in ${areas.find((a) => a.slug === areaSlug)?.name}` : ""} in Barcelona.`;
+
   return (
     <div className={`rounded-2xl border border-border bg-surface shadow-sm ${compact ? "p-5" : "p-6 sm:p-8"}`}>
-      <div className="flex items-center gap-1.5 mb-6">
+      <div className="flex items-center gap-1.5 mb-4">
         {steps.map((s, i) => (
           <div
             key={s}
@@ -109,6 +141,15 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           />
         ))}
       </div>
+
+      <a
+        href={businessWaLink(skipWaMessage)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#25D366] hover:underline mb-5"
+      >
+        Or skip the form — WhatsApp us directly →
+      </a>
 
       {currentStep === "category" && (
         <div>
@@ -208,9 +249,9 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             handleSubmit();
           }}
         >
-          <h3 className="text-lg font-semibold mb-1">Where should we send your match?</h3>
+          <h3 className="text-lg font-semibold mb-1">Where should we WhatsApp your match?</h3>
           <p className="text-sm text-foreground/60 mb-4">
-            We&apos;ll WhatsApp and email you a suitable English-speaking professional — usually within a few hours.
+            WhatsApp is all we need — email below is optional, just for your records.
           </p>
           <div className="flex flex-col gap-3">
             <input
@@ -229,11 +270,10 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
             />
             <input
-              required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              placeholder="Email (optional)"
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
             />
             <textarea
