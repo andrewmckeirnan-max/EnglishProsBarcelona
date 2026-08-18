@@ -9,6 +9,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { sentenceLower } from "@/lib/text";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCategoryFaqs } from "@/lib/schema";
+import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -35,7 +36,6 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   // Show the first 3 openly; anything beyond that is a locked teaser until
   // the visitor submits contact info via the lead form (which then shows
   // the full, unfiltered list in its own success state).
-  const FREE_PREVIEW_LIMIT = 3;
   const visibleProfessionals = professionals.slice(0, FREE_PREVIEW_LIMIT);
   const lockedCount = Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
   const otherAreas = areas.filter((a) => a.slug !== area.slug);

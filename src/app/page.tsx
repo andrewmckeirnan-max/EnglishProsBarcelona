@@ -86,11 +86,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="container-page py-16">
+        <h2 className="text-2xl font-semibold mb-8 text-center">How it works</h2>
+        <div className="grid sm:grid-cols-3 gap-8">
+          {[
+            { step: "1", title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
+            { step: "2", title: "See real matches instantly", body: "We show your top vetted options right on the page, not a generic list, before you give us anything." },
+            { step: "3", title: "Unlock the full ranked list", body: "Add your WhatsApp and email to unlock every match with contact details, Google Maps links and a cost comparison." },
+          ].map((s) => (
+            <div key={s.step} className="text-center">
+              <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white font-bold">
+                {s.step}
+              </div>
+              <p className="font-semibold">{s.title}</p>
+              <p className="text-sm text-foreground/60 mt-1">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Culture strip */}
       <section className="container-page py-16">
         <h2 className="text-2xl font-semibold mb-1 text-center">Life in Barcelona</h2>
         <p className="text-foreground/60 mb-6 text-center max-w-xl mx-auto">
-          The city, the streets and the community you&apos;ll be part of, not just a list of clinics.
+          The city you&apos;ll actually be living in, beyond the clinics and law firms.
         </p>
         <div className="grid sm:grid-cols-3 gap-4">
           {cultureImages.map((img) => (
@@ -114,26 +134,6 @@ export default function Home() {
             Photo credits
           </Link>
         </p>
-      </section>
-
-      {/* How it works */}
-      <section className="container-page py-16">
-        <h2 className="text-2xl font-semibold mb-8 text-center">How it works</h2>
-        <div className="grid sm:grid-cols-3 gap-8">
-          {[
-            { step: "1", title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
-            { step: "2", title: "Get matched to your need", body: "Based on exactly what you told us, we show your top vetted options right on the page, not a generic list." },
-            { step: "3", title: "Get the full picture by email", body: "We send you the complete list too: contact details, Google Maps links and a ranked cost comparison, so you can decide with confidence." },
-          ].map((s) => (
-            <div key={s.step} className="text-center">
-              <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white font-bold">
-                {s.step}
-              </div>
-              <p className="font-semibold">{s.title}</p>
-              <p className="text-sm text-foreground/60 mt-1">{s.body}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Lead form */}

@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import { areas, visibleCategories, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { matchEnquiry } from "@/lib/match";
-import type { AreaSlug, CategorySlug } from "@/lib/types";
+import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
+import type { AreaSlug, CategorySlug, Professional } from "@/lib/types";
 import { businessWaLink } from "@/lib/whatsapp";
 import { sentenceLower } from "@/lib/text";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
@@ -17,6 +18,8 @@ interface LeadFormProps {
 
 type Urgency = "asap" | "this-week" | "flexible";
 
+type Screen = "describe" | "category" | "area" | "results" | "details" | "contact";
+
 const urgencyOptions: { value: Urgency; label: string }[] = [
   { value: "asap", label: "As soon as possible" },
   { value: "this-week", label: "This week" },
@@ -28,17 +31,20 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   // the service + area (i.e. the general homepage form, not a category
   // page where both are preset).
   const generalEntry = !defaultCategorySlug && !defaultAreaSlug;
+  // On a category page, real matches are already shown in the page itself
+  // right next to this form, so re-teasing them inside the form would just
+  // be a duplicate. Everywhere else (homepage, area page) the form is the
+  // only place results get shown, so it teases them before asking for
+  // contact details.
+  const bothPresetByPage = !!defaultCategorySlug && !!defaultAreaSlug;
 
-  const steps = useMemo(() => {
-    const s: string[] = [];
-    if (generalEntry) s.push("describe");
-    if (!defaultCategorySlug) s.push("category");
-    if (!defaultAreaSlug) s.push("area");
-    s.push("need", "urgency", "contact");
-    return s;
-  }, [defaultAreaSlug, defaultCategorySlug, generalEntry]);
-
-  const [stepIndex, setStepIndex] = useState(0);
+  const [screen, setScreen] = useState<Screen>(() => {
+    if (generalEntry) return "describe";
+    if (!defaultCategorySlug) return "category";
+    if (!defaultAreaSlug) return "area";
+    return "details";
+  });
+  const [history, setHistory] = useState<Screen[]>([]);
   const [describeText, setDescribeText] = useState("");
   const [categorySlug, setCategorySlug] = useState<CategorySlug | undefined>(defaultCategorySlug);
   const [areaSlug, setAreaSlug] = useState<AreaSlug | undefined>(defaultAreaSlug);
@@ -50,11 +56,48 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   const [notes, setNotes] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
 
-  const currentStep = steps[stepIndex];
   const selectedCategory = categorySlug ? getCategory(categorySlug) : undefined;
+  const matches: Professional[] = categorySlug && areaSlug ? getProfessionals(areaSlug, categorySlug) : [];
+  const teaseredMatches = matches.slice(0, FREE_PREVIEW_LIMIT);
+  const lockedCount = Math.max(matches.length - FREE_PREVIEW_LIMIT, 0);
 
-  function next() {
-    setStepIndex((i) => Math.min(i + 1, steps.length - 1));
+  // Roughly what screens this particular form instance can show, just for
+  // the progress dots, not the real navigation source of truth.
+  const progressScreens = useMemo(() => {
+    const s: Screen[] = [];
+    if (generalEntry) s.push("describe");
+    if (!defaultCategorySlug) s.push("category");
+    if (!defaultAreaSlug) s.push("area");
+    if (!bothPresetByPage) s.push("results");
+    s.push("details", "contact");
+    return s;
+  }, [generalEntry, defaultCategorySlug, defaultAreaSlug, bothPresetByPage]);
+
+  function goTo(next: Screen) {
+    setHistory((h) => [...h, screen]);
+    setScreen(next);
+  }
+
+  function goBack() {
+    setHistory((h) => {
+      if (h.length === 0) return h;
+      const copy = [...h];
+      const prev = copy.pop() as Screen;
+      setScreen(prev);
+      return copy;
+    });
+  }
+
+  // Once both category and area are known, decide what to show next: a
+  // results teaser if we have real listings to show off (and this form
+  // isn't sitting next to an identical list already), otherwise straight
+  // to qualifying details.
+  function afterCategoryAndArea(catSlug?: CategorySlug, arSlug?: AreaSlug) {
+    if (!catSlug) return goTo("category");
+    if (!arSlug) return goTo("area");
+    const found = getProfessionals(arSlug, catSlug);
+    if (!bothPresetByPage && found.length > 0) return goTo("results");
+    return goTo("details");
   }
 
   function handleDescribeSubmit() {
@@ -63,18 +106,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
     if (match.area) setAreaSlug(match.area.slug);
     if (match.need) setNeed(match.need);
     setNotes((prev) => prev || describeText);
-
-    // Jump to the first step (after "describe") whose value we couldn't
-    // confidently fill in, so the visitor only picks what the matcher
-    // actually missed.
-    const filled: Record<string, boolean> = {
-      category: !!match.category,
-      area: !!match.area,
-      need: !!match.need,
-    };
-    const rest = steps.slice(1);
-    const relativeIdx = rest.findIndex((s) => (s in filled ? !filled[s] : true));
-    setStepIndex(relativeIdx === -1 ? steps.length - 1 : relativeIdx + 1);
+    afterCategoryAndArea(match.category?.slug, match.area?.slug);
   }
 
   async function handleSubmit() {
@@ -106,23 +138,19 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   if (status === "done") {
     const area = areas.find((a) => a.slug === areaSlug);
     const category = categorySlug ? getCategory(categorySlug) : undefined;
-    const matches = areaSlug && categorySlug ? getProfessionals(areaSlug, categorySlug) : [];
     const waMessage = `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on Barcelona English Pros. My name is ${name || "..."}.`;
 
-    // We already have a real listing for this exact area + service, so hand it
-    // over immediately instead of making someone wait on a "we'll be in
-    // touch" promise when the answer is sitting right here.
     if (matches.length > 0) {
       return (
         <div className="rounded-2xl border border-border bg-surface p-6">
           <div className="text-center mb-5">
             <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
-              ✅
+              🔓
             </div>
-            <h3 className="text-lg font-semibold mb-1">Good news, no waiting needed</h3>
+            <h3 className="text-lg font-semibold mb-1">Unlocked, here&apos;s your full list</h3>
             <p className="text-sm text-foreground/70">
-              Here&apos;s your full vetted list for {area?.name ?? "your area"}. We&apos;ve also just emailed
-              it to {email || "you"} so you don&apos;t lose it. Contact whichever one fits best, directly:
+              We&apos;ve also emailed a copy to {email || "you"} so you don&apos;t lose it. Contact whichever
+              one fits best, directly:
             </p>
           </div>
           <div className="flex flex-col gap-3">
@@ -158,28 +186,31 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   }
 
   const skipWaMessage = `Hi! I'm looking for ${selectedCategory ? sentenceLower(selectedCategory.pluralName) : "an English-speaking professional"}${areaSlug ? ` in ${areas.find((a) => a.slug === areaSlug)?.name}` : ""} in Barcelona.`;
+  const progressIndex = Math.max(progressScreens.indexOf(screen), 0);
 
   return (
     <div className={`rounded-2xl border border-border bg-surface shadow-sm ${compact ? "p-5" : "p-6 sm:p-8"}`}>
       <div className="flex items-center gap-1.5 mb-4">
-        {steps.map((s, i) => (
+        {progressScreens.map((s, i) => (
           <div
             key={s}
-            className={`h-1.5 flex-1 rounded-full transition-colors ${i <= stepIndex ? "bg-brand" : "bg-border"}`}
+            className={`h-1.5 flex-1 rounded-full transition-colors ${i <= progressIndex ? "bg-brand" : "bg-border"}`}
           />
         ))}
       </div>
 
-      <a
-        href={businessWaLink(skipWaMessage)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#25D366] hover:underline mb-5"
-      >
-        Or skip the form, WhatsApp us directly →
-      </a>
+      {screen !== "results" && (
+        <a
+          href={businessWaLink(skipWaMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#25D366] hover:underline mb-5"
+        >
+          Or skip the form, WhatsApp us directly →
+        </a>
+      )}
 
-      {currentStep === "describe" && (
+      {screen === "describe" && (
         <div>
           <h3 className="text-lg font-semibold mb-1">Describe what you need</h3>
           <p className="text-sm text-foreground/60 mb-4">
@@ -199,10 +230,10 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             disabled={!describeText.trim()}
             className="mt-3 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition disabled:opacity-40"
           >
-            Match me
+            Show me matches
           </button>
           <button
-            onClick={() => setStepIndex(1)}
+            onClick={() => goTo("category")}
             className="mt-2 w-full text-center text-sm text-foreground/50 hover:text-foreground"
           >
             Or choose manually instead
@@ -210,7 +241,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         </div>
       )}
 
-      {currentStep === "category" && (
+      {screen === "category" && (
         <div>
           <h3 className="text-lg font-semibold mb-4">What do you need help finding?</h3>
           <div className="grid grid-cols-2 gap-2">
@@ -219,7 +250,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
                 key={c.slug}
                 onClick={() => {
                   setCategorySlug(c.slug);
-                  next();
+                  afterCategoryAndArea(c.slug, areaSlug);
                 }}
                 className={`flex items-center gap-2 rounded-xl border px-3 py-3 text-left text-sm hover:border-brand hover:bg-brand-light transition ${
                   categorySlug === c.slug ? "border-brand bg-brand-light" : "border-border"
@@ -233,7 +264,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         </div>
       )}
 
-      {currentStep === "area" && (
+      {screen === "area" && (
         <div>
           <h3 className="text-lg font-semibold mb-4">Which area of Barcelona?</h3>
           <div className="grid grid-cols-2 gap-2">
@@ -242,7 +273,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
                 key={a.slug}
                 onClick={() => {
                   setAreaSlug(a.slug);
-                  next();
+                  afterCategoryAndArea(categorySlug, a.slug);
                 }}
                 className={`rounded-xl border px-3 py-3 text-left text-sm hover:border-brand hover:bg-brand-light transition ${
                   areaSlug === a.slug ? "border-brand bg-brand-light" : "border-border"
@@ -255,63 +286,97 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         </div>
       )}
 
-      {currentStep === "need" && (
+      {screen === "results" && (
         <div>
-          <h3 className="text-lg font-semibold mb-4">
-            What do you need for your {selectedCategory ? sentenceLower(selectedCategory.name) : "appointment"}?
+          <h3 className="text-lg font-semibold mb-1">
+            {matches.length} match{matches.length === 1 ? "" : "es"} found near {areas.find((a) => a.slug === areaSlug)?.name}
           </h3>
-          <div className="flex flex-col gap-2">
-            {(selectedCategory?.needOptions ?? ["Other"]).map((n) => (
-              <button
-                key={n}
-                onClick={() => {
-                  setNeed(n);
-                  next();
-                }}
-                className={`rounded-xl border px-4 py-3 text-left text-sm hover:border-brand hover:bg-brand-light transition ${
-                  need === n ? "border-brand bg-brand-light" : "border-border"
-                }`}
-              >
-                {n}
-              </button>
+          <p className="text-sm text-foreground/60 mb-4">
+            {lockedCount > 0
+              ? `Here are ${teaseredMatches.length}, real and verified. Add your details to unlock the other ${lockedCount}, ranked with contact details.`
+              : "Real and verified. Add your details and we'll connect you directly, plus keep a copy in your inbox."}
+          </p>
+          <div className="flex flex-col gap-3">
+            {teaseredMatches.map((p) => (
+              <ProfessionalCard key={p.id} professional={p} />
             ))}
+            {lockedCount > 0 && (
+              <div className="rounded-xl border border-dashed border-border bg-surface-muted p-4 text-center">
+                <p className="text-sm font-medium">🔒 {lockedCount} more matched nearby</p>
+              </div>
+            )}
           </div>
+          <button
+            onClick={() => goTo("details")}
+            className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition"
+          >
+            {lockedCount > 0 ? `Unlock all ${matches.length}` : "Get connected"}
+          </button>
         </div>
       )}
 
-      {currentStep === "urgency" && (
+      {screen === "details" && (
         <div>
-          <h3 className="text-lg font-semibold mb-4">How soon do you need an appointment?</h3>
-          <div className="flex flex-col gap-2">
-            {urgencyOptions.map((u) => (
-              <button
-                key={u.value}
-                onClick={() => {
-                  setUrgency(u.value);
-                  next();
-                }}
-                className={`rounded-xl border px-4 py-3 text-left text-sm hover:border-brand hover:bg-brand-light transition ${
-                  urgency === u.value ? "border-brand bg-brand-light" : "border-border"
-                }`}
-              >
-                {u.label}
-              </button>
-            ))}
+          <h3 className="text-lg font-semibold mb-4">A couple of quick details</h3>
+          {(selectedCategory?.needOptions?.length ?? 0) > 0 && (
+            <div className="mb-5">
+              <p className="text-sm font-medium mb-2">
+                What do you need for your {selectedCategory ? sentenceLower(selectedCategory.name) : "appointment"}?
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {(selectedCategory?.needOptions ?? []).map((n) => (
+                  <button
+                    key={n}
+                    onClick={() => setNeed(n)}
+                    className={`rounded-full border px-3 py-1.5 text-sm hover:border-brand hover:bg-brand-light transition ${
+                      need === n ? "border-brand bg-brand-light" : "border-border"
+                    }`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          <div>
+            <p className="text-sm font-medium mb-2">How soon do you need an appointment?</p>
+            <div className="flex flex-col gap-2">
+              {urgencyOptions.map((u) => (
+                <button
+                  key={u.value}
+                  onClick={() => setUrgency(u.value)}
+                  className={`rounded-xl border px-4 py-3 text-left text-sm hover:border-brand hover:bg-brand-light transition ${
+                    urgency === u.value ? "border-brand bg-brand-light" : "border-border"
+                  }`}
+                >
+                  {u.label}
+                </button>
+              ))}
+            </div>
           </div>
+          <button
+            onClick={() => goTo("contact")}
+            disabled={!urgency}
+            className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition disabled:opacity-40"
+          >
+            Continue
+          </button>
         </div>
       )}
 
-      {currentStep === "contact" && (
+      {screen === "contact" && (
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
           }}
         >
-          <h3 className="text-lg font-semibold mb-1">Where should we send your match?</h3>
+          <h3 className="text-lg font-semibold mb-1">
+            {matches.length > 0 ? "Where should we send the full list?" : "Where should we send your match?"}
+          </h3>
           <p className="text-sm text-foreground/60 mb-4">
-            We&apos;ll show you the top vetted options right here, plus email you the full list. WhatsApp&apos;s
-            for anything else we need to check with you, email means it reaches you either way.
+            WhatsApp&apos;s the fast lane, we&apos;ll follow up there first. Email&apos;s required as a
+            backup so you never lose your match if you miss a message.
           </p>
           <div className="flex flex-col gap-3">
             <input
@@ -353,7 +418,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             disabled={status === "submitting"}
             className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition disabled:opacity-60"
           >
-            {status === "submitting" ? "Sending..." : "Find my match"}
+            {status === "submitting" ? "Sending..." : matches.length > 0 ? "Unlock my full list" : "Find my match"}
           </button>
           <p className="text-xs text-foreground/50 mt-3 text-center">
             Free, always, for the Barcelona English-speaking community. We&apos;re paid by
@@ -363,11 +428,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         </form>
       )}
 
-      {stepIndex > 0 && (
-        <button
-          onClick={() => setStepIndex((i) => Math.max(i - 1, 0))}
-          className="mt-4 text-sm text-foreground/50 hover:text-foreground"
-        >
+      {history.length > 0 && (
+        <button onClick={goBack} className="mt-4 text-sm text-foreground/50 hover:text-foreground">
           ← Back
         </button>
       )}
