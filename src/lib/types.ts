@@ -14,7 +14,13 @@ export type CategorySlug =
   | "veterinarian"
   | "lasik"
   | "fertility-clinic"
-  | "plastic-surgeon";
+  | "plastic-surgeon"
+  | "obgyn-midwife"
+  | "pediatrician"
+  | "osteopath"
+  | "autonomo-accountant"
+  | "business-lawyer"
+  | "sworn-translator";
 
 export type AreaSlug =
   | "poblenou"
