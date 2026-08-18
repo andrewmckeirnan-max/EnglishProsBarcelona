@@ -1277,6 +1277,18 @@ export const professionals: Professional[] = [
     addressArea: "Carrer de Salvador Mundí, Sarrià",
     ratingLabel: "4.7 (206 reviews) on Google Maps",
   },
+  {
+    id: "les-corts-dentist-milenium-diagonal",
+    name: "Clínica Dental Milenium Diagonal",
+    categorySlug: "dentist",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General dentistry"],
+    languages: ["English", "Spanish"],
+    addressArea: "Avinguda Diagonal, near Les Corts",
+    ratingLabel: "4.7 (369 reviews) on Google Maps",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
