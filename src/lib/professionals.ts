@@ -1132,6 +1132,30 @@ export const professionals: Professional[] = [
     addressArea: "Torre Mapfre, Carrer de la Marina, Vila Olímpica",
     ratingLabel: "4.8 (117 reviews) on Google Maps",
   },
+  {
+    id: "poblenou-chiropractor-lifechiropractic",
+    name: "LifeChiropractic Poblenou",
+    categorySlug: "chiropractor",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Chiropractic care"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer del Laberint, Poblenou",
+    ratingLabel: "5.0 (106 reviews) on Google Maps",
+  },
+  {
+    id: "poblenou-osteopath-noumar",
+    name: "Noumar Osteopatia",
+    categorySlug: "osteopath",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Osteopathy", "Physiotherapy"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de Pujades, Poblenou",
+    ratingLabel: "5.0 (211 reviews) on Google Maps",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
