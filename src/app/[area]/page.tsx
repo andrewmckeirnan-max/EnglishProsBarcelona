@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { areas, visibleCategories, getArea } from "@/lib/data";
 import { LeadForm } from "@/components/LeadForm";
@@ -25,13 +26,30 @@ export default async function AreaPage(props: PageProps<"/[area]">) {
 
   return (
     <div>
-      <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
-        <div className="container-page py-14 sm:py-20 text-center">
-          <p className="text-sm font-semibold text-brand mb-2">{area.district} district</p>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight max-w-2xl mx-auto text-balance">
-            English-speaking professionals in {area.name}
-          </h1>
-          <p className="mt-4 text-foreground/70 max-w-xl mx-auto">{area.blurb}</p>
+      <section className="border-b border-border">
+        <div className="relative aspect-[16/7] sm:aspect-[3/1] overflow-hidden">
+          <Image
+            src={area.image}
+            alt={`${area.name}, Barcelona`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="container-page pb-5 sm:pb-8">
+              <p className="text-sm font-semibold text-white/90 mb-1">{area.district} district</p>
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white max-w-2xl text-balance">
+                English-speaking professionals in {area.name}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div className="bg-gradient-to-b from-brand-light to-background">
+          <div className="container-page py-8 sm:py-10 text-center">
+            <p className="text-foreground/70 max-w-xl mx-auto">{area.blurb}</p>
+          </div>
         </div>
       </section>
 

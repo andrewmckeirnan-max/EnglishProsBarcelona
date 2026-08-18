@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SearchBar } from "@/components/SearchBar";
 import { LeadForm } from "@/components/LeadForm";
 import { areas, visibleCategories } from "@/lib/data";
@@ -56,14 +57,32 @@ export default function Home() {
               <Link
                 key={a.slug}
                 href={`/${a.slug}`}
-                className="rounded-2xl border border-border bg-surface p-5 hover:border-brand hover:shadow-md transition"
+                className="group rounded-2xl border border-border bg-surface overflow-hidden hover:border-brand hover:shadow-md transition"
               >
-                <p className="font-semibold">{a.name}</p>
-                <p className="text-xs text-foreground/50 mb-2">{a.district} district</p>
-                <p className="text-sm text-foreground/70">{a.blurb}</p>
+                <div className="relative aspect-[4/3] overflow-hidden bg-surface-muted">
+                  <Image
+                    src={a.image}
+                    alt={`${a.name}, Barcelona`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent" />
+                </div>
+                <div className="p-5">
+                  <p className="font-semibold">{a.name}</p>
+                  <p className="text-xs text-foreground/50 mb-2">{a.district} district</p>
+                  <p className="text-sm text-foreground/70 line-clamp-3">{a.blurb}</p>
+                </div>
               </Link>
             ))}
           </div>
+          <p className="text-xs text-foreground/40 mt-4">
+            Neighbourhood photos via Wikimedia Commons.{" "}
+            <Link href="/about#photo-credits" className="underline hover:text-foreground/60">
+              Photo credits
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -72,9 +91,9 @@ export default function Home() {
         <h2 className="text-2xl font-semibold mb-8 text-center">How it works</h2>
         <div className="grid sm:grid-cols-3 gap-8">
           {[
-            { step: "1", title: "Tell us what you need", body: "Pick a service, your area, and how soon you need an appointment." },
-            { step: "2", title: "We match you", body: "We connect you with a vetted English-speaking professional nearby." },
-            { step: "3", title: "You get in touch", body: "Already have a match on your page? Contact them instantly. Otherwise we personally check availability and follow up on WhatsApp today." },
+            { step: "1", title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
+            { step: "2", title: "Get matched to your need", body: "Based on exactly what you told us, we show your top vetted options right on the page, not a generic list." },
+            { step: "3", title: "Get the full picture by email", body: "We send you the complete list too: contact details, Google Maps links and a ranked cost comparison, so you can decide with confidence." },
           ].map((s) => (
             <div key={s.step} className="text-center">
               <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white font-bold">

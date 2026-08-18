@@ -3,6 +3,7 @@ import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
+import { googleMapsSearchUrl } from "@/lib/maps";
 import type { LeadPayload } from "@/lib/types";
 
 // -----------------------------------------------------------------------
@@ -69,18 +70,35 @@ async function sendMatchEmailToVisitor(lead: LeadPayload) {
     return;
   }
 
+  // Ranked (partners first, per getProfessionals) with everything the
+  // on-page cards intentionally leave out: a Maps link and, only where
+  // we've actually verified pricing, a cost comparison. `priceRange` is
+  // unset for most listings today, we don't guess at prices we haven't
+  // confirmed, so those rows just omit that line rather than show a
+  // fabricated figure.
   const listText = matches
-    .map((p, i) => `${i + 1}. ${p.name} — ${p.specialties.join(", ")}${p.bookingUrl ? `\n   ${p.bookingUrl}` : ""}`)
+    .map((p, i) => {
+      const lines = [
+        `${i + 1}. ${p.name}`,
+        `   ${p.specialties.join(", ")}`,
+        p.priceRange ? `   Price: ${p.priceRange}` : undefined,
+        `   Speaks: ${p.languages.join(", ")}`,
+        `   Map: ${googleMapsSearchUrl(p)}`,
+        p.bookingUrl ? `   Website: ${p.bookingUrl}` : undefined,
+        p.phoneDisplay ? `   Phone: ${p.phoneDisplay}` : undefined,
+      ];
+      return lines.filter(Boolean).join("\n");
+    })
     .join("\n\n");
 
   const text = [
     `Hi ${lead.name},`,
     ``,
-    `Here's your vetted list of English-speaking ${category?.pluralName ?? "professionals"} in ${area?.name ?? "your area"}:`,
+    `Here's your ranked, vetted list of English-speaking ${category?.pluralName ?? "professionals"} in ${area?.name ?? "your area"}:`,
     ``,
     listText,
     ``,
-    `No cost to you — reach out to whichever one fits best. Reply to this email or message us on WhatsApp if you'd like help choosing.`,
+    `No cost to you, reach out to whichever one fits best. Reply to this email or message us on WhatsApp if you'd like help choosing.`,
   ].join("\n");
 
   await fetch("https://api.resend.com/emails", {

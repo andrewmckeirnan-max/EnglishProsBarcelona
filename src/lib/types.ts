@@ -57,6 +57,12 @@ export interface Area {
   name: string; // e.g. "Poblenou"
   district: string; // official district, e.g. "Sant Martí"
   blurb: string;
+  image: string; // path under /public, e.g. "/images/areas/poblenou.jpg"
+  imageCredit: {
+    photographer: string;
+    license: string; // e.g. "CC BY-SA 4.0", "Public domain"
+    sourceUrl: string; // Wikimedia Commons file page
+  };
 }
 
 export interface Professional {
@@ -73,6 +79,10 @@ export interface Professional {
   whatsappNumber?: string; // E.164 format, only set for verified partners
   bookingUrl?: string;
   ratingLabel?: string; // qualitative only until we have a verified review source
+  /** €-€€€€€ price tier, only when we've actually verified pricing, e.g. from
+   * the professional's own published rates. Left unset otherwise, an
+   * unverified guess is worse than no price shown at all. */
+  priceRange?: string;
 }
 
 export interface LeadPayload {

@@ -13,6 +13,12 @@ export const areas: Area[] = [
     district: "Eixample",
     blurb:
       "Barcelona's grand 19th-century grid: wide boulevards, Gaudí landmarks like Casa Batlló and La Pedrera, and the city's business and shopping core. Home to the largest international community in Barcelona.",
+    image: "/images/areas/eixample.jpg",
+    imageCredit: {
+      photographer: "Alhzeiia",
+      license: "CC BY-SA 2.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Eixample_aire_cropped.jpg",
+    },
   },
   {
     slug: "poblenou",
@@ -20,6 +26,12 @@ export const areas: Area[] = [
     district: "Sant Martí",
     blurb:
       "A former industrial district turned tech and creative hub, loft-style buildings, beachfront promenade, and a young international crowd. Right on the coast in Sant Martí.",
+    image: "/images/areas/poblenou.jpg",
+    imageCredit: {
+      photographer: "Manuellebron",
+      license: "Public domain",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:PereIV-HabitatSky.jpg",
+    },
   },
   {
     slug: "sarria-sant-gervasi",
@@ -27,6 +39,12 @@ export const areas: Area[] = [
     district: "Sarrià-Sant Gervasi",
     blurb:
       "Leafy, upscale and quiet, Barcelona's most established residential district for international families, close to several of the city's international schools.",
+    image: "/images/areas/sarria.jpg",
+    imageCredit: {
+      photographer: "Unknown, via Wikimedia Commons",
+      license: "CC BY-SA 3.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Sarria_Seu_Districte.JPG",
+    },
   },
   {
     slug: "les-corts",
@@ -34,6 +52,12 @@ export const areas: Area[] = [
     district: "Les Corts",
     blurb:
       "A calm, residential district best known as home to Camp Nou, popular with international families who want good schools and private healthcare close by.",
+    image: "/images/areas/les-corts.jpg",
+    imageCredit: {
+      photographer: "Fish-guts",
+      license: "CC0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Camp_nou_2010.jpg",
+    },
   },
   {
     slug: "diagonal-mar",
@@ -41,6 +65,12 @@ export const areas: Area[] = [
     district: "Sant Martí",
     blurb:
       "Barcelona's modern beachfront district: marina views, high-rise apartments and the 1992 Olympic waterfront. One of the city's most international, sea-view neighbourhoods.",
+    image: "/images/areas/diagonal-mar.jpg",
+    imageCredit: {
+      photographer: "Amadalvarez",
+      license: "CC BY 3.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:BCN-ParcForum-4923.jpg",
+    },
   },
   {
     slug: "gracia",
@@ -48,6 +78,12 @@ export const areas: Area[] = [
     district: "Gràcia",
     blurb:
       "A bohemian, village-like neighbourhood of small squares, independent shops and a strong café culture, home to one of Barcelona's largest European communities.",
+    image: "/images/areas/gracia.jpg",
+    imageCredit: {
+      photographer: "Txllxt TxllxT",
+      license: "CC BY-SA 4.0",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Barcelona_-_Carrer_Gran_de_Gr%C3%A0cia_-_View_SE.jpg",
+    },
   },
 ];
 
