@@ -19,13 +19,13 @@ export function Header() {
             <button className="px-3 py-2 rounded-lg hover:bg-surface-muted font-medium">
               Services
             </button>
-            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition absolute left-0 top-full pt-2 w-64">
-              <div className="rounded-xl border border-border bg-surface shadow-lg p-2">
+            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition absolute left-0 top-full pt-2 w-[420px]">
+              <div className="rounded-xl border border-border bg-surface shadow-lg p-2 max-h-[75vh] overflow-y-auto grid grid-cols-2 gap-0.5">
                 {visibleCategories.map((c) => (
                   <Link
                     key={c.slug}
                     href={`/eixample/${c.slug}`}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-muted"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-muted text-sm"
                   >
                     <span>{c.icon}</span>
                     <span>{c.pluralName}</span>
@@ -39,7 +39,7 @@ export function Header() {
               Areas
             </button>
             <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition absolute left-0 top-full pt-2 w-56">
-              <div className="rounded-xl border border-border bg-surface shadow-lg p-2">
+              <div className="rounded-xl border border-border bg-surface shadow-lg p-2 max-h-[75vh] overflow-y-auto">
                 {areas.map((a) => (
                   <Link
                     key={a.slug}
