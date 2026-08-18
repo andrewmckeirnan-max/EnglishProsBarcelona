@@ -5,24 +5,6 @@ progress or need your sign-off. I'll keep this updated as things resolve or
 new items come up, check it whenever you're wondering "what's left."
 
 ## Blocking / needs your action
-
-- [ ] **Database (leads storage)** — this is the most important one right
-      now. Leads currently write to a local file (`data/leads.jsonl`), which
-      does **not** persist once deployed (Vercel's filesystem is read-only
-      outside `/tmp`) — every lead would be lost. Fix:
-      1. Create a free Postgres database. Easiest options that work cleanly
-         with Vercel: [Neon](https://neon.tech) or
-         [Supabase](https://supabase.com) — either just needs you to sign
-         up and create a project, I can't do that step for you.
-      2. Copy the connection string it gives you (starts with
-         `postgres://...`).
-      3. Set it as `DATABASE_URL` in your environment (`.env.local` for
-         local dev, Vercel's Environment Variables settings for
-         production).
-      4. That's it — the table creates itself on first use (see
-         `src/lib/db.ts`), no migration step needed. `/admin/leads` will
-         show a green "Live database" badge instead of the amber
-         "Local file only" one once it's connected.
 - [ ] **Resend account (email notifications)** — right now, submitting the
       form does nothing visible to you: no email, no notification,
       nothing. Fix:
@@ -95,6 +77,19 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Resolved
 
+- [x] **Database (leads storage)** — connected to your Supabase project via
+      the Session pooler connection string (`.env.local`, gitignored, not
+      in the repo). Verified live: a test submission showed up in
+      `/admin/leads` with the green "Live database" badge. Note: the
+      direct connection (`db.xxx.supabase.co`) doesn't work from this dev
+      environment (IPv6-only, `ENOTFOUND`) — the Session pooler
+      (`aws-1-eu-west-1.pooler.supabase.com`) is what's actually
+      configured and working. When you set `DATABASE_URL` in Vercel for
+      production, use the same pooler string (or the Transaction pooler,
+      Supabase's recommendation for serverless).
+      One test lead ("Supabase Pooler Test") is sitting in the table from
+      verification — fine to delete anytime via Supabase's Table Editor,
+      it's not a real lead.
 - [x] Property & Mortgage Advisor category, paused per your instruction
       (soft-hidden, data intact, one-line flip to bring back).
 - [x] WhatsApp + email now both required on the lead form.
