@@ -62,7 +62,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           need,
           urgency: urgency || "flexible",
           name,
-          email: email.trim() || undefined,
+          email,
           whatsapp,
           notes,
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
@@ -249,9 +249,9 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             handleSubmit();
           }}
         >
-          <h3 className="text-lg font-semibold mb-1">Where should we WhatsApp your match?</h3>
+          <h3 className="text-lg font-semibold mb-1">Where should we send your match?</h3>
           <p className="text-sm text-foreground/60 mb-4">
-            WhatsApp is all we need — email below is optional, just for your records.
+            We need both — WhatsApp is fast, email means we can still reach you if WhatsApp doesn&apos;t work out.
           </p>
           <div className="flex flex-col gap-3">
             <input
@@ -266,14 +266,15 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               type="tel"
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
-              placeholder="WhatsApp number (e.g. +34 6XX XXX XXX)"
+              placeholder="WhatsApp or phone number (e.g. +34 6XX XXX XXX)"
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
             />
             <input
+              required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email (optional)"
+              placeholder="Email"
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
             />
             <textarea

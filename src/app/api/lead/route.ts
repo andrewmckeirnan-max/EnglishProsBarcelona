@@ -57,7 +57,7 @@ function formatLeadText(lead: LeadPayload): string {
     `Urgency: ${lead.urgency}`,
     `Name: ${lead.name}`,
     `WhatsApp: ${lead.whatsapp}`,
-    lead.email ? `Email: ${lead.email}` : undefined,
+    `Email: ${lead.email}`,
     lead.notes ? `Notes: ${lead.notes}` : undefined,
     `Page: ${lead.pageUrl}`,
   ]
@@ -75,9 +75,10 @@ function isValidLead(body: unknown): body is LeadPayload {
     b.name.trim().length > 0 &&
     typeof b.whatsapp === "string" &&
     b.whatsapp.trim().length >= 6 &&
-    // email is optional — WhatsApp is the required contact channel — but if
-    // one is provided it should at least look like an email
-    (b.email === undefined || (typeof b.email === "string" && b.email.includes("@")))
+    // both required: WhatsApp is fast, email is the fallback when someone
+    // doesn't have/use WhatsApp, so we need a way to reach them either way
+    typeof b.email === "string" &&
+    b.email.includes("@")
   );
 }
 

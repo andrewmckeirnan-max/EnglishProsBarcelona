@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { areas, visibleCategories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
-import { ProfessionalCard } from "@/components/ProfessionalCard";
+import { ProfessionalCard, LockedProfessionalCard } from "@/components/ProfessionalCard";
 import { LeadForm } from "@/components/LeadForm";
 import { sentenceLower } from "@/lib/text";
 
@@ -29,6 +29,12 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   if (!area || !category || category.hidden) notFound();
 
   const professionals = getProfessionals(area.slug, category.slug);
+  // Show the first 3 openly; anything beyond that is a locked teaser until
+  // the visitor submits contact info via the lead form (which then shows
+  // the full, unfiltered list in its own success state).
+  const FREE_PREVIEW_LIMIT = 3;
+  const visibleProfessionals = professionals.slice(0, FREE_PREVIEW_LIMIT);
+  const lockedCount = Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
   const otherAreas = areas.filter((a) => a.slug !== area.slug);
   const otherCategories = visibleCategories.filter((c) => c.slug !== category.slug).slice(0, 6);
 
@@ -70,7 +76,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
               </div>
             </div>
 
-            <div className="lg:sticky lg:top-24">
+            <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
               <LeadForm defaultAreaSlug={area.slug} defaultCategorySlug={category.slug} />
             </div>
           </div>
@@ -85,13 +91,18 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
         {professionals.length > 0 ? (
           <>
             <p className="text-sm text-foreground/60 mb-6">
-              {professionals.some((p) => p.isPartner)
-                ? "Our featured partner, plus other English-speaking options we found nearby."
-                : "English-speaking options we found nearby. None of these are paying partners yet — this is an independent, informational list."}
+              {lockedCount > 0
+                ? `Showing ${visibleProfessionals.length} of ${professionals.length}. Tell us what you need to unlock the full ranked list.`
+                : professionals.some((p) => p.isPartner)
+                  ? "Our featured partner, plus other English-speaking options we found nearby."
+                  : "English-speaking options we found nearby. None of these are paying partners yet — this is an independent, informational list."}
             </p>
             <div className="flex flex-col gap-4">
-              {professionals.map((p) => (
+              {visibleProfessionals.map((p) => (
                 <ProfessionalCard key={p.id} professional={p} />
+              ))}
+              {Array.from({ length: lockedCount }).map((_, i) => (
+                <LockedProfessionalCard key={`locked-${i}`} />
               ))}
             </div>
           </>

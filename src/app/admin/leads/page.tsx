@@ -64,7 +64,7 @@ export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
                   <td className="px-4 py-3">{lead.name}</td>
                   <td className="px-4 py-3">
                     <div>{lead.whatsapp}</div>
-                    <div className="text-foreground/50">{lead.email || "—"}</div>
+                    <div className="text-foreground/50">{lead.email}</div>
                   </td>
                 </tr>
               ))}
