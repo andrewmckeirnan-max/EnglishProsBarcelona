@@ -1,11 +1,15 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getArea, getCategory } from "@/lib/data";
+import { isDatabaseConfigured, listLeads } from "@/lib/db";
 import type { LeadPayload } from "@/lib/types";
 
-// Minimal internal viewer for locally-stored leads (dev use only, see the
-// storage note in src/app/api/lead/route.ts). Gated by a shared secret query
-// param so it isn't wide open; replace with real auth before deploying.
+type ViewLead = LeadPayload & { receivedAt: string };
+
+// Internal leads viewer. Reads from the real database when DATABASE_URL is
+// set (see src/lib/db.ts); otherwise falls back to the local JSONL file,
+// which only ever has data in local dev. Gated by a shared secret query
+// param — replace with real auth before this is a production admin tool.
 export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
   const searchParams = await props.searchParams;
   const secret = process.env.ADMIN_SECRET;
@@ -22,21 +26,48 @@ export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
     );
   }
 
-  let leads: (LeadPayload & { receivedAt: string })[] = [];
-  try {
-    const raw = await readFile(path.join(process.cwd(), "data", "leads.jsonl"), "utf8");
-    leads = raw
-      .split("\n")
-      .filter(Boolean)
-      .map((line) => JSON.parse(line))
-      .reverse();
-  } catch {
-    leads = [];
+  const usingDatabase = isDatabaseConfigured();
+  let leads: ViewLead[] = [];
+
+  if (usingDatabase) {
+    const rows = await listLeads();
+    leads = rows.map((r) => ({
+      areaSlug: r.areaSlug as ViewLead["areaSlug"],
+      categorySlug: r.categorySlug as ViewLead["categorySlug"],
+      need: r.need ?? "",
+      urgency: (r.urgency ?? "flexible") as ViewLead["urgency"],
+      name: r.name,
+      whatsapp: r.whatsapp,
+      email: r.email,
+      notes: r.notes ?? undefined,
+      pageUrl: r.pageUrl ?? "",
+      receivedAt: r.receivedAt,
+    }));
+  } else {
+    try {
+      const raw = await readFile(path.join(process.cwd(), "data", "leads.jsonl"), "utf8");
+      leads = raw
+        .split("\n")
+        .filter(Boolean)
+        .map((line) => JSON.parse(line))
+        .reverse();
+    } catch {
+      leads = [];
+    }
   }
 
   return (
     <div className="container-page py-12">
-      <h1 className="text-2xl font-semibold mb-6">Leads ({leads.length})</h1>
+      <div className="flex items-center gap-3 mb-6">
+        <h1 className="text-2xl font-semibold">Leads ({leads.length})</h1>
+        <span
+          className={`text-xs font-medium px-2 py-1 rounded-full ${
+            usingDatabase ? "bg-green-50 text-green-700" : "bg-amber-50 text-amber-700"
+          }`}
+        >
+          {usingDatabase ? "Live database" : "Local file only (not production-durable)"}
+        </span>
+      </div>
       {leads.length === 0 ? (
         <p className="text-foreground/60">No leads yet.</p>
       ) : (
@@ -60,7 +91,13 @@ export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
                   <td className="px-4 py-3">{getCategory(lead.categorySlug)?.name ?? lead.categorySlug}</td>
                   <td className="px-4 py-3">{getArea(lead.areaSlug)?.name ?? lead.areaSlug}</td>
                   <td className="px-4 py-3">{lead.need}</td>
-                  <td className="px-4 py-3">{lead.urgency}</td>
+                  <td className="px-4 py-3">
+                    {lead.urgency === "asap" ? (
+                      <span className="text-red-600 font-semibold">🔥 ASAP</span>
+                    ) : (
+                      lead.urgency
+                    )}
+                  </td>
                   <td className="px-4 py-3">{lead.name}</td>
                   <td className="px-4 py-3">
                     <div>{lead.whatsapp}</div>

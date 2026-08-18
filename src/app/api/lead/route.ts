@@ -4,21 +4,32 @@ import path from "node:path";
 import { getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { googleMapsSearchUrl } from "@/lib/maps";
+import { insertLead, isDatabaseConfigured } from "@/lib/db";
 import type { LeadPayload } from "@/lib/types";
 
 // -----------------------------------------------------------------------
-// Storage: local JSON-lines file for development. This does NOT persist on
-// most serverless hosts (e.g. Vercel's filesystem is read-only outside
-// /tmp) — before going live, swap `saveLead` for a real store (Postgres,
-// Supabase, Airtable) and wire `notifyEmail`/`notifyWhatsApp` up to actual
-// providers (e.g. Resend, Twilio/WhatsApp Business API).
+// Storage: a real Postgres table (see src/lib/db.ts) when DATABASE_URL is
+// set, which is required before this is live — Vercel's filesystem is
+// read-only outside /tmp, so the JSONL fallback below only works for local
+// dev without a database configured yet. Wire notifyEmail/sendMatchEmail
+// up to a real Resend account (RESEND_API_KEY) before relying on either.
 // -----------------------------------------------------------------------
 
 const LEADS_FILE = path.join(process.cwd(), "data", "leads.jsonl");
 
-async function saveLead(lead: LeadPayload & { receivedAt: string }) {
+async function saveLeadToFile(lead: LeadPayload & { receivedAt: string }) {
   await mkdir(path.dirname(LEADS_FILE), { recursive: true });
   await appendFile(LEADS_FILE, JSON.stringify(lead) + "\n", "utf8");
+}
+
+async function saveLead(lead: LeadPayload & { receivedAt: string }) {
+  if (isDatabaseConfigured()) {
+    await insertLead(lead);
+    return;
+  }
+  // No DATABASE_URL — local-dev-only fallback, does not persist on a real
+  // deployment. See src/lib/db.ts and CHECKLIST.md for setup.
+  await saveLeadToFile(lead);
 }
 
 async function notifyEmail(lead: LeadPayload) {
@@ -31,6 +42,10 @@ async function notifyEmail(lead: LeadPayload) {
     console.log("[lead] Email notification skipped — RESEND_API_KEY / LEAD_NOTIFICATION_EMAIL not set.");
     return;
   }
+  // ASAP leads are worth more, both to you and to whoever you route them
+  // to, so they're flagged right in the subject rather than buried in the
+  // body where a quick inbox glance would miss them.
+  const urgencyFlag = lead.urgency === "asap" ? "🔥 ASAP — " : "";
   // Example using Resend's HTTP API directly (no SDK dependency required):
   await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -41,7 +56,7 @@ async function notifyEmail(lead: LeadPayload) {
     body: JSON.stringify({
       from: process.env.LEAD_FROM_EMAIL || "leads@barcelonaenglishpros.com",
       to,
-      subject: `New lead: ${lead.categorySlug} in ${lead.areaSlug}`,
+      subject: `${urgencyFlag}New lead: ${lead.categorySlug} in ${lead.areaSlug}`,
       text: formatLeadText(lead),
     }),
   }).catch((err) => console.error("[lead] Email send failed:", err));
@@ -159,6 +174,14 @@ export async function POST(request: NextRequest) {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  // Honeypot: real visitors never see or fill this field. A filled value
+  // means a bot submitted the form. Return success so the bot doesn't learn
+  // to work around it, but skip validation, storage and every notification.
+  const honeypot = body && typeof body === "object" ? (body as Record<string, unknown>).company : undefined;
+  if (typeof honeypot === "string" && honeypot.trim().length > 0) {
+    return NextResponse.json({ ok: true });
   }
 
   if (!isValidLead(body)) {

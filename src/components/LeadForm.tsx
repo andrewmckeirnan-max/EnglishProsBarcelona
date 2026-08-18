@@ -54,6 +54,10 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [notes, setNotes] = useState("");
+  // Honeypot: real visitors never see or fill this field (off-screen,
+  // unlabeled, skipped in tab order). Bots that fill every input trip it,
+  // and the request is silently dropped server-side.
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
 
   const selectedCategory = categorySlug ? getCategory(categorySlug) : undefined;
@@ -126,6 +130,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           whatsapp,
           notes,
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
+          company: honeypot,
         }),
       });
       if (!res.ok) throw new Error("Request failed");
@@ -138,7 +143,19 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   if (status === "done") {
     const area = areas.find((a) => a.slug === areaSlug);
     const category = categorySlug ? getCategory(categorySlug) : undefined;
-    const waMessage = `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on Barcelona English Pros. My name is ${name || "..."}.`;
+    // Carries the full enquiry, not just name + service, since this is the
+    // one message a lead might actually send you: when they click, you get
+    // urgency and need right in the chat instead of having to cross-reference
+    // the email notification.
+    const urgencyLabel = urgencyOptions.find((u) => u.value === urgency)?.label;
+    const waMessage = [
+      `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on Barcelona English Pros.`,
+      `Name: ${name || "..."}`,
+      need ? `Need: ${need}` : undefined,
+      urgencyLabel ? `Urgency: ${urgencyLabel}` : undefined,
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     if (matches.length > 0) {
       return (
@@ -379,6 +396,16 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             backup so you never lose your match if you miss a message.
           </p>
           <div className="flex flex-col gap-3">
+            <input
+              type="text"
+              name="company"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] w-px h-px opacity-0"
+            />
             <input
               required
               value={name}
