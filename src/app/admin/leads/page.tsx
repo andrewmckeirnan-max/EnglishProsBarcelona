@@ -3,7 +3,7 @@ import path from "node:path";
 import { getArea, getCategory } from "@/lib/data";
 import type { LeadPayload } from "@/lib/types";
 
-// Minimal internal viewer for locally-stored leads (dev use only — see the
+// Minimal internal viewer for locally-stored leads (dev use only, see the
 // storage note in src/app/api/lead/route.ts). Gated by a shared secret query
 // param so it isn't wide open; replace with real auth before deploying.
 export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {

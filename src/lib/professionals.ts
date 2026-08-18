@@ -4,17 +4,17 @@ import type { Professional } from "./types";
 // DIRECTORY LISTINGS (real businesses, NOT paying partners)
 // ---------------------------------------------------------------------------
 // Sourced from public web search results, August 2026. These are genuine,
-// findable English-speaking practices — nothing here is invented. But:
+// findable English-speaking practices, nothing here is invented. But:
 //
 //  - None of these businesses have agreed to be featured or to receive
-//    leads from this site. `isPartner` is false for all of them — they get
+//    leads from this site. `isPartner` is false for all of them, they get
 //    no special placement, just an honest directory entry.
 //  - Contact details are deliberately NOT included (no phone/WhatsApp
 //    number). Search-result summaries can misattribute phone numbers and
 //    addresses, and publishing a wrong number against a real clinic's name
 //    is worse than publishing nothing. `bookingUrl` links straight to the
 //    business's own site (taken directly from the search result URL, not
-//    summarized) so visitors — and you — can verify everything there.
+//    summarized) so visitors, and you, can verify everything there.
 //  - `addressArea` is kept at neighbourhood level and only used where the
 //    source explicitly ties the business to that district.
 //  - Spot-check every entry (still operating, still English-speaking,
@@ -181,7 +181,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "sarria-fertility-turo-park",
-    name: "Turó Park Clinics — Fertility & AHR",
+    name: "Turó Park Clinics: Fertility & AHR",
     categorySlug: "fertility-clinic",
     areaSlug: "sarria-sant-gervasi",
     isPartner: false,
@@ -205,7 +205,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "sarria-lasik-teknon",
-    name: "Centro Médico Teknon — Refractive Surgery Unit",
+    name: "Centro Médico Teknon: Refractive Surgery Unit",
     categorySlug: "lasik",
     areaSlug: "sarria-sant-gervasi",
     isPartner: false,
@@ -241,7 +241,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "sarria-nutritionist-turo-park",
-    name: "Turó Park Clinics — Nutritionist",
+    name: "Turó Park Clinics: Nutritionist",
     categorySlug: "nutritionist",
     areaSlug: "sarria-sant-gervasi",
     isPartner: false,
@@ -253,7 +253,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "eixample-naturopath-anne-laure-naudin",
-    name: "Anne-Laure Naudin — Naturopath",
+    name: "Anne-Laure Naudin: Naturopath",
     categorySlug: "naturopath",
     areaSlug: "eixample",
     isPartner: false,
@@ -337,7 +337,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "poblenou-psychologist-therapy-in-barcelona-el-clot",
-    name: "Therapy in Barcelona — El Clot",
+    name: "Therapy in Barcelona: El Clot",
     categorySlug: "psychologist",
     areaSlug: "poblenou",
     isPartner: false,
@@ -407,7 +407,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "sarria-obgyn-turo-park",
-    name: "Turó Park Clinics — Dr. Berta Esteban",
+    name: "Turó Park Clinics: Dr. Berta Esteban",
     categorySlug: "obgyn-midwife",
     areaSlug: "sarria-sant-gervasi",
     isPartner: false,
@@ -419,7 +419,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "sarria-obgyn-onbargi-teknon",
-    name: "Dr. Leila Onbargi — Centro Médico Teknon",
+    name: "Dr. Leila Onbargi: Centro Médico Teknon",
     categorySlug: "obgyn-midwife",
     areaSlug: "sarria-sant-gervasi",
     isPartner: false,
@@ -431,7 +431,7 @@ export const professionals: Professional[] = [
   },
   {
     id: "poblenou-midwife-tribu-house",
-    name: "Tribu House — Doula & Birth Support",
+    name: "Tribu House: Doula & Birth Support",
     categorySlug: "obgyn-midwife",
     areaSlug: "poblenou",
     isPartner: false,

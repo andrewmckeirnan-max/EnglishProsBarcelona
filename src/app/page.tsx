@@ -16,7 +16,7 @@ export default function Home() {
             Find an English-speaking professional in Barcelona
           </h1>
           <p className="mt-4 text-lg text-foreground/70 max-w-xl mx-auto text-balance">
-            Dentists, doctors, lawyers, tax advisors and more — matched to your
+            Dentists, doctors, lawyers, tax advisors and more, matched to your
             neighbourhood, in a language you&apos;re fluent in.
           </p>
           <div className="mt-8 max-w-2xl mx-auto">

@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "BCN English Pros | Find English-Speaking Professionals in Barcelona",
-    template: "%s | BCN English Pros",
+    default: "Barcelona English Pros | Find English-Speaking Professionals in Barcelona",
+    template: "%s | Barcelona English Pros",
   },
   description:
-    "Find and book trusted English-speaking dentists, doctors, lawyers, tax advisors and more near you in Barcelona. Tell us what you need — we'll match you.",
+    "Find and book trusted English-speaking dentists, doctors, lawyers, tax advisors and more near you in Barcelona. Tell us what you need and we'll match you.",
   metadataBase: new URL("https://example.com"),
 };
 

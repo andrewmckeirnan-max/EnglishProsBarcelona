@@ -36,7 +36,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# local lead storage (dev only — replace with a real DB before production)
+# local lead storage (dev only, replace with a real DB before production)
 /data/
 
 # typescript

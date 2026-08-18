@@ -10,7 +10,7 @@ export function Footer() {
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand text-white font-bold text-xs">
               BE
             </span>
-            <span className="font-semibold">BCN English Pros</span>
+            <span className="font-semibold">Barcelona English Pros</span>
           </div>
           <p className="text-foreground/60 leading-relaxed">
             The English-speaking professional finder for Barcelona. We match
@@ -62,7 +62,7 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="container-page py-5 text-xs text-foreground/50 flex flex-col sm:flex-row justify-between gap-2">
-          <p>&copy; {new Date().getFullYear()} BCN English Pros. Not affiliated with any clinic, law firm or public body.</p>
+          <p>&copy; {new Date().getFullYear()} Barcelona English Pros. Not affiliated with any clinic, law firm or public body.</p>
           <p>Barcelona, Spain</p>
         </div>
       </div>

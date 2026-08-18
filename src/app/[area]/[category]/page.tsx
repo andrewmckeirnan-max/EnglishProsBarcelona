@@ -95,7 +95,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                 ? `Showing ${visibleProfessionals.length} of ${professionals.length}. Tell us what you need to unlock the full ranked list.`
                 : professionals.some((p) => p.isPartner)
                   ? "Our featured partner, plus other English-speaking options we found nearby."
-                  : "English-speaking options we found nearby. None of these are paying partners yet — this is an independent, informational list."}
+                  : "English-speaking options we found nearby. None of these are paying partners yet, this is an independent, informational list."}
             </p>
             <div className="flex flex-col gap-4">
               {visibleProfessionals.map((p) => (

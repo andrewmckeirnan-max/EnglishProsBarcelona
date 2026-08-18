@@ -20,7 +20,7 @@ export function ProfessionalCard({ professional }: { professional: Professional 
           {professional.isPartner && (
             <span
               className="inline-flex items-center gap-1 rounded-full bg-brand text-white text-[11px] font-semibold px-2 py-0.5 cursor-help"
-              title="This business pays for priority placement here. It doesn't affect who we think fits your need best — that's based on what you tell us."
+              title="This business pays for priority placement here. It doesn't affect who we think fits your need best, that's based on what you tell us."
             >
               Recommended partner
               <span aria-hidden="true" className="inline-flex h-3 w-3 items-center justify-center rounded-full bg-white/25 text-[9px] leading-none">
@@ -44,7 +44,7 @@ export function ProfessionalCard({ professional }: { professional: Professional 
       <div className="flex sm:flex-col gap-2 sm:w-40 shrink-0">
         {professional.whatsappNumber && (
           <a
-            href={waLink(professional.whatsappNumber, `Hi, I found ${professional.name} via BCN English Pros and I'd like to book an appointment.`)}
+            href={waLink(professional.whatsappNumber, `Hi, I found ${professional.name} via Barcelona English Pros and I'd like to book an appointment.`)}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 text-center rounded-full bg-[#25D366] text-white text-sm font-semibold px-4 py-2 hover:opacity-90 transition"
@@ -68,7 +68,7 @@ export function ProfessionalCard({ professional }: { professional: Professional 
 }
 
 /**
- * Teaser for a professional beyond the free preview limit — shows that
+ * Teaser for a professional beyond the free preview limit, shows that
  * more options exist without revealing who they are, and links to the
  * lead form (`#get-matched`) where submitting name + WhatsApp + email
  * unlocks the full ranked list.

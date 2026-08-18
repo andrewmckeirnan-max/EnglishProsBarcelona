@@ -38,7 +38,7 @@ async function notifyEmail(lead: LeadPayload) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: process.env.LEAD_FROM_EMAIL || "leads@bcnenglishpros.com",
+      from: process.env.LEAD_FROM_EMAIL || "leads@barcelonaenglishpros.com",
       to,
       subject: `New lead: ${lead.categorySlug} in ${lead.areaSlug}`,
       text: formatLeadText(lead),
@@ -54,7 +54,7 @@ async function notifyEmail(lead: LeadPayload) {
 // the *customer* start the conversation. Email has no such restriction.
 async function sendMatchEmailToVisitor(lead: LeadPayload) {
   const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.LEAD_FROM_EMAIL || "leads@bcnenglishpros.com";
+  const fromEmail = process.env.LEAD_FROM_EMAIL || "leads@barcelonaenglishpros.com";
   if (!apiKey) {
     console.log("[lead] Visitor match email skipped — RESEND_API_KEY not set.");
     return;
@@ -102,7 +102,7 @@ function formatLeadText(lead: LeadPayload): string {
   const area = getArea(lead.areaSlug)?.name ?? lead.areaSlug;
   const category = getCategory(lead.categorySlug)?.name ?? lead.categorySlug;
   return [
-    `New enquiry via BCN English Pros`,
+    `New enquiry via Barcelona English Pros`,
     ``,
     `Service: ${category}`,
     `Area: ${area}`,

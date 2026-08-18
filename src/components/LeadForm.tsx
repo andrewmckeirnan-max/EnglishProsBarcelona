@@ -79,9 +79,9 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
     const area = areas.find((a) => a.slug === areaSlug);
     const category = categorySlug ? getCategory(categorySlug) : undefined;
     const matches = areaSlug && categorySlug ? getProfessionals(areaSlug, categorySlug) : [];
-    const waMessage = `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on BCN English Pros. My name is ${name || "..."}.`;
+    const waMessage = `Hi! I just requested help finding ${category ? sentenceLower(category.pluralName) : "a professional"} in ${area?.name ?? "Barcelona"} on Barcelona English Pros. My name is ${name || "..."}.`;
 
-    // We already have a real listing for this exact area + service — hand it
+    // We already have a real listing for this exact area + service, so hand it
     // over immediately instead of making someone wait on a "we'll be in
     // touch" promise when the answer is sitting right here.
     if (matches.length > 0) {
@@ -91,9 +91,9 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-2xl">
               ✅
             </div>
-            <h3 className="text-lg font-semibold mb-1">Good news — no waiting needed</h3>
+            <h3 className="text-lg font-semibold mb-1">Good news, no waiting needed</h3>
             <p className="text-sm text-foreground/70">
-              Here&apos;s your full vetted list for {area?.name ?? "your area"} — we&apos;ve also just emailed
+              Here&apos;s your full vetted list for {area?.name ?? "your area"}. We&apos;ve also just emailed
               it to {email || "you"} so you don&apos;t lose it. Contact whichever one fits best, directly:
             </p>
           </div>
@@ -148,7 +148,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#25D366] hover:underline mb-5"
       >
-        Or skip the form — WhatsApp us directly →
+        Or skip the form, WhatsApp us directly →
       </a>
 
       {currentStep === "category" && (
@@ -252,7 +252,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           <h3 className="text-lg font-semibold mb-1">Where should we send your match?</h3>
           <p className="text-sm text-foreground/60 mb-4">
             We&apos;ll show you the top vetted options right here, plus email you the full list. WhatsApp&apos;s
-            for anything else we need to check with you — email means it reaches you either way.
+            for anything else we need to check with you, email means it reaches you either way.
           </p>
           <div className="flex flex-col gap-3">
             <input
@@ -287,7 +287,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             />
           </div>
           {status === "error" && (
-            <p className="text-sm text-red-600 mt-3">Something went wrong — please try again.</p>
+            <p className="text-sm text-red-600 mt-3">Something went wrong, please try again.</p>
           )}
           <button
             type="submit"
@@ -297,7 +297,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             {status === "submitting" ? "Sending..." : "Find my match"}
           </button>
           <p className="text-xs text-foreground/50 mt-3 text-center">
-            No cost to you. We&apos;ll send your vetted list here and to your email — your details aren&apos;t
+            No cost to you. We&apos;ll send your vetted list here and to your email. Your details aren&apos;t
             shared with any professional unless you choose to contact them.
           </p>
         </form>

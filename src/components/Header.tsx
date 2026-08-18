@@ -10,7 +10,7 @@ export function Header() {
             BE
           </span>
           <span className="font-semibold text-[15px] tracking-tight">
-            BCN English Pros
+            Barcelona English Pros
           </span>
         </Link>
 

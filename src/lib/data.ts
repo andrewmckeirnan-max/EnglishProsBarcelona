@@ -12,7 +12,7 @@ export const areas: Area[] = [
     name: "Eixample",
     district: "Eixample",
     blurb:
-      "Barcelona's largest international population and highest concentration of English-speaking professionals — the anchor territory.",
+      "Barcelona's largest international population and highest concentration of English-speaking professionals, the anchor territory.",
   },
   {
     slug: "poblenou",
@@ -40,14 +40,14 @@ export const areas: Area[] = [
     name: "Diagonal Mar & Vila Olímpica",
     district: "Sant Martí",
     blurb:
-      "Barcelona's most expensive beachfront district — foreign buyers make up over a third of purchases here, with almost no English-branded professional services yet.",
+      "Barcelona's most expensive beachfront district. Foreign buyers make up over a third of purchases here, with almost no English-branded professional services yet.",
   },
   {
     slug: "gracia",
     name: "Gràcia",
     district: "Gràcia",
     blurb:
-      "The largest concentration of European expats of any Barcelona district — a strong fit for wellness, physiotherapy and psychology.",
+      "The largest concentration of European expats of any Barcelona district, a strong fit for wellness, physiotherapy and psychology.",
   },
 ];
 
@@ -62,7 +62,7 @@ export const categories: Category[] = [
     name: "Dentist",
     pluralName: "Dentists",
     icon: "🦷",
-    shortPitch: "Compare English-speaking dentists — implants, Invisalign, cosmetic dentistry and check-ups.",
+    shortPitch: "Compare English-speaking dentists: implants, Invisalign, cosmetic dentistry and check-ups.",
     needOptions: ["Check-up / cleaning", "Invisalign / orthodontics", "Dental implants", "Cosmetic dentistry", "Emergency", "Other"],
     seoKeywords: ["dental implants", "Invisalign", "cosmetic dentist", "emergency dentist", "veneers"],
   },
@@ -83,7 +83,7 @@ export const categories: Category[] = [
     shortPitch: "English-speaking buyer's agents, mortgage brokers and property managers for Barcelona.",
     needOptions: ["Buying a property", "Mortgage advice", "Renting", "Property management", "Investment advice", "Other"],
     seoKeywords: ["buyer's agent", "mortgage broker", "relocation", "property investment", "rental agency"],
-    hidden: true, // paused — not pursuing property/mortgage for now
+    hidden: true, // paused, not pursuing property/mortgage for now
   },
   {
     slug: "tax-advisor",
@@ -99,7 +99,7 @@ export const categories: Category[] = [
     name: "Dermatologist & Aesthetic Clinic",
     pluralName: "Dermatologists & Aesthetic Clinics",
     icon: "🧴",
-    shortPitch: "English-speaking dermatologists and aesthetic clinics — skin checks, acne, Botox and laser treatments.",
+    shortPitch: "English-speaking dermatologists and aesthetic clinics: skin checks, acne, Botox and laser treatments.",
     needOptions: ["Skin check / mole", "Acne", "Botox / fillers", "Laser hair removal", "Anti-ageing", "Other"],
     seoKeywords: ["skin check", "mole check", "Botox", "laser hair removal", "acne clinic"],
   },
@@ -234,7 +234,7 @@ export const categories: Category[] = [
     name: "Freelancer & Autónomo Accountant",
     pluralName: "Freelancer & Autónomo Accountants",
     icon: "🧾",
-    shortPitch: "English-speaking accountants specifically for freelancers and autónomos — quarterly filings, invoicing and social security.",
+    shortPitch: "English-speaking accountants specifically for freelancers and autónomos: quarterly filings, invoicing and social security.",
     needOptions: ["Becoming autónomo", "Quarterly tax filings", "Invoicing setup", "Social security questions", "Annual accounts", "Other"],
     seoKeywords: ["autonomo accountant", "freelancer accounting", "quarterly VAT", "self-employed Spain"],
   },

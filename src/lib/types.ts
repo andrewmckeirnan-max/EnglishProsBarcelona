@@ -74,7 +74,7 @@ export interface LeadPayload {
   urgency: "asap" | "this-week" | "flexible";
   name: string;
   whatsapp: string;
-  email: string; // required — email is the fallback channel when WhatsApp isn't available/reachable
+  email: string; // required: email is the fallback channel when WhatsApp isn't available/reachable
   notes?: string;
   pageUrl: string;
 }

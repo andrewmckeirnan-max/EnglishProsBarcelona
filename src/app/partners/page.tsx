@@ -4,7 +4,7 @@ import { exampleProfessional } from "@/lib/professionals";
 import { businessWaLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "List Your Practice — Get English-Speaking Patient Enquiries",
+  title: "List Your Practice: Get English-Speaking Patient Enquiries",
   description:
     "We send qualified English-speaking enquiries from Barcelona residents directly to one recommended partner per area and service. No cost unless it converts to enquiries you want.",
 };
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "How many partners per area/service?",
-    a: "One. Your listing is featured exclusively for your service and area — we don't sell the same enquiry stream to your direct competitors.",
+    a: "One. Your listing is featured exclusively for your service and area, we don't sell the same enquiry stream to your direct competitors.",
   },
   {
     q: "What do I get?",
@@ -29,7 +29,7 @@ const faqs = [
 ];
 
 export default function PartnersPage() {
-  const waMessage = "Hi! I run a clinic/practice in Barcelona and I'd like to hear more about becoming a featured partner on BCN English Pros.";
+  const waMessage = "Hi! I run a clinic/practice in Barcelona and I'd like to hear more about becoming a featured partner on Barcelona English Pros.";
 
   return (
     <div>
@@ -58,7 +58,7 @@ export default function PartnersPage() {
         <div className="max-w-xl mx-auto">
           <ProfessionalCard professional={exampleProfessional} />
           <p className="text-xs text-foreground/50 mt-3 text-center">
-            Example preview — not a real listing.
+            Example preview, not a real listing.
           </p>
         </div>
       </section>
@@ -76,14 +76,14 @@ export default function PartnersPage() {
             <p className="text-3xl mb-2">🔒</p>
             <p className="font-semibold">Exclusive per area</p>
             <p className="text-sm text-foreground/60 mt-1">
-              One partner per service, per neighbourhood — never shared with a direct competitor.
+              One partner per service, per neighbourhood, never shared with a direct competitor.
             </p>
           </div>
           <div>
             <p className="text-3xl mb-2">💬</p>
             <p className="font-semibold">Delivered by WhatsApp</p>
             <p className="text-sm text-foreground/60 mt-1">
-              Enquiries land where you already work — no new dashboard to check.
+              Enquiries land where you already work, no new dashboard to check.
             </p>
           </div>
         </div>
