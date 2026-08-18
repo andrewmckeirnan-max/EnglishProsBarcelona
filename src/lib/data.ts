@@ -230,6 +230,15 @@ export const categories: Category[] = [
     seoKeywords: ["holistic medicine", "natural health", "herbal medicine", "naturopathy clinic"],
   },
   {
+    slug: "holistic-doctor",
+    name: "Holistic Doctor",
+    pluralName: "Holistic Doctors",
+    icon: "🪷",
+    shortPitch: "English-speaking holistic and integrative medicine practitioners combining Chinese medicine, osteopathy, acupuncture and nutrition under one roof in Barcelona.",
+    needOptions: ["Traditional Chinese Medicine", "Osteopathy", "Acupuncture", "Nutrition & diet", "General wellness consultation", "Other"],
+    seoKeywords: ["traditional Chinese medicine", "integrative medicine", "holistic health centre", "Chinese herbal medicine", "craniosacral therapy"],
+  },
+  {
     slug: "orthodontist",
     name: "Orthodontist",
     pluralName: "Orthodontists",

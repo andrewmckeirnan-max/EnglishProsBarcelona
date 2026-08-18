@@ -846,14 +846,15 @@ export const professionals: Professional[] = [
   },
   {
     id: "eixample-acupuncturist-centre-holistic",
-    name: "Centre Holístic",
+    name: "Fabien Marcel — Centre Holístic",
     categorySlug: "acupuncturist",
     areaSlug: "eixample",
     isPartner: false,
     isPlaceholder: false,
-    specialties: ["Acupuncture", "Holistic therapies"],
-    languages: ["English", "Spanish"],
+    specialties: ["Acupuncture", "Traditional Chinese Medicine"],
+    languages: ["English", "French", "Spanish"],
     addressArea: "Carrer de los Castillejos, Eixample",
+    bookingUrl: "https://centreholistic.com/",
     ratingLabel: "4.9 (36 reviews) on Google Maps",
   },
   {
@@ -1155,6 +1156,30 @@ export const professionals: Professional[] = [
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Carrer de Pujades, Poblenou",
     ratingLabel: "5.0 (211 reviews) on Google Maps",
+  },
+  // Personally used and recommended by the site owner, not sourced from
+  // search, our highest-confidence tier of listing.
+  {
+    id: "eixample-holistic-doctor-fabien-marcel",
+    name: "Fabien Marcel — Centre Holístic",
+    categorySlug: "holistic-doctor",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: [
+      "Traditional Chinese Medicine",
+      "Biodynamic craniosacral osteopathy",
+      "Acupuncture",
+      "Chinese herbal medicine (fitoterapia china)",
+      "Tuina massage",
+      "Shiatsu",
+      "Nutrition & dietetics",
+      "INDIBA cellular activation",
+    ],
+    languages: ["English", "French", "Spanish"],
+    addressArea: "Carrer de los Castillejos, Eixample",
+    bookingUrl: "https://centreholistic.com/",
+    ratingLabel: "4.9 (36 reviews) on Google Maps",
   },
 ];
 

@@ -11,6 +11,7 @@ export type CategorySlug =
   | "acupuncturist"
   | "nutritionist"
   | "naturopath"
+  | "holistic-doctor"
   | "veterinarian"
   | "lasik"
   | "fertility-clinic"
