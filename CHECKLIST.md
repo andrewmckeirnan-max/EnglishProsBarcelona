@@ -5,20 +5,7 @@ progress or need your sign-off. I'll keep this updated as things resolve or
 new items come up, check it whenever you're wondering "what's left."
 
 ## Blocking / needs your action
-- [ ] **Resend account (email notifications)** — right now, submitting the
-      form does nothing visible to you: no email, no notification,
-      nothing. Fix:
-      1. Sign up at [resend.com](https://resend.com) (free tier is plenty
-         to start).
-      2. Create an API key.
-      3. Set `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL` (your own
-         inbox) as environment variables.
-      4. Once your domain is set up, verify it in Resend and set
-         `LEAD_FROM_EMAIL` to something like `leads@yourdomain.com` —
-         until then it'll try to send from a placeholder address and fail
-         quietly, which is fine for testing but not for real leads.
-      5. ASAP-urgency leads are flagged 🔥 right in the email subject line
-         so they don't get missed.
+
 - [ ] **GitHub push**, no `gh` CLI or credentials in this environment.
       Run from the project folder once you're ready:
       `gh repo create barcelona-pro-directory --private --source=. --remote=origin --push`
@@ -77,6 +64,17 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Resolved
 
+- [x] **Resend account (email notifications)** — new API key created scoped
+      to this project ("Sending access" only, not full account access),
+      `RESEND_API_KEY` + `LEAD_NOTIFICATION_EMAIL` set in `.env.local`.
+      `LEAD_FROM_EMAIL` is set to Resend's shared `onboarding@resend.dev`
+      sender since there's no verified domain yet — works immediately with
+      zero setup. Verified live: a test lead triggered both the internal
+      "🔥 New lead" notification and the visitor's "your matched list"
+      email with no errors logged. Switch `LEAD_FROM_EMAIL` to something
+      on your own domain (and verify it in Resend, a few DNS records) once
+      the domain name item below is sorted — sending from your own domain
+      looks more legitimate to recipients than a shared resend.dev address.
 - [x] **Database (leads storage)** — connected to your Supabase project via
       the Session pooler connection string (`.env.local`, gitignored, not
       in the repo). Verified live: a test submission showed up in
