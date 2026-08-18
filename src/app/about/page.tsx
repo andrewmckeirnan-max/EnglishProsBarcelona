@@ -27,6 +27,31 @@ export default function AboutPage() {
         </p>
       </div>
 
+      <div id="how-we-verify" className="mt-14 pt-8 border-t border-border scroll-mt-20">
+        <h2 className="text-lg font-semibold mb-3">How we verify listings</h2>
+        <div className="prose prose-sm text-foreground/70 space-y-3">
+          <p>
+            Every professional on this site is added only after we find a specific,
+            checkable signal that they offer service in English, cross-checked against
+            their real address on Google Maps: an explicit mention in a review, in their
+            own business name, or on their website. We don&apos;t list a business just
+            because it&apos;s nearby or highly rated.
+          </p>
+          <p>
+            We show ratings and review counts only where we can trace them to a genuine,
+            visible source (currently Google Maps), never invented. We don&apos;t show
+            pricing unless a professional has published it themselves, and we don&apos;t
+            claim any listing is &quot;the best&quot; without a stated reason.
+          </p>
+          <p>
+            None of this replaces your own judgement; details change, and we&apos;d
+            rather you double-check something important (a qualification, an insurance
+            policy, an emergency service) directly with the professional. If you find a
+            listing that&apos;s out of date or wrong, tell us and we&apos;ll fix it.
+          </p>
+        </div>
+      </div>
+
       <div id="photo-credits" className="mt-14 pt-8 border-t border-border scroll-mt-20">
         <h2 className="text-lg font-semibold mb-3">Photo credits</h2>
         <p className="text-sm text-foreground/60 mb-4">

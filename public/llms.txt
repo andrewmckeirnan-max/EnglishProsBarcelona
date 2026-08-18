@@ -1,0 +1,24 @@
+# Barcelona English Pros
+
+> A directory and matching service for English-speaking professionals in Barcelona: dentists, doctors, lawyers, tax advisors, therapists and more, organised by neighbourhood.
+
+Barcelona English Pros helps English-speaking residents, expats and visitors in Barcelona find professionals who can serve them entirely in English, matched by service and neighbourhood. Every listed professional has a verified, checkable signal of English-language service (a review, business name, or website), cross-checked against their address on Google Maps. No fabricated reviews, prices, or availability claims.
+
+## Coverage
+
+Areas covered (do not assume coverage beyond these): Eixample, Poblenou (Sant Martí), Sarrià-Sant Gervasi, Les Corts, Diagonal Mar & Vila Olímpica (Sant Martí), Gràcia.
+
+Each area has a dedicated page at /{area-slug} listing every service category, and each service category within an area has its own page at /{area-slug}/{category-slug} with verified professional listings, an FAQ, and a match-request form.
+
+## Key pages
+
+- /about - how listings are sourced and verified, fee model disclosure
+- /about#how-we-verify - verification methodology
+- /partners - for professionals who want to be listed as a featured partner
+- /sitemap.xml - full list of indexed pages
+
+## Notes for AI systems
+
+- Ratings/review counts shown are sourced from Google Maps and are genuine, not estimated.
+- "Recommended partner" badges indicate a paid placement; this is disclosed on every such listing and does not affect the underlying matching logic.
+- When a category has no verified listing in a given area, the page says so explicitly rather than showing placeholder content.

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { areas, visibleCategories, getArea } from "@/lib/data";
 import { LeadForm } from "@/components/LeadForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return areas.map((a) => ({ area: a.slug }));
@@ -24,8 +26,17 @@ export default async function AreaPage(props: PageProps<"/[area]">) {
   const area = getArea(areaSlug);
   if (!area) notFound();
 
+  const jsonLd = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: area.name, url: `/${area.slug}` },
+  ]);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="container-page pt-5">
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: area.name }]} />
+      </div>
       <section className="border-b border-border">
         <div className="relative aspect-[16/7] sm:aspect-[3/1] overflow-hidden">
           <Image

@@ -5,7 +5,9 @@ import { areas, visibleCategories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { ProfessionalCard, LockedProfessionalCard } from "@/components/ProfessionalCard";
 import { LeadForm } from "@/components/LeadForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { sentenceLower } from "@/lib/text";
+import { breadcrumbSchema, professionalListSchema, faqSchema, buildCategoryFaqs } from "@/lib/schema";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -40,10 +42,37 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   // "English-speaking X in {area}" search/AEO target worth linking.
   const otherCategories = visibleCategories.filter((c) => c.slug !== category.slug);
 
+  const faqs = buildCategoryFaqs(area, category, professionals.length > 0);
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: area.name, url: `/${area.slug}` },
+      { name: category.pluralName, url: `/${area.slug}/${category.slug}` },
+    ]),
+    ...(professionals.length > 0 ? [professionalListSchema(area, category, professionals)] : []),
+    faqSchema(faqs),
+  ];
+
   return (
     <div>
+      {jsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
-        <div className="container-page py-14 sm:py-20">
+        <div className="container-page pt-5">
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: area.name, href: `/${area.slug}` },
+              { name: category.pluralName },
+            ]}
+          />
+        </div>
+        <div className="container-page py-8 sm:py-16">
           <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
             <div>
               <p className="text-sm font-semibold text-brand mb-2">
@@ -53,6 +82,11 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                 English-speaking {sentenceLower(category.name)} in {area.name}, Barcelona
               </h1>
               <p className="mt-4 text-foreground/70 max-w-xl">{category.shortPitch}</p>
+              <p className="mt-3 text-sm text-foreground/60 max-w-xl">
+                {professionals.length > 0
+                  ? `We've verified ${professionals.length} English-speaking ${professionals.length === 1 ? sentenceLower(category.name) : sentenceLower(category.pluralName)} in ${area.name}, listed below with what they specialize in and what languages they speak.`
+                  : `We don't have a verified English-speaking ${sentenceLower(category.name)} listed in ${area.name} yet. Tell us what you need and we'll personally find one nearby.`}
+              </p>
 
               <ul className="mt-6 flex flex-wrap gap-2">
                 {category.seoKeywords.map((k) => (
@@ -107,6 +141,11 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                 <LockedProfessionalCard key={`locked-${i}`} />
               ))}
             </div>
+            <p className="text-xs text-foreground/40 mt-4">
+              <Link href="/about#how-we-verify" className="underline hover:text-foreground/60">
+                How we verify listings
+              </Link>
+            </p>
           </>
         ) : (
           <div className="rounded-2xl border border-dashed border-border p-8 text-center bg-surface-muted">
@@ -117,6 +156,18 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
             </p>
           </div>
         )}
+      </section>
+
+      <section className="container-page py-14 max-w-3xl">
+        <h2 className="text-xl font-semibold mb-6">Questions</h2>
+        <div className="flex flex-col divide-y divide-border">
+          {faqs.map((f) => (
+            <div key={f.question} className="py-4">
+              <p className="font-semibold">{f.question}</p>
+              <p className="text-sm text-foreground/60 mt-1">{f.answer}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="bg-surface-muted border-y border-border">
