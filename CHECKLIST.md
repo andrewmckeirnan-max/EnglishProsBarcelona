@@ -6,16 +6,6 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Blocking / needs your action
 
-- [ ] **Verify a domain in Resend** — until you do, the "email you your
-      matched list" feature (the actual deliverable promised on every
-      category page) silently fails for every real visitor. Resend's
-      testing-mode restriction only allows sending to the account's own
-      signup email (`andrew@searchsowreaptalent.com`), not arbitrary
-      recipients — confirmed by hitting a real 403 from their API during
-      testing. The internal "new lead" notification to you still works
-      fine either way. Fix: verify a domain at resend.com/domains (needs
-      a domain name — see that item below) and set `LEAD_FROM_EMAIL` to
-      an address on it.
 - [ ] **GitHub push**, no `gh` CLI or credentials in this environment.
       Run from the project folder once you're ready:
       `gh repo create barcelona-pro-directory --private --source=. --remote=origin --push`
@@ -75,6 +65,17 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Resolved
 
+- [x] **Domain verified in Resend** — DKIM (TXT `resend._domainkey`) and
+      SPF (MX + TXT on `send`) records added in Hostinger's DNS, verified
+      by Resend. `LEAD_FROM_EMAIL` switched to `hello@barcelonaenglishpros.com`.
+      Confirmed genuinely working (not another false negative) two ways:
+      a direct curl to Resend's API returned a real email ID instead of
+      an error, and a full site test using a real third-party recipient
+      (not the account owner's own address, which is what testing-mode
+      restricted sends to before) went through with no errors logged.
+      **The lead pipeline is now fully live end-to-end**: real database,
+      real internal notification, real visitor match email, all sending
+      from the actual domain.
 - [x] **Domain purchased**: `barcelonaenglishpros.com` is bought, and a
       `hello@barcelonaenglishpros.com` mailbox is set up with the
       registrar's own email hosting (this handles *receiving* mail — a
