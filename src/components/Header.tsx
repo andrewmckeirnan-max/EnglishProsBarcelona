@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { areas, categories } from "@/lib/data";
+import { areas, visibleCategories } from "@/lib/data";
 
 export function Header() {
   return (
@@ -21,7 +21,7 @@ export function Header() {
             </button>
             <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition absolute left-0 top-full pt-2 w-64">
               <div className="rounded-xl border border-border bg-surface shadow-lg p-2">
-                {categories.map((c) => (
+                {visibleCategories.map((c) => (
                   <Link
                     key={c.slug}
                     href={`/eixample/${c.slug}`}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { areas, categories, getCategory } from "@/lib/data";
+import { areas, visibleCategories, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import type { AreaSlug, CategorySlug } from "@/lib/types";
 import { businessWaLink } from "@/lib/whatsapp";
@@ -155,7 +155,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         <div>
           <h3 className="text-lg font-semibold mb-4">What do you need help finding?</h3>
           <div className="grid grid-cols-2 gap-2">
-            {categories.map((c) => (
+            {visibleCategories.map((c) => (
               <button
                 key={c.slug}
                 onClick={() => {

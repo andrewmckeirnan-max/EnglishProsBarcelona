@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { areas, categories, getArea } from "@/lib/data";
+import { areas, visibleCategories, getArea } from "@/lib/data";
 import { LeadForm } from "@/components/LeadForm";
 
 export function generateStaticParams() {
@@ -38,7 +38,7 @@ export default async function AreaPage(props: PageProps<"/[area]">) {
       <section className="container-page py-14">
         <h2 className="text-2xl font-semibold mb-6">Services in {area.name}</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {categories.map((c) => (
+          {visibleCategories.map((c) => (
             <Link
               key={c.slug}
               href={`/${area.slug}/${c.slug}`}

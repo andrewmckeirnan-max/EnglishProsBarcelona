@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { areas, categories } from "@/lib/data";
+import { areas, visibleCategories } from "@/lib/data";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const categoryPages: MetadataRoute.Sitemap = areas.flatMap((a) =>
-    categories.map((c) => ({
+    visibleCategories.map((c) => ({
       url: `${BASE_URL}/${a.slug}/${c.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.9,

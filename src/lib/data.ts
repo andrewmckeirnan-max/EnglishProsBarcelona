@@ -83,6 +83,7 @@ export const categories: Category[] = [
     shortPitch: "English-speaking buyer's agents, mortgage brokers and property managers for Barcelona.",
     needOptions: ["Buying a property", "Mortgage advice", "Renting", "Property management", "Investment advice", "Other"],
     seoKeywords: ["buyer's agent", "mortgage broker", "relocation", "property investment", "rental agency"],
+    hidden: true, // paused — not pursuing property/mortgage for now
   },
   {
     slug: "tax-advisor",
@@ -202,6 +203,12 @@ export const categories: Category[] = [
     seoKeywords: ["emergency vet", "pet vaccination", "vet clinic", "animal hospital"],
   },
 ];
+
+// Use this everywhere a category is listed for a visitor to pick from (nav,
+// grids, the lead form, the sitemap). `categories` and `getCategory` stay
+// unfiltered so already-hidden categories' data (e.g. existing verified
+// listings) keeps working the moment `hidden` is flipped back off.
+export const visibleCategories: Category[] = categories.filter((c) => !c.hidden);
 
 export function getArea(slug: string): Area | undefined {
   return areas.find((a) => a.slug === slug);

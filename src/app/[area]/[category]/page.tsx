@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { areas, categories, getArea, getCategory } from "@/lib/data";
+import { areas, visibleCategories, getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { LeadForm } from "@/components/LeadForm";
 import { sentenceLower } from "@/lib/text";
 
 export function generateStaticParams() {
-  return areas.flatMap((a) => categories.map((c) => ({ area: a.slug, category: c.slug })));
+  return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
 }
 
 export async function generateMetadata(props: PageProps<"/[area]/[category]">): Promise<Metadata> {
   const { area: areaSlug, category: categorySlug } = await props.params;
   const area = getArea(areaSlug);
   const category = getCategory(categorySlug);
-  if (!area || !category) return {};
+  if (!area || !category || category.hidden) return {};
   return {
     title: `English-Speaking ${category.name} in ${area.name}, Barcelona`,
     description: `${category.shortPitch} Serving ${area.name} (${area.district}), Barcelona.`,
@@ -26,11 +26,11 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   const { area: areaSlug, category: categorySlug } = await props.params;
   const area = getArea(areaSlug);
   const category = getCategory(categorySlug);
-  if (!area || !category) notFound();
+  if (!area || !category || category.hidden) notFound();
 
   const professionals = getProfessionals(area.slug, category.slug);
   const otherAreas = areas.filter((a) => a.slug !== area.slug);
-  const otherCategories = categories.filter((c) => c.slug !== category.slug).slice(0, 6);
+  const otherCategories = visibleCategories.filter((c) => c.slug !== category.slug).slice(0, 6);
 
   return (
     <div>

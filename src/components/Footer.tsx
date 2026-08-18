@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { areas, categories } from "@/lib/data";
+import { areas, visibleCategories } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -21,7 +21,7 @@ export function Footer() {
         <div>
           <p className="font-semibold mb-3">Popular services</p>
           <ul className="space-y-2">
-            {categories.slice(0, 6).map((c) => (
+            {visibleCategories.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link href={`/eixample/${c.slug}`} className="text-foreground/70 hover:text-brand">
                   {c.pluralName} in Barcelona

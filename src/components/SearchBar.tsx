@@ -2,12 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { areas, categories } from "@/lib/data";
+import { areas, visibleCategories } from "@/lib/data";
 import type { AreaSlug, CategorySlug } from "@/lib/types";
 
 export function SearchBar() {
   const router = useRouter();
-  const [categorySlug, setCategorySlug] = useState<CategorySlug>(categories[0].slug);
+  const [categorySlug, setCategorySlug] = useState<CategorySlug>(visibleCategories[0].slug);
   const [areaSlug, setAreaSlug] = useState<AreaSlug>(areas[0].slug);
 
   function handleSearch() {
@@ -23,7 +23,7 @@ export function SearchBar() {
           onChange={(e) => setCategorySlug(e.target.value as CategorySlug)}
           className="w-full bg-transparent text-sm font-medium focus:outline-none"
         >
-          {categories.map((c) => (
+          {visibleCategories.map((c) => (
             <option key={c.slug} value={c.slug}>
               {c.pluralName}
             </option>

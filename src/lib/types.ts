@@ -32,6 +32,10 @@ export interface Category {
   shortPitch: string; // used in hero / meta description
   needOptions: string[]; // options shown in the lead form "what do you need?" step
   seoKeywords: string[]; // long-tail terms this category targets, e.g. "Invisalign"
+  /** Paused, not deleted: true removes this category from every nav, grid,
+   * lead-form step and generated page (visiting the URL 404s), without
+   * losing the underlying data. Flip back to false/omit to relaunch it. */
+  hidden?: boolean;
 }
 
 export interface Area {

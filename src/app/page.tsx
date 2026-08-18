@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
 import { LeadForm } from "@/components/LeadForm";
-import { areas, categories } from "@/lib/data";
+import { areas, visibleCategories } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -30,7 +30,7 @@ export default function Home() {
         <h2 className="text-2xl font-semibold mb-1">What are you looking for?</h2>
         <p className="text-foreground/60 mb-6">Browse by service, then choose your neighbourhood.</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {categories.map((c) => (
+          {visibleCategories.map((c) => (
             <Link
               key={c.slug}
               href={`/eixample/${c.slug}`}
