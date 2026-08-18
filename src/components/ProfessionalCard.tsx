@@ -18,8 +18,14 @@ export function ProfessionalCard({ professional }: { professional: Professional 
         <div className="flex items-center gap-2 flex-wrap">
           <h3 className="font-semibold">{professional.name}</h3>
           {professional.isPartner && (
-            <span className="rounded-full bg-brand text-white text-[11px] font-semibold px-2 py-0.5">
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-brand text-white text-[11px] font-semibold px-2 py-0.5 cursor-help"
+              title="This business pays for priority placement here. It doesn't affect who we think fits your need best — that's based on what you tell us."
+            >
               Recommended partner
+              <span aria-hidden="true" className="inline-flex h-3 w-3 items-center justify-center rounded-full bg-white/25 text-[9px] leading-none">
+                i
+              </span>
             </span>
           )}
         </div>
