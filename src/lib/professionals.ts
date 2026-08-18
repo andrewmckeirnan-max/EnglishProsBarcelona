@@ -1967,6 +1967,32 @@ export const professionals: Professional[] = [
     addressArea: "Carrer de Nicaragua, 90, Les Corts",
     ratingLabel: "4.6 (393 reviews) on Google Maps",
   },
+  {
+    id: "poblenou-physiotherapist-noumar",
+    name: "Noumar Osteopatia",
+    categorySlug: "physiotherapist",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Physiotherapy", "Osteopathy"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de Pujades, Poblenou",
+    lat: 41.404162,
+    lng: 2.2039578,
+    ratingLabel: "5.0 (211 reviews) on Google Maps",
+  },
+  {
+    id: "poblenou-acupuncturist-ayurveda",
+    name: "Acupuncture & Ayurveda Barcelona",
+    categorySlug: "acupuncturist",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Acupuncture", "Ayurvedic medicine"],
+    languages: ["English", "Spanish"],
+    addressArea: "Rambla del Poblenou, 21, Poblenou",
+    ratingLabel: "5.0 (10 reviews) on Google Maps",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
