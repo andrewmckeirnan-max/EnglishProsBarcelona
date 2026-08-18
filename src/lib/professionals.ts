@@ -1993,6 +1993,18 @@ export const professionals: Professional[] = [
     addressArea: "Rambla del Poblenou, 21, Poblenou",
     ratingLabel: "5.0 (10 reviews) on Google Maps",
   },
+  {
+    id: "sarria-notary-jesus-benavides",
+    name: "Notaría Barcelona - Jesús Benavides",
+    categorySlug: "notary",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Property purchase deeds", "Mortgages", "Powers of attorney", "Domestic partnerships"],
+    languages: ["English", "Spanish"],
+    addressArea: "Av. Diagonal, 550, Sarrià-Sant Gervasi",
+    ratingLabel: "4.9 (2,806 reviews) on Google Maps",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
