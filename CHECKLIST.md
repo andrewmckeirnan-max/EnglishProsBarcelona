@@ -6,6 +6,16 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Blocking / needs your action
 
+- [ ] **Verify a domain in Resend** — until you do, the "email you your
+      matched list" feature (the actual deliverable promised on every
+      category page) silently fails for every real visitor. Resend's
+      testing-mode restriction only allows sending to the account's own
+      signup email (`andrew@searchsowreaptalent.com`), not arbitrary
+      recipients — confirmed by hitting a real 403 from their API during
+      testing. The internal "new lead" notification to you still works
+      fine either way. Fix: verify a domain at resend.com/domains (needs
+      a domain name — see that item below) and set `LEAD_FROM_EMAIL` to
+      an address on it.
 - [ ] **GitHub push**, no `gh` CLI or credentials in this environment.
       Run from the project folder once you're ready:
       `gh repo create barcelona-pro-directory --private --source=. --remote=origin --push`
@@ -28,9 +38,6 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Not blocking, but worth deciding soon
 
-- [ ] **`/admin/leads` and `/admin/coverage` protection**, `ADMIN_SECRET`
-      is unset, so both viewers are wide open right now. Set it before
-      this is public.
 - [ ] **Booking attribution** — no way yet to know if a lead actually
       booked with a professional after seeing their info. Cheapest fix
       when you're ready: a follow-up message a few days later asking
@@ -64,17 +71,26 @@ new items come up, check it whenever you're wondering "what's left."
 
 ## Resolved
 
-- [x] **Resend account (email notifications)** — new API key created scoped
-      to this project ("Sending access" only, not full account access),
-      `RESEND_API_KEY` + `LEAD_NOTIFICATION_EMAIL` set in `.env.local`.
-      `LEAD_FROM_EMAIL` is set to Resend's shared `onboarding@resend.dev`
-      sender since there's no verified domain yet — works immediately with
-      zero setup. Verified live: a test lead triggered both the internal
-      "🔥 New lead" notification and the visitor's "your matched list"
-      email with no errors logged. Switch `LEAD_FROM_EMAIL` to something
-      on your own domain (and verify it in Resend, a few DNS records) once
-      the domain name item below is sorted — sending from your own domain
-      looks more legitimate to recipients than a shared resend.dev address.
+- [x] **Resend account (email notifications to you)** — new API key created
+      scoped to this project ("Sending access" only, not full account
+      access), `RESEND_API_KEY` + `LEAD_NOTIFICATION_EMAIL` set in
+      `.env.local`. `LEAD_FROM_EMAIL` is Resend's shared
+      `onboarding@resend.dev` sender since there's no verified domain yet.
+      First test looked successful (no errors logged) but that was a bug —
+      the send code only checked for network failures, not Resend's actual
+      response status, so a real 403 (testing-mode accounts can only send
+      to their own signup email) went silently unlogged. Fixed to check
+      `res.ok` and log the real error body; retested and confirmed genuinely
+      working this time. `LEAD_NOTIFICATION_EMAIL` corrected to
+      `andrew@searchsowreaptalent.com` (the address this Resend account is
+      actually verified for) — update it if that's not where you want
+      notifications. **The visitor-facing "email you your matched list"
+      feature still doesn't work for real visitors** — see the blocking
+      item above, it needs a verified domain, not just an API key.
+- [x] **`/admin/leads` and `/admin/coverage` protection** — `ADMIN_SECRET`
+      set in `.env.local` to a random generated value. Verified live: both
+      pages now show "Restricted" without `?key=...`, and load normally
+      with it.
 - [x] **Database (leads storage)** — connected to your Supabase project via
       the Session pooler connection string (`.env.local`, gitignored, not
       in the repo). Verified live: a test submission showed up in

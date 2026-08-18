@@ -46,20 +46,44 @@ async function notifyEmail(lead: LeadPayload) {
   // to, so they're flagged right in the subject rather than buried in the
   // body where a quick inbox glance would miss them.
   const urgencyFlag = lead.urgency === "asap" ? "🔥 ASAP — " : "";
-  // Example using Resend's HTTP API directly (no SDK dependency required):
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: process.env.LEAD_FROM_EMAIL || "leads@barcelonaenglishpros.com",
-      to,
-      subject: `${urgencyFlag}New lead: ${lead.categorySlug} in ${lead.areaSlug}`,
-      text: formatLeadText(lead),
-    }),
-  }).catch((err) => console.error("[lead] Email send failed:", err));
+  await sendViaResend(apiKey, {
+    from: process.env.LEAD_FROM_EMAIL || "leads@barcelonaenglishpros.com",
+    to,
+    subject: `${urgencyFlag}New lead: ${lead.categorySlug} in ${lead.areaSlug}`,
+    text: formatLeadText(lead),
+  }, "[lead] Internal notification email");
+}
+
+// Resend's HTTP API directly (no SDK dependency required). Checks the
+// actual response status — a fetch() promise resolves even on a 4xx/5xx
+// response, it only rejects on a real network failure, so relying on
+// .catch() alone silently swallows real send failures (e.g. Resend's
+// testing-mode restriction: unverified accounts can only send to the
+// account owner's own signup email, everything else 403s).
+async function sendViaResend(
+  apiKey: string,
+  payload: { from: string; to: string; subject: string; text: string },
+  logLabel: string,
+) {
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error(`${logLabel} failed: ${res.status} ${res.statusText} — ${body}`);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error(`${logLabel} failed:`, err);
+    return false;
+  }
 }
 
 // Emails the VISITOR their matched list — this is the actual deliverable
@@ -116,19 +140,16 @@ async function sendMatchEmailToVisitor(lead: LeadPayload) {
     `No cost to you, reach out to whichever one fits best. Reply to this email or message us on WhatsApp if you'd like help choosing.`,
   ].join("\n");
 
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
+  await sendViaResend(
+    apiKey,
+    {
       from: fromEmail,
       to: lead.email,
       subject: `Your vetted ${category?.name ?? "professional"} options in ${area?.name ?? "Barcelona"}`,
       text,
-    }),
-  }).catch((err) => console.error("[lead] Visitor match email failed:", err));
+    },
+    "[lead] Visitor match email",
+  );
 }
 
 function formatLeadText(lead: LeadPayload): string {
