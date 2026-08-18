@@ -501,15 +501,15 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.forcamabogados.com/en/lawyers-barcelona",
   },
   {
-    id: "eixample-orthodontist-turo-park",
+    id: "sarria-orthodontist-turo-park",
     name: "Turó Park Clinics: Dr. Madeleine Smit",
     categorySlug: "orthodontist",
-    areaSlug: "eixample",
+    areaSlug: "sarria-sant-gervasi",
     isPartner: false,
     isPlaceholder: false,
     specialties: ["Invisalign", "Lingual orthodontics", "Invisible braces"],
     languages: ["English", "Spanish"],
-    addressArea: "Carrer Francesc Pérez Cabrero, Eixample",
+    addressArea: "Carrer Francesc Pérez Cabrero, Sarrià-Sant Gervasi",
     bookingUrl: "https://turoparkmedical.com/dental-clinic-barcelona/orthodontist/",
   },
   {
