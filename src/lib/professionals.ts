@@ -1955,6 +1955,18 @@ export const professionals: Professional[] = [
     addressArea: "Carrer del Dr. Rizal, 8, Gràcia",
     ratingLabel: "5.0 (31 reviews) on Google Maps",
   },
+  {
+    id: "les-corts-veterinarian-centro-les-corts",
+    name: "Centro Veterinario Les Corts",
+    categorySlug: "veterinarian",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General veterinary care", "Pet supplies"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Nicaragua, 90, Les Corts",
+    ratingLabel: "4.6 (393 reviews) on Google Maps",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
