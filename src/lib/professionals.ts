@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "eixample-physiotherapist-james-wellington",
+    name: "James Wellington Physiotherapy",
+    categorySlug: "physiotherapist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Sports injury rehab", "Shoulder dislocation", "Dance/performer injuries"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Pau Claris, 153, Eixample",
+    ratingLabel: "5.0 (197 reviews) on Google Maps",
+  },
+  {
     id: "gracia-eye-care-el-graduat",
     name: "El Graduat Òptica",
     categorySlug: "eye-care",
