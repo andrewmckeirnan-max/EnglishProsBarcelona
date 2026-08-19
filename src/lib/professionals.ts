@@ -2184,6 +2184,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (39 reviews) on Google Maps",
   },
   {
+    id: "les-corts-insurance-broker-oller",
+    name: "Oller Business Insurance Brokers",
+    categorySlug: "insurance-broker",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Business insurance", "Home insurance", "Agricultural insurance"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer Numància, 185, Les Corts",
+    ratingLabel: "5.0 (22 reviews) on Google Maps · site has a full English version (ollerbrokers.com/en)",
+  },
+  {
     id: "sarria-physiotherapist-kinemez",
     name: "Centre de Fisioterapia KineMez",
     categorySlug: "physiotherapist",
