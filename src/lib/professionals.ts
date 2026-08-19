@@ -3528,6 +3528,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (122 reviews) on Google Maps",
   },
   {
+    id: "sarria-osteopath-irene-clavijo",
+    name: "Dr. Irene Clavijo - Turó Park Clinics",
+    categorySlug: "osteopath",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Osteopathy", "General practice"],
+    languages: ["English", "Spanish", "Catalan", "French"],
+    addressArea: "Plaça de Sant Gregori Taumaturg, 5, Sarrià-Sant Gervasi",
+    ratingLabel: "5.0 (4 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-physiotherapist-kineosteo",
     name: "Kineosteo Sports Medicine",
     categorySlug: "physiotherapist",
