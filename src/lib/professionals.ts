@@ -1288,6 +1288,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (99 reviews) on Google Maps",
   },
   {
+    id: "les-corts-tax-advisor-lamas",
+    name: "Asesoría Lamas",
+    categorySlug: "tax-advisor",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Tax advice & filings", "Payroll & labour law", "Accounting"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer del Cardenal Reig, 23, Les Corts",
+    ratingLabel: "5.0 (31 reviews) on Google Maps",
+  },
+  {
     id: "poblenou-psychologist-vivir-mejor",
     name: "Vivir Mejor Es Posible",
     categorySlug: "psychologist",
