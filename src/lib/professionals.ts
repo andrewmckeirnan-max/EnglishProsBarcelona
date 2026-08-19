@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "diagonal-mar-chiropractor-gaudio",
+    name: "Gaudio Quiropráctica",
+    categorySlug: "chiropractor",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Back & neck pain", "Sports injury", "Sciatica"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Llull, 350, Diagonal Mar",
+    ratingLabel: "Entire practice website published in English",
+  },
+  {
     id: "diagonal-mar-veterinarian-curasana",
     name: "Curasana",
     categorySlug: "veterinarian",
