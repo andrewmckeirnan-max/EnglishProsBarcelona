@@ -3072,6 +3072,18 @@ export const professionals: Professional[] = [
     ratingLabel: "Site is fully in English (lawyersbusinessbarcelona.com), 5.0 on Google Maps",
   },
   {
+    id: "les-corts-business-lawyer-ceca-magan",
+    name: "Ceca Magán Advocats",
+    categorySlug: "business-lawyer",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Corporate law", "M&A", "Commercial advisory"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Av. Diagonal, 601, Les Corts (Edificio Zurich Diagonal)",
+    ratingLabel: "5.0 (57 reviews) on Google Maps · review: 'Top notch address in Barcelona for corporate support and advisory'",
+  },
+  {
     id: "eixample-veterinarian-larc",
     name: "L'Arc del L'Eixample Veterinari",
     categorySlug: "veterinarian",
