@@ -3036,6 +3036,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (86 reviews) on Google Maps",
   },
   {
+    id: "sarria-business-lawyer-lawyersbusiness",
+    name: "Lawyers Business Barcelona",
+    categorySlug: "business-lawyer",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Company formation", "M&A", "Commercial & real estate law"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Muntaner, 379, Sarrià-Sant Gervasi",
+    ratingLabel: "Site is fully in English (lawyersbusinessbarcelona.com), 5.0 on Google Maps",
+  },
+  {
     id: "eixample-veterinarian-larc",
     name: "L'Arc del L'Eixample Veterinari",
     categorySlug: "veterinarian",
