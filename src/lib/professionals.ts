@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "eixample-osteopath-manel-barbera",
+    name: "Terapia Miofascial Manel Barberà",
+    categorySlug: "osteopath",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Myofascial release", "Trigger point therapy", "Sports injury"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de la Marina, 311-313, Eixample",
+    ratingLabel: "4.9 (133 reviews) on Google Maps",
+  },
+  {
     id: "eixample-business-lawyer-igolaw",
     name: "IGOLAW",
     categorySlug: "business-lawyer",
