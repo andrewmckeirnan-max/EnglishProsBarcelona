@@ -1418,6 +1418,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (64 reviews) on Google Maps",
   },
   {
+    id: "poblenou-holistic-doctor-masaje-integrativo",
+    name: "Masaje Integrativo Poblenou y Terapia Gestalt",
+    categorySlug: "holistic-doctor",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Integrative massage", "Gestalt therapy", "Stress & anxiety relief"],
+    languages: ["English", "Spanish"],
+    addressArea: "Passatge d'Iglésias, 14, Poblenou",
+    ratingLabel: "5.0 (10 reviews) on Google Maps",
+  },
+  {
     id: "sarria-dentist-cabeceran",
     name: "Centre Mèdic Cabeceran Les Escoles",
     categorySlug: "dentist",
