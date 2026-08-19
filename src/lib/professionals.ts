@@ -368,6 +368,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.therapyinbarcelona.com/el-clot/",
   },
   {
+    id: "diagonal-mar-psychologist-marguebah",
+    name: "Gabinete de Psicología MARGUEBAH",
+    categorySlug: "psychologist",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Individual therapy", "Psychological counselling"],
+    languages: ["English", "Spanish", "Catalan", "Portuguese"],
+    addressArea: "Carrer de Salvador Espriu, 27, Vila Olímpica",
+    ratingLabel: "5.0 (4 reviews) on Google Maps · site confirms services offered in English",
+  },
+  {
     id: "sarria-psychologist-psicare",
     name: "PsIcare Health",
     categorySlug: "psychologist",
