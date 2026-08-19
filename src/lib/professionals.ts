@@ -1970,6 +1970,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (10 reviews) on Google Maps",
   },
   {
+    id: "gracia-notary-moreno-maya",
+    name: "Notaria de Barcelona Gràcia - Damián Moreno Maya",
+    categorySlug: "notary",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Property purchase deeds", "Powers of attorney", "General notarial services"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de la Indústria, 40, Gràcia",
+    ratingLabel: "4.2 (81 reviews) on Google Maps",
+  },
+  {
     id: "sarria-doctor-healthcare-barcelona",
     name: "Healthcare Barcelona - Dr. Ilham Abdelrahim",
     categorySlug: "doctor",
