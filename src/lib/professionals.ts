@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "gracia-dentist-placidia",
+    name: "Dental Clinic Placídia - Dr. Yvonne Schultz",
+    categorySlug: "dentist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Implantology", "Aesthetic dentistry", "Endodontics"],
+    languages: ["English", "German", "Spanish"],
+    addressArea: "Plaça de Gal·la Placídia, 16, Gràcia",
+    ratingLabel: "5.0 (45 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-obgyn-dexeus-dona",
     name: "Clínica Dexeus Dona",
     categorySlug: "obgyn-midwife",
