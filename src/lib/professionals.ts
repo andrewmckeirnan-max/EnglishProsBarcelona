@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "gracia-lawyer-herrera-advocats",
+    name: "Herrera Advocats",
+    categorySlug: "lawyer",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Bankruptcy", "Corporate law", "Real estate", "Intellectual property"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Via Augusta, 4, Gràcia",
+    ratingLabel: "5.0 (5 reviews) on Google Maps; confirmed English-speaking on the UK FCDO's Find a Professional Service Abroad directory",
+  },
+  {
     id: "les-corts-naturopath-diet-center",
     name: "Diet Center Les Corts",
     categorySlug: "naturopath",
