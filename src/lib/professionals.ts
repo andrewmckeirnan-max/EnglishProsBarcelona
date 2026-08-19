@@ -1970,6 +1970,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (10 reviews) on Google Maps",
   },
   {
+    id: "eixample-veterinarian-veterinari-del-clinic",
+    name: "Veterinari del Clínic",
+    categorySlug: "veterinarian",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General veterinary care", "Cataract surgery", "Dental cleanings"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Casanova, 157, Eixample",
+    ratingLabel: "4.8 (343 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-veterinarian-fundacio-silvestre",
     name: "Clínica Veterinària Fundació Silvestre",
     categorySlug: "veterinarian",
