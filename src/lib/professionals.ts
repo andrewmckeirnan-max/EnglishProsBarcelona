@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "sarria-lawyer-forcam-abogados",
+    name: "Forcam Abogados",
+    categorySlug: "lawyer",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Real estate due diligence", "Employment law", "Property purchase for foreign buyers"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Can Ràbia, 3-5, Sarrià-Sant Gervasi",
+    ratingLabel: "4.5 (57 reviews) on Google Maps",
+  },
+  {
     id: "eixample-lawyer-dig-abogados",
     name: "DiG Abogados",
     categorySlug: "lawyer",
