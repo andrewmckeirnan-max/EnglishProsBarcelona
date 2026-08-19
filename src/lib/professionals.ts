@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "gracia-insurance-broker-mas-serra",
+    name: "Grup Brokers Mas Serra",
+    categorySlug: "insurance-broker",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Car insurance", "Home insurance", "Claims resolution"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Travessera de Dalt, 15, Gràcia",
+    ratingLabel: "5.0 (39 reviews) on Google Maps",
+  },
+  {
     id: "sarria-physiotherapist-kinemez",
     name: "Centre de Fisioterapia KineMez",
     categorySlug: "physiotherapist",
