@@ -1970,6 +1970,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (10 reviews) on Google Maps",
   },
   {
+    id: "les-corts-lasik-dexeus",
+    name: "Institut Oftalmològic Quirónsalud - Dexeus",
+    categorySlug: "lasik",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["LASIK refractive surgery", "Cataract surgery"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Gran Via de Carles III, 71, Les Corts (Hospital Universitari Dexeus)",
+    ratingLabel: "4.1 (68 reviews) on Google Maps",
+  },
+  {
     id: "sarria-eye-care-imo-miranza",
     name: "IMO Grup Miranza Barcelona",
     categorySlug: "eye-care",
