@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "eixample-lawyer-dig-abogados",
+    name: "DiG Abogados",
+    categorySlug: "lawyer",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Beckham Law applications", "Immigration", "Tax advice for expats"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de la Diputació, 260, Eixample",
+    ratingLabel: "4.9 (616 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-veterinarian-vetera",
     name: "Vetera Clínica Veterinària",
     categorySlug: "veterinarian",
