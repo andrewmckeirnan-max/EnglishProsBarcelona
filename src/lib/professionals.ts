@@ -2054,6 +2054,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.3 (82 reviews) on Google Maps",
   },
   {
+    id: "eixample-wealth-manager-chris-burke",
+    name: "Barcelona Financial Adviser - Chris Burke (Spectrum IFA)",
+    categorySlug: "wealth-manager",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Investment advice", "Retirement planning", "Tax-efficient wealth structuring"],
+    languages: ["English", "Spanish"],
+    addressArea: "Pg. de Gràcia, 63, Eixample",
+    ratingLabel: "5.0 (81 reviews) on Google Maps",
+  },
+  {
     id: "sarria-autonomo-accountant-globaris360",
     name: "Globaris360 - Gestoría Administrativa",
     categorySlug: "autonomo-accountant",
