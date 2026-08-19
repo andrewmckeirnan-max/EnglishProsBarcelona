@@ -2160,6 +2160,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.3 (82 reviews) on Google Maps",
   },
   {
+    id: "gracia-orthodontist-friedlander",
+    name: "Friedländer Clínica Dental y Ortodoncia",
+    categorySlug: "orthodontist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Invisalign", "Orthodontics", "General & pediatric dentistry"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer Gran de Gràcia, 110, Gràcia",
+    ratingLabel: "4.9 (417 reviews) on Google Maps",
+  },
+  {
     id: "eixample-wealth-manager-chris-burke",
     name: "Barcelona Financial Adviser - Chris Burke (Spectrum IFA)",
     categorySlug: "wealth-manager",
