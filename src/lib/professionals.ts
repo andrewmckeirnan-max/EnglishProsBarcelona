@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "gracia-eye-care-el-graduat",
+    name: "El Graduat Òptica",
+    categorySlug: "eye-care",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Eye exams", "Prescription glasses", "Progressive lenses", "Contact lenses"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Plaça de la Llibertat, 9, Gràcia",
+    ratingLabel: "5.0 (61 reviews) on Google Maps",
+  },
+  {
     id: "eixample-dentist-ramirez-pares",
     name: "Clínica Dental Ramírez Parés",
     categorySlug: "dentist",
