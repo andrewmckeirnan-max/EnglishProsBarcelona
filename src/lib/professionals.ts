@@ -1970,6 +1970,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (10 reviews) on Google Maps",
   },
   {
+    id: "poblenou-naturopath-ayurveda",
+    name: "Acupuncture & Ayurveda Barcelona",
+    categorySlug: "naturopath",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Naturopathy", "Ayurvedic medicine", "Herbal formulas"],
+    languages: ["English", "Spanish"],
+    addressArea: "Rambla del Poblenou, 21, Poblenou",
+    ratingLabel: "5.0 (10 reviews) on Google Maps",
+  },
+  {
     id: "gracia-notary-moreno-maya",
     name: "Notaria de Barcelona Gràcia - Damián Moreno Maya",
     categorySlug: "notary",
