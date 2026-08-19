@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "diagonal-mar-dentist-icaria",
+    name: "Clínica Dental Icària",
+    categorySlug: "dentist",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General dentistry", "Teeth whitening", "Invisalign"],
+    languages: ["English", "Spanish"],
+    addressArea: "Av. d'Icària, 157, Vila Olímpica (Centre Comercial El Centre de la Vila)",
+    ratingLabel: "4.2 (67 reviews) on Google Maps",
+  },
+  {
     id: "diagonal-mar-dentist-mydentiss",
     name: "MyDentiss",
     categorySlug: "dentist",
