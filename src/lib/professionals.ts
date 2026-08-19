@@ -3264,6 +3264,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.5 (55 reviews) on Google Maps",
   },
   {
+    id: "poblenou-lasik-baviera",
+    name: "Baviera",
+    categorySlug: "lasik",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["LASIK refractive surgery", "Myopia surgery", "Presbyopia treatment"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de Ramon Turró, 200, Poblenou",
+    ratingLabel: "4.8 (165 reviews) on Google Maps",
+  },
+  {
     id: "sarria-eye-care-imo-miranza",
     name: "IMO Grup Miranza Barcelona",
     categorySlug: "eye-care",
