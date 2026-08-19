@@ -486,6 +486,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://turoparkmedical.com/english-speaking-pediatrician/",
   },
   {
+    id: "sarria-pediatrician-faust-institute",
+    name: "Dr. Faust Institute",
+    categorySlug: "pediatrician",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General pediatrics", "International families", "Routine check-ups"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Vilana, 12, Sarrià-Sant Gervasi (Teknon Medical Center)",
+    ratingLabel: "5.0 (16 reviews) on Google Maps · review: 'If you are an English speaking expat family... Dr. Faust & staff are your dream team!!'",
+  },
+  {
     id: "eixample-pediatrician-arcc",
     name: "Centro Pediátrico ARCC Barcelona",
     categorySlug: "pediatrician",
