@@ -3276,6 +3276,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (25 reviews) on Google Maps",
   },
   {
+    id: "les-corts-acupuncturist-vicenc-casanova",
+    name: "Vicenç Casanova, Acupuntura Barcelona",
+    categorySlug: "acupuncturist",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Acupuncture", "Tinnitus & sciatica treatment", "Sports injuries"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Travessera de les Corts, 285, Les Corts",
+    ratingLabel: "4.9 (219 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-fertility-institut-marques",
     name: "Institut Marquès Barcelona",
     categorySlug: "fertility-clinic",
