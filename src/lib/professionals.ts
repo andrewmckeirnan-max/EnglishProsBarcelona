@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "gracia-lawyer-bxc-advisors",
+    name: "BXC Advisors",
+    categorySlug: "lawyer",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Immigration & residency", "Visa applications", "Foreigner bureaucracy"],
+    languages: ["English", "Spanish"],
+    addressArea: "Via Augusta, 74, Gràcia",
+    ratingLabel: "4.9 (104 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-veterinarian-veterinae",
     name: "Veterinae Clínica Veterinària",
     categorySlug: "veterinarian",
