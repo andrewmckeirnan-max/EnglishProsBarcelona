@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "diagonal-mar-veterinarian-curasana",
+    name: "Curasana",
+    categorySlug: "veterinarian",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General veterinary care", "Surgery", "Nutrition consultancy"],
+    languages: ["English", "Spanish"],
+    addressArea: "Passeig del Taulat, 279A, Diagonal Mar",
+    ratingLabel: "4.4 (155 reviews) on Google Maps",
+  },
+  {
     id: "gracia-sworn-translator-burdalo",
     name: "Sandra Burdalo Milá - Traductora Jurada",
     categorySlug: "sworn-translator",
