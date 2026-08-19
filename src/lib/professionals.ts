@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "les-corts-obgyn-dexeus-dona",
+    name: "Clínica Dexeus Dona",
+    categorySlug: "obgyn-midwife",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Gynaecology", "Obstetrics", "Menopause & midlife care", "International patient department"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Gran Via de Carles III, 71-75, Les Corts (Hospital Universitari Dexeus)",
+    ratingLabel: "4.2 (3,462 reviews) on Google Maps",
+  },
+  {
     id: "gracia-sworn-translator-monteagudo",
     name: "Isabel Monteagudo Robledo - Traductora Jurada",
     categorySlug: "sworn-translator",
