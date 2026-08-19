@@ -3360,6 +3360,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.5 (66 reviews) on Google Maps · site has a full English version (draruizcastilla.com/en)",
   },
   {
+    id: "poblenou-plastic-surgeon-sunol",
+    name: "Dr. Joaquim Suñol",
+    categorySlug: "plastic-surgeon",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Otoplasty (ear surgery)", "Reconstructive surgery", "Aesthetic surgery"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de la Ciutat de Granada, 108, Poblenou (Hospital Evangèlic, 22@)",
+    ratingLabel: "4.7 (25 reviews) on Google Maps, fluent English reviews including a US patient",
+  },
+  {
     id: "poblenou-physiotherapist-aline-tisato",
     name: "Aline Tisato - Holistic Physiotherapist",
     categorySlug: "physiotherapist",
