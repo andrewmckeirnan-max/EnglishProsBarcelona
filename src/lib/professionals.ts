@@ -2268,6 +2268,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (149 reviews) on Google Maps",
   },
   {
+    id: "diagonal-mar-orthodontist-dental-icaria",
+    name: "Clínica Dental Icària",
+    categorySlug: "orthodontist",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Invisalign", "Orthodontics", "General dentistry"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Av. d'Icària, 157, Vila Olímpica (Centre de la Vila)",
+    ratingLabel: "4.2 (67 reviews) on Google Maps · review from a Northern Ireland patient praising the English-speaking staff",
+  },
+  {
     id: "eixample-wealth-manager-chris-burke",
     name: "Barcelona Financial Adviser - Chris Burke (Spectrum IFA)",
     categorySlug: "wealth-manager",
