@@ -2006,6 +2006,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (156 reviews) on Google Maps",
   },
   {
+    id: "eixample-physiotherapist-lucy-barcelona",
+    name: "Barcelona Physiotherapy - Lucy",
+    categorySlug: "physiotherapist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Sciatica", "Manual therapy", "Cupping"],
+    languages: ["English", "Spanish"],
+    addressArea: "Pg. de Sant Joan, 97, Eixample",
+    ratingLabel: "5.0 (16 reviews) on Google Maps",
+  },
+  {
     id: "eixample-physiotherapist-james-wellington",
     name: "James Wellington Physiotherapy",
     categorySlug: "physiotherapist",
