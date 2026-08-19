@@ -1970,6 +1970,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (10 reviews) on Google Maps",
   },
   {
+    id: "les-corts-plastic-surgeon-dfine",
+    name: "DFine Clinic",
+    categorySlug: "plastic-surgeon",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Blepharoplasty", "Hair transplant", "Aesthetic surgery"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer d'Agustina Saragossa, 3, Les Corts",
+    ratingLabel: "5.0 (478 reviews) on Google Maps",
+  },
+  {
     id: "poblenou-physiotherapist-aline-tisato",
     name: "Aline Tisato - Holistic Physiotherapist",
     categorySlug: "physiotherapist",
