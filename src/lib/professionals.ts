@@ -3954,6 +3954,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.grupocastanera.com/en/home/",
   },
   {
+    id: "sarria-chiropractor-lesseps",
+    name: "Lesseps Quiropràctica - Noémie Bourrières",
+    categorySlug: "chiropractor",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Spinal adjustment", "Sacro-occipital technique", "Babies & children"],
+    languages: ["English", "Spanish", "French"],
+    addressArea: "Carrer d'Escipió, 4, Lesseps",
+    bookingUrl: "https://www.lessepsquiro.com/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
