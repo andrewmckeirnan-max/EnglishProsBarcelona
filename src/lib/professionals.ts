@@ -3942,6 +3942,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://quiropracticalolivera.com/en/",
   },
   {
+    id: "sarria-eye-care-castanera",
+    name: "Clínica Castanera",
+    categorySlug: "eye-care",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Cataract surgery", "Glaucoma", "Retina", "Pediatric ophthalmology"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Vilana, 12, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.grupocastanera.com/en/home/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
