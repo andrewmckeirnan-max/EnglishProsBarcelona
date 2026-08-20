@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import type { Professional, Area } from "@/lib/types";
+import { parseRating } from "@/lib/text";
 
 interface Props {
   professionals: Professional[];
@@ -37,13 +38,25 @@ export function ProfessionalsMap({ professionals, area }: Props) {
         maxZoom: 19,
       }).addTo(map);
 
-      const icon = L.divIcon({
+      const pinIcon = L.divIcon({
         className: "",
         html: `<div style="background:#5b21b6;width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.45);"></div>`,
         iconSize: [16, 16],
         iconAnchor: [8, 16],
         popupAnchor: [0, -16],
       });
+      // Fresha-style rating badge for pins where we have a real parsed
+      // rating, plain teardrop otherwise (never fabricate a rating badge).
+      function ratingIcon(value: string) {
+        const width = 34 + value.length * 7;
+        return L.divIcon({
+          className: "",
+          html: `<div style="background:#1f1f1f;color:white;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.45);border:1.5px solid white;">★ ${value}</div>`,
+          iconSize: [width, 22],
+          iconAnchor: [width / 2, 26],
+          popupAnchor: [0, -26],
+        });
+      }
 
       const bounds: [number, number][] = [];
       professionals.forEach((p, i) => {
@@ -54,10 +67,12 @@ export function ProfessionalsMap({ professionals, area }: Props) {
           lat = area.mapCenter.lat + Math.cos(angle) * 0.0035;
           lng = area.mapCenter.lng + Math.sin(angle) * 0.0035;
         }
+        const parsedRating = parseRating(p.ratingLabel);
+        const icon = parsedRating ? ratingIcon(parsedRating.value) : pinIcon;
         const marker = L.marker([lat, lng], { icon }).addTo(map!);
-        const rating = p.ratingLabel ? `<div style="color:#666;font-size:12px;margin-top:2px;">${escapeHtml(p.ratingLabel)}</div>` : "";
+        const ratingHtml = p.ratingLabel ? `<div style="color:#666;font-size:12px;margin-top:2px;">${escapeHtml(p.ratingLabel)}</div>` : "";
         marker.bindPopup(
-          `<div style="font-family:inherit;"><strong style="font-size:13px;">${escapeHtml(p.name)}</strong>${rating}</div>`,
+          `<div style="font-family:inherit;"><strong style="font-size:13px;">${escapeHtml(p.name)}</strong>${ratingHtml}</div>`,
         );
         bounds.push([lat, lng]);
       });

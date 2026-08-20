@@ -82,6 +82,10 @@ export interface Professional {
   phoneDisplay?: string; // only set once a real, verified partner is onboarded
   whatsappNumber?: string; // E.164 format, only set for verified partners
   bookingUrl?: string;
+  /** Pulled from the business's own official website (never scraped from
+   * Google Maps/reviews — see src/lib/professionals.ts header for why).
+   * Omit rather than guess when no official photo is findable. */
+  photoUrl?: string;
   ratingLabel?: string; // qualitative only until we have a verified review source
   /** €-€€€€€ price tier, only when we've actually verified pricing, e.g. from
    * the professional's own published rates. Left unset otherwise, an

@@ -1,7 +1,7 @@
 import { Star, Lock } from "lucide-react";
 import type { Professional } from "@/lib/types";
 import { waLink } from "@/lib/whatsapp";
-import { googleMapsSearchUrl } from "@/lib/maps";
+import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
 import { parseRating } from "@/lib/text";
 
 export function ProfessionalCard({ professional }: { professional: Professional }) {
@@ -12,12 +12,30 @@ export function ProfessionalCard({ professional }: { professional: Professional 
     .join("")
     .toUpperCase();
   const rating = parseRating(professional.ratingLabel);
+  // Tier 1: a real photo of the business (never a scraped Google/review
+  // photo, see types.ts). Tier 2: a static map pin on their real geocoded
+  // location, when we have coordinates but no photo. Tier 3: plain
+  // initials, when we have neither.
+  const photoSrc =
+    professional.photoUrl ??
+    (professional.lat != null && professional.lng != null
+      ? staticMapThumbnailUrl(professional.lat, professional.lng)
+      : undefined);
 
   return (
     <div className="rounded-2xl border border-border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center hover:shadow-soft hover:border-brand/20 transition-all">
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand font-bold">
-        {initials}
-      </div>
+      {photoSrc ? (
+        // eslint-disable-next-line @next/next/no-img-element -- external, unoptimized source photo/map tile
+        <img
+          src={photoSrc}
+          alt={professional.name}
+          className="h-14 w-14 shrink-0 rounded-full object-cover bg-surface-muted"
+        />
+      ) : (
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand font-bold">
+          {initials}
+        </div>
+      )}
       <div className="flex-1">
         <div className="flex items-center gap-2 flex-wrap">
           <h3 className="font-semibold">{professional.name}</h3>
