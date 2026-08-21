@@ -4110,6 +4110,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.fertilitybarcelona.com/en/",
   },
   {
+    id: "les-corts-nutritionist-cristina-barnadas",
+    name: "Dr. Cristina Barnadas",
+    categorySlug: "nutritionist",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Clinical nutrition", "Digestive pathologies", "Nutritional coaching"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Can Bruixa, 17, Les Corts",
+    bookingUrl: "https://www.dracristinabarnadas.com/en/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
