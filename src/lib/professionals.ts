@@ -1117,6 +1117,7 @@ export const professionals: Professional[] = [
     addressArea: "Carrer de Bilbao, Poblenou",
     lat: 41.4070924,
     lng: 2.1977852,
+    bookingUrl: "https://medvisit.io/",
     ratingLabel: "4.8 (688 reviews) on Google Maps",
   },
   {
@@ -4548,6 +4549,19 @@ export const professionals: Professional[] = [
     addressArea: "Carrer del Consell de Cent, 140, Eixample",
     bookingUrl: "http://www.fisiologic.com/en/",
     ratingLabel: "4.7 (39 reviews) on Google Maps",
+  },
+  {
+    id: "poblenou-dentist-cdl-lovera",
+    name: "CDL Clínica Dental Lovera",
+    categorySlug: "dentist",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Oral surgery", "Implantology", "Invisalign", "Orthodontics"],
+    languages: ["English", "Spanish", "Catalan", "French"],
+    addressArea: "Rambla Guipúscoa / Carrer de Puigcerdà, 111-113, Poblenou",
+    bookingUrl: "https://clinicadentallovera.com/en/clinica-dental-lovera-english",
+    ratingLabel: "4.7 (150 reviews) on Google Maps",
   },
   {
     id: "gracia-plastic-surgeon-clinica-birbe",
