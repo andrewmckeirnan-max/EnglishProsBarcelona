@@ -4050,6 +4050,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://notariafeliuyuste.com/",
   },
   {
+    id: "gracia-naturopath-zoe-holden",
+    name: "Zoe Holden - Classical Homeopath",
+    categorySlug: "naturopath",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Classical homeopathy", "Babies & children"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Gran de Gràcia, 77, Gràcia",
+    bookingUrl: "https://zoeholden.com/en/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
