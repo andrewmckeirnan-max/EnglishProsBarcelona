@@ -45,7 +45,14 @@ function ensureSchema(client: ReturnType<typeof postgres>) {
         -- attribution loop. Not written by the public lead endpoint.
         status TEXT NOT NULL DEFAULT 'new'
       )
-    `.then(() => undefined);
+    `
+      // ALTER ... IF NOT EXISTS rather than baking this into the CREATE TABLE
+      // above, since that only runs for a brand-new table — the real table
+      // already exists in production, so new columns need to be added to it
+      // directly. Timestamp, not a plain boolean: proof of *when* consent
+      // was given is what actually matters if this is ever questioned.
+      .then(() => client`ALTER TABLE leads ADD COLUMN IF NOT EXISTS consented_at TIMESTAMPTZ`)
+      .then(() => undefined);
   }
   return schemaReady;
 }
@@ -63,6 +70,7 @@ export interface StoredLead {
   notes: string | null;
   pageUrl: string | null;
   status: string;
+  consentedAt: string | null;
 }
 
 export function isDatabaseConfigured(): boolean {
@@ -79,14 +87,16 @@ export async function insertLead(lead: {
   email: string;
   notes?: string;
   pageUrl?: string;
+  consentedAt: string;
 }): Promise<boolean> {
   const client = getClient();
   if (!client) return false;
   await ensureSchema(client);
   await client`
-    INSERT INTO leads (area_slug, category_slug, need, urgency, name, whatsapp, email, notes, page_url)
+    INSERT INTO leads (area_slug, category_slug, need, urgency, name, whatsapp, email, notes, page_url, consented_at)
     VALUES (${lead.areaSlug}, ${lead.categorySlug}, ${lead.need ?? null}, ${lead.urgency ?? null},
-            ${lead.name}, ${lead.whatsapp}, ${lead.email}, ${lead.notes ?? null}, ${lead.pageUrl ?? null})
+            ${lead.name}, ${lead.whatsapp}, ${lead.email}, ${lead.notes ?? null}, ${lead.pageUrl ?? null},
+            ${lead.consentedAt})
   `;
   return true;
 }
@@ -109,5 +119,6 @@ export async function listLeads(): Promise<StoredLead[]> {
     notes: r.notes,
     pageUrl: r.page_url,
     status: r.status,
+    consentedAt: r.consented_at instanceof Date ? r.consented_at.toISOString() : r.consented_at,
   }));
 }

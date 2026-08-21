@@ -57,6 +57,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [notes, setNotes] = useState("");
+  const [consent, setConsent] = useState(false);
   // Honeypot: real visitors never see or fill this field (off-screen,
   // unlabeled, skipped in tab order). Bots that fill every input trip it,
   // and the request is silently dropped server-side.
@@ -118,7 +119,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   }
 
   async function handleSubmit() {
-    if (!categorySlug || !areaSlug) return;
+    if (!categorySlug || !areaSlug || !consent) return;
     setStatus("submitting");
     try {
       const res = await fetch("/api/lead", {
@@ -135,6 +136,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           notes,
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
           company: honeypot,
+          consent,
         }),
       });
       if (!res.ok) throw new Error("Request failed");
@@ -484,20 +486,40 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand resize-none"
             />
           </div>
+          <label className="flex items-start gap-2.5 mt-4 text-xs text-foreground/70 cursor-pointer">
+            <input
+              type="checkbox"
+              required
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-border text-brand focus:ring-brand focus:ring-offset-0"
+            />
+            <span>
+              I agree to the{" "}
+              <a href="/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand">
+                Privacy Policy
+              </a>
+              . We won&apos;t share your details with any professional unless you contact
+              them yourself.
+            </span>
+          </label>
           {status === "error" && (
             <p className="text-sm text-red-600 mt-3">Something went wrong, please try again.</p>
           )}
           <button
             type="submit"
-            disabled={status === "submitting"}
+            disabled={status === "submitting" || !consent}
             className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition disabled:opacity-60"
           >
             {status === "submitting" ? "Sending..." : matches.length > 0 ? "Unlock my full list" : "Find my match"}
           </button>
           <p className="text-xs text-foreground/50 mt-3 text-center">
             Free, always, for the Barcelona English-speaking community. We&apos;re paid by
-            professionals who want to be found by you, never by you. Your details aren&apos;t shared
-            with any professional unless you choose to contact them.
+            professionals who want to be found by you, never by you.
           </p>
         </form>
       )}

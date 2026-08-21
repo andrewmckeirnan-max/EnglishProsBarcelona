@@ -24,7 +24,10 @@ async function saveLeadToFile(lead: LeadPayload & { receivedAt: string }) {
 
 async function saveLead(lead: LeadPayload & { receivedAt: string }) {
   if (isDatabaseConfigured()) {
-    await insertLead(lead);
+    // Consent and submission happen in the same request, so the server's
+    // own received-at instant is the real consent timestamp — no need to
+    // trust a client-supplied one.
+    await insertLead({ ...lead, consentedAt: lead.receivedAt });
     return;
   }
   // No DATABASE_URL — local-dev-only fallback, does not persist on a real
@@ -185,7 +188,11 @@ function isValidLead(body: unknown): body is LeadPayload {
     // both required: WhatsApp is fast, email is the fallback when someone
     // doesn't have/use WhatsApp, so we need a way to reach them either way
     typeof b.email === "string" &&
-    b.email.includes("@")
+    b.email.includes("@") &&
+    // Enforced here, not just a disabled button client-side — a disabled
+    // button is trivially bypassable by anyone calling this endpoint
+    // directly, and consent has to actually have been given to be real.
+    b.consent === true
   );
 }
 

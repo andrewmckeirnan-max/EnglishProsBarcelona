@@ -4,7 +4,7 @@ import { getArea, getCategory } from "@/lib/data";
 import { isDatabaseConfigured, listLeads } from "@/lib/db";
 import type { LeadPayload } from "@/lib/types";
 
-type ViewLead = LeadPayload & { receivedAt: string };
+type ViewLead = LeadPayload & { receivedAt: string; consentedAt?: string | null };
 
 // Internal leads viewer. Reads from the real database when DATABASE_URL is
 // set (see src/lib/db.ts); otherwise falls back to the local JSONL file,
@@ -42,6 +42,8 @@ export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
       notes: r.notes ?? undefined,
       pageUrl: r.pageUrl ?? "",
       receivedAt: r.receivedAt,
+      consent: !!r.consentedAt,
+      consentedAt: r.consentedAt,
     }));
   } else {
     try {
@@ -82,6 +84,7 @@ export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
                 <th className="px-4 py-3">Urgency</th>
                 <th className="px-4 py-3">Name</th>
                 <th className="px-4 py-3">Contact</th>
+                <th className="px-4 py-3">Consent</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -102,6 +105,15 @@ export default async function AdminLeadsPage(props: PageProps<"/admin/leads">) {
                   <td className="px-4 py-3">
                     <div>{lead.whatsapp}</div>
                     <div className="text-foreground/50">{lead.email}</div>
+                  </td>
+                  <td className="px-4 py-3 whitespace-nowrap">
+                    {lead.consentedAt ? (
+                      <span className="text-green-700" title={new Date(lead.consentedAt).toLocaleString()}>
+                        ✓ {new Date(lead.consentedAt).toLocaleDateString()}
+                      </span>
+                    ) : (
+                      <span className="text-foreground/40">—</span>
+                    )}
                   </td>
                 </tr>
               ))}

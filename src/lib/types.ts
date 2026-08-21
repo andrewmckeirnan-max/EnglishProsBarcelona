@@ -103,4 +103,5 @@ export interface LeadPayload {
   email: string; // required: email is the fallback channel when WhatsApp isn't available/reachable
   notes?: string;
   pageUrl: string;
+  consent: boolean; // must be true: ticked agreement to the Privacy Policy / Terms before submit
 }
