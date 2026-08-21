@@ -4074,6 +4074,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.stefandoctor.com/",
   },
   {
+    id: "sarria-dermatologist-podlipnik",
+    name: "Dr. Sebastian Podlipnik",
+    categorySlug: "dermatologist",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Skin cancer & dermato-oncology", "Laser dermatology"],
+    languages: ["English", "Spanish"],
+    addressArea: "Passage de Ricard Zamora, 1, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.sebastianpodlipnik.com/en/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
