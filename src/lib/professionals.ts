@@ -4410,6 +4410,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.blivfclinic.com/en/",
   },
   {
+    id: "diagonal-mar-pediatrician-medical-care-barcelona",
+    name: "Medical Care Barcelona: Pediatrician",
+    categorySlug: "pediatrician",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Pediatric urgent care", "Same-day appointments", "24h care"],
+    languages: ["English", "Spanish"],
+    addressArea: "Torre Mapfre, Carrer de la Marina, Vila Olímpica",
+    bookingUrl: "https://medicalcarebarcelona.com/pediatrician-barcelona/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
