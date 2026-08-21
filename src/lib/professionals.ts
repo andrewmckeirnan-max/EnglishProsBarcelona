@@ -4062,6 +4062,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://zoeholden.com/en/",
   },
   {
+    id: "diagonal-mar-doctor-stefan-botnar",
+    name: "Dr Stefan Botnar",
+    categorySlug: "doctor",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General medicine", "Emergency services", "STI testing"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de la Marina, 16-18, Vila Olímpica",
+    bookingUrl: "https://www.stefandoctor.com/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
