@@ -4471,6 +4471,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://logopeda.barcelona/en/",
   },
   {
+    id: "gracia-dermatologist-clinica-vilanova",
+    name: "Clínica Vilanova - Dra. Anna Vilanova",
+    categorySlug: "dermatologist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Medical dermatology", "Surgical dermatology", "Mole & skin cancer checks", "Acne treatment"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Gran de Gràcia, 109, Gràcia",
+    bookingUrl: "https://www.vilanova.es/en-gb/dermatologist-barcelona-spain",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
