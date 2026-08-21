@@ -4038,6 +4038,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.fincaseva.com/",
   },
   {
+    id: "poblenou-notary-feliu-yuste",
+    name: "Notaría Feliu & Yuste",
+    categorySlug: "notary",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Property sales & purchases", "Wills & inheritance", "Powers of attorney"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Pujades, 156, Poblenou",
+    bookingUrl: "https://notariafeliuyuste.com/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
