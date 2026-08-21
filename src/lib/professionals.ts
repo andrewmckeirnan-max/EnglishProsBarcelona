@@ -4470,6 +4470,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://logopeda.barcelona/en/",
   },
   {
+    id: "gracia-podiatrist-podologia-travessera",
+    name: "Podología Travessera - Dr. Marc Vázquez Camacho",
+    categorySlug: "podiatrist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Biomechanical gait study", "Sports podiatry", "Ingrown toenail treatment", "Custom orthotics"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Travessera de Gràcia, 115, Gràcia",
+    bookingUrl: "https://www.podologiatravessera.es/en/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
