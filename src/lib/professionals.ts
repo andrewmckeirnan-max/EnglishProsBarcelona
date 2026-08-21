@@ -1375,6 +1375,7 @@ export const professionals: Professional[] = [
     addressArea: "Carrer del Laberint, Poblenou",
     lat: 41.3993632,
     lng: 2.206888,
+    bookingUrl: "https://lifechiropracticpoblenou.com/",
     ratingLabel: "5.0 (106 reviews) on Google Maps",
   },
   {
@@ -4496,6 +4497,19 @@ export const professionals: Professional[] = [
     addressArea: "Avinguda de la Riera de Cassoles, 8 bis, Gràcia",
     bookingUrl: "https://www.fisiocraneo.com/en",
     ratingLabel: "4.9 (64 reviews) on Google Maps",
+  },
+  {
+    id: "diagonal-mar-physiotherapist-fisio-julia",
+    name: "Fisio Julia",
+    categorySlug: "physiotherapist",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Physiotherapy", "Pediatric physiotherapy", "Orthopedic & neurological rehab"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Provençals, 4, Diagonal Mar",
+    bookingUrl: "https://en.fisiojuliabarcelona.com/",
+    ratingLabel: "5.0 (99 reviews) on Google Maps",
   },
   {
     id: "gracia-plastic-surgeon-clinica-birbe",
