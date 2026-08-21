@@ -4483,6 +4483,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.vilanova.es/en-gb/dermatologist-barcelona-spain",
   },
   {
+    id: "gracia-physiotherapist-enric-gallofre",
+    name: "Clínica de Fisioteràpia i Osteopatia Enric Gallofré",
+    categorySlug: "physiotherapist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Physiotherapy", "Osteopathy", "Sports injuries", "TMJ / jaw pain"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Via Augusta, 48, Gràcia",
+    bookingUrl: "https://enricgallofre.com/fisioterapia-gracia/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
