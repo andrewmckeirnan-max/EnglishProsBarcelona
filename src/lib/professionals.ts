@@ -4302,6 +4302,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.plasticabarcelona.com/international-patients-plastic-surgery-barcelona",
   },
   {
+    id: "poblenou-orthodontist-sanz-pancko",
+    name: "Sanz & Pancko Dental Clinic",
+    categorySlug: "orthodontist",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Orthodontics", "Invisalign", "Lingual orthodontics"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Rogent, 40-42, El Clot (bordering Poblenou)",
+    bookingUrl: "https://www.clinicadentalsyp.com/en/english-speaking-dentist-barcelona/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
