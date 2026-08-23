@@ -2258,6 +2258,7 @@ export const professionals: Professional[] = [
     specialties: ["Pediatric dentistry", "Pediatric orthodontics"],
     languages: ["English", "Spanish"],
     addressArea: "Carrer de Prats de Molló, 10, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.drboj.com/en/",
     ratingLabel: "4.3 (82 reviews) on Google Maps",
   },
   {
@@ -4745,6 +4746,19 @@ export const professionals: Professional[] = [
     addressArea: "Rambla de Catalunya, 98 bis, Eixample",
     bookingUrl: "https://grupogestorbcn.com/en/",
     ratingLabel: "4.8 (133 reviews) on Google Maps",
+  },
+  {
+    id: "eixample-doctor-english-speaking-doctor",
+    name: "English Speaking Doctor Barcelona",
+    categorySlug: "doctor",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General practice", "Home visits", "Online consultations"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer d'Aragó, 475, Eixample",
+    bookingUrl: "https://www.englishspeakingdoctor.barcelona/",
+    ratingLabel: "4.9 (132 reviews) on Google Maps",
   },
   {
     id: "gracia-plastic-surgeon-clinica-birbe",
