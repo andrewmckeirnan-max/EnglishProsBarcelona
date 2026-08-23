@@ -4749,6 +4749,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.8 (133 reviews) on Google Maps",
   },
   {
+    id: "eixample-dentist-clinica-den",
+    name: "Clínica Dental Den - Dra. Sandra Cardona Soria",
+    categorySlug: "dentist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Pediatric dentistry", "Orthodontics", "Craniofacial malformations"],
+    languages: ["English", "Spanish"],
+    addressArea: "Via Augusta, 28-30, Eixample",
+    bookingUrl: "https://clinicasden.com/en/pediatric-dentistry-barcelona/",
+  },
+  {
     id: "gracia-plastic-surgeon-clinica-birbe",
     name: "Dr. Joan Birbe (Clínica Birbe)",
     categorySlug: "plastic-surgeon",
