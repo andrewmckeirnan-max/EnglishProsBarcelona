@@ -2492,6 +2492,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (61 reviews) on Google Maps",
   },
   {
+    id: "gracia-nutritionist-loveyourself",
+    name: "Loveyourself Nutrición",
+    categorySlug: "nutritionist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Weight management", "Sports nutrition", "Chronic disease diet management"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Còrsega, 487, Gràcia",
+    bookingUrl: "https://loveyourself.es/en/",
+  },
+  {
     id: "eixample-dentist-ramirez-pares",
     name: "Clínica Dental Ramírez Parés",
     categorySlug: "dentist",
