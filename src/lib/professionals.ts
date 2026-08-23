@@ -2488,6 +2488,7 @@ export const professionals: Professional[] = [
     specialties: ["Eye exams", "Prescription glasses", "Progressive lenses", "Contact lenses"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Plaça de la Llibertat, 9, Gràcia",
+    bookingUrl: "https://www.elgraduat.com/",
     ratingLabel: "5.0 (61 reviews) on Google Maps",
   },
   {
