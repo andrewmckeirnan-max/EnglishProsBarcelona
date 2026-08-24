@@ -1462,6 +1462,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://jimenez-ridruejo.es/",
   },
   {
+    id: "sarria-property-advisor-coldwell-banker-prestige",
+    name: "Coldwell Banker Prestige Real Estate",
+    categorySlug: "property-advisor",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Luxury property sales", "International buyer support", "Property rentals"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Avinguda Diagonal, 626, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.coldwellbanker.es/en/real-estate-barcelona-sarria-sant-gervasi-prestige",
+  },
+  {
     id: "poblenou-psychologist-vivir-mejor",
     name: "Vivir Mejor Es Posible",
     categorySlug: "psychologist",
