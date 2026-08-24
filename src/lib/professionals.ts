@@ -3419,6 +3419,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (5 reviews) on Google Maps; confirmed English-speaking on the UK FCDO's Find a Professional Service Abroad directory",
   },
   {
+    id: "gracia-lawyer-mccairley",
+    name: "Hugh McCairley Abogado",
+    categorySlug: "lawyer",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Civil law", "Family law", "Wills & probate", "Residential property"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Benet Mercadé, 11, Gràcia",
+    bookingUrl: "https://www.mccairley-abogado.com",
+  },
+  {
     id: "les-corts-naturopath-diet-center",
     name: "Diet Center Les Corts",
     categorySlug: "naturopath",
