@@ -216,6 +216,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://vicky-carrillo.es",
   },
   {
+    id: "gracia-psychologist-patricia-maguet",
+    name: "Patricia Maguet - Terapia de pareja",
+    categorySlug: "psychologist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Couples therapy", "Infidelity counselling", "LGBTQ+ couples therapy"],
+    languages: ["English", "Spanish", "Catalan", "French"],
+    addressArea: "Carrer de Montmany, 29, Gràcia",
+    bookingUrl: "https://patriciamaguet.com",
+  },
+  {
     id: "sarria-fertility-turo-park",
     name: "Turó Park Clinics: Fertility & AHR",
     categorySlug: "fertility-clinic",
