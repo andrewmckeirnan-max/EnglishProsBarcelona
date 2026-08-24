@@ -204,6 +204,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.mindplacecenter.com/en/serviciossaludmental",
   },
   {
+    id: "gracia-psychologist-vicky-carrillo",
+    name: "Psicóloga Trauma y EMDR Barcelona - Vicky Carrillo",
+    categorySlug: "psychologist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Trauma therapy", "EMDR", "Anxiety & self-esteem"],
+    languages: ["English", "Spanish", "Catalan", "German"],
+    addressArea: "Plaça de Gal·la Placídia, 10, Gràcia",
+    bookingUrl: "https://vicky-carrillo.es",
+  },
+  {
     id: "sarria-fertility-turo-park",
     name: "Turó Park Clinics: Fertility & AHR",
     categorySlug: "fertility-clinic",
