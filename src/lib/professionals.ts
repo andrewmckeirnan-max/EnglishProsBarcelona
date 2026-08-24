@@ -240,6 +240,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://conscientementepsicologia.com",
   },
   {
+    id: "gracia-psychologist-sarah-drewer",
+    name: "Sarah Drewer Counselling",
+    categorySlug: "psychologist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Psychotherapy", "Counselling", "Pluralistic therapy"],
+    languages: ["English", "Spanish"],
+    addressArea: "Rambla de Prat, 13, Gràcia",
+    bookingUrl: "https://www.sarahdrewercounselling.com/",
+  },
+  {
     id: "sarria-fertility-turo-park",
     name: "Turó Park Clinics: Fertility & AHR",
     categorySlug: "fertility-clinic",
