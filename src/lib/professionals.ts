@@ -3301,10 +3301,10 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (417 reviews) on Google Maps",
   },
   {
-    id: "sarria-nutritionist-cathy-morghese",
+    id: "gracia-nutritionist-cathy-morghese",
     name: "Cathy Morghese - Nutrición y Salud Integrativa",
     categorySlug: "nutritionist",
-    areaSlug: "sarria-sant-gervasi",
+    areaSlug: "gracia",
     isPartner: false,
     isPlaceholder: false,
     specialties: ["Gut health", "Integrative nutrition", "Lifestyle transformation"],
