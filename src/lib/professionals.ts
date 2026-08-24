@@ -2319,6 +2319,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.8 (154 reviews) on Google Maps",
   },
   {
+    id: "poblenou-lawyer-cuatrecasas",
+    name: "Cuatrecasas",
+    categorySlug: "lawyer",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Corporate law", "Commercial law", "International business"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Avinguda Diagonal, 191, Poblenou",
+    bookingUrl: "https://www.cuatrecasas.com/en/global/offices/barcelona-1",
+  },
+  {
     id: "poblenou-business-lawyer-law4digital",
     name: "LAW4DIGITAL",
     categorySlug: "business-lawyer",
