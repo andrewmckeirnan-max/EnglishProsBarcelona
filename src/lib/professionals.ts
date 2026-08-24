@@ -3311,6 +3311,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.7 (1864 reviews) on Google Maps",
   },
   {
+    id: "eixample-obgyn-gine-perez",
+    name: "GINE PÉREZ",
+    categorySlug: "obgyn-midwife",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Gynaecology", "Pregnancy care", "Menopause"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Provença, 183, Eixample",
+    bookingUrl: "https://gineperez.com/en/",
+  },
+  {
     id: "gracia-sworn-translator-monteagudo",
     name: "Isabel Monteagudo Robledo - Traductora Jurada",
     categorySlug: "sworn-translator",
