@@ -228,6 +228,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://patriciamaguet.com",
   },
   {
+    id: "gracia-psychologist-conscientemente",
+    name: "ConscienteMente - Centro de Psicología",
+    categorySlug: "psychologist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Individual therapy", "Couples therapy", "EMDR"],
+    languages: ["English", "Spanish"],
+    addressArea: "Plaça de Gal·la Placídia, 10, Gràcia",
+    bookingUrl: "https://conscientementepsicologia.com",
+  },
+  {
     id: "sarria-fertility-turo-park",
     name: "Turó Park Clinics: Fertility & AHR",
     categorySlug: "fertility-clinic",
