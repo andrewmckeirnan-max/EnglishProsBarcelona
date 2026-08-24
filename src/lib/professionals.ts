@@ -192,6 +192,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.therapyinbarcelona.com/",
   },
   {
+    id: "eixample-psychologist-mindplace-barcelona",
+    name: "MindPlace Barcelona",
+    categorySlug: "psychologist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Couples therapy", "Family therapy", "ADHD & autism assessments"],
+    languages: ["English", "Spanish"],
+    addressArea: "Plaça de Catalunya, 1, Eixample",
+    bookingUrl: "https://www.mindplacecenter.com/en/serviciossaludmental",
+  },
+  {
     id: "sarria-fertility-turo-park",
     name: "Turó Park Clinics: Fertility & AHR",
     categorySlug: "fertility-clinic",
