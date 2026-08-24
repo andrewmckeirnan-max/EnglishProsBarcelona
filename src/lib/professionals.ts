@@ -3506,6 +3506,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (185 reviews) on Google Maps",
   },
   {
+    id: "les-corts-nutritionist-diet-center",
+    name: "Diet Center Les Corts",
+    categorySlug: "nutritionist",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Weight management", "Nutrition plans", "Natural supplements"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de Joan Güell, 172, Les Corts",
+    ratingLabel: "4.9 (185 reviews) on Google Maps",
+  },
+  {
     id: "les-corts-nutritionist-mg-nutricion",
     name: "MG Nutrición - Maria Gallego",
     categorySlug: "nutritionist",
