@@ -1354,6 +1354,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.8 (262 reviews) on Google Maps",
   },
   {
+    id: "diagonal-mar-pediatrician-centre-medic-vila-olimpica",
+    name: "Centre Mèdic Vila Olímpica (Dr. Pau Ventosa)",
+    categorySlug: "pediatrician",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General pediatrics", "Pediatric emergencies", "Ultrasounds"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Avinguda d'Icària, 182, Vila Olímpica",
+    bookingUrl: "https://www.centremedicvilaolimpica.com/en/",
+  },
+  {
     id: "diagonal-mar-doctor-medical-care-barcelona",
     name: "Medical Care Barcelona",
     categorySlug: "doctor",
