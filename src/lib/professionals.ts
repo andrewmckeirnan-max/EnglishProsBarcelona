@@ -594,6 +594,18 @@ export const professionals: Professional[] = [
     addressArea: "Eixample",
   },
   {
+    id: "eixample-pediatrician-nonoca",
+    name: "Nonoca - Pediatria Amable",
+    categorySlug: "pediatrician",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["General pediatrics", "Child psychology", "Dietetics & nutrition"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de Provença, 268, Eixample",
+    bookingUrl: "https://nonoca.cat/en/about-us/",
+  },
+  {
     id: "eixample-osteopath-malecot",
     name: "Malécot Osteopathy",
     categorySlug: "osteopath",
