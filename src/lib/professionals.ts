@@ -5163,6 +5163,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://birbe.org/en/",
   },
   {
+    id: "gracia-dentist-clinica-birbe",
+    name: "Dr. Joan Birbe (Clínica Birbe)",
+    categorySlug: "dentist",
+    areaSlug: "gracia",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Oral & maxillofacial surgery", "Dental implants", "Orthognathic surgery"],
+    languages: ["English", "Spanish", "Catalan", "French"],
+    addressArea: "Carrer de Lincoln, 29, Gràcia",
+    bookingUrl: "https://birbe.org/en/",
+  },
+  {
     id: "les-corts-psychologist-olga-chupina",
     name: "Olga Chupina",
     categorySlug: "psychologist",
