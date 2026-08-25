@@ -4063,7 +4063,9 @@ export const professionals: Professional[] = [
     specialties: ["Ophthalmology consultations", "Advanced ocular surgery", "Driver's licence eye exams"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Carrer de Bolívia, 160, Poblenou",
-    bookingUrl: "https://www.oftalmologia-icoa.com/",
+    lat: 41.4073296,
+    lng: 2.1971309,
+    bookingUrl: "https://www.doctoralia.es/juan-cano-parra/oftalmologo/barcelona",
   },
   {
     id: "les-corts-plastic-surgeon-dfine",
