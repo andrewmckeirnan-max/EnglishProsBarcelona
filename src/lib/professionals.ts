@@ -4603,6 +4603,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.lessepsquiro.com/",
   },
   {
+    id: "sarria-chiropractor-allard-golay",
+    name: "Centro Quiropráctico Allard & Golay",
+    categorySlug: "chiropractor",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Spinal adjustment", "Pregnancy & pediatric care", "25+ years established"],
+    languages: ["English", "Spanish", "French"],
+    addressArea: "Carrer de Muntaner, 340, Sarrià-Sant Gervasi",
+    bookingUrl: "https://quiropracticallard.com/barcelona/",
+  },
+  {
     id: "sarria-obgyn-gomez-roig",
     name: "Instituto Dra. Gómez Roig",
     categorySlug: "obgyn-midwife",
