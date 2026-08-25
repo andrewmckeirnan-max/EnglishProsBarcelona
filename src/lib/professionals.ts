@@ -1642,6 +1642,19 @@ export const professionals: Professional[] = [
     lng: 2.2039578,
     ratingLabel: "5.0 (211 reviews) on Google Maps",
   },
+  {
+    id: "poblenou-osteopath-somsalut",
+    name: "SomSalut Fisioteràpia & Osteopatia",
+    categorySlug: "osteopath",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Osteopathy", "Physiotherapy", "Pelvic floor & pregnancy care"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Carrer de Sancho de Ávila, 180, Poblenou",
+    bookingUrl: "https://somsalut.com/",
+    ratingLabel: "5.0 (182 reviews) on Google Maps",
+  },
   // Personally used and recommended by the site owner, not sourced from
   // search, our highest-confidence tier of listing.
   {
@@ -2758,6 +2771,18 @@ export const professionals: Professional[] = [
     languages: ["English", "Spanish"],
     addressArea: "Carrer del Perelló, 7, Poblenou",
     ratingLabel: "5.0 (26 reviews) on Google Maps · review: 'We can communicate in fairly fluent English, answers are fast and correct'",
+  },
+  {
+    id: "poblenou-autonomo-accountant-your-spanish-tax",
+    name: "Your Spanish Tax Advisor",
+    categorySlug: "autonomo-accountant",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Autónomo registration", "Monthly accounting", "Quarterly tax filing"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Ramon Turró, Poblenou",
+    ratingLabel: "5.0 (99 reviews) on Google Maps",
   },
   {
     id: "les-corts-physiotherapist-elliot-echevarria",
