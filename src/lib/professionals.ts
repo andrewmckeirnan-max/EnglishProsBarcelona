@@ -1974,6 +1974,18 @@ export const professionals: Professional[] = [
     ratingLabel: "4.9 (74 reviews) on Google Maps",
   },
   {
+    id: "diagonal-mar-property-advisor-engel-volkers",
+    name: "Engel & Völkers Diagonal Mar",
+    categorySlug: "property-advisor",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Residential sales", "Luxury & investment properties", "International buyer support"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Avinguda del Taulat, 258, Diagonal Mar",
+    bookingUrl: "https://www.engelvoelkers.com/es/en/shops/barcelona-diagonal-mar",
+  },
+  {
     id: "gracia-dentist-radent",
     name: "RAdent Clínica Dental",
     categorySlug: "dentist",
