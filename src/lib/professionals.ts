@@ -180,6 +180,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://myspainvisa.com/immigration-lawyers-barcelona/",
   },
   {
+    id: "sarria-lawyer-eres-relocation",
+    name: "Eres Relocation Services",
+    categorySlug: "lawyer",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Immigration & visas", "Global mobility consulting", "Digital nomad visa"],
+    languages: ["English", "Spanish"],
+    addressArea: "Avenida Diagonal, 580, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.eresrelocation.com/",
+  },
+  {
     id: "eixample-psychologist-therapy-in-barcelona",
     name: "Therapy in Barcelona",
     categorySlug: "psychologist",
