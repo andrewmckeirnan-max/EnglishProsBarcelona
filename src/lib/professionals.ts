@@ -5637,6 +5637,19 @@ export const professionals: Professional[] = [
     addressArea: "Passeig del Taulat, 235, Diagonal Mar",
     bookingUrl: "https://www.movbcn.com/en",
   },
+  {
+    id: "diagonal-mar-personal-trainer-activarte",
+    name: "Activarte Barcelona",
+    categorySlug: "personal-trainer",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Personal training", "Functional training", "Sports performance coaching"],
+    languages: ["English", "Spanish"],
+    addressArea: "Av. d'Icària, 134, Vila Olímpica",
+    whatsappNumber: "+34669682938",
+    bookingUrl: "https://www.activartebcn.com/en/",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
