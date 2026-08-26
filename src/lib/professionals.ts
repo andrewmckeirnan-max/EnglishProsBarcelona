@@ -2549,6 +2549,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (20 reviews) on Google Maps",
   },
   {
+    id: "sarria-speech-therapist-speechkids",
+    name: "SpeechKids BCN",
+    categorySlug: "speech-therapist",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Preschool speech & language therapy (0-6y)", "Autism-related communication", "Social communication"],
+    languages: ["English"],
+    addressArea: "Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.speechkidsbcn.com/",
+  },
+  {
     id: "gracia-acupuncturist-healthy-space",
     name: "Healthy Space",
     categorySlug: "acupuncturist",
