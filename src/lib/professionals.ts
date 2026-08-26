@@ -2972,6 +2972,18 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (27 reviews) on Google Maps",
   },
   {
+    id: "eixample-occupational-therapist-hand-therapy-bcn",
+    name: "Hand Therapy BCN",
+    categorySlug: "occupational-therapist",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Hand & upper extremity rehabilitation", "Post-surgical & post-injury therapy", "Pain treatment"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Roger de Llúria, 5, Eixample",
+    bookingUrl: "https://handtherapybcn.com/?lang=en",
+  },
+  {
     id: "gracia-occupational-therapist-edai",
     name: "EDAI Gràcia",
     categorySlug: "occupational-therapist",
