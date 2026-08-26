@@ -406,15 +406,6 @@ export const categories: Category[] = [
     needOptions: ["Couples therapy", "Parenting support", "Family communication", "Divorce / separation support", "Blended family support", "Other"],
     seoKeywords: ["family therapist Barcelona", "english speaking family therapy", "couples counselling Barcelona", "terapia familiar inglés"],
   },
-  {
-    slug: "dog-services",
-    name: "Dog Trainer & Boarding",
-    pluralName: "Dog Trainers & Boarding",
-    icon: "🐕",
-    shortPitch: "English-speaking dog trainers, behaviourists and boarding/daycare services in Barcelona.",
-    needOptions: ["Puppy training", "Behaviour / aggression issues", "Obedience training", "Daycare", "Overnight boarding", "Other"],
-    seoKeywords: ["english speaking dog trainer Barcelona", "dog behaviourist Barcelona", "dog boarding Barcelona english", "dog daycare Barcelona"],
-  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
