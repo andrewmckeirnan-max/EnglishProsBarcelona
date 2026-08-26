@@ -379,6 +379,15 @@ export const categories: Category[] = [
     needOptions: ["Sworn/certified translation", "Document translation", "Contract translation", "Interpreting", "Other"],
     seoKeywords: ["sworn translator", "certified translation", "traductor jurado", "official document translation"],
   },
+  {
+    slug: "personal-trainer",
+    name: "Personal Trainer",
+    pluralName: "Personal Trainers",
+    icon: "🏋️",
+    shortPitch: "English-speaking personal trainers for 1-to-1 coaching, strength training and fitness goals in Barcelona.",
+    needOptions: ["Weight loss", "Strength / muscle building", "Sports-specific training", "Post-injury / rehab fitness", "Group / small-group training", "Other"],
+    seoKeywords: ["personal trainer Barcelona", "1-to-1 fitness coach", "strength coach", "english speaking gym"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,

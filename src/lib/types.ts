@@ -29,7 +29,8 @@ export type CategorySlug =
   | "speech-therapist"
   | "insurance-broker"
   | "wealth-manager"
-  | "notary";
+  | "notary"
+  | "personal-trainer";
 
 export type AreaSlug =
   | "poblenou"
