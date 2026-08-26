@@ -736,6 +736,18 @@ export const professionals: Professional[] = [
     bookingUrl: "https://www.w1m.com/individuals-families/expats-europe/",
   },
   {
+    id: "sarria-wealth-manager-ai-wealth",
+    name: "AI Wealth",
+    categorySlug: "wealth-manager",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Expat wealth management", "Pension transfers", "Tax & retirement planning"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer d'Aribau, 195, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.aiwealth.eu/",
+  },
+  {
     id: "sarria-wealth-manager-creand",
     name: "Creand Wealth Management - Barcelona",
     categorySlug: "wealth-manager",
