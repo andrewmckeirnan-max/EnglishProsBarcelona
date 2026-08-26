@@ -787,6 +787,21 @@ export const professionals: Professional[] = [
     lng: 2.1810243,
     bookingUrl: "https://en.jesusbenavides.es/",
   },
+  {
+    id: "poblenou-notary-feliu-yuste",
+    name: "Notaría Feliu & Yuste",
+    categorySlug: "notary",
+    areaSlug: "poblenou",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Property purchase signings", "Wills & inheritance", "Powers of attorney"],
+    languages: ["English", "Spanish"],
+    addressArea: "Carrer de Pujades, 156, Poblenou, Sant Martí",
+    lat: 41.4000378,
+    lng: 2.198691,
+    bookingUrl: "https://notariafeliuyuste.com/",
+    ratingLabel: "4.6 (144 reviews) on Google Maps · site states \"WE SPEAK ENGLISH\"",
+  },
   // -------------------------------------------------------------------
   // Google Maps sweep (live search via Claude in Chrome, Aug 2026).
   // Standard: included only where the visible Maps review snippet or the
