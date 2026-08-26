@@ -388,6 +388,33 @@ export const categories: Category[] = [
     needOptions: ["Weight loss", "Strength / muscle building", "Sports-specific training", "Post-injury / rehab fitness", "Group / small-group training", "Other"],
     seoKeywords: ["personal trainer Barcelona", "1-to-1 fitness coach", "strength coach", "english speaking gym"],
   },
+  {
+    slug: "driving-school",
+    name: "Driving School",
+    pluralName: "Driving Schools",
+    icon: "🚗",
+    shortPitch: "English-speaking driving schools and instructors in Barcelona, from full courses to EU/non-EU license exchange.",
+    needOptions: ["Full course (theory + practical)", "License exchange (EU/non-EU)", "Refresher / confidence lessons", "Intensive course", "Motorcycle license", "Other"],
+    seoKeywords: ["english speaking driving school Barcelona", "driving lessons in english Barcelona", "Spanish driving license exchange", "autoescuela inglés"],
+  },
+  {
+    slug: "family-therapist",
+    name: "Family Therapist",
+    pluralName: "Family Therapists",
+    icon: "👨‍👩‍👧",
+    shortPitch: "English-speaking family and couples therapists in Barcelona, for parenting, relationship and communication support.",
+    needOptions: ["Couples therapy", "Parenting support", "Family communication", "Divorce / separation support", "Blended family support", "Other"],
+    seoKeywords: ["family therapist Barcelona", "english speaking family therapy", "couples counselling Barcelona", "terapia familiar inglés"],
+  },
+  {
+    slug: "dog-services",
+    name: "Dog Trainer & Boarding",
+    pluralName: "Dog Trainers & Boarding",
+    icon: "🐕",
+    shortPitch: "English-speaking dog trainers, behaviourists and boarding/daycare services in Barcelona.",
+    needOptions: ["Puppy training", "Behaviour / aggression issues", "Obedience training", "Daycare", "Overnight boarding", "Other"],
+    seoKeywords: ["english speaking dog trainer Barcelona", "dog behaviourist Barcelona", "dog boarding Barcelona english", "dog daycare Barcelona"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,

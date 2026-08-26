@@ -30,7 +30,10 @@ export type CategorySlug =
   | "insurance-broker"
   | "wealth-manager"
   | "notary"
-  | "personal-trainer";
+  | "personal-trainer"
+  | "driving-school"
+  | "family-therapist"
+  | "dog-services";
 
 export type AreaSlug =
   | "poblenou"
