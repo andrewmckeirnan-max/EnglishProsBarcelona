@@ -488,6 +488,19 @@ export const professionals: Professional[] = [
     ratingLabel: "5.0 (4 reviews) on Google Maps · site confirms services offered in English",
   },
   {
+    id: "diagonal-mar-family-therapist-marguebah",
+    name: "Gabinete de Psicología MARGUEBAH",
+    categorySlug: "family-therapist",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Couples therapy", "Parenthood & conjugal issues", "Relationship counselling"],
+    languages: ["English", "Spanish", "Catalan", "Portuguese"],
+    addressArea: "Carrer de Salvador Espriu, 27, Vila Olímpica",
+    bookingUrl: "https://marguebah.com/en/",
+    ratingLabel: "5.0 (4 reviews) on Google Maps · site confirms services offered in English",
+  },
+  {
     id: "sarria-psychologist-psicare",
     name: "PsIcare Health",
     categorySlug: "psychologist",
@@ -5871,6 +5884,18 @@ export const professionals: Professional[] = [
     specialties: ["Family therapy", "Couples therapy", "Neuropsychological diagnostics"],
     languages: ["English", "Spanish", "Catalan", "Chinese"],
     addressArea: "Carrer de Pamplona, 29, Poblenou, Sant Martí",
+  },
+  {
+    id: "les-corts-family-therapist-chiara-leoni",
+    name: "Chiara Leoni Psychology",
+    categorySlug: "family-therapist",
+    areaSlug: "les-corts",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Couples therapy", "Family therapy", "Individual therapy"],
+    languages: ["English", "Italian", "Spanish", "Catalan"],
+    addressArea: "Carrer Entença, 227, Les Corts",
+    bookingUrl: "https://chiaraleoni.es/english-psychologist-barcelona-online/",
   },
 ];
 
