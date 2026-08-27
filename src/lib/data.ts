@@ -390,12 +390,12 @@ export const categories: Category[] = [
   },
   {
     slug: "driving-school",
-    name: "Driving School",
-    pluralName: "Driving Schools",
+    name: "Driving School & License Exchange",
+    pluralName: "Driving Schools & License Exchange",
     icon: "🚗",
-    shortPitch: "English-speaking driving schools and instructors in Barcelona, from full courses to EU/non-EU license exchange.",
+    shortPitch: "English-speaking driving schools and license-exchange gestorías in Barcelona, from full courses to converting a foreign license.",
     needOptions: ["Full course (theory + practical)", "License exchange (EU/non-EU)", "Refresher / confidence lessons", "Intensive course", "Motorcycle license", "Other"],
-    seoKeywords: ["english speaking driving school Barcelona", "driving lessons in english Barcelona", "Spanish driving license exchange", "autoescuela inglés"],
+    seoKeywords: ["english speaking driving school Barcelona", "driving lessons in english Barcelona", "Spanish driving license exchange", "exchange foreign driving license Spain", "canje carnet de conducir Barcelona ingles", "autoescuela inglés"],
   },
   {
     slug: "family-therapist",
