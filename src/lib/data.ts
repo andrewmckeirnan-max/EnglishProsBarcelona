@@ -415,6 +415,15 @@ export const categories: Category[] = [
     needOptions: ["Airport transfer", "Business / corporate travel", "Personalised city tour", "Multi-day / event hire", "Hourly hire", "Other"],
     seoKeywords: ["english speaking chauffeur Barcelona", "private driver Barcelona", "VIP chauffeur Barcelona", "airport transfer english driver Barcelona"],
   },
+  {
+    slug: "storage-service",
+    name: "Storage & Self-Storage",
+    pluralName: "Storage & Self-Storage Services",
+    icon: "📦",
+    shortPitch: "English-speaking self-storage centres and door-to-door storage pickup services in Barcelona, from a single box to a full flat's worth of furniture.",
+    needOptions: ["Self-storage unit", "Door-to-door / pickup storage", "Business / commercial storage", "Short-term (moving, renovation)", "Long-term storage", "Other"],
+    seoKeywords: ["self storage Barcelona english speaking", "trasteros Barcelona ingles", "door to door storage Barcelona", "storage unit rental Barcelona", "furniture storage Barcelona expat"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
