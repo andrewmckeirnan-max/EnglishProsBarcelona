@@ -5897,6 +5897,18 @@ export const professionals: Professional[] = [
     addressArea: "Carrer Entença, 227, Les Corts",
     bookingUrl: "https://chiaraleoni.es/english-psychologist-barcelona-online/",
   },
+  {
+    id: "diagonal-mar-driving-school-centre-medic-forum",
+    name: "Centre Mèdic Fòrum",
+    categorySlug: "driving-school",
+    areaSlug: "diagonal-mar",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Foreign license exchange", "Medical fitness certificate", "License renewal"],
+    languages: ["English", "Spanish", "Catalan"],
+    addressArea: "Av. Diagonal, 32, Fòrum-Diagonal Mar",
+    bookingUrl: "https://www.centremedicforum.com/en/exchange-driving-licence-barcelona-s-3-en",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective
