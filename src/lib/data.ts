@@ -406,6 +406,15 @@ export const categories: Category[] = [
     needOptions: ["Couples therapy", "Parenting support", "Family communication", "Divorce / separation support", "Blended family support", "Other"],
     seoKeywords: ["family therapist Barcelona", "english speaking family therapy", "couples counselling Barcelona", "terapia familiar inglés"],
   },
+  {
+    slug: "private-chauffeur",
+    name: "Private Chauffeur",
+    pluralName: "Private Chauffeurs",
+    icon: "🚘",
+    shortPitch: "English-speaking private chauffeurs in Barcelona for airport transfers, business trips and personalised tours.",
+    needOptions: ["Airport transfer", "Business / corporate travel", "Personalised city tour", "Multi-day / event hire", "Hourly hire", "Other"],
+    seoKeywords: ["english speaking chauffeur Barcelona", "private driver Barcelona", "VIP chauffeur Barcelona", "airport transfer english driver Barcelona"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
