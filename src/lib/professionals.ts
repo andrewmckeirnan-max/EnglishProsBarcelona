@@ -5993,6 +5993,30 @@ export const professionals: Professional[] = [
     addressArea: "Carrer de Còrsega, 372, Eixample",
     bookingUrl: "https://limoluxbcn.com/",
   },
+  {
+    id: "eixample-concierge-time-and-glam",
+    name: "Time & Glam",
+    categorySlug: "concierge",
+    areaSlug: "eixample",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["Personal assistant", "Event planning", "Property management"],
+    languages: ["English", "Spanish"],
+    addressArea: "Avinguda Diagonal, 468, Eixample",
+    bookingUrl: "https://timeandglam.com/",
+  },
+  {
+    id: "sarria-concierge-swiftcare24",
+    name: "SwiftCare24",
+    categorySlug: "concierge",
+    areaSlug: "sarria-sant-gervasi",
+    isPartner: false,
+    isPlaceholder: false,
+    specialties: ["VIP experiences & reservations", "Personal shopping", "Corporate travel coordination"],
+    languages: ["English", "Spanish"],
+    addressArea: "Via Augusta, 351, Sarrià-Sant Gervasi",
+    bookingUrl: "https://www.swiftcare24.com/concierge-services-in-barcelona/",
+  },
 ];
 
 // Used only on the internal /partners sales-preview page to show a prospective

@@ -415,6 +415,15 @@ export const categories: Category[] = [
     needOptions: ["Airport transfer", "Business / corporate travel", "Personalised city tour", "Multi-day / event hire", "Hourly hire", "Other"],
     seoKeywords: ["english speaking chauffeur Barcelona", "private driver Barcelona", "VIP chauffeur Barcelona", "airport transfer english driver Barcelona"],
   },
+  {
+    slug: "concierge",
+    name: "Concierge & Lifestyle Management",
+    pluralName: "Concierge & Lifestyle Management",
+    icon: "🛎️",
+    shortPitch: "English-speaking personal concierge and lifestyle management services in Barcelona, from event planning to property and personal assistance.",
+    needOptions: ["Personal assistant", "Event planning", "Property / home management", "Personal shopping", "Travel & reservations", "Other"],
+    seoKeywords: ["english speaking concierge Barcelona", "personal concierge Barcelona", "lifestyle management Barcelona", "luxury concierge Barcelona expat"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
