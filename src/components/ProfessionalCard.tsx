@@ -1,8 +1,9 @@
-import { Star, Lock } from "lucide-react";
+import { Lock } from "lucide-react";
 import type { Professional } from "@/lib/types";
 import { waLink } from "@/lib/whatsapp";
 import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
 import { parseRating } from "@/lib/text";
+import { StarRating } from "@/components/StarRating";
 
 export function ProfessionalCard({ professional }: { professional: Professional }) {
   const initials = professional.name
@@ -40,8 +41,8 @@ export function ProfessionalCard({ professional }: { professional: Professional 
         <div className="flex items-center gap-2 flex-wrap">
           <h3 className="font-semibold">{professional.name}</h3>
           {rating && (
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-foreground/80">
-              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" strokeWidth={0} />
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/80">
+              <StarRating value={Number(rating.value)} size={13} />
               {rating.value}
               <span className="font-normal text-foreground/50">({rating.count})</span>
             </span>

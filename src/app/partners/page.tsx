@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Target, Lock, MessageCircle } from "lucide-react";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
+import { PartnerProfileMock } from "@/components/PartnerProfileMock";
 import { exampleProfessional } from "@/lib/professionals";
 import { businessWaLink } from "@/lib/whatsapp";
 
@@ -55,13 +56,29 @@ export default function PartnersPage() {
       </section>
 
       <section className="container-page py-16 sm:py-20">
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-8 text-center">What your featured listing looks like</h2>
-        <div className="max-w-xl mx-auto">
-          <ProfessionalCard professional={exampleProfessional} />
-          <p className="text-xs text-foreground/50 mt-3 text-center">
-            Example preview, not a real listing.
-          </p>
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3 text-center">From a name in a list to a page built to convert</h2>
+        <p className="text-foreground/60 max-w-xl mx-auto text-center mb-10">
+          A featured partner doesn&apos;t just get a card, they get top billing on the page a
+          qualified lead lands on right after searching &ldquo;English dentist Poblenou&rdquo;,
+          with a booking button, your reviews and your location all one tap away.
+        </p>
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto items-start">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50 mb-3">
+              1. How you appear in results
+            </p>
+            <ProfessionalCard professional={exampleProfessional} />
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50 mb-3">
+              2. What they see when they tap in
+            </p>
+            <PartnerProfileMock />
+          </div>
         </div>
+        <p className="text-xs text-foreground/50 mt-6 text-center">
+          Illustrative example, not a real listing or real reviews — built from your actual details, photos and reviews once you&apos;re onboarded.
+        </p>
       </section>
 
       <section className="bg-surface-muted border-y border-border">
