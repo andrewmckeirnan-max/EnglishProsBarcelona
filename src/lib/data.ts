@@ -424,6 +424,15 @@ export const categories: Category[] = [
     needOptions: ["Self-storage unit", "Door-to-door / pickup storage", "Business / commercial storage", "Short-term (moving, renovation)", "Long-term storage", "Other"],
     seoKeywords: ["self storage Barcelona english speaking", "trasteros Barcelona ingles", "door to door storage Barcelona", "storage unit rental Barcelona", "furniture storage Barcelona expat"],
   },
+  {
+    slug: "house-clearance",
+    name: "House & Apartment Clearance",
+    pluralName: "House & Apartment Clearance Services",
+    icon: "🧹",
+    shortPitch: "English-speaking house and apartment clearance in Barcelona, from a single-room clear-out to a full estate or end-of-tenancy clearance.",
+    needOptions: ["End-of-tenancy clearance", "Estate / inherited property clearance", "Full house or flat clear-out", "Single room or furniture removal", "Junk / rubbish removal", "Other"],
+    seoKeywords: ["house clearance Barcelona english speaking", "apartment clearance Barcelona", "flat clearance Barcelona english", "vaciado de pisos Barcelona ingles", "junk removal Barcelona english", "estate clearance Barcelona"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,

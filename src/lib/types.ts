@@ -34,7 +34,8 @@ export type CategorySlug =
   | "driving-school"
   | "family-therapist"
   | "private-chauffeur"
-  | "storage-service";
+  | "storage-service"
+  | "house-clearance";
 
 export type AreaSlug =
   | "poblenou"
