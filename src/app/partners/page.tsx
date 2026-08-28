@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Target, Lock, MessageCircle, ChevronDown, ArrowRight } from "lucide-react";
+import { Target, Lock, Send, ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { PartnerProfileMock } from "@/components/PartnerProfileMock";
 import { exampleProfessional } from "@/lib/professionals";
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "What do I get?",
-    a: "The gold \"Top Recommendation\" badge, first position in the list, a full profile page with your own booking button, map and reviews, and every enquiry forwarded straight to your WhatsApp and email as it comes in.",
+    a: "The gold \"Top Recommendation\" badge, first position in the list, a full profile page with your own booking button, map and reviews, and every enquiry forwarded to however you actually work, WhatsApp, email or phone, as it comes in.",
   },
   {
     q: "What does it cost?",
@@ -115,11 +115,11 @@ export default function PartnersPage() {
           </div>
           <div>
             <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
-              <MessageCircle className="h-5 w-5 text-brand" strokeWidth={2} />
+              <Send className="h-5 w-5 text-brand" strokeWidth={2} />
             </div>
-            <p className="font-semibold">Straight to WhatsApp</p>
+            <p className="font-semibold">Delivered your way</p>
             <p className="text-sm text-foreground/60 mt-1">
-              Enquiries land where you already work, no login, no dashboard, no lead you forgot to check.
+              WhatsApp, email or a phone call, you tell us how you want enquiries to land, no login, no dashboard, no lead you forgot to check.
             </p>
           </div>
         </div>
