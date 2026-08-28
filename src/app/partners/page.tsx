@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Target, Lock, Send, ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
+import { Target, Award, Send, ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { PartnerProfileMock } from "@/components/PartnerProfileMock";
 import { exampleProfessional } from "@/lib/professionals";
@@ -8,17 +8,17 @@ import { businessWaLink } from "@/lib/whatsapp";
 export const metadata: Metadata = {
   title: "List Your Practice: Get English-Speaking Patient Enquiries",
   description:
-    "We send qualified English-speaking enquiries from Barcelona residents directly to one recommended partner per area and service. No cost unless it converts to enquiries you want.",
+    "We send qualified English-speaking enquiries from Barcelona residents to featured professionals. Get the gold Top Recommendation badge and top-of-list placement in your area and service.",
 };
 
 const faqs = [
   {
     q: "How is this different from SEO or ads?",
-    a: "We already rank for narrow, high-intent searches like \"English dentist Poblenou\". You're not bidding against every dentist in Barcelona for a click, you're the only answer for that search.",
+    a: "We already rank for narrow, high-intent searches like \"English dentist Poblenou\". You're not bidding against every dentist in Barcelona for a click, the badge puts you at the top of the exact search someone's already made.",
   },
   {
-    q: "How many partners per area/service?",
-    a: "One. If you take Dentist in Poblenou, no other dentist in Poblenou gets featured there, full stop. We'd rather turn away your competitor than dilute what you're paying for.",
+    q: "Will other businesses in my area still be listed?",
+    a: "Yes. We list every real, English-speaking professional we verify, that's what makes the directory useful to residents in the first place. Paying gets you the gold \"Top Recommendation\" badge and first position above the rest of the list, not exclusivity over who else appears.",
   },
   {
     q: "What do I get?",
@@ -26,12 +26,12 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "We start with a trial period so you see real enquiry volume before a euro changes hands. Message us your service and area and we'll tell you straight away if it's still available.",
+    a: "We start with a trial period so you see real enquiry volume before a euro changes hands. Message us your service and area and we'll walk you through it.",
   },
 ];
 
 export default function PartnersPage() {
-  const waMessage = "Hi! I run a clinic/practice in Barcelona and I'd like to check if my service + area is still available as a featured partner on Barcelona English Pros.";
+  const waMessage = "Hi! I run a clinic/practice in Barcelona and I'd like to hear more about getting the Top Recommendation badge as a featured partner on Barcelona English Pros.";
   const waHref = businessWaLink(waMessage);
 
   return (
@@ -43,8 +43,8 @@ export default function PartnersPage() {
           </h1>
           <p className="mt-4 text-lg text-foreground/70 max-w-xl mx-auto">
             We already rank for the searches your next patient is typing right now, things
-            like &ldquo;English dentist Poblenou&rdquo;. One recommended partner per service,
-            per neighbourhood gets found first. Make sure it&apos;s you, not the clinic down the street.
+            like &ldquo;English dentist Poblenou&rdquo;. A gold Top Recommendation badge and
+            first-position placement make sure they see you first, not just whoever&apos;s already there.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
@@ -53,8 +53,8 @@ export default function PartnersPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-white text-sm font-semibold px-6 py-3.5 hover:bg-brand-dark transition-colors shadow-soft"
             >
-              <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
-              Check if your area is still open
+              <Award className="h-4 w-4" strokeWidth={2.5} />
+              Get the Top Recommendation badge
             </a>
             <a
               href="#preview"
@@ -106,11 +106,11 @@ export default function PartnersPage() {
           </div>
           <div>
             <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light">
-              <Lock className="h-5 w-5 text-brand" strokeWidth={2} />
+              <Award className="h-5 w-5 text-brand" strokeWidth={2} />
             </div>
-            <p className="font-semibold">One per area. Ever.</p>
+            <p className="font-semibold">Bumped to the top</p>
             <p className="text-sm text-foreground/60 mt-1">
-              Your service and neighbourhood combination is sold to exactly one business, never split with a direct competitor.
+              The gold badge and first-position placement move you above the rest of the list, every real listing stays up, paying is what gets you seen first.
             </p>
           </div>
           <div>
@@ -140,10 +140,10 @@ export default function PartnersPage() {
       <section className="border-t border-border">
         <div className="container-page py-16 sm:py-20 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight max-w-lg mx-auto text-balance">
-            Someone in your area is going to be the recommended one. Might as well be you.
+            Right now, someone else in your area is the one they tap first.
           </h2>
           <p className="mt-3 text-foreground/60 max-w-md mx-auto">
-            Tell us your service and neighbourhood, we&apos;ll tell you within a day if it&apos;s still available.
+            Tell us your service and neighbourhood, we&apos;ll show you where you&apos;d rank with the badge.
           </p>
           <a
             href={waHref}
