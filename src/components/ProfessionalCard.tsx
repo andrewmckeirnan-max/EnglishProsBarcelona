@@ -1,4 +1,4 @@
-import { Lock } from "lucide-react";
+import { Lock, Crown } from "lucide-react";
 import type { Professional } from "@/lib/types";
 import { waLink } from "@/lib/whatsapp";
 import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
@@ -47,7 +47,16 @@ export function ProfessionalCard({ professional }: { professional: Professional 
               <span className="font-normal text-foreground/50">({rating.count})</span>
             </span>
           )}
-          {professional.isPartner && (
+          {professional.partnerTier === "top" && (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white text-[11px] font-semibold px-2 py-0.5 cursor-help"
+              title="This business pays for the exclusive #1 spot for this service and area. It doesn't affect who we think fits your need best, that's based on what you tell us."
+            >
+              <Crown className="h-3 w-3" strokeWidth={2.5} />
+              Top Recommendation
+            </span>
+          )}
+          {professional.partnerTier === "recommended" && (
             <span
               className="inline-flex items-center gap-1 rounded-full bg-brand text-white text-[11px] font-semibold px-2 py-0.5 cursor-help"
               title="This business pays for priority placement here. It doesn't affect who we think fits your need best, that's based on what you tell us."
@@ -89,7 +98,7 @@ export function ProfessionalCard({ professional }: { professional: Professional 
             rel="noopener noreferrer"
             className="flex-1 text-center rounded-full border border-brand text-brand text-sm font-semibold px-4 py-2 hover:bg-brand-light transition"
           >
-            {professional.isPartner ? "Book" : "Visit website"}
+            {professional.partnerTier ? "Book" : "Visit website"}
           </a>
         )}
         {/* Every listing needs at least one working action, even the ones

@@ -77,7 +77,19 @@ export interface Professional {
   name: string;
   categorySlug: CategorySlug;
   areaSlug: AreaSlug;
-  isPartner: boolean; // paying partner gets top/featured placement
+  /** Paying tiers, uncapped except "top". Undefined = not a partner.
+   *  - "top": the single #1 spot for this category + area. Gold "Top
+   *    Recommendation" badge, always sorted first. Enforce the "one per
+   *    category + area" cap by hand when assigning this, nothing in code
+   *    stops a second one.
+   *  - "recommended": uncapped, any number of real businesses can hold
+   *    this per category + area. Purple badge, sorted above non-partners
+   *    (and below "top") by `partnerSince`, oldest first. */
+  partnerTier?: "top" | "recommended";
+  /** ISO date (YYYY-MM-DD) a partner tier started, only set alongside
+   * partnerTier. Used to order same-tier "recommended" partners
+   * first-come-first-served rather than arbitrarily. */
+  partnerSince?: string;
   isPlaceholder: boolean; // TRUE = demo data, must be replaced with a verified real business before this page goes live
   specialties: string[];
   languages: string[];

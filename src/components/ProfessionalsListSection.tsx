@@ -22,6 +22,7 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
   const { unlocked } = useUnlock();
   const visibleProfessionals = unlocked ? professionals : professionals.slice(0, FREE_PREVIEW_LIMIT);
   const lockedCount = unlocked ? 0 : Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
+  const partnerCount = professionals.filter((p) => p.partnerTier).length;
 
   return (
     <>
@@ -31,8 +32,10 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
           ? "Unlocked, here's the full ranked list."
           : lockedCount > 0
             ? `Showing ${visibleProfessionals.length} of ${professionals.length}. Tell us what you need to unlock the full ranked list.`
-            : professionals.some((p) => p.isPartner)
-              ? "Our featured partner, plus other English-speaking options we found nearby."
+            : partnerCount > 0
+              ? partnerCount === 1
+                ? "Our recommended partner, plus other English-speaking options we found nearby."
+                : "Our recommended partners, plus other English-speaking options we found nearby."
               : "English-speaking options we found nearby. None of these are paying partners yet, this is an independent, informational list."}
       </p>
       <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start">
