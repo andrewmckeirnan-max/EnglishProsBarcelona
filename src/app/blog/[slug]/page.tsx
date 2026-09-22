@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { getAllBlogPosts, getBlogPost } from "@/lib/blog";
-import { getArea, getCategory } from "@/lib/data";
+import { getCategory } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogBody } from "@/components/BlogBody";
 import { breadcrumbSchema, blogPostingSchema } from "@/lib/schema";
@@ -30,7 +30,6 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
   const relatedCategories = (post.relatedCategorySlugs ?? [])
     .map((slug) => getCategory(slug))
     .filter((c) => c && !c.hidden);
-  const relatedAreas = (post.relatedAreaSlugs ?? []).map((slug) => getArea(slug)).filter(Boolean);
 
   const jsonLd = [
     breadcrumbSchema([
@@ -68,9 +67,9 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
           <BlogBody blocks={post.content} />
         </div>
 
-        {(relatedCategories.length > 0 || relatedAreas.length > 0) && (
+        {relatedCategories.length > 0 && (
           <div className="mt-12 rounded-2xl border border-border bg-surface-muted p-6">
-            <p className="font-semibold text-sm mb-3">Verified in this guide</p>
+            <p className="font-semibold text-sm mb-3">Related</p>
             <div className="flex flex-wrap gap-2">
               {relatedCategories.map((c) =>
                 c ? (
@@ -80,17 +79,6 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                     className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm hover:border-brand hover:bg-brand-light transition-all"
                   >
                     {c.icon} {c.pluralName}
-                  </Link>
-                ) : null
-              )}
-              {relatedAreas.map((a) =>
-                a ? (
-                  <Link
-                    key={a.slug}
-                    href={`/${a.slug}`}
-                    className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm hover:border-brand hover:bg-brand-light transition-all"
-                  >
-                    {a.name}
                   </Link>
                 ) : null
               )}

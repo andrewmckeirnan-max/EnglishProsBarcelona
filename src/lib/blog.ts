@@ -1,4 +1,4 @@
-import type { AreaSlug, CategorySlug } from "./types";
+import type { CategorySlug } from "./types";
 
 export interface BlogSegment {
   text: string;
@@ -9,7 +9,13 @@ export type BlogBlock =
   | { type: "p"; segments: BlogSegment[] }
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  /** Renders a lead line plus a link per area, generated live from the
+   * site's current area list at render time (see BlogBody). Never hardcode
+   * a list of area names in post content, the whole point of this block
+   * is that it still reads correctly after a 7th, 8th, 9th area gets added
+   * without touching this file. */
+  | { type: "find-cta"; categorySlug: CategorySlug; lead: string };
 
 export interface BlogSource {
   name: string;
@@ -25,9 +31,10 @@ export interface BlogPost {
   updatedDate?: string;
   readingMinutes: number;
   /** Shown as a "Related" strip at the end of the post, on top of whatever
-   * inline links appear in the body. */
+   * inline links appear in the body. Areas are never curated per-post,
+   * every post links to every current area, generated live (see
+   * blog/[slug]/page.tsx), so this never needs updating as areas are added. */
   relatedCategorySlugs?: CategorySlug[];
-  relatedAreaSlugs?: AreaSlug[];
   content: BlogBlock[];
   /** Real sources consulted while researching this post, shown openly at
    * the bottom. Nothing here is quoted verbatim from these sources, only
@@ -40,6 +47,7 @@ const p = (segments: BlogSegment[]): BlogBlock => ({ type: "p", segments });
 const h2 = (text: string): BlogBlock => ({ type: "h2", text });
 const h3 = (text: string): BlogBlock => ({ type: "h3", text });
 const ul = (items: string[]): BlogBlock => ({ type: "ul", items });
+const findCta = (categorySlug: CategorySlug, lead: string): BlogBlock => ({ type: "find-cta", categorySlug, lead });
 
 export const blogPosts: BlogPost[] = [
   {
@@ -51,11 +59,10 @@ export const blogPosts: BlogPost[] = [
       "Eixample, Gràcia, Poblenou, Sarrià-Sant Gervasi, Les Corts or Diagonal Mar? What each one actually feels like to live in as an English speaker, not just the postcard version.",
     publishedDate: "2026-09-22",
     readingMinutes: 6,
-    relatedAreaSlugs: ["eixample", "gracia", "poblenou", "sarria-sant-gervasi", "les-corts", "diagonal-mar"],
     content: [
       p([
         {
-          text: "Every \"best neighbourhood in Barcelona\" list reads the same: pretty photos, a line about tapas, and no actual answer. The honest version depends on something much more boring: what your daily life looks like once the novelty wears off. Here's what each of the six areas we cover is genuinely like to live in as an English speaker, not a tourist.",
+          text: "Every \"best neighbourhood in Barcelona\" list reads the same: pretty photos, a line about tapas, and no actual answer. The honest version depends on something much more boring: what your daily life looks like once the novelty wears off. Here's what several of Barcelona's most-discussed neighbourhoods for English-speaking residents are actually like to live in, not the postcard version.",
         },
       ]),
       h2("Eixample: the default, for a reason"),
@@ -75,14 +82,14 @@ export const blogPosts: BlogPost[] = [
       h2("Poblenou: the tech-and-beach option"),
       p([
         {
-          text: "A former industrial district that's become the city's closest thing to a tech hub, Poblenou pairs loft-style ex-factory buildings with direct beach access, which is a genuinely rare combination in Barcelona. It skews younger and more remote-work-friendly than the other five areas. It's also the newest of the six to develop, so the English-speaking service network here is real but thinner in a few categories than in Eixample or Sarrià.",
+          text: "A former industrial district that's become the city's closest thing to a tech hub, Poblenou pairs loft-style ex-factory buildings with direct beach access, which is a genuinely rare combination in Barcelona. It skews younger and more remote-work-friendly than most of the areas on this list. It's also one of the more recently developed, so the English-speaking service network here is real but still thinner in places than in Eixample or Sarrià.",
           href: "/poblenou",
         },
       ]),
       h2("Sarrià-Sant Gervasi: where the international families are"),
       p([
         {
-          text: "Leafy, quiet and residential, this is Barcelona's established base for international families, largely because several of the city's international schools sit in or near it. It's the furthest of the six from the beach and the old city centre, which is precisely the appeal for people prioritising space and calm over nightlife.",
+          text: "Leafy, quiet and residential, this is Barcelona's established base for international families, largely because several of the city's international schools sit in or near it. It's further from the beach and the old city centre than most areas on this list, which is precisely the appeal for people prioritising space and calm over nightlife.",
           href: "/sarria-sant-gervasi",
         },
       ]),
@@ -96,8 +103,13 @@ export const blogPosts: BlogPost[] = [
       h2("Diagonal Mar & Vila Olímpica: the modern waterfront"),
       p([
         {
-          text: "Built for the 1992 Olympics and expanded since, this is Barcelona's high-rise, marina-view district, genuinely international but also the newest and most self-contained of the six. Because it's smaller and more residential-only than the others, it's also the one area where we consistently find the fewest independent English-speaking professionals, worth factoring in if you'll want in-person appointments rather than someone who comes to you.",
+          text: "Built for the 1992 Olympics and expanded since, this is Barcelona's high-rise, marina-view district, genuinely international but also newer and more self-contained than most. Because it's smaller and more residential-only than the others, English-speaking professionals with an office actually inside the neighbourhood are noticeably thinner on the ground here, worth factoring in if you'll want in-person appointments rather than someone who comes to you.",
           href: "/diagonal-mar",
+        },
+      ]),
+      p([
+        {
+          text: "None of this is exhaustive, Barceloneta, El Born, Sant Antoni and Poble Sec all have a genuine case too, and Barcelona keeps growing new pockets worth knowing about. These are simply the areas that come up most often when English speakers specifically ask where to live.",
         },
       ]),
       h2("How to actually decide"),
@@ -125,7 +137,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       p([
         {
-          text: "Almost everything else on this site assumes you've already cleared two pieces of paperwork most people have never heard of before landing in Spain: the NIE and the empadronamiento. Neither is optional, both are confusing on purpose to nobody in particular, and mixing them up is the single most common way people waste their first month in Barcelona.",
+          text: "Almost everything else you'll need to sort out early in Spain assumes you've already cleared two pieces of paperwork most people have never heard of before landing here: the NIE and the empadronamiento. Neither is optional, both are confusing on purpose to nobody in particular, and mixing them up is the single most common way people waste their first month in Barcelona.",
         },
       ]),
       h2("NIE: your Spanish ID number, not a residency permit"),
@@ -182,7 +194,6 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2026-09-22",
     readingMinutes: 5,
     relatedCategorySlugs: ["dentist", "orthodontist"],
-    relatedAreaSlugs: ["eixample", "poblenou", "sarria-sant-gervasi", "les-corts", "gracia", "diagonal-mar"],
     content: [
       p([
         {
@@ -209,20 +220,11 @@ export const blogPosts: BlogPost[] = [
       ]),
       h2("Find one you've actually verified, not just found"),
       p([
-        { text: "This is exactly the gap we built the directory to close: every dentist we list has an explicit, checkable English signal behind it, cross-referenced against their real address, not just a Google Maps pin that happens to be near you. See who's verified in " },
-        { text: "Eixample", href: "/eixample/dentist" },
-        { text: ", " },
-        { text: "Gràcia", href: "/gracia/dentist" },
-        { text: ", " },
-        { text: "Poblenou", href: "/poblenou/dentist" },
-        { text: ", " },
-        { text: "Sarrià-Sant Gervasi", href: "/sarria-sant-gervasi/dentist" },
-        { text: ", " },
-        { text: "Les Corts", href: "/les-corts/dentist" },
-        { text: " or " },
-        { text: "Diagonal Mar", href: "/diagonal-mar/dentist" },
-        { text: "." },
+        {
+          text: "A checkable, explicit English signal matters more than a guess, a clinic's own site being in English is a start, a named English-speaking dentist and reviews mentioning the language directly are stronger.",
+        },
       ]),
+      findCta("dentist", "Verified, checkable options by area:"),
     ],
     sources: [
       { name: "Expatica: Dentistry in Spain: public and private dental care", url: "https://www.expatica.com/es/healthcare/healthcare-services/dental-care-in-spain-582615/" },
@@ -240,7 +242,6 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2026-09-22",
     readingMinutes: 5,
     relatedCategorySlugs: ["notary", "business-lawyer"],
-    relatedAreaSlugs: ["eixample", "poblenou", "sarria-sant-gervasi", "les-corts", "gracia", "diagonal-mar"],
     content: [
       p([
         {
@@ -274,21 +275,7 @@ export const blogPosts: BlogPost[] = [
         },
       ]),
       h2("Finding one"),
-      p([
-        { text: "We list English-speaking notaries by area, verified individually rather than assumed from a general listing: " },
-        { text: "Eixample", href: "/eixample/notary" },
-        { text: ", " },
-        { text: "Gràcia", href: "/gracia/notary" },
-        { text: ", " },
-        { text: "Poblenou", href: "/poblenou/notary" },
-        { text: ", " },
-        { text: "Sarrià-Sant Gervasi", href: "/sarria-sant-gervasi/notary" },
-        { text: ", " },
-        { text: "Les Corts", href: "/les-corts/notary" },
-        { text: " and " },
-        { text: "Diagonal Mar", href: "/diagonal-mar/notary" },
-        { text: "." },
-      ]),
+      findCta("notary", "English fluency is worth confirming directly before booking, not assuming. Verified, checkable options by area:"),
     ],
     sources: [
       { name: "idealista/news: What is a notary in Spain? A complete guide for buyers", url: "https://www.idealista.com/en/news/legal-advice-in-spain/2026/01/20/879274-what-is-a-notary-in-spain-a-complete-guide-for-buyers" },
@@ -307,7 +294,6 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2026-09-23",
     readingMinutes: 5,
     relatedCategorySlugs: ["acupuncturist", "fertility-clinic"],
-    relatedAreaSlugs: ["eixample", "poblenou", "sarria-sant-gervasi", "les-corts", "gracia", "diagonal-mar"],
     content: [
       p([
         {
@@ -339,21 +325,7 @@ export const blogPosts: BlogPost[] = [
         { text: " directly rather than treating the two as separate tracks." },
       ]),
       h2("Finding an English-speaking acupuncturist"),
-      p([
-        { text: "We verify English fluency the same way for this category as every other: a specific, checkable signal, not a guess. See who's verified in " },
-        { text: "Eixample", href: "/eixample/acupuncturist" },
-        { text: ", " },
-        { text: "Gràcia", href: "/gracia/acupuncturist" },
-        { text: ", " },
-        { text: "Poblenou", href: "/poblenou/acupuncturist" },
-        { text: ", " },
-        { text: "Sarrià-Sant Gervasi", href: "/sarria-sant-gervasi/acupuncturist" },
-        { text: ", " },
-        { text: "Les Corts", href: "/les-corts/acupuncturist" },
-        { text: " or " },
-        { text: "Diagonal Mar", href: "/diagonal-mar/acupuncturist" },
-        { text: "." },
-      ]),
+      findCta("acupuncturist", "A specific, checkable signal matters more than a guess here. Verified options by area:"),
     ],
     sources: [
       { name: "Expat Focus: Spain: Complementary and Alternative Medicine", url: "https://www.expatfocus.com/spain/guide/spain-complementary-and-alternative-medicine" },
@@ -372,7 +344,6 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2026-09-23",
     readingMinutes: 5,
     relatedCategorySlugs: ["dermatologist", "plastic-surgeon"],
-    relatedAreaSlugs: ["eixample", "poblenou", "sarria-sant-gervasi", "les-corts", "gracia", "diagonal-mar"],
     content: [
       p([
         {
@@ -404,21 +375,7 @@ export const blogPosts: BlogPost[] = [
         { text: " territory rather than dermatology proper, worth knowing which category actually fits what you want before you start calling around." },
       ]),
       h2("Finding an English-speaking dermatologist"),
-      p([
-        { text: "Verified by area, not just pulled from a generic map search: " },
-        { text: "Eixample", href: "/eixample/dermatologist" },
-        { text: ", " },
-        { text: "Gràcia", href: "/gracia/dermatologist" },
-        { text: ", " },
-        { text: "Poblenou", href: "/poblenou/dermatologist" },
-        { text: ", " },
-        { text: "Sarrià-Sant Gervasi", href: "/sarria-sant-gervasi/dermatologist" },
-        { text: ", " },
-        { text: "Les Corts", href: "/les-corts/dermatologist" },
-        { text: " and " },
-        { text: "Diagonal Mar", href: "/diagonal-mar/dermatologist" },
-        { text: "." },
-      ]),
+      findCta("dermatologist", "Confirm skin checks and biopsies are a core part of the practice, not just something a bilingual receptionist can arrange. Verified options by area:"),
     ],
     sources: [
       { name: "The Local Spain: What you need to know about skin cancer treatment in Spain", url: "https://www.thelocal.es/20260730/what-you-need-to-know-about-skin-cancer-treatment-in-spain" },
@@ -437,7 +394,6 @@ export const blogPosts: BlogPost[] = [
     publishedDate: "2026-09-23",
     readingMinutes: 5,
     relatedCategorySlugs: ["chiropractor", "physiotherapist"],
-    relatedAreaSlugs: ["eixample", "poblenou", "sarria-sant-gervasi", "les-corts", "gracia", "diagonal-mar"],
     content: [
       p([
         {
@@ -469,21 +425,7 @@ export const blogPosts: BlogPost[] = [
         { text: ", the two fields overlap more than people expect, and some patients end up using both depending on what's actually going on." },
       ]),
       h2("Finding an English-speaking chiropractor"),
-      p([
-        { text: "Each listing is checked individually, not assumed from a general directory: " },
-        { text: "Eixample", href: "/eixample/chiropractor" },
-        { text: ", " },
-        { text: "Gràcia", href: "/gracia/chiropractor" },
-        { text: ", " },
-        { text: "Poblenou", href: "/poblenou/chiropractor" },
-        { text: ", " },
-        { text: "Sarrià-Sant Gervasi", href: "/sarria-sant-gervasi/chiropractor" },
-        { text: ", " },
-        { text: "Les Corts", href: "/les-corts/chiropractor" },
-        { text: " and " },
-        { text: "Diagonal Mar", href: "/diagonal-mar/chiropractor" },
-        { text: "." },
-      ]),
+      findCta("chiropractor", "Ask directly about AEQ membership and confirm English fluency before booking, rather than assuming. Verified options by area:"),
     ],
     sources: [
       { name: "Chiro Recruit: Working in Spain as an Overseas Chiropractor", url: "https://chirorecruit.com/blog/working-in-spain-as-an-overseas-chiropractor/" },

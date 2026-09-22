@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { BlogBlock } from "@/lib/blog";
+import { areas } from "@/lib/data";
 
 function Segments({ segments }: { segments: { text: string; href?: string }[] }) {
   return (
@@ -41,6 +42,23 @@ export function BlogBody({ blocks }: { blocks: BlogBlock[] }) {
                   <li key={j}>{item}</li>
                 ))}
               </ul>
+            );
+          case "find-cta":
+            // Always generated from the live area list, never hardcoded,
+            // so this reads correctly forever as areas get added.
+            return (
+              <p key={i} className="text-foreground/80 leading-relaxed">
+                {block.lead}{" "}
+                {areas.map((a, j) => (
+                  <span key={a.slug}>
+                    <Link href={`/${a.slug}/${block.categorySlug}`} className="text-brand underline decoration-brand/30 underline-offset-2 hover:decoration-brand">
+                      {a.name}
+                    </Link>
+                    {j < areas.length - 2 ? ", " : j === areas.length - 2 ? " and " : ""}
+                  </span>
+                ))}
+                .
+              </p>
             );
           case "p":
           default:
