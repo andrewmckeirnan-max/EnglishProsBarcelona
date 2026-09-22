@@ -478,6 +478,15 @@ export const categories: Category[] = [
     needOptions: ["Terrace or rooftop reform", "Balcony furnishing", "Outdoor furniture selection", "Pergola / shade structure", "Full design consultation", "Other"],
     seoKeywords: ["balcony design Barcelona english speaking", "terrace furniture Barcelona english", "rooftop design Barcelona", "outdoor furniture Barcelona english", "terraza diseño ingles"],
   },
+  {
+    slug: "wedding-planner",
+    name: "Wedding Planner",
+    pluralName: "Wedding Planners",
+    icon: "💍",
+    shortPitch: "English-speaking wedding planners in Barcelona for destination weddings, from an intimate elopement to a full multi-day celebration.",
+    needOptions: ["Full wedding planning", "Partial / month-of coordination", "Venue sourcing", "Destination wedding (multi-day)", "Elopement / small ceremony", "Other"],
+    seoKeywords: ["english speaking wedding planner Barcelona", "destination wedding planner Barcelona", "Barcelona wedding planner international couples", "wedding planner Spain english", "elopement planner Barcelona"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
