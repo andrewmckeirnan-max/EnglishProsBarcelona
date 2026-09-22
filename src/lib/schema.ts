@@ -106,6 +106,34 @@ export function buildCategoryFaqs(
   ];
 }
 
+export function blogPostingSchema(post: {
+  title: string;
+  description: string;
+  slug: string;
+  publishedDate: string;
+  updatedDate?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    datePublished: post.publishedDate,
+    dateModified: post.updatedDate || post.publishedDate,
+    author: {
+      "@type": "Organization",
+      name: "Barcelona English Pros",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Barcelona English Pros",
+      url: SITE_URL,
+    },
+  };
+}
+
 export function faqSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",

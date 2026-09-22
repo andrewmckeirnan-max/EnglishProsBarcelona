@@ -46,6 +46,11 @@ export function Footer() {
           <p className="font-semibold mb-3">Company</p>
           <ul className="space-y-2">
             <li>
+              <Link href="/blog" className="text-foreground/70 hover:text-brand">
+                Guides
+              </Link>
+            </li>
+            <li>
               <Link href="/partners" className="text-foreground/70 hover:text-brand">
                 List your practice
               </Link>

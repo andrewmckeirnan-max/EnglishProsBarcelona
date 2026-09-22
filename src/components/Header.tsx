@@ -62,6 +62,9 @@ export function Header() {
               </div>
             </div>
           </div>
+          <Link href="/blog" className="px-3 py-2 rounded-lg hover:bg-surface-muted font-medium">
+            Guides
+          </Link>
           <Link href="/partners" className="px-3 py-2 rounded-lg hover:bg-surface-muted font-medium">
             For professionals
           </Link>
@@ -142,6 +145,13 @@ export function Header() {
               </div>
             )}
 
+            <Link
+              href="/blog"
+              onClick={closeMobile}
+              className="py-3 border-t border-border font-medium"
+            >
+              Guides
+            </Link>
             <Link
               href="/partners"
               onClick={closeMobile}

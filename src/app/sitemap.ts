@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { areas, visibleCategories } from "@/lib/data";
+import { getAllBlogPosts } from "@/lib/blog";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -8,7 +9,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE_URL}/partners`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE_URL}/about`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/blog`, changeFrequency: "weekly", priority: 0.6 },
   ];
+
+  const blogPages: MetadataRoute.Sitemap = getAllBlogPosts().map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+    lastModified: post.updatedDate || post.publishedDate,
+  }));
 
   const areaPages: MetadataRoute.Sitemap = areas.map((a) => ({
     url: `${BASE_URL}/${a.slug}`,
@@ -24,5 +33,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticPages, ...areaPages, ...categoryPages];
+  return [...staticPages, ...blogPages, ...areaPages, ...categoryPages];
 }
