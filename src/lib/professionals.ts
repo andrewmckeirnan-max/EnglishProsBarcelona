@@ -7495,6 +7495,7 @@ export const professionals: Professional[] = [
     addressArea: "Barcelona-wide · global headhunting reach",
     bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
     websiteUrl: "https://searchsowreaptalent.com/",
+    linkedinUrl: "https://www.linkedin.com/in/andymckeirnanfpg/",
   },
   {
     id: "poblenou-recruiter-search-sow-reap",
@@ -7511,6 +7512,7 @@ export const professionals: Professional[] = [
     addressArea: "Barcelona-wide · global headhunting reach",
     bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
     websiteUrl: "https://searchsowreaptalent.com/",
+    linkedinUrl: "https://www.linkedin.com/in/andymckeirnanfpg/",
   },
   {
     id: "sarria-recruiter-search-sow-reap",
@@ -7527,6 +7529,7 @@ export const professionals: Professional[] = [
     addressArea: "Barcelona-wide · global headhunting reach",
     bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
     websiteUrl: "https://searchsowreaptalent.com/",
+    linkedinUrl: "https://www.linkedin.com/in/andymckeirnanfpg/",
   },
   {
     id: "les-corts-recruiter-search-sow-reap",
@@ -7543,6 +7546,7 @@ export const professionals: Professional[] = [
     addressArea: "Barcelona-wide · global headhunting reach",
     bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
     websiteUrl: "https://searchsowreaptalent.com/",
+    linkedinUrl: "https://www.linkedin.com/in/andymckeirnanfpg/",
   },
   {
     id: "gracia-recruiter-search-sow-reap",
@@ -7559,6 +7563,7 @@ export const professionals: Professional[] = [
     addressArea: "Barcelona-wide · global headhunting reach",
     bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
     websiteUrl: "https://searchsowreaptalent.com/",
+    linkedinUrl: "https://www.linkedin.com/in/andymckeirnanfpg/",
   },
   {
     id: "diagonal-mar-recruiter-search-sow-reap",
@@ -7575,6 +7580,7 @@ export const professionals: Professional[] = [
     addressArea: "Barcelona-wide · global headhunting reach",
     bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
     websiteUrl: "https://searchsowreaptalent.com/",
+    linkedinUrl: "https://www.linkedin.com/in/andymckeirnanfpg/",
   },];
 
 // Used only on the internal /partners sales-preview page to show a prospective

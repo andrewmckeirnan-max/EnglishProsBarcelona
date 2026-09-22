@@ -124,6 +124,16 @@ export function ProfessionalCard({ professional }: { professional: Professional 
             Website
           </a>
         )}
+        {professional.linkedinUrl && (
+          <a
+            href={professional.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center rounded-full border border-[#0A66C2]/30 text-[#0A66C2] text-sm font-semibold px-4 py-2 hover:bg-[#0A66C2]/10 transition"
+          >
+            LinkedIn
+          </a>
+        )}
         {/* Every listing needs at least one working action, even the ones
             we haven't onboarded a WhatsApp number or website link for yet.
             A Maps search is always buildable from name + addressArea alone. */}

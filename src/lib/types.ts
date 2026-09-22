@@ -116,6 +116,11 @@ export interface Professional {
    * bookingUrl is a Calendly link, websiteUrl is the homepage). Omit when
    * bookingUrl already is the website. */
   websiteUrl?: string;
+  /** Optional secondary link to a personal/company LinkedIn profile, shown
+   * as a third button alongside bookingUrl and websiteUrl when present.
+   * Useful for individual practitioners (recruiters, consultants) where
+   * LinkedIn itself is a credibility signal, not just a contact channel. */
+  linkedinUrl?: string;
   /** Pulled from the business's own official website (never scraped from
    * Google Maps/reviews — see src/lib/professionals.ts header for why).
    * Omit rather than guess when no official photo is findable. */
