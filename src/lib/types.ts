@@ -35,7 +35,12 @@ export type CategorySlug =
   | "family-therapist"
   | "private-chauffeur"
   | "storage-service"
-  | "house-clearance";
+  | "house-clearance"
+  | "air-conditioning"
+  | "locksmith"
+  | "appliance-repair"
+  | "pest-control"
+  | "balcony-terrace-design";
 
 export type AreaSlug =
   | "poblenou"
