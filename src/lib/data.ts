@@ -496,6 +496,15 @@ export const categories: Category[] = [
     needOptions: ["Single role search", "Executive / leadership hire", "Team build-out", "Retained search", "Contingency search", "Other"],
     seoKeywords: ["english speaking recruiter Barcelona", "english speaking headhunter Barcelona", "tech recruiter Barcelona english", "startup headhunter Barcelona", "executive search Barcelona english speaking"],
   },
+  {
+    slug: "private-chef",
+    name: "Private Chef",
+    pluralName: "Private Chefs",
+    icon: "👨‍🍳",
+    shortPitch: "English-speaking private chefs in Barcelona for dinner parties, villa dining and special occasions, cooked and served at your home.",
+    needOptions: ["Dinner party", "Special occasion / celebration", "Weekly meal prep", "Corporate event", "Villa / holiday rental dining", "Other"],
+    seoKeywords: ["english speaking private chef Barcelona", "private chef Barcelona home dining", "personal chef Barcelona english", "villa private chef Barcelona", "private dining experience Barcelona"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
