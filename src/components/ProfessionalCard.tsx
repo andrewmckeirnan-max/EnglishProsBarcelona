@@ -23,8 +23,16 @@ export function ProfessionalCard({ professional }: { professional: Professional 
       ? staticMapThumbnailUrl(professional.lat, professional.lng)
       : undefined);
 
+  const isTopPartner = professional.partnerTier === "top";
+
   return (
-    <div className="rounded-2xl border border-border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center hover:shadow-soft hover:border-brand/20 transition-all">
+    <div
+      className={`rounded-2xl border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center transition-all ${
+        isTopPartner
+          ? "border-amber-300 shadow-soft bg-gradient-to-br from-amber-50/60 to-transparent"
+          : "border-border hover:shadow-soft hover:border-brand/20"
+      }`}
+    >
       {photoSrc ? (
         // eslint-disable-next-line @next/next/no-img-element -- external, unoptimized source photo/map tile
         <img
@@ -79,6 +87,11 @@ export function ProfessionalCard({ professional }: { professional: Professional 
         <p className="text-xs text-foreground/50 mt-2">
           Speaks: {professional.languages.join(", ")}
         </p>
+        {isTopPartner && professional.bio && (
+          <p className="text-sm text-foreground/70 mt-3 leading-relaxed max-w-prose">
+            {professional.bio}
+          </p>
+        )}
       </div>
       <div className="flex sm:flex-col gap-2 sm:w-40 shrink-0">
         {professional.whatsappNumber && (

@@ -116,6 +116,11 @@ export interface Professional {
    * the professional's own published rates. Left unset otherwise, an
    * unverified guess is worse than no price shown at all. */
   priceRange?: string;
+  /** 1-3 sentence bio, only ever sourced from the professional's own site,
+   * LinkedIn or direct-from-them copy, never invented and never lifted from
+   * a scraped review. Rendered only for "top" tier partners (see
+   * ProfessionalCard) to keep the standard card compact. */
+  bio?: string;
 }
 
 export interface LeadPayload {
