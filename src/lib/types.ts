@@ -41,7 +41,8 @@ export type CategorySlug =
   | "appliance-repair"
   | "pest-control"
   | "balcony-terrace-design"
-  | "wedding-planner";
+  | "wedding-planner"
+  | "recruiter";
 
 export type AreaSlug =
   | "poblenou"

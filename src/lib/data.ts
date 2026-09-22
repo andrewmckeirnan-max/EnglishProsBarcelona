@@ -487,6 +487,15 @@ export const categories: Category[] = [
     needOptions: ["Full wedding planning", "Partial / month-of coordination", "Venue sourcing", "Destination wedding (multi-day)", "Elopement / small ceremony", "Other"],
     seoKeywords: ["english speaking wedding planner Barcelona", "destination wedding planner Barcelona", "Barcelona wedding planner international couples", "wedding planner Spain english", "elopement planner Barcelona"],
   },
+  {
+    slug: "recruiter",
+    name: "Recruiter",
+    pluralName: "Recruiters",
+    icon: "🎯",
+    shortPitch: "English-speaking recruiters and headhunters in Barcelona for tech, SaaS and startup hiring, from a single critical role to building out a whole team.",
+    needOptions: ["Single role search", "Executive / leadership hire", "Team build-out", "Retained search", "Contingency search", "Other"],
+    seoKeywords: ["english speaking recruiter Barcelona", "english speaking headhunter Barcelona", "tech recruiter Barcelona english", "startup headhunter Barcelona", "executive search Barcelona english speaking"],
+  },
 ];
 
 // Use this everywhere a category is listed for a visitor to pick from (nav,
