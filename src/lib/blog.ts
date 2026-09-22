@@ -106,10 +106,10 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "idealista/news — 6 best neighbourhoods in Barcelona to live in", url: "https://www.idealista.com/en/news/lifestyle-in-spain/2026/03/23/154158-barcelonas-best-neighbourhoods-to-live-in" },
-      { name: "Expatica — Barcelona's neighbourhoods: where to live in Barcelona", url: "https://www.expatica.com/es/moving/location/where-to-live-in-barcelona-101435/" },
-      { name: "HousingAnywhere — Barcelona neighbourhood guide", url: "https://housinganywhere.com/Barcelona--Spain/barcelona-neighborhood-guide" },
-      { name: "Migaku — Best Barcelona Neighborhoods for Foreigners", url: "https://migaku.com/blog/language-fun/best-neighborhoods-in-barcelona-for-foreigners-el-born-gracia-eixample-and-beyon" },
+      { name: "idealista/news: 6 best neighbourhoods in Barcelona to live in", url: "https://www.idealista.com/en/news/lifestyle-in-spain/2026/03/23/154158-barcelonas-best-neighbourhoods-to-live-in" },
+      { name: "Expatica: Barcelona's neighbourhoods: where to live in Barcelona", url: "https://www.expatica.com/es/moving/location/where-to-live-in-barcelona-101435/" },
+      { name: "HousingAnywhere: Barcelona neighbourhood guide", url: "https://housinganywhere.com/Barcelona--Spain/barcelona-neighborhood-guide" },
+      { name: "Migaku: Best Barcelona Neighborhoods for Foreigners", url: "https://migaku.com/blog/language-fun/best-neighborhoods-in-barcelona-for-foreigners-el-born-gracia-eixample-and-beyon" },
     ],
   },
   {
@@ -166,10 +166,10 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "idealista/news — Empadronamiento in Spain: what it is and how to get it", url: "https://www.idealista.com/en/news/legal-advice-spain/2026/01/21/7358-empadronamiento-spain-what-it-and-how-do-i-get-it" },
-      { name: "Jobbatical — Empadronamiento Spain: Municipal Registration Guide", url: "https://www.jobbatical.com/blog/spain-empadronamiento-guide" },
-      { name: "JURO Spain — Empadronamiento in Spain: Complete Registration Guide", url: "https://jurospain.com/guides/empadronamiento-spain-2026/" },
-      { name: "Waypoint Sur — NIE Spain Requirements: Complete Document Checklist", url: "https://guides.waypointsur.com/nie-spain-requirements-documents/" },
+      { name: "idealista/news: Empadronamiento in Spain: what it is and how to get it", url: "https://www.idealista.com/en/news/legal-advice-spain/2026/01/21/7358-empadronamiento-spain-what-it-and-how-do-i-get-it" },
+      { name: "Jobbatical: Empadronamiento Spain: Municipal Registration Guide", url: "https://www.jobbatical.com/blog/spain-empadronamiento-guide" },
+      { name: "JURO Spain: Empadronamiento in Spain: Complete Registration Guide", url: "https://jurospain.com/guides/empadronamiento-spain-2026/" },
+      { name: "Waypoint Sur: NIE Spain Requirements: Complete Document Checklist", url: "https://guides.waypointsur.com/nie-spain-requirements-documents/" },
     ],
   },
   {
@@ -225,9 +225,9 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "Expatica — Dentistry in Spain: public and private dental care", url: "https://www.expatica.com/es/healthcare/healthcare-services/dental-care-in-spain-582615/" },
-      { name: "ExpatDen — How to Find a Dentist in Barcelona: Clinics, Quality, Prices, and More", url: "https://www.expatden.com/spain/dental-clinic-barcelona/" },
-      { name: "Barcelona Expat Life — English speaking dentists in Barcelona", url: "https://barcelonaexpatlife.com/english-speaking-dentists-in-barcelona/" },
+      { name: "Expatica: Dentistry in Spain: public and private dental care", url: "https://www.expatica.com/es/healthcare/healthcare-services/dental-care-in-spain-582615/" },
+      { name: "ExpatDen: How to Find a Dentist in Barcelona: Clinics, Quality, Prices, and More", url: "https://www.expatden.com/spain/dental-clinic-barcelona/" },
+      { name: "Barcelona Expat Life: English speaking dentists in Barcelona", url: "https://barcelonaexpatlife.com/english-speaking-dentists-in-barcelona/" },
     ],
   },
   {
@@ -291,10 +291,10 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "idealista/news — What is a notary in Spain? A complete guide for buyers", url: "https://www.idealista.com/en/news/legal-advice-in-spain/2026/01/20/879274-what-is-a-notary-in-spain-a-complete-guide-for-buyers" },
-      { name: "Notariado.org — Who is the notary (official body of Spanish notaries)", url: "https://www.notariado.org/portal/en/who-is-the-notary" },
-      { name: "Ábaco Advisers — The Spanish Notary: What it is, role and fees", url: "https://blog.abacoadvisers.com/the-spanish-notary/" },
-      { name: "Franke de la Fuente — The Role of the Public Notary in Spain", url: "https://frankedelafuente.com/blog/the-role-of-the-public-notary-in-spain/" },
+      { name: "idealista/news: What is a notary in Spain? A complete guide for buyers", url: "https://www.idealista.com/en/news/legal-advice-in-spain/2026/01/20/879274-what-is-a-notary-in-spain-a-complete-guide-for-buyers" },
+      { name: "Notariado.org: Who is the notary (official body of Spanish notaries)", url: "https://www.notariado.org/portal/en/who-is-the-notary" },
+      { name: "Ábaco Advisers: The Spanish Notary: What it is, role and fees", url: "https://blog.abacoadvisers.com/the-spanish-notary/" },
+      { name: "Franke de la Fuente: The Role of the Public Notary in Spain", url: "https://frankedelafuente.com/blog/the-role-of-the-public-notary-in-spain/" },
     ],
   },
   {
@@ -356,9 +356,9 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "Expat Focus — Spain: Complementary and Alternative Medicine", url: "https://www.expatfocus.com/spain/guide/spain-complementary-and-alternative-medicine" },
-      { name: "Longhua Chinese Medicine — The regulation of Chinese medicine in Spain", url: "https://lcm.amegroups.org/article/view/6827/html" },
-      { name: "ETCMA — European Traditional Chinese Medicine Association, Find a Member", url: "https://etcma.org/find-a-member/" },
+      { name: "Expat Focus: Spain: Complementary and Alternative Medicine", url: "https://www.expatfocus.com/spain/guide/spain-complementary-and-alternative-medicine" },
+      { name: "Longhua Chinese Medicine: The regulation of Chinese medicine in Spain", url: "https://lcm.amegroups.org/article/view/6827/html" },
+      { name: "ETCMA: European Traditional Chinese Medicine Association, Find a Member", url: "https://etcma.org/find-a-member/" },
       { name: "Escuela Superior de Medicina Tradicional China (Barcelona TCM school)", url: "https://www.esmtc.es/biblioteca/?cat=88&sort=date" },
     ],
   },
@@ -421,10 +421,10 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "The Local Spain — What you need to know about skin cancer treatment in Spain", url: "https://www.thelocal.es/20260730/what-you-need-to-know-about-skin-cancer-treatment-in-spain" },
-      { name: "IRBLleida — Dermatologists take part in the Euromelanoma 2026 campaign", url: "https://www.irblleida.org/en/news/2105/dermatologists-from-lleida-are-taking-part-in-the-euromelanoma-2026-campaign-by-offering-free-skin-checks" },
-      { name: "ScanSkinAI — Skin Cancer in Spain: 8,000+ Melanomas a Year", url: "https://www.scanskinai.com/blog/skin-cancer-in-spain" },
-      { name: "Tailor Made Healthcare Spain — Shortage of Spanish Dermatologists", url: "https://www.tailormadehealthcarespain.org/post/shortage-of-spanish-dermatologists" },
+      { name: "The Local Spain: What you need to know about skin cancer treatment in Spain", url: "https://www.thelocal.es/20260730/what-you-need-to-know-about-skin-cancer-treatment-in-spain" },
+      { name: "IRBLleida: Dermatologists take part in the Euromelanoma 2026 campaign", url: "https://www.irblleida.org/en/news/2105/dermatologists-from-lleida-are-taking-part-in-the-euromelanoma-2026-campaign-by-offering-free-skin-checks" },
+      { name: "ScanSkinAI: Skin Cancer in Spain: 8,000+ Melanomas a Year", url: "https://www.scanskinai.com/blog/skin-cancer-in-spain" },
+      { name: "Tailor Made Healthcare Spain: Shortage of Spanish Dermatologists", url: "https://www.tailormadehealthcarespain.org/post/shortage-of-spanish-dermatologists" },
     ],
   },
   {
@@ -486,9 +486,9 @@ export const blogPosts: BlogPost[] = [
       ]),
     ],
     sources: [
-      { name: "Chiro Recruit — Working in Spain as an Overseas Chiropractor", url: "https://chirorecruit.com/blog/working-in-spain-as-an-overseas-chiropractor/" },
-      { name: "CCED Seminars — Spain Chiropractic Continuing Education Requirements", url: "https://ccedseminars.com/international-guidelines/Spain" },
-      { name: "Barcelona College of Chiropractic — Frequently Asked Questions", url: "https://bcchiropractic.es/en/faq/" },
+      { name: "Chiro Recruit: Working in Spain as an Overseas Chiropractor", url: "https://chirorecruit.com/blog/working-in-spain-as-an-overseas-chiropractor/" },
+      { name: "CCED Seminars: Spain Chiropractic Continuing Education Requirements", url: "https://ccedseminars.com/international-guidelines/Spain" },
+      { name: "Barcelona College of Chiropractic: Frequently Asked Questions", url: "https://bcchiropractic.es/en/faq/" },
     ],
   },
 ];
