@@ -114,6 +114,16 @@ export function ProfessionalCard({ professional }: { professional: Professional 
             {professional.partnerTier ? "Book" : "Visit website"}
           </a>
         )}
+        {professional.websiteUrl && (
+          <a
+            href={professional.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center rounded-full border border-border text-foreground/70 text-sm font-semibold px-4 py-2 hover:bg-surface-muted transition"
+          >
+            Website
+          </a>
+        )}
         {/* Every listing needs at least one working action, even the ones
             we haven't onboarded a WhatsApp number or website link for yet.
             A Maps search is always buildable from name + addressArea alone. */}

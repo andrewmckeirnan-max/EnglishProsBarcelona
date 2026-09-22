@@ -106,7 +106,16 @@ export interface Professional {
   lng?: number;
   phoneDisplay?: string; // only set once a real, verified partner is onboarded
   whatsappNumber?: string; // E.164 format, only set for verified partners
+  /** The link the primary CTA button uses ("Book" for partners, "Visit
+   * website" otherwise). For most listings this is the business's own
+   * site; for a partner with a real scheduling link (e.g. Calendly), point
+   * this at that link directly and use websiteUrl for the site itself. */
   bookingUrl?: string;
+  /** Optional secondary link to the business's own general website, shown
+   * alongside bookingUrl when the two point somewhere different (e.g.
+   * bookingUrl is a Calendly link, websiteUrl is the homepage). Omit when
+   * bookingUrl already is the website. */
+  websiteUrl?: string;
   /** Pulled from the business's own official website (never scraped from
    * Google Maps/reviews — see src/lib/professionals.ts header for why).
    * Omit rather than guess when no official photo is findable. */

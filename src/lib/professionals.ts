@@ -7493,7 +7493,8 @@ export const professionals: Professional[] = [
     languages: ["English"],
     bio: "Andy McKeirnan is Search Sow Reap's Barcelona-based Talent Advisor, working directly with Founders and Tech Leadership to solve hiring bottlenecks. He specialises in building out Product, Growth and Commercial teams for Pre-Seed through Series B, VC-backed startups, with retained, contingency and exclusive search models to match.",
     addressArea: "Barcelona-wide · global headhunting reach",
-    bookingUrl: "https://searchsowreaptalent.com/",
+    bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
+    websiteUrl: "https://searchsowreaptalent.com/",
   },
   {
     id: "poblenou-recruiter-search-sow-reap",
@@ -7508,7 +7509,8 @@ export const professionals: Professional[] = [
     languages: ["English"],
     bio: "Andy McKeirnan is Search Sow Reap's Barcelona-based Talent Advisor, working directly with Founders and Tech Leadership to solve hiring bottlenecks. He specialises in building out Product, Growth and Commercial teams for Pre-Seed through Series B, VC-backed startups, with retained, contingency and exclusive search models to match.",
     addressArea: "Barcelona-wide · global headhunting reach",
-    bookingUrl: "https://searchsowreaptalent.com/",
+    bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
+    websiteUrl: "https://searchsowreaptalent.com/",
   },
   {
     id: "sarria-recruiter-search-sow-reap",
@@ -7523,7 +7525,8 @@ export const professionals: Professional[] = [
     languages: ["English"],
     bio: "Andy McKeirnan is Search Sow Reap's Barcelona-based Talent Advisor, working directly with Founders and Tech Leadership to solve hiring bottlenecks. He specialises in building out Product, Growth and Commercial teams for Pre-Seed through Series B, VC-backed startups, with retained, contingency and exclusive search models to match.",
     addressArea: "Barcelona-wide · global headhunting reach",
-    bookingUrl: "https://searchsowreaptalent.com/",
+    bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
+    websiteUrl: "https://searchsowreaptalent.com/",
   },
   {
     id: "les-corts-recruiter-search-sow-reap",
@@ -7538,7 +7541,8 @@ export const professionals: Professional[] = [
     languages: ["English"],
     bio: "Andy McKeirnan is Search Sow Reap's Barcelona-based Talent Advisor, working directly with Founders and Tech Leadership to solve hiring bottlenecks. He specialises in building out Product, Growth and Commercial teams for Pre-Seed through Series B, VC-backed startups, with retained, contingency and exclusive search models to match.",
     addressArea: "Barcelona-wide · global headhunting reach",
-    bookingUrl: "https://searchsowreaptalent.com/",
+    bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
+    websiteUrl: "https://searchsowreaptalent.com/",
   },
   {
     id: "gracia-recruiter-search-sow-reap",
@@ -7553,7 +7557,8 @@ export const professionals: Professional[] = [
     languages: ["English"],
     bio: "Andy McKeirnan is Search Sow Reap's Barcelona-based Talent Advisor, working directly with Founders and Tech Leadership to solve hiring bottlenecks. He specialises in building out Product, Growth and Commercial teams for Pre-Seed through Series B, VC-backed startups, with retained, contingency and exclusive search models to match.",
     addressArea: "Barcelona-wide · global headhunting reach",
-    bookingUrl: "https://searchsowreaptalent.com/",
+    bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
+    websiteUrl: "https://searchsowreaptalent.com/",
   },
   {
     id: "diagonal-mar-recruiter-search-sow-reap",
@@ -7568,7 +7573,8 @@ export const professionals: Professional[] = [
     languages: ["English"],
     bio: "Andy McKeirnan is Search Sow Reap's Barcelona-based Talent Advisor, working directly with Founders and Tech Leadership to solve hiring bottlenecks. He specialises in building out Product, Growth and Commercial teams for Pre-Seed through Series B, VC-backed startups, with retained, contingency and exclusive search models to match.",
     addressArea: "Barcelona-wide · global headhunting reach",
-    bookingUrl: "https://searchsowreaptalent.com/",
+    bookingUrl: "https://calendly.com/andrew-searchsowreaptalent/intro-call",
+    websiteUrl: "https://searchsowreaptalent.com/",
   },];
 
 // Used only on the internal /partners sales-preview page to show a prospective
