@@ -11,8 +11,10 @@ interface Props {
 }
 
 // Planity-style split view: a light, clean embedded map showing every
-// professional on this page as a pin. Uses Leaflet + CARTO's free light
-// basemap (no API key, no billing) rather than the Google Maps JS API.
+// professional on this page as a pin. Uses Leaflet + plain OpenStreetMap
+// raster tiles (genuinely no API key, no billing) rather than the Google
+// Maps JS API. CARTO's basemap CDN used to work the same way key-free but
+// now requires a free-tier API key, which is why this isn't pointed there.
 // Professionals without geocoded coordinates (scripts/geocode.mjs missed
 // their address) are placed on a small ring around the area's centre so
 // the map still reflects them approximately rather than dropping them.
@@ -32,9 +34,8 @@ export function ProfessionalsMap({ professionals, area }: Props) {
         zoomControl: true,
       }).setView([area.mapCenter.lat, area.mapCenter.lng], 15);
 
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
       }).addTo(map);
 
