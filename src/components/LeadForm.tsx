@@ -1,13 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Unlock, CheckCircle2, Lock } from "lucide-react";
+import { Unlock, CheckCircle2, Lock, Mail } from "lucide-react";
 import { areas, visibleCategories, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { matchEnquiry } from "@/lib/match";
 import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 import type { AreaSlug, CategorySlug, Professional } from "@/lib/types";
-import { businessWaLink } from "@/lib/whatsapp";
+import { businessWaLink, supportMailtoLink, WHATSAPP_CONFIGURED } from "@/lib/whatsapp";
 import { sentenceLower } from "@/lib/text";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { ProfessionalsMap } from "@/components/ProfessionalsMap";
@@ -228,16 +228,29 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
         <p className="text-sm text-foreground/70 mb-5">
           We don&apos;t have a listed English-speaking {selectedCategory ? sentenceLower(selectedCategory.name) : "professional"} in{" "}
           {areas.find((a) => a.slug === areaSlug)?.name ?? "your area"} yet, so we&apos;ll personally check
-          real availability with one nearby and follow up on WhatsApp today.
+          real availability with one nearby and follow up {WHATSAPP_CONFIGURED ? "on WhatsApp" : "by email"} today.
         </p>
-        <a
-          href={businessWaLink(waMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white text-sm font-semibold px-5 py-3 hover:opacity-90 transition"
-        >
-          Message us on WhatsApp now
-        </a>
+        {WHATSAPP_CONFIGURED ? (
+          <a
+            href={businessWaLink(waMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white text-sm font-semibold px-5 py-3 hover:opacity-90 transition"
+          >
+            Message us on WhatsApp now
+          </a>
+        ) : (
+          <a
+            href={supportMailtoLink(
+              `Help finding ${selectedCategory ? sentenceLower(selectedCategory.pluralName) : "a professional"} in ${areas.find((a) => a.slug === areaSlug)?.name ?? "Barcelona"}`,
+              waMessage,
+            )}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white text-sm font-semibold px-5 py-3 hover:bg-brand-dark transition"
+          >
+            <Mail className="h-4 w-4" strokeWidth={2} />
+            Email us now
+          </a>
+        )}
       </div>
     );
   }
@@ -258,12 +271,18 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
 
       {screen !== "results" && (
         <a
-          href={businessWaLink(skipWaMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#25D366] hover:underline mb-5"
+          href={
+            WHATSAPP_CONFIGURED
+              ? businessWaLink(skipWaMessage)
+              : supportMailtoLink("Finding an English-speaking professional in Barcelona", skipWaMessage)
+          }
+          target={WHATSAPP_CONFIGURED ? "_blank" : undefined}
+          rel={WHATSAPP_CONFIGURED ? "noopener noreferrer" : undefined}
+          className={`flex items-center justify-center gap-1.5 text-xs font-medium hover:underline mb-5 ${
+            WHATSAPP_CONFIGURED ? "text-[#25D366]" : "text-brand"
+          }`}
         >
-          Or skip the form, WhatsApp us directly →
+          {WHATSAPP_CONFIGURED ? "Or skip the form, WhatsApp us directly →" : "Or skip the form, email us directly →"}
         </a>
       )}
 

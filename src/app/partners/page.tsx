@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Target, Award, Send, ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
+import { Target, Award, Send, ChevronDown, ArrowRight, MessageCircle, Mail } from "lucide-react";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { PartnerProfileMock } from "@/components/PartnerProfileMock";
 import { exampleProfessional } from "@/lib/professionals";
-import { businessWaLink } from "@/lib/whatsapp";
+import { businessWaLink, supportMailtoLink, WHATSAPP_CONFIGURED } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "List Your Practice: Get English-Speaking Patient Enquiries",
@@ -32,7 +32,9 @@ const faqs = [
 
 export default function PartnersPage() {
   const waMessage = "Hi! I run a clinic/practice in Barcelona and I'd like to hear more about getting the Top Recommendation badge as a featured partner on Barcelona English Pros.";
-  const waHref = businessWaLink(waMessage);
+  const contactHref = WHATSAPP_CONFIGURED
+    ? businessWaLink(waMessage)
+    : supportMailtoLink("Featured partner enquiry — Barcelona English Pros", waMessage);
 
   return (
     <div>
@@ -48,9 +50,9 @@ export default function PartnersPage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={contactHref}
+              target={WHATSAPP_CONFIGURED ? "_blank" : undefined}
+              rel={WHATSAPP_CONFIGURED ? "noopener noreferrer" : undefined}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-white text-sm font-semibold px-6 py-3.5 hover:bg-brand-dark transition-colors shadow-soft"
             >
               <Award className="h-4 w-4" strokeWidth={2.5} />
@@ -146,13 +148,17 @@ export default function PartnersPage() {
             Tell us your service and neighbourhood, we&apos;ll show you where you&apos;d rank with the badge.
           </p>
           <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={contactHref}
+            target={WHATSAPP_CONFIGURED ? "_blank" : undefined}
+            rel={WHATSAPP_CONFIGURED ? "noopener noreferrer" : undefined}
             className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-white text-sm font-semibold px-6 py-3.5 hover:bg-brand-dark transition-colors shadow-soft"
           >
-            <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
-            Message us on WhatsApp
+            {WHATSAPP_CONFIGURED ? (
+              <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
+            ) : (
+              <Mail className="h-4 w-4" strokeWidth={2.5} />
+            )}
+            {WHATSAPP_CONFIGURED ? "Message us on WhatsApp" : "Email us"}
             <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
           </a>
         </div>
