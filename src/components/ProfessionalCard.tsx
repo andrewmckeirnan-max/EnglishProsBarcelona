@@ -5,7 +5,7 @@ import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
 import { parseRating } from "@/lib/text";
 import { StarRating } from "@/components/StarRating";
 
-export function ProfessionalCard({ professional }: { professional: Professional }) {
+export function ProfessionalCard({ professional, rank }: { professional: Professional; rank?: number }) {
   const initials = professional.name
     .split(" ")
     .map((w) => w[0])
@@ -27,12 +27,17 @@ export function ProfessionalCard({ professional }: { professional: Professional 
 
   return (
     <div
-      className={`rounded-2xl border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center transition-all ${
+      className={`relative rounded-2xl border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center transition-all ${
         isTopPartner
           ? "border-amber-300 shadow-soft bg-gradient-to-br from-amber-50/60 to-transparent"
           : "border-border hover:shadow-soft hover:border-brand/20"
       }`}
     >
+      {rank != null && (
+        <span className="absolute -top-2.5 -left-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-amber-400 text-[13px] font-bold text-amber-950 shadow-soft ring-2 ring-white">
+          {rank}
+        </span>
+      )}
       {photoSrc ? (
         // eslint-disable-next-line @next/next/no-img-element -- external, unoptimized source photo/map tile
         <img

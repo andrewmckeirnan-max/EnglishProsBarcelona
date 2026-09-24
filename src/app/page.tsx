@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CheckCheck, ListFilter, Unlock } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
+import { SearchBar } from "@/components/SearchBar";
 import { areas, visibleCategories } from "@/lib/data";
 import { professionals } from "@/lib/professionals";
 
@@ -30,6 +31,12 @@ export default function Home() {
                 Dentists, doctors, lawyers, tax advisors and more, matched to your
                 neighbourhood, in a language you&apos;re fluent in.
               </p>
+              <div className="mt-7 max-w-xl mx-auto lg:mx-0">
+                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50 mb-2 text-center lg:text-left">
+                  Or browse directly
+                </p>
+                <SearchBar />
+              </div>
             </div>
             <div className="w-full max-w-md mx-auto lg:max-w-none lg:mx-0">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand mb-2 text-center lg:text-left">
@@ -110,7 +117,7 @@ export default function Home() {
           {[
             { Icon: ListFilter, title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
             { Icon: CheckCheck, title: "See real matches instantly", body: "We show your top vetted options right on the page, not a generic list, before you give us anything." },
-            { Icon: Unlock, title: "Unlock the full ranked list", body: "Add your WhatsApp and email to unlock every match with contact details, Google Maps links and a cost comparison." },
+            { Icon: Unlock, title: "Unlock the full ranked list", body: "Add your name, phone and email to unlock every match, with contact details and a map link for each. We also email you a copy." },
           ].map((s) => (
             <div key={s.title} className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-soft">

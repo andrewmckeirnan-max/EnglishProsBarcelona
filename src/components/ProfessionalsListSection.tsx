@@ -40,8 +40,8 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
       </p>
       <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start">
         <div className="flex flex-col gap-4">
-          {visibleProfessionals.map((p) => (
-            <ProfessionalCard key={p.id} professional={p} />
+          {visibleProfessionals.map((p, i) => (
+            <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
           ))}
           {Array.from({ length: lockedCount }).map((_, i) => (
             <LockedProfessionalCard key={`locked-${i}`} />

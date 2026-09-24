@@ -206,8 +206,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             </p>
           </div>
           <div className="flex flex-col gap-3">
-            {matches.map((p) => (
-              <ProfessionalCard key={p.id} professional={p} />
+            {matches.map((p, i) => (
+              <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
             ))}
           </div>
           {areaForMap && (
@@ -373,8 +373,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               : "Real and verified. Add your details and we'll connect you directly, plus keep a copy in your inbox."}
           </p>
           <div className="flex flex-col gap-3">
-            {teaseredMatches.map((p) => (
-              <ProfessionalCard key={p.id} professional={p} />
+            {teaseredMatches.map((p, i) => (
+              <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
             ))}
             {lockedCount > 0 && (
               <div className="rounded-xl border border-dashed border-border bg-surface-muted p-4 text-center">
@@ -462,8 +462,9 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             {matches.length > 0 ? "Where should we send the full list?" : "Where should we send your match?"}
           </h3>
           <p className="text-sm text-foreground/60 mb-4">
-            WhatsApp&apos;s the fast lane, we&apos;ll follow up there first. Email&apos;s required as a
-            backup so you never lose your match if you miss a message.
+            {WHATSAPP_CONFIGURED
+              ? "WhatsApp's the fast lane, we'll follow up there first. Email's required as a backup so you never lose your match if you miss a message."
+              : "Your list goes straight to your email. We'll only use your phone number if we need to check something with you."}
           </p>
           <div className="flex flex-col gap-3">
             <input
@@ -488,7 +489,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               type="tel"
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
-              placeholder="WhatsApp or phone number (e.g. +34 6XX XXX XXX)"
+              placeholder="Phone or WhatsApp number (e.g. +34 6XX XXX XXX)"
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
             />
             <input
