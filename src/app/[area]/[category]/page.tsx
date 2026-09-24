@@ -60,10 +60,9 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
         />
       ))}
       <UnlockProvider>
-        <section className="bg-gradient-to-br from-brand to-brand-dark text-white">
+        <section className="bg-gradient-to-b from-brand-light to-background border-b border-border">
           <div className="container-page pt-5">
             <Breadcrumbs
-              light
               items={[
                 { name: "Home", href: "/" },
                 { name: area.name, href: `/${area.slug}` },
@@ -74,10 +73,10 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
           <div className="container-page py-8 sm:py-16">
             <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
               <div>
-                <p className="text-sm font-semibold text-amber-300 mb-2">
+                <p className="text-sm font-semibold text-brand mb-2">
                   {area.name} &middot; {area.district}
                 </p>
-                <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-balance">
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance">
                   English-speaking {sentenceLower(category.name)} in {area.name}, Barcelona
                 </h1>
                 <div className="mt-5 flex flex-wrap gap-2">
@@ -86,14 +85,14 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                     ["WHERE", area.name],
                     ["MATCHES", String(professionals.length)],
                   ].map(([label, value]) => (
-                    <span key={label} className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-1.5 text-sm">
-                      <span className="text-[11px] font-bold tracking-wider text-white/60">{label}</span>
+                    <span key={label} className="inline-flex items-center gap-2 rounded-full bg-white border border-border px-3.5 py-1.5 text-sm">
+                      <span className="text-[11px] font-bold tracking-wider text-foreground/50">{label}</span>
                       <span className="font-semibold">{value}</span>
                     </span>
                   ))}
                 </div>
-                <p className="mt-4 text-white/80 max-w-xl">{category.shortPitch}</p>
-                <p className="mt-3 text-sm text-white/70 max-w-xl">
+                <p className="mt-4 text-foreground/70 max-w-xl">{category.shortPitch}</p>
+                <p className="mt-3 text-sm text-foreground/60 max-w-xl">
                   {professionals.length > 0
                     ? `We've verified ${professionals.length} English-speaking ${professionals.length === 1 ? sentenceLower(category.name) : sentenceLower(category.pluralName)} in ${area.name}, listed below with what they specialize in and what languages they speak.`
                     : `We don't have a verified English-speaking ${sentenceLower(category.name)} listed in ${area.name} yet. Tell us what you need and we'll personally find one nearby.`}
@@ -101,38 +100,38 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
 
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {category.seoKeywords.map((k) => (
-                    <li key={k} className="text-xs rounded-full bg-white/10 border border-white/15 px-3 py-1 text-white/70 capitalize">
+                    <li key={k} className="text-xs rounded-full bg-white/70 border border-border px-3 py-1 text-foreground/60 capitalize">
                       {k}
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
-                  <div className="rounded-xl bg-white/10 border border-white/15 p-4">
+                  <div className="rounded-xl bg-white/60 border border-border p-4">
                     <p className="font-semibold flex items-center gap-1.5">
-                      <Languages className="h-4 w-4 text-amber-300" strokeWidth={2} />
+                      <Languages className="h-4 w-4 text-brand" strokeWidth={2} />
                       English-first
                     </p>
-                    <p className="text-white/70 mt-1">No language barrier, ever.</p>
+                    <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
                   </div>
-                  <div className="rounded-xl bg-white/10 border border-white/15 p-4">
+                  <div className="rounded-xl bg-white/60 border border-border p-4">
                     <p className="font-semibold flex items-center gap-1.5">
-                      <MapPinned className="h-4 w-4 text-amber-300" strokeWidth={2} />
+                      <MapPinned className="h-4 w-4 text-brand" strokeWidth={2} />
                       Local to {area.name}
                     </p>
-                    <p className="text-white/70 mt-1">Matched near where you live or work.</p>
+                    <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
                   </div>
-                  <div className="rounded-xl bg-white/10 border border-white/15 p-4">
+                  <div className="rounded-xl bg-white/60 border border-border p-4">
                     <p className="font-semibold flex items-center gap-1.5">
-                      <MessageCircle className="h-4 w-4 text-amber-300" strokeWidth={2} />
+                      <MessageCircle className="h-4 w-4 text-brand" strokeWidth={2} />
                       {WHATSAPP_CONFIGURED ? "WhatsApp friendly" : "Real human help"}
                     </p>
-                    <p className="text-white/70 mt-1">{WHATSAPP_CONFIGURED ? "Fast replies, no phone-call anxiety." : "Stuck? Reply to your email and we'll help you choose."}</p>
+                    <p className="text-foreground/60 mt-1">{WHATSAPP_CONFIGURED ? "Fast replies, no phone-call anxiety." : "Stuck? Reply to your email and we'll help you choose."}</p>
                   </div>
                 </div>
               </div>
 
-              <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24 text-foreground">
+              <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
                 <LeadForm defaultAreaSlug={area.slug} defaultCategorySlug={category.slug} />
               </div>
             </div>

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { CheckCheck, ListFilter, Unlock } from "lucide-react";
 import { LeadForm } from "@/components/LeadForm";
-import { SearchBar } from "@/components/SearchBar";
 import { areas, visibleCategories } from "@/lib/data";
 import { professionals } from "@/lib/professionals";
 
@@ -31,14 +30,8 @@ export default function Home() {
                 Dentists, doctors, lawyers, tax advisors and more, matched to your
                 neighbourhood, in a language you&apos;re fluent in.
               </p>
-              <div className="mt-7 max-w-xl mx-auto lg:mx-0">
-                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50 mb-2 text-center lg:text-left">
-                  Or browse directly
-                </p>
-                <SearchBar />
-              </div>
             </div>
-            <div className="w-full max-w-md mx-auto lg:max-w-none lg:mx-0">
+            <div className="w-full max-w-md mx-auto lg:max-w-none lg:mx-0 lg:mt-12">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand mb-2 text-center lg:text-left">
                 Get matched &middot; free &middot; under a minute
               </p>

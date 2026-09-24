@@ -52,6 +52,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   });
   const [history, setHistory] = useState<Screen[]>([]);
   const [describeText, setDescribeText] = useState("");
+  const [manualCategory, setManualCategory] = useState<CategorySlug | "">("");
+  const [manualArea, setManualArea] = useState<AreaSlug | "">("");
   const [categorySlug, setCategorySlug] = useState<CategorySlug | undefined>(defaultCategorySlug);
   const [areaSlug, setAreaSlug] = useState<AreaSlug | undefined>(defaultAreaSlug);
   const [need, setNeed] = useState("");
@@ -308,12 +310,45 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           >
             Show me matches
           </button>
-          <button
-            onClick={() => goTo("category")}
-            className="mt-2 w-full text-center text-sm text-foreground/50 hover:text-foreground"
-          >
-            Or choose manually instead
-          </button>
+          <div className="mt-5 pt-4 border-t border-border">
+            <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50 mb-2">Or pick directly</p>
+            <div className="grid grid-cols-2 gap-2">
+              <select
+                value={manualCategory}
+                onChange={(e) => setManualCategory(e.target.value as CategorySlug | "")}
+                aria-label="Service"
+                className="rounded-xl border border-border bg-surface px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+              >
+                <option value="">Service</option>
+                {visibleCategories.map((c) => (
+                  <option key={c.slug} value={c.slug}>{c.pluralName}</option>
+                ))}
+              </select>
+              <select
+                value={manualArea}
+                onChange={(e) => setManualArea(e.target.value as AreaSlug | "")}
+                aria-label="Area"
+                className="rounded-xl border border-border bg-surface px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
+              >
+                <option value="">Area</option>
+                {areas.map((a) => (
+                  <option key={a.slug} value={a.slug}>{a.name}</option>
+                ))}
+              </select>
+            </div>
+            <button
+              onClick={() => {
+                if (!manualCategory || !manualArea) return;
+                setCategorySlug(manualCategory);
+                setAreaSlug(manualArea);
+                afterCategoryAndArea(manualCategory, manualArea);
+              }}
+              disabled={!manualCategory || !manualArea}
+              className="mt-2 w-full rounded-full border border-brand text-brand font-semibold py-2.5 hover:bg-brand-light transition disabled:opacity-40"
+            >
+              Show matches
+            </button>
+          </div>
         </div>
       )}
 
