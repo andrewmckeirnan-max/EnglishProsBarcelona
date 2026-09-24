@@ -34,18 +34,21 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   // the service + area (i.e. the general homepage form, not a category
   // page where both are preset).
   const generalEntry = !defaultCategorySlug && !defaultAreaSlug;
-  // On a category page, real matches are already shown in the page itself
-  // right next to this form, so re-teasing them inside the form would just
-  // be a duplicate. Everywhere else (homepage, area page) the form is the
-  // only place results get shown, so it teases them before asking for
-  // contact details.
   const bothPresetByPage = !!defaultCategorySlug && !!defaultAreaSlug;
 
+  // Even on a category page (both preset), open on the results teaser
+  // rather than jumping straight to the qualifying questions: real
+  // business names + a locked-count are the value the visitor came for,
+  // and showing that first — before asking anything — converts better
+  // than qualifying them before they've seen a single match. The full
+  // listing further down the page (with map, etc.) still exists for
+  // anyone who scrolls instead of using the form.
   const [screen, setScreen] = useState<Screen>(() => {
     if (generalEntry) return "describe";
     if (!defaultCategorySlug) return "category";
     if (!defaultAreaSlug) return "area";
-    return "details";
+    const found = getProfessionals(defaultAreaSlug, defaultCategorySlug);
+    return found.length > 0 ? "results" : "details";
   });
   const [history, setHistory] = useState<Screen[]>([]);
   const [describeText, setDescribeText] = useState("");
@@ -77,8 +80,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
     if (generalEntry) s.push("describe");
     if (!defaultCategorySlug) s.push("category");
     if (!defaultAreaSlug) s.push("area");
-    if (!bothPresetByPage) s.push("results");
-    s.push("details", "contact");
+    s.push("results", "details", "contact");
     return s;
   }, [generalEntry, defaultCategorySlug, defaultAreaSlug, bothPresetByPage]);
 
