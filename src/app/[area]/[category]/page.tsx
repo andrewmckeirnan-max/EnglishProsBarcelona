@@ -132,7 +132,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                 </div>
               </div>
 
-              <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
+              <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24 text-foreground">
                 <LeadForm defaultAreaSlug={area.slug} defaultCategorySlug={category.slug} />
               </div>
             </div>
