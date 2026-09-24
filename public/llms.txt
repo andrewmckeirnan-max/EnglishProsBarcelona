@@ -14,6 +14,7 @@ Each area has a dedicated page at /{area-slug} listing every service category, a
 
 - /about - how listings are sourced and verified, fee model disclosure
 - /about#how-we-verify - verification methodology
+- /blog - practical guides for English speakers in Barcelona (paperwork, healthcare, tax, services), updated daily
 - /partners - for professionals who want to be listed as a featured partner
 - /sitemap.xml - full list of indexed pages
 

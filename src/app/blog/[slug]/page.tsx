@@ -6,7 +6,7 @@ import { getAllBlogPosts, getBlogPost } from "@/lib/blog";
 import { getCategory } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogBody } from "@/components/BlogBody";
-import { breadcrumbSchema, blogPostingSchema } from "@/lib/schema";
+import { breadcrumbSchema, blogPostingSchema, faqSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
@@ -38,6 +38,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
       { name: post.title, url: `/blog/${post.slug}` },
     ]),
     blogPostingSchema(post),
+    ...(post.faqs && post.faqs.length > 0 ? [faqSchema(post.faqs.map((f) => ({ question: f.q, answer: f.a })))] : []),
   ];
 
   return (
@@ -63,9 +64,30 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-balance mt-2">{post.title}</h1>
         <p className="mt-4 text-lg text-foreground/70">{post.description}</p>
 
+        {post.tldr && (
+          <div className="mt-6 rounded-2xl border border-brand/20 bg-brand-light p-5">
+            <p className="text-xs font-bold uppercase tracking-wide text-brand mb-1">The short answer</p>
+            <p className="text-foreground/80">{post.tldr}</p>
+          </div>
+        )}
+
         <div className="mt-8">
           <BlogBody blocks={post.content} />
         </div>
+
+        {post.faqs && post.faqs.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-xl font-bold tracking-tight mb-4">Common questions</h2>
+            <div className="flex flex-col gap-4">
+              {post.faqs.map((f) => (
+                <div key={f.q} className="rounded-2xl border border-border bg-surface p-5">
+                  <h3 className="font-semibold">{f.q}</h3>
+                  <p className="mt-1.5 text-foreground/70">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {relatedCategories.length > 0 && (
           <div className="mt-12 rounded-2xl border border-border bg-surface-muted p-6">

@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from "node:fs";
+import path from "node:path";
 import type { CategorySlug } from "./types";
 
 export interface BlogSegment {
@@ -35,6 +37,12 @@ export interface BlogPost {
    * every post links to every current area, generated live (see
    * blog/[slug]/page.tsx), so this never needs updating as areas are added. */
   relatedCategorySlugs?: CategorySlug[];
+  /** One or two sentence direct answer shown in a highlighted box at the top.
+   * Answer-first summaries are what search snippets and AI answers quote. */
+  tldr?: string;
+  /** Real questions people ask about the topic, rendered as an FAQ section
+   * and emitted as FAQPage structured data. */
+  faqs?: { q: string; a: string }[];
   content: BlogBlock[];
   /** Real sources consulted while researching this post, shown openly at
    * the bottom. Nothing here is quoted verbatim from these sources, only
@@ -435,10 +443,44 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
+// Guides added by the daily writing routine live as one JSON file each in
+// content/guides/ (same shape as BlogPost), so publishing a guide never
+// means editing code. Read at build time; a malformed file is skipped and
+// logged rather than breaking the build.
+const GUIDES_DIR = path.join(process.cwd(), "content", "guides");
+
+function loadFileGuides(): BlogPost[] {
+  let files: string[] = [];
+  try {
+    files = readdirSync(GUIDES_DIR).filter((f) => f.endsWith(".json"));
+  } catch {
+    return [];
+  }
+  const out: BlogPost[] = [];
+  for (const file of files) {
+    try {
+      const post = JSON.parse(readFileSync(path.join(GUIDES_DIR, file), "utf8")) as BlogPost;
+      if (post.slug && post.title && post.description && post.publishedDate && Array.isArray(post.content) && Array.isArray(post.sources)) {
+        out.push(post);
+      } else {
+        console.error(`[blog] Skipping ${file}: missing required fields`);
+      }
+    } catch (err) {
+      console.error(`[blog] Skipping ${file}: invalid JSON`, err);
+    }
+  }
+  return out;
+}
+
+function allPosts(): BlogPost[] {
+  const seen = new Set<string>();
+  return [...blogPosts, ...loadFileGuides()].filter((post) => (seen.has(post.slug) ? false : (seen.add(post.slug), true)));
+}
+
 export function getAllBlogPosts(): BlogPost[] {
-  return [...blogPosts].sort((a, b) => b.publishedDate.localeCompare(a.publishedDate));
+  return allPosts().sort((a, b) => b.publishedDate.localeCompare(a.publishedDate));
 }
 
 export function getBlogPost(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
+  return allPosts().find((post) => post.slug === slug);
 }

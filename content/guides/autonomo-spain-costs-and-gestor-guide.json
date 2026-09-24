@@ -1,0 +1,223 @@
+{
+  "slug": "autonomo-spain-costs-and-gestor-guide",
+  "title": "Autónomo in Spain 2026: What It Costs and Whether You Need a Gestor",
+  "description": "What becoming autónomo in Spain costs in 2026: social security, quarterly taxes and gestor fees, plus the mistakes that cost freelancers the most.",
+  "excerpt": "The real monthly cost of being self-employed in Spain, what a gestor does for the money, and the mistakes that turn a cheap year into an expensive one.",
+  "publishedDate": "2026-09-24",
+  "readingMinutes": 6,
+  "relatedCategorySlugs": [
+    "autonomo-accountant",
+    "tax-advisor",
+    "insurance-broker"
+  ],
+  "tldr": "Expect roughly €89 a month in social security for your first year, then about €206 to €600 a month depending on your profit, plus €30 to €150 a month for a gestor. Use one: a late or wrong quarterly filing usually costs more than the fee.",
+  "content": [
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "\"How much is autónomo in Spain?\" is one of the most searched questions by people moving here to freelance, and the honest answer is: it depends on your profit, and the number changes after your first year. This guide walks through the real costs as they stand in 2026, what you actually have to file, and where people trip up."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "The two things you register for"
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "Becoming autónomo means registering in two places. First the tax office (Hacienda), where you declare your activity using form 036 or 037 and get an activity code for your profession. Second the self-employed social security scheme, known as RETA. Sources agree you should have both done before you send your first invoice, because invoicing first can leave you with back-dated contributions and awkward penalties."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "You also need the right to work for yourself in Spain. That depends on your nationality and residence permit, so if you are not sure, sort that out first. Our "
+        },
+        {
+          "text": "NIE and empadronamiento guide",
+          "href": "/blog/nie-empadronamiento-barcelona-guide"
+        },
+        {
+          "text": " covers the paperwork that usually comes before this step."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "What you pay in social security"
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "Your first year is the cheap one. The \"tarifa plana\" is a flat reduced rate of about €88.64 a month (an €80 base plus a small levy) for the first 12 months, regardless of what you earn. Several guides say it can be extended for a second year if your net income stays below the minimum wage, so ask about that before your first year ends."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "From year two, the monthly contribution follows your expected net profit in a bracket system. As a rough guide from 2026 figures:"
+        }
+      ]
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Around €206 a month if you net up to about €670 a month",
+        "Around €300 a month at roughly €1,300 to €1,700 net",
+        "Around €380 to €450 a month at roughly €1,850 to €2,800 net",
+        "Around €505 to €607 a month once you are netting above about €3,600"
+      ]
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "Treat those as ballparks, not a quote. The brackets are updated and the exact figures differ slightly between sources, so check the current table with your gestor. You can also change your bracket a few times a year if your income moves, which matters because the authorities can regularise what you paid against your real earnings later."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "What you file every quarter"
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "Two returns come around every three months. Modelo 130 is an advance payment of income tax, usually 20% of your quarterly profit, though it is not needed in some cases where most of your invoices already have tax withheld. Modelo 303 is your VAT return. Deadlines fall around the 20th of April, July and October, with the fourth-quarter deadline in late January, so check the official calendar each year."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "Miss one and the penalties start quickly. One guide puts the automatic surcharge at around 1% per month of delay in the first year, and it can climb from there. Add an annual income tax return on top, and you can see why most people do not want to do this on their own."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "So do you need a gestor?"
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "A gestor (or gestoría) handles the registration, quarterly filings and your annual return. Fees quoted for 2026 run from roughly €30 to €70 a month for online services up to €60 to €150 a month for a traditional office, and the fee is generally deductible as a business expense. For an English speaker there is a second benefit: you can ask questions in your own language instead of guessing at a Spanish form."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "The maths usually favours paying. One mistake on a VAT return, especially with EU clients where the treatment differs, can cost more than a year of fees. Ask any gestor you are considering these four things:"
+        }
+      ]
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Is the fee fixed, and what is not included (registration, the annual return, changes to your bracket)?",
+        "Do they handle clients outside Spain, and VAT on EU business customers?",
+        "How do they communicate, and will you get answers in English?",
+        "Do they work with people in your line of work?"
+      ]
+    },
+    {
+      "type": "find-cta",
+      "categorySlug": "autonomo-accountant",
+      "lead": "Every accountant listed here has a checkable signal that they work in English. Options by area:"
+    },
+    {
+      "type": "h2",
+      "text": "Mistakes that cost freelancers the most"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Invoicing before you are registered",
+        "Missing a quarterly deadline, or filing the wrong form",
+        "Not claiming legitimate deductions such as your social security contributions, gestor fees and a share of home-office costs",
+        "Getting VAT wrong on EU business clients",
+        "Forgetting that your bracket can be updated when your income changes"
+      ]
+    },
+    {
+      "type": "p",
+      "segments": [
+        {
+          "text": "If your situation is more complicated than a simple freelancer, for example you have income from another country too, a broader "
+        },
+        {
+          "text": "tax advisor",
+          "href": "/eixample/tax-advisor"
+        },
+        {
+          "text": " is worth a look, and "
+        },
+        {
+          "text": "insurance brokers",
+          "href": "/eixample/insurance-broker"
+        },
+        {
+          "text": " can help with the health cover you may need alongside your registration."
+        }
+      ]
+    },
+    {
+      "type": "find-cta",
+      "categorySlug": "tax-advisor",
+      "lead": "For anything beyond a straightforward freelance setup, here are English-speaking tax advisors by area:"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How much is autónomo in Spain per month?",
+      "a": "In 2026 the first year is about €88.64 a month under the flat \"tarifa plana\". After that it depends on your profit, roughly €206 to €607 a month. Add a gestor at around €30 to €150 a month."
+    },
+    {
+      "q": "Do I need a gestor to be autónomo?",
+      "a": "It is not a legal requirement, but most freelancers use one because quarterly filings have strict deadlines and penalties for mistakes. Many people find the fee cheaper than the risk."
+    },
+    {
+      "q": "What is the tarifa plana?",
+      "a": "A reduced flat social security rate for new autónomos, about €88.64 a month for the first 12 months, which can sometimes be extended if your income stays low. Ask your gestor whether you qualify for the extension."
+    },
+    {
+      "q": "Can I invoice before I register as autónomo?",
+      "a": "You should not. Register with both the tax office and social security before your first invoice, because invoicing first can lead to back-dated contributions and penalties."
+    },
+    {
+      "q": "How often do autónomos file taxes?",
+      "a": "Every quarter you file an income tax advance (Modelo 130) and a VAT return (Modelo 303), plus one annual income tax return."
+    }
+  ],
+  "sources": [
+    {
+      "name": "renn: Autónomo Costs Spain 2026",
+      "url": "https://getrenn.com/blog/autonomo-costs"
+    },
+    {
+      "name": "Waypoint Sur: Becoming Autónomo in Spain, Self-Employment Guide for Expats (2026)",
+      "url": "https://guides.waypointsur.com/autonomo-spain-freelancer-guide/"
+    },
+    {
+      "name": "Expatica: Freelance tax in Spain for self-employed expats in 2026",
+      "url": "https://www.expatica.com/es/finance/taxes/freelance-tax-spain-471615/"
+    },
+    {
+      "name": "Legal Fournier: Understanding cuota autónomo 2026",
+      "url": "https://legalfournier.com/en/tax-finance/cuota-autonomo-2026/"
+    }
+  ]
+}
