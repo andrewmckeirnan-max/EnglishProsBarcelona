@@ -15,6 +15,7 @@ import { sentenceLower } from "@/lib/text";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCityFaqs } from "@/lib/schema";
 import { clipDescription, fitTitle, ogFor, titleMeta } from "@/lib/site";
 import { AtAGlance } from "@/components/AtAGlance";
+import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 
 export function generateStaticParams() {
   return visibleCategories.map((c) => ({ category: c.slug }));
@@ -62,7 +63,7 @@ export default async function BarcelonaCategoryPage(props: PageProps<"/barcelona
       { name: "Home", url: "/" },
       { name: category.pluralName, url: `/barcelona/${category.slug}` },
     ]),
-    ...(professionals.length > 0 ? [professionalListSchema(null, category, professionals)] : []),
+    ...(professionals.length > 0 ? [professionalListSchema(null, category, professionals.slice(0, FREE_PREVIEW_LIMIT))] : []),
     faqSchema(faqs),
   ];
 

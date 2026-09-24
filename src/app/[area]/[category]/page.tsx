@@ -17,6 +17,7 @@ import { getGuidesForCategory } from "@/lib/blog";
 import { categoryTerms, areaAliases, humanList } from "@/lib/seoTerms";
 import { RelatedGuides } from "@/components/RelatedGuides";
 import { AtAGlance } from "@/components/AtAGlance";
+import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -70,7 +71,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
       { name: area.name, url: `/${area.slug}` },
       { name: category.pluralName, url: `/${area.slug}/${category.slug}` },
     ]),
-    ...(professionals.length > 0 ? [professionalListSchema(area, category, professionals)] : []),
+    ...(professionals.length > 0 ? [professionalListSchema(area, category, professionals.slice(0, FREE_PREVIEW_LIMIT))] : []),
     faqSchema(faqs),
   ];
 
