@@ -18,7 +18,7 @@ Living document. Update it when something ships or a measurement changes. Last r
 
 ## Where we stand
 
-Done: crawlable server-rendered pages; canonical www host; sitemap of indexable pages only; robots allows all AI crawlers (tested: GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google, Bing all get 200); llms.txt; IndexNow; 45 all-Barcelona profession pages plus 264 neighbourhood pages; synonyms and Spanish terms; unique titles and descriptions; answer-first guides with FAQs and sources; daily guide routine; "at a glance" data summaries (languages, specialties, locally based) on every listing page; optional "how did you find us" question in the lead form; Vercel Web Analytics; listed-on badge for professionals; link-health and SEO audit scripts.
+Done: all professional names public with links locked; crawlable server-rendered pages; RSS feed of guides; auto-generated llms.txt (`node scripts/make-llms.mjs`); rich-snippet permissions; canonical www host; sitemap of indexable pages only; robots allows all AI crawlers (tested: GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google, Bing all get 200); llms.txt; IndexNow; 45 all-Barcelona profession pages plus 264 neighbourhood pages; synonyms and Spanish terms; unique titles and descriptions; answer-first guides with FAQs and sources; daily guide routine; "at a glance" data summaries (languages, specialties, locally based) on every listing page; optional "how did you find us" question in the lead form; Vercel Web Analytics; listed-on badge for professionals; link-health and SEO audit scripts.
 
 ## Prioritised backlog (Aleyda's formula: severity x importance / effort)
 
@@ -31,10 +31,11 @@ Done: crawlable server-rendered pages; canonical www host; sitemap of indexable 
 7. **Spanish-language layer** (pilot). Test both local-language and English prompts. Only worth it if Search Console shows Spanish queries arriving.
 8. **Video**: short YouTube walk-throughs ("how to exchange your driving licence in Barcelona"). AI Mode cites video far more than ChatGPT does.
 
-## Decisions for the owner
+## Decisions made
 
-- **Show all professional names publicly?** Today only the first 3 per page are visible in the page HTML; the rest sit behind the unlock. Search engines and AI can only recommend what they can read. Recommended: show every name, language and specialty publicly and keep the gate on contact details, map links and booking. Trade-off: less "unlock" curiosity, much better discoverability. Not changed yet.
-- **Reveal partner/paid placements clearly** (already labelled). Keep it: it protects trust and matches guidance on undisclosed endorsements.
+- **Names public, links locked (decided 2026-09-25).** Every professional's name, rating, languages and specialties are public on listing pages and in structured data, so search engines and AI can read and recommend them. Website, map and booking links (and the street address) stay locked beyond the first 3 per page and unlock with the form. Reversible: `locked` in `ProfessionalCard` and the `FREE_PREVIEW_LIMIT` constant control it. Next step when ready: move the gate toward the service (confirmed availability, price, personal best-match, comparison email) and track outbound clicks so professionals can be shown their traffic.
+- **Structured data matches what is visible.** Links appear in markup only for the professionals whose links are visible.
+- **Paid placements stay labelled** (protects trust; matches guidance on undisclosed endorsements).
 
 ## Measurement protocol (monthly, about 45 minutes)
 

@@ -25,7 +25,16 @@ export const metadata: Metadata = {
     "Find and book trusted English-speaking dentists, doctors, lawyers, tax advisors and more near you in Barcelona. Tell us what you need and we'll match you.",
   metadataBase: new URL(SITE_URL),
   // "./" resolves to each page's own URL on the canonical host.
-  alternates: { canonical: "./" },
+  alternates: {
+    canonical: "./",
+    types: { "application/rss+xml": `${SITE_URL}/blog/feed.xml` },
+  },
+  // Allow full snippets and large previews in search and AI answers.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
+  },
   openGraph: {
     siteName: SITE_NAME,
     locale: "en_GB",

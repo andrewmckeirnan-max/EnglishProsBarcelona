@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { LockOpen } from "lucide-react";
-import { ProfessionalCard, LockedProfessionalCard } from "@/components/ProfessionalCard";
+import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { ProfessionalsMap } from "@/components/ProfessionalsMap";
 import { useUnlock } from "@/components/UnlockContext";
 import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
@@ -20,7 +20,6 @@ interface Props {
 // while a separate copy of the list appears inside the form itself.
 export function ProfessionalsListSection({ professionals, area }: Props) {
   const { unlocked } = useUnlock();
-  const visibleProfessionals = unlocked ? professionals : professionals.slice(0, FREE_PREVIEW_LIMIT);
   const lockedCount = unlocked ? 0 : Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
   const partnerCount = professionals.filter((p) => p.partnerTier).length;
 
@@ -31,7 +30,7 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
         {unlocked
           ? "Unlocked, here's the full ranked list."
           : lockedCount > 0
-            ? `Showing ${visibleProfessionals.length} of ${professionals.length}. Tell us what you need to unlock the full ranked list.`
+            ? `All ${professionals.length} are listed below. Contact details and links for the first ${FREE_PREVIEW_LIMIT} are open, tell us what you need to unlock the other ${lockedCount}.`
             : partnerCount > 0
               ? partnerCount === 1
                 ? "Our recommended partner, plus other English-speaking options we found nearby."
@@ -40,11 +39,8 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
       </p>
       <div className={area ? "grid lg:grid-cols-[1fr_1fr] gap-6 items-start" : "max-w-3xl"}>
         <div className="flex flex-col gap-4">
-          {visibleProfessionals.map((p, i) => (
-            <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
-          ))}
-          {Array.from({ length: lockedCount }).map((_, i) => (
-            <LockedProfessionalCard key={`locked-${i}`} />
+          {professionals.map((p, i) => (
+            <ProfessionalCard key={p.id} professional={p} rank={i + 1} locked={!unlocked && i >= FREE_PREVIEW_LIMIT} />
           ))}
         </div>
         {area && (

@@ -5,7 +5,18 @@ import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
 import { parseRating } from "@/lib/text";
 import { StarRating } from "@/components/StarRating";
 
-export function ProfessionalCard({ professional, rank, compact = false }: { professional: Professional; rank?: number; compact?: boolean }) {
+export function ProfessionalCard({
+  professional,
+  rank,
+  compact = false,
+  locked = false,
+}: {
+  professional: Professional;
+  rank?: number;
+  compact?: boolean;
+  /** Name, languages and specialties stay public; website, map and booking links unlock with the form. */
+  locked?: boolean;
+}) {
   const initials = professional.name
     .split(" ")
     .map((w) => w[0])
@@ -81,7 +92,9 @@ export function ProfessionalCard({ professional, rank, compact = false }: { prof
             </span>
           )}
         </div>
-        <p className="text-sm text-foreground/60 mt-0.5">{professional.addressArea}</p>
+        <p className="text-sm text-foreground/60 mt-0.5">
+          {locked ? (professional.addressArea.split(",").pop() ?? "").trim() : professional.addressArea}
+        </p>
         <div className="flex flex-wrap gap-1.5 mt-2">
           {professional.specialties.map((s) => (
             <span key={s} className="text-xs rounded-full bg-surface-muted border border-border px-2 py-1 text-foreground/70">
@@ -99,6 +112,16 @@ export function ProfessionalCard({ professional, rank, compact = false }: { prof
         )}
       </div>
       <div className={compact ? "flex flex-wrap gap-2 w-full" : "flex sm:flex-col gap-2 sm:w-40 shrink-0"}>
+        {locked ? (
+          <a
+            href="#get-matched"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 text-center rounded-full bg-brand text-white text-sm font-semibold px-4 py-2 hover:bg-brand-dark transition"
+          >
+            <Lock className="h-3.5 w-3.5" strokeWidth={2.5} />
+            Unlock contact details
+          </a>
+        ) : (
+        <>
         {professional.whatsappNumber && (
           <a
             href={waLink(professional.whatsappNumber, `Hi, I found ${professional.name} via Barcelona English Pros and I'd like to book an appointment.`)}
@@ -152,40 +175,8 @@ export function ProfessionalCard({ professional, rank, compact = false }: { prof
             View on Google Maps
           </a>
         )}
-      </div>
-    </div>
-  );
-}
-
-/**
- * Teaser for a professional beyond the free preview limit, shows that
- * more options exist without revealing who they are, and links to the
- * lead form (`#get-matched`) where submitting name + WhatsApp + email
- * unlocks the full ranked list.
- */
-export function LockedProfessionalCard() {
-  return (
-    <div className="relative rounded-2xl border border-dashed border-border bg-surface-muted overflow-hidden">
-      <div className="p-5 flex flex-col sm:flex-row gap-4 sm:items-center blur-[3px] select-none pointer-events-none opacity-70">
-        <div className="h-14 w-14 shrink-0 rounded-full bg-border" />
-        <div className="flex-1">
-          <div className="h-4 w-40 rounded bg-border mb-2" />
-          <div className="h-3 w-28 rounded bg-border mb-3" />
-          <div className="flex gap-1.5">
-            <div className="h-5 w-16 rounded-full bg-border" />
-            <div className="h-5 w-20 rounded-full bg-border" />
-          </div>
-        </div>
-        <div className="h-9 w-28 rounded-full bg-border shrink-0" />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center bg-surface-muted/60">
-        <a
-          href="#get-matched"
-          className="inline-flex items-center gap-1.5 rounded-full bg-brand text-white text-xs font-semibold px-4 py-2 shadow-soft hover:bg-brand-dark transition"
-        >
-          <Lock className="h-3 w-3" strokeWidth={2.5} />
-          Unlock this option
-        </a>
+        </>
+        )}
       </div>
     </div>
   );

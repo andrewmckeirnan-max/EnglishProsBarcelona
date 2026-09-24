@@ -39,7 +39,7 @@ export async function generateMetadata(props: PageProps<"/barcelona/[category]">
     title: titleMeta(title),
     description,
     openGraph: ogFor(title, description, `/barcelona/${category.slug}`),
-    robots: count === 0 ? { index: false, follow: true } : undefined,
+    ...(count === 0 ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
@@ -63,7 +63,7 @@ export default async function BarcelonaCategoryPage(props: PageProps<"/barcelona
       { name: "Home", url: "/" },
       { name: category.pluralName, url: `/barcelona/${category.slug}` },
     ]),
-    ...(professionals.length > 0 ? [professionalListSchema(null, category, professionals.slice(0, FREE_PREVIEW_LIMIT))] : []),
+    ...(professionals.length > 0 ? [professionalListSchema(null, category, professionals, FREE_PREVIEW_LIMIT)] : []),
     faqSchema(faqs),
   ];
 

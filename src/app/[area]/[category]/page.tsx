@@ -44,7 +44,7 @@ export async function generateMetadata(props: PageProps<"/[area]/[category]">): 
     description,
     openGraph: ogFor(title, description, `/${area.slug}/${category.slug}`),
     // A page with no verified listing yet is thin: keep it out of the index until one exists.
-    robots: hasListings ? undefined : { index: false, follow: true },
+    ...(hasListings ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
@@ -71,7 +71,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
       { name: area.name, url: `/${area.slug}` },
       { name: category.pluralName, url: `/${area.slug}/${category.slug}` },
     ]),
-    ...(professionals.length > 0 ? [professionalListSchema(area, category, professionals.slice(0, FREE_PREVIEW_LIMIT))] : []),
+    ...(professionals.length > 0 ? [professionalListSchema(area, category, professionals, FREE_PREVIEW_LIMIT)] : []),
     faqSchema(faqs),
   ];
 

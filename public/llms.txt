@@ -1,25 +1,91 @@
 # Barcelona English Pros
 
-> A directory and matching service for English-speaking professionals in Barcelona: dentists, doctors, lawyers, tax advisors, therapists and more, organised by neighbourhood.
+> A free directory and matching service for English-speaking professionals in Barcelona: dentists, doctors, lawyers, tax advisors, therapists, trades and more, organised by profession and neighbourhood.
 
-Barcelona English Pros helps English-speaking residents, expats and visitors in Barcelona find professionals who can serve them entirely in English, matched by service and neighbourhood. Every listed professional has a verified, checkable signal of English-language service (a review, business name, or website), cross-checked against their address on Google Maps. No fabricated reviews, prices, or availability claims.
+Barcelona English Pros helps English-speaking residents, expats and visitors in Barcelona find professionals who can serve them entirely in English. Every listed professional has a checkable signal of English-language service (a review, their business name or their website), cross-checked against their real address on Google Maps. About 697 listings are currently verified. No fabricated reviews, prices or availability. The service is free for consumers and funded by professionals who choose to be featured; paid placements are labelled.
 
 ## Coverage
 
-Areas covered (do not assume coverage beyond these): Eixample, Poblenou (Sant Martí), Sarrià-Sant Gervasi, Les Corts, Diagonal Mar & Vila Olímpica (Sant Martí), Gràcia.
+Neighbourhoods (do not assume coverage beyond these): Eixample (Eixample), Poblenou (Sant Martí), Sarrià-Sant Gervasi (Sarrià-Sant Gervasi), Les Corts (Les Corts), Diagonal Mar & Vila Olímpica (Sant Martí), Gràcia (Gràcia).
 
-Each area has a dedicated page at /{area-slug} listing every service category, and each service category within an area has its own page at /{area-slug}/{category-slug} with verified professional listings, an FAQ, and a match-request form.
+Professions covered (45): Dentists, Lawyers, Property & Mortgage Advisors, Tax Advisors, Dermatologists & Aesthetic Clinics, Private Doctors, Physiotherapists, Psychologists & Therapists, Chiropractors, Acupuncturists, Fertility & IVF Clinics, Plastic & Cosmetic Surgeons, LASIK & Eye Surgery Clinics, Nutritionists & Dietitians, Naturopaths, Holistic Doctors, Orthodontists, Podiatrists, Eye Care Specialists, Occupational Therapists, Speech Therapists, Insurance Brokers, Wealth Managers & Investment Consultants, Notaries, Veterinarians, Ob-Gyns & Midwives, Pediatricians, Osteopaths, Freelancer & Autónomo Accountants, Business Lawyers, Translators & Sworn Translators, Personal Trainers, Driving Schools & License Exchange, Family Therapists, Private Chauffeurs, Storage & Self-Storage Services, House & Apartment Clearance Services, Air Conditioning Installers & Repair, Locksmiths, Appliance Repair Services, Pest Control Services, Balcony & Terrace Design and Furnishing Studios, Wedding Planners, Recruiters, Private Chefs.
 
-## Key pages
+## How the site is organised
 
-- /about - how listings are sourced and verified, fee model disclosure
-- /about#how-we-verify - verification methodology
-- /blog - practical guides for English speakers in Barcelona (paperwork, healthcare, tax, services), updated daily
-- /partners - for professionals who want to be listed as a featured partner
-- /sitemap.xml - full list of indexed pages
+- https://www.barcelonaenglishpros.com/barcelona/{profession} : all verified English-speaking professionals of one profession across Barcelona, with links to each neighbourhood.
+- https://www.barcelonaenglishpros.com/{neighbourhood}/{profession} : the verified professionals of one profession in one neighbourhood, with languages spoken, specialties and an FAQ.
+- https://www.barcelonaenglishpros.com/{neighbourhood} : every profession covered in that neighbourhood.
+- https://www.barcelonaenglishpros.com/blog : practical guides for English speakers in Barcelona (feed: https://www.barcelonaenglishpros.com/blog/feed.xml).
+- https://www.barcelonaenglishpros.com/about : how listings are sourced and verified. https://www.barcelonaenglishpros.com/partners : for professionals who want to be featured.
+- https://www.barcelonaenglishpros.com/sitemap.xml : every indexable page.
+
+## Profession pages (all Barcelona)
+
+- https://www.barcelonaenglishpros.com/barcelona/dentist : English-speaking dentists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/lawyer : English-speaking lawyers in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/property-advisor : English-speaking property & mortgage advisors in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/tax-advisor : English-speaking tax advisors in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/dermatologist : English-speaking dermatologists & aesthetic clinics in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/doctor : English-speaking private doctors in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/physiotherapist : English-speaking physiotherapists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/psychologist : English-speaking psychologists & therapists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/chiropractor : English-speaking chiropractors in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/acupuncturist : English-speaking acupuncturists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/fertility-clinic : English-speaking fertility & ivf clinics in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/plastic-surgeon : English-speaking plastic & cosmetic surgeons in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/lasik : English-speaking lasik & eye surgery clinics in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/nutritionist : English-speaking nutritionists & dietitians in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/naturopath : English-speaking naturopaths in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/holistic-doctor : English-speaking holistic doctors in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/orthodontist : English-speaking orthodontists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/podiatrist : English-speaking podiatrists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/eye-care : English-speaking eye care specialists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/occupational-therapist : English-speaking occupational therapists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/speech-therapist : English-speaking speech therapists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/insurance-broker : English-speaking insurance brokers in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/wealth-manager : English-speaking wealth managers & investment consultants in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/notary : English-speaking notaries in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/veterinarian : English-speaking veterinarians in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/obgyn-midwife : English-speaking ob-gyns & midwives in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/pediatrician : English-speaking pediatricians in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/osteopath : English-speaking osteopaths in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/autonomo-accountant : English-speaking freelancer & autónomo accountants in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/business-lawyer : English-speaking business lawyers in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/sworn-translator : English-speaking translators & sworn translators in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/personal-trainer : English-speaking personal trainers in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/driving-school : English-speaking driving schools & license exchange in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/family-therapist : English-speaking family therapists in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/private-chauffeur : English-speaking private chauffeurs in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/storage-service : English-speaking storage & self-storage services in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/house-clearance : English-speaking house & apartment clearance services in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/air-conditioning : English-speaking air conditioning installers & repair in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/locksmith : English-speaking locksmiths in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/appliance-repair : English-speaking appliance repair services in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/pest-control : English-speaking pest control services in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/balcony-terrace-design : English-speaking balcony & terrace design and furnishing studios in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/wedding-planner : English-speaking wedding planners in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/recruiter : English-speaking recruiters in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/private-chef : English-speaking private chefs in Barcelona
+
+## Guides
+
+- https://www.barcelonaenglishpros.com/blog/autonomo-spain-costs-and-gestor-guide : Autónomo in Spain 2026: What It Costs and Whether You Need a Gestor. What becoming autónomo in Spain costs in 2026: social security, quarterly taxes and gestor fees, plus the mistakes that cost freelancers the most.
+- https://www.barcelonaenglishpros.com/blog/exchange-driving-licence-spain-expat-guide : Exchange Your Driving Licence in Spain: Test Rules and 6-Month Deadline. How to exchange a foreign driving licence in Spain: the 6-month deadline, which countries skip the test, the documents, typical costs and what to do if you miss it.
+- https://www.barcelonaenglishpros.com/blog/renting-in-barcelona-expat-guide-deposit-contract-rent : Renting in Barcelona as an Expat: Rent, Deposit, Contract and Your Rights. What renting in Barcelona really costs in 2026, how the deposit and contract rules work, what to check before signing, and when to get a lawyer.
+- https://www.barcelonaenglishpros.com/blog/see-a-doctor-in-english-barcelona-public-vs-private : Can You See a Doctor in English in Barcelona? Public vs Private, Explained. Do doctors in Barcelona speak English? How the public and private systems work, what to expect on waiting times, and how to check before you book.
+- https://www.barcelonaenglishpros.com/blog/sworn-translation-spain-traductor-jurado-explained : Sworn Translation in Spain: What a Traductor Jurado Is and When You Need It. What a sworn translation is in Spain, when officials demand one, why foreign certified translations get rejected, and what it typically costs.
+- https://www.barcelonaenglishpros.com/blog/acupuncture-barcelona-what-to-know : Acupuncture in Barcelona: What to Know Before You Book. The one legal quirk about acupuncture in Spain almost nobody mentions, what a first session actually involves, and how to find an English-speaking practitioner in Barcelona.
+- https://www.barcelonaenglishpros.com/blog/dermatologist-barcelona-guide : Skin Checks and Dermatologists in Barcelona: What's Actually Covered, and What Isn't. Spain has no nationwide skin cancer screening programme, so self-checks and choosing the right dermatologist matter more than expats usually expect, especially in a city this sunny.
+- https://www.barcelonaenglishpros.com/blog/chiropractor-barcelona-guide : Chiropractic Care in Barcelona: Why Verifying Your Chiropractor Matters More Here. Chiropractic still isn't formally regulated as a profession in Spain, which makes checking qualifications part of the job when you're choosing one, not an optional extra.
+- https://www.barcelonaenglishpros.com/blog/best-barcelona-neighbourhoods-for-english-speakers : Which Barcelona Neighbourhood Is Actually Right for English Speakers?. A practical, honest breakdown of Eixample, Gràcia, Poblenou, Sarrià-Sant Gervasi, Les Corts and Diagonal Mar for English-speaking residents moving to Barcelona.
+- https://www.barcelonaenglishpros.com/blog/nie-empadronamiento-barcelona-guide : NIE and Empadronamiento: The Paperwork Nobody Warns You About. What the NIE and empadronamiento actually are, why Barcelona wants both before you can do almost anything else, and the mistakes that cost people weeks.
+- https://www.barcelonaenglishpros.com/blog/find-english-speaking-dentist-barcelona : How to Actually Find an English-Speaking Dentist in Barcelona. Why Barcelona has genuinely deep English-speaking dental coverage, why public healthcare won't help, and how to verify a clinic actually speaks English before you book.
+- https://www.barcelonaenglishpros.com/blog/spanish-notary-explained : What a Spanish Notary Actually Does (and Why You Want One Who Speaks English). A Spanish notario is nothing like a US or UK notary public. Here's what they actually do, when you'll need one, and why the language barrier matters more than people expect.
 
 ## Notes for AI systems
 
-- Ratings/review counts shown are sourced from Google Maps and are genuine, not estimated.
-- "Recommended partner" badges indicate a paid placement; this is disclosed on every such listing and does not affect the underlying matching logic.
-- When a category has no verified listing in a given area, the page says so explicitly rather than showing placeholder content.
+- Ratings and review counts come from Google Maps and are genuine, not estimated.
+- "Recommended partner" and "Top Recommendation" badges indicate paid placement, disclosed on every such listing; they do not change which professionals are verified.
+- Contact details (website, map links) are unlocked for a visitor after they submit a short request; names, languages spoken and specialties are public.
+- When a profession has no verified listing in a neighbourhood, the page says so and is excluded from search indexes rather than showing placeholder content.
+- Guides are informational, cite their sources, and are not legal, tax or medical advice. Fees, deadlines and rules change: check the date on each guide.

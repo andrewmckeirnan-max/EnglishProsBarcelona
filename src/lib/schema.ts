@@ -28,7 +28,7 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function professionalListSchema(area: Area | null, category: Category, professionals: Professional[]) {
+export function professionalListSchema(area: Area | null, category: Category, professionals: Professional[], linkLimit = professionals.length) {
   const where = area ? area.name : "Barcelona";
   return {
     "@context": "https://schema.org",
@@ -50,8 +50,8 @@ export function professionalListSchema(area: Area | null, category: Category, pr
           addressCountry: "ES",
         },
         knowsLanguage: p.languages,
-        hasMap: googleMapsSearchUrl(p, where),
-        ...(p.bookingUrl ? { url: p.bookingUrl } : {}),
+        ...(i < linkLimit ? { hasMap: googleMapsSearchUrl(p, where) } : {}),
+        ...(p.bookingUrl && i < linkLimit ? { url: p.bookingUrl } : {}),
         ...(rating
           ? {
               aggregateRating: {
