@@ -6,6 +6,7 @@ import { areas, visibleCategories, getArea } from "@/lib/data";
 import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { breadcrumbSchema } from "@/lib/schema";
+import { ogFor } from "@/lib/site";
 
 export function generateStaticParams() {
   return areas.map((a) => ({ area: a.slug }));
@@ -18,6 +19,7 @@ export async function generateMetadata(props: PageProps<"/[area]">): Promise<Met
   return {
     title: `English-Speaking Professionals in ${area.name}, Barcelona`,
     description: `Find trusted English-speaking dentists, doctors, lawyers, tax advisors and more in ${area.name} (${area.district}), Barcelona.`,
+    openGraph: ogFor(`English-Speaking Professionals in ${area.name}, Barcelona`, `Find trusted English-speaking dentists, doctors, lawyers, tax advisors and more in ${area.name} (${area.district}), Barcelona.`, `/${area.slug}`),
   };
 }
 

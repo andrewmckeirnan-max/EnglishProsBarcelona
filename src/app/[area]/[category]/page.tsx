@@ -11,6 +11,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { sentenceLower } from "@/lib/text";
 import { WHATSAPP_CONFIGURED } from "@/lib/whatsapp";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCategoryFaqs } from "@/lib/schema";
+import { ogFor } from "@/lib/site";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -24,6 +25,7 @@ export async function generateMetadata(props: PageProps<"/[area]/[category]">): 
   return {
     title: `English-Speaking ${category.name} in ${area.name}, Barcelona`,
     description: `${category.shortPitch} Serving ${area.name} (${area.district}), Barcelona.`,
+    openGraph: ogFor(`English-Speaking ${category.name} in ${area.name}, Barcelona`, `${category.shortPitch} Serving ${area.name} (${area.district}), Barcelona.`, `/${area.slug}/${category.slug}`),
   };
 }
 

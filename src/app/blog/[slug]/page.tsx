@@ -7,6 +7,7 @@ import { getCategory } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogBody } from "@/components/BlogBody";
 import { breadcrumbSchema, blogPostingSchema, faqSchema } from "@/lib/schema";
+import { ogFor } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
@@ -19,6 +20,7 @@ export async function generateMetadata(props: PageProps<"/blog/[slug]">): Promis
   return {
     title: post.title,
     description: post.description,
+    openGraph: { ...ogFor(post.title, post.description, `/blog/${post.slug}`), type: "article" as const, publishedTime: post.publishedDate },
   };
 }
 

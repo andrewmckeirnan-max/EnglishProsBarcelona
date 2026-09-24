@@ -2,7 +2,7 @@ import type { Area, Category } from "./types";
 import type { Professional } from "./types";
 import { googleMapsSearchUrl } from "./maps";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+import { SITE_URL } from "@/lib/site";
 
 /** Pulls "4.9 (36 reviews)" out of a ratingLabel string like
  * "4.9 (36 reviews) on Google Maps", for genuine schema markup only,

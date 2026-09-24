@@ -17,8 +17,9 @@ Repo: `C:\Users\ANDREW WILLIAM\Documents\Work\barcelona-pro-directory` (run ever
 6. **Validate:** `node scripts/validate-guides.mjs`. Fix every error. If a guide still fails after two attempts, delete it and move on. Never publish something that fails.
 7. **Build check:** `npm run build` must succeed.
 8. **Publish:** `git add content/guides` (only guide files, plus `content/guides/LOG.md`), commit with a message like `Add guides: <titles>`, `git push origin main`. Nothing else in the repo should be committed by this routine.
-9. **Log:** append a short entry to `content/guides/LOG.md` (date, slugs, the search-demand phrases used, any caveats).
-10. **Report** a one-paragraph summary of what was published and anything the owner should check.
+9. **Notify search engines:** wait until the guide URLs return 200 on `https://www.barcelonaenglishpros.com/blog/<slug>` (poll with curl, up to about 3 minutes after the push), then run `node scripts/indexnow.mjs https://www.barcelonaenglishpros.com/blog/<slug> ...` for each new guide. A 200 or 202 response means it was accepted.
+10. **Log:** append a short entry to `content/guides/LOG.md` (date, slugs, the search-demand phrases used, any caveats).
+11. **Report** a one-paragraph summary of what was published and anything the owner should check.
 
 ## Guide standards
 
