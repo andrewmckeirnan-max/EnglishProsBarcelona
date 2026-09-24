@@ -3,7 +3,9 @@ import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
-import { googleMapsSearchUrl } from "@/lib/maps";
+import { buildShortlistEmail } from "@/lib/email/shortlist";
+import { buildLeadNotificationEmail } from "@/lib/email/leadNotification";
+import { SUPPORT_EMAIL } from "@/lib/whatsapp";
 import { insertLead, isDatabaseConfigured } from "@/lib/db";
 import type { CategorySlug, LeadPayload } from "@/lib/types";
 
@@ -45,15 +47,27 @@ async function notifyEmail(lead: LeadPayload) {
     console.log("[lead] Email notification skipped — RESEND_API_KEY / LEAD_NOTIFICATION_EMAIL not set.");
     return;
   }
-  // ASAP leads are worth more, both to you and to whoever you route them
-  // to, so they're flagged right in the subject rather than buried in the
-  // body where a quick inbox glance would miss them.
-  const urgencyFlag = lead.urgency === "asap" ? "🔥 ASAP — " : "";
+  const areaName = getArea(lead.areaSlug)?.name ?? lead.areaSlug;
+  const categoryName = getCategory(lead.categorySlug)?.name ?? lead.categorySlug;
+  const email = buildLeadNotificationEmail({
+    categoryName,
+    areaName,
+    need: lead.need,
+    urgency: lead.urgency,
+    name: lead.name,
+    whatsapp: lead.whatsapp,
+    email: lead.email,
+    notes: lead.notes,
+    pageUrl: lead.pageUrl,
+    matchCount: getProfessionals(lead.areaSlug, lead.categorySlug).length,
+  });
   await sendViaResend(apiKey, {
     from: process.env.LEAD_FROM_EMAIL || "leads@barcelonaenglishpros.com",
     to,
-    subject: `${urgencyFlag}New lead: ${lead.categorySlug} in ${lead.areaSlug}`,
-    text: formatLeadText(lead),
+    subject: email.subject,
+    html: email.html,
+    text: email.text,
+    reply_to: lead.email,
   }, "[lead] Internal notification email");
 }
 
@@ -65,7 +79,7 @@ async function notifyEmail(lead: LeadPayload) {
 // account owner's own signup email, everything else 403s).
 async function sendViaResend(
   apiKey: string,
-  payload: { from: string; to: string; subject: string; text: string },
+  payload: { from: string; to: string; subject: string; text: string; html?: string; reply_to?: string },
   logLabel: string,
 ) {
   try {
@@ -117,20 +131,13 @@ const LIFESTYLE_CATEGORIES = new Set<CategorySlug>([
   "wedding-planner", "recruiter", "private-chef",
 ]);
 
-function matchIntro(categorySlug: CategorySlug, categoryLabel: string, areaLabel: string): string {
-  if (MEDICAL_CATEGORIES.has(categorySlug)) {
-    return `Sorted — here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel}, so you can explain what's actually going on without a language barrier getting in the way.`;
-  }
-  if (LEGAL_FINANCIAL_CATEGORIES.has(categorySlug)) {
-    return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel} — people who'll walk you through it in plain English, not just correct Spanish.`;
-  }
-  if (HOME_SERVICE_CATEGORIES.has(categorySlug)) {
-    return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel}, ready to help sort things out without you needing to explain yourself twice.`;
-  }
-  if (LIFESTYLE_CATEGORIES.has(categorySlug)) {
-    return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel} — the fun part starts now.`;
-  }
-  return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel}.`;
+function matchIntro(categorySlug: CategorySlug): string | undefined {
+  const base = "Here they are. Every one checked by us, ";
+  if (MEDICAL_CATEGORIES.has(categorySlug)) return base + "and every one happy to talk you through things in English.";
+  if (LEGAL_FINANCIAL_CATEGORIES.has(categorySlug)) return base + "and every one will explain things in plain English.";
+  if (HOME_SERVICE_CATEGORIES.has(categorySlug)) return base + "and every one can sort it without you explaining yourself twice.";
+  if (LIFESTYLE_CATEGORIES.has(categorySlug)) return base + "and the fun part starts now.";
+  return undefined;
 }
 
 // Emails the VISITOR their matched list — this is the actual deliverable
@@ -156,58 +163,24 @@ async function sendMatchEmailToVisitor(lead: LeadPayload) {
     return;
   }
 
-  // Ranked (partners first, per getProfessionals) with everything the
-  // on-page cards intentionally leave out: a Maps link and, only where
-  // we've actually verified pricing, a cost comparison. `priceRange` is
-  // unset for most listings today, we don't guess at prices we haven't
-  // confirmed, so those rows just omit that line rather than show a
-  // fabricated figure.
-  const listText = matches
-    .map((p, i) => {
-      const lines = [
-        `${i + 1}. ${p.name}`,
-        `   ${p.specialties.join(", ")}`,
-        p.priceRange ? `   Price: ${p.priceRange}` : undefined,
-        `   Speaks: ${p.languages.join(", ")}`,
-        `   Map: ${googleMapsSearchUrl(p)}`,
-        p.bookingUrl ? `   Website: ${p.bookingUrl}` : undefined,
-        p.phoneDisplay ? `   Phone: ${p.phoneDisplay}` : undefined,
-      ];
-      return lines.filter(Boolean).join("\n");
-    })
-    .join("\n\n");
-
-  const firstName = lead.name.trim().split(/\s+/)[0] || lead.name;
-  const categoryLabel = (category?.pluralName ?? "professionals").toLowerCase();
-  const categoryLabelSingular = (category?.name ?? "professional").toLowerCase();
-  const areaLabel = area?.name ?? "your area";
-
-  const text = [
-    `Hi ${firstName},`,
-    ``,
-    matchIntro(lead.categorySlug, categoryLabel, areaLabel),
-    ``,
-    listText,
-    ``,
-    `—`,
-    ``,
-    `One small favour: when you reach out, mention you found them through Barcelona English Pros. It costs you nothing, it's how we keep this free, and it's the only way the good ones ever find out we sent you.`,
-    ``,
-    `Know someone else hunting for an English-speaking ${categoryLabelSingular} — or anything else — in Barcelona? Forward this email or point them to barcelonaenglishpros.com. Free for them too.`,
-    ``,
-    `Want a hand choosing? Just reply to this email or message us on WhatsApp.`,
-    ``,
-    `¡Suerte!`,
-    `Barcelona English Pros`,
-  ].join("\n");
+  const email = buildShortlistEmail({
+    name: lead.name,
+    categoryName: category?.name ?? "professional",
+    categoryPluralName: category?.pluralName ?? "professionals",
+    areaName: area?.name ?? "your area",
+    matches,
+    intro: matchIntro(lead.categorySlug),
+  });
 
   await sendViaResend(
     apiKey,
     {
-      from: fromEmail,
+      from: fromEmail.includes("<") ? fromEmail : `Barcelona English Pros <${fromEmail}>`,
       to: lead.email,
-      subject: `Your English-speaking ${categoryLabelSingular} shortlist for ${areaLabel} 🎉`,
-      text,
+      reply_to: SUPPORT_EMAIL,
+      subject: email.subject,
+      html: email.html,
+      text: email.text,
     },
     "[lead] Visitor match email",
   );

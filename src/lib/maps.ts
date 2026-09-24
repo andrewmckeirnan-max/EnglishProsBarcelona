@@ -6,8 +6,12 @@ import type { Professional } from "./types";
  * see the sourcing note in professionals.ts), no API key or stored
  * coordinates required, Maps resolves the text search itself.
  */
-export function googleMapsSearchUrl(professional: Professional): string {
-  const query = `${professional.name}, ${professional.addressArea}, Barcelona`;
+export function googleMapsSearchUrl(professional: Professional, areaName?: string): string {
+  // addressArea is a free-text note ("Barcelona-wide · based in Les Corts"),
+  // fine for display but noisy as a search query. When the caller knows the
+  // clean neighbourhood, search on name + neighbourhood instead.
+  const where = areaName ?? professional.addressArea;
+  const query = `${professional.name}, ${where}, Barcelona`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
