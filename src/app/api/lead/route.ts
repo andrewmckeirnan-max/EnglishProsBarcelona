@@ -5,7 +5,7 @@ import { getArea, getCategory } from "@/lib/data";
 import { getProfessionals } from "@/lib/professionals";
 import { googleMapsSearchUrl } from "@/lib/maps";
 import { insertLead, isDatabaseConfigured } from "@/lib/db";
-import type { LeadPayload } from "@/lib/types";
+import type { CategorySlug, LeadPayload } from "@/lib/types";
 
 // -----------------------------------------------------------------------
 // Storage: a real Postgres table (see src/lib/db.ts) when DATABASE_URL is
@@ -89,6 +89,50 @@ async function sendViaResend(
   }
 }
 
+// Groups the 40+ categories into a few broad voices so the visitor email
+// reads like it was written for THIS enquiry rather than a generic form
+// letter, without hand-writing bespoke copy per category. Medical stuff
+// gets a reassuring tone, legal/financial gets a clarity-first tone, home
+// services gets a practical no-hassle tone, lifestyle/luxury gets a warmer,
+// more indulgent tone. Anything uncategorised falls back to the default.
+const MEDICAL_CATEGORIES = new Set<CategorySlug>([
+  "dentist", "dermatologist", "doctor", "physiotherapist", "psychologist",
+  "chiropractor", "acupuncturist", "nutritionist", "naturopath",
+  "holistic-doctor", "veterinarian", "lasik", "fertility-clinic",
+  "plastic-surgeon", "obgyn-midwife", "pediatrician", "osteopath",
+  "orthodontist", "podiatrist", "eye-care", "occupational-therapist",
+  "speech-therapist", "family-therapist",
+]);
+const LEGAL_FINANCIAL_CATEGORIES = new Set<CategorySlug>([
+  "lawyer", "tax-advisor", "property-advisor", "autonomo-accountant",
+  "business-lawyer", "sworn-translator", "insurance-broker",
+  "wealth-manager", "notary",
+]);
+const HOME_SERVICE_CATEGORIES = new Set<CategorySlug>([
+  "air-conditioning", "locksmith", "appliance-repair", "pest-control",
+  "balcony-terrace-design", "storage-service", "house-clearance",
+]);
+const LIFESTYLE_CATEGORIES = new Set<CategorySlug>([
+  "personal-trainer", "driving-school", "private-chauffeur",
+  "wedding-planner", "recruiter", "private-chef",
+]);
+
+function matchIntro(categorySlug: CategorySlug, categoryLabel: string, areaLabel: string): string {
+  if (MEDICAL_CATEGORIES.has(categorySlug)) {
+    return `Sorted — here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel}, so you can explain what's actually going on without a language barrier getting in the way.`;
+  }
+  if (LEGAL_FINANCIAL_CATEGORIES.has(categorySlug)) {
+    return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel} — people who'll walk you through it in plain English, not just correct Spanish.`;
+  }
+  if (HOME_SERVICE_CATEGORIES.has(categorySlug)) {
+    return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel}, ready to help sort things out without you needing to explain yourself twice.`;
+  }
+  if (LIFESTYLE_CATEGORIES.has(categorySlug)) {
+    return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel} — the fun part starts now.`;
+  }
+  return `Here's your shortlist of English-speaking ${categoryLabel} in ${areaLabel}.`;
+}
+
 // Emails the VISITOR their matched list — this is the actual deliverable
 // promised on the site ("we'll send you the vetted list"). Fully
 // automatable, unlike WhatsApp (see note on notifyEmail below): a business
@@ -133,14 +177,28 @@ async function sendMatchEmailToVisitor(lead: LeadPayload) {
     })
     .join("\n\n");
 
+  const firstName = lead.name.trim().split(/\s+/)[0] || lead.name;
+  const categoryLabel = (category?.pluralName ?? "professionals").toLowerCase();
+  const categoryLabelSingular = (category?.name ?? "professional").toLowerCase();
+  const areaLabel = area?.name ?? "your area";
+
   const text = [
-    `Hi ${lead.name},`,
+    `Hi ${firstName},`,
     ``,
-    `Here's your ranked, vetted list of English-speaking ${category?.pluralName ?? "professionals"} in ${area?.name ?? "your area"}:`,
+    matchIntro(lead.categorySlug, categoryLabel, areaLabel),
     ``,
     listText,
     ``,
-    `No cost to you, reach out to whichever one fits best. Reply to this email or message us on WhatsApp if you'd like help choosing.`,
+    `—`,
+    ``,
+    `One small favour: when you reach out, mention you found them through Barcelona English Pros. It costs you nothing, it's how we keep this free, and it's the only way the good ones ever find out we sent you.`,
+    ``,
+    `Know someone else hunting for an English-speaking ${categoryLabelSingular} — or anything else — in Barcelona? Forward this email or point them to barcelonaenglishpros.com. Free for them too.`,
+    ``,
+    `Want a hand choosing? Just reply to this email or message us on WhatsApp.`,
+    ``,
+    `¡Suerte!`,
+    `Barcelona English Pros`,
   ].join("\n");
 
   await sendViaResend(
@@ -148,7 +206,7 @@ async function sendMatchEmailToVisitor(lead: LeadPayload) {
     {
       from: fromEmail,
       to: lead.email,
-      subject: `Your vetted ${category?.name ?? "professional"} options in ${area?.name ?? "Barcelona"}`,
+      subject: `Your English-speaking ${categoryLabelSingular} shortlist for ${areaLabel} 🎉`,
       text,
     },
     "[lead] Visitor match email",
