@@ -207,7 +207,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           </div>
           <div className="flex flex-col gap-3">
             {matches.map((p, i) => (
-              <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
+              <ProfessionalCard key={p.id} professional={p} rank={i + 1} compact />
             ))}
           </div>
           {areaForMap && (
@@ -374,7 +374,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           </p>
           <div className="flex flex-col gap-3">
             {teaseredMatches.map((p, i) => (
-              <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
+              <ProfessionalCard key={p.id} professional={p} rank={i + 1} compact />
             ))}
             {lockedCount > 0 && (
               <div className="rounded-xl border border-dashed border-border bg-surface-muted p-4 text-center">

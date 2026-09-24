@@ -5,7 +5,7 @@ import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
 import { parseRating } from "@/lib/text";
 import { StarRating } from "@/components/StarRating";
 
-export function ProfessionalCard({ professional, rank }: { professional: Professional; rank?: number }) {
+export function ProfessionalCard({ professional, rank, compact = false }: { professional: Professional; rank?: number; compact?: boolean }) {
   const initials = professional.name
     .split(" ")
     .map((w) => w[0])
@@ -27,7 +27,7 @@ export function ProfessionalCard({ professional, rank }: { professional: Profess
 
   return (
     <div
-      className={`relative rounded-2xl border bg-surface p-5 flex flex-col sm:flex-row gap-4 sm:items-center transition-all ${
+      className={`relative rounded-2xl border bg-surface p-5 flex flex-col ${compact ? "items-start" : "sm:flex-row sm:items-center"} gap-4 transition-all ${
         isTopPartner
           ? "border-amber-300 shadow-soft bg-gradient-to-br from-amber-50/60 to-transparent"
           : "border-border hover:shadow-soft hover:border-brand/20"
@@ -98,7 +98,7 @@ export function ProfessionalCard({ professional, rank }: { professional: Profess
           </p>
         )}
       </div>
-      <div className="flex sm:flex-col gap-2 sm:w-40 shrink-0">
+      <div className={compact ? "flex flex-wrap gap-2 w-full" : "flex sm:flex-col gap-2 sm:w-40 shrink-0"}>
         {professional.whatsappNumber && (
           <a
             href={waLink(professional.whatsappNumber, `Hi, I found ${professional.name} via Barcelona English Pros and I'd like to book an appointment.`)}
