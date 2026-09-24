@@ -10,7 +10,7 @@ import type { Area, Professional } from "@/lib/types";
 
 interface Props {
   professionals: Professional[];
-  area: Area;
+  area?: Area;
 }
 
 // The single, authoritative place professionals are shown on a category
@@ -38,7 +38,7 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
                 : "Our recommended partners, plus other English-speaking options we found nearby."
               : "English-speaking options we found nearby. None of these are paying partners yet, this is an independent, informational list."}
       </p>
-      <div className="grid lg:grid-cols-[1fr_1fr] gap-6 items-start">
+      <div className={area ? "grid lg:grid-cols-[1fr_1fr] gap-6 items-start" : "max-w-3xl"}>
         <div className="flex flex-col gap-4">
           {visibleProfessionals.map((p, i) => (
             <ProfessionalCard key={p.id} professional={p} rank={i + 1} />
@@ -47,9 +47,11 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
             <LockedProfessionalCard key={`locked-${i}`} />
           ))}
         </div>
-        <div className="hidden lg:block h-[520px] sticky top-24">
-          <ProfessionalsMap professionals={professionals} area={area} />
-        </div>
+        {area && (
+          <div className="hidden lg:block h-[520px] sticky top-24">
+            <ProfessionalsMap professionals={professionals} area={area} />
+          </div>
+        )}
       </div>
       <p className="text-xs text-foreground/40 mt-4">
         <Link href="/about#how-we-verify" className="underline hover:text-foreground/60">

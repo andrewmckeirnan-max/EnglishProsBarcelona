@@ -481,6 +481,11 @@ export function getAllBlogPosts(): BlogPost[] {
   return allPosts().sort((a, b) => b.publishedDate.localeCompare(a.publishedDate));
 }
 
+/** Guides tagged as related to a profession, newest first. */
+export function getGuidesForCategory(slug: CategorySlug, limit = 3): BlogPost[] {
+  return getAllBlogPosts().filter((p) => p.relatedCategorySlugs?.includes(slug)).slice(0, limit);
+}
+
 export function getBlogPost(slug: string): BlogPost | undefined {
   return allPosts().find((post) => post.slug === slug);
 }

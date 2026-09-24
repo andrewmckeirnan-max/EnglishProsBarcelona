@@ -11,7 +11,11 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { sentenceLower } from "@/lib/text";
 import { WHATSAPP_CONFIGURED } from "@/lib/whatsapp";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCategoryFaqs } from "@/lib/schema";
-import { ogFor } from "@/lib/site";
+import { clipDescription, fitTitle, ogFor, titleMeta } from "@/lib/site";
+import { getProfessionals as getPros } from "@/lib/professionals";
+import { getGuidesForCategory } from "@/lib/blog";
+import { categoryTerms, areaAliases, humanList } from "@/lib/seoTerms";
+import { RelatedGuides } from "@/components/RelatedGuides";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -22,10 +26,23 @@ export async function generateMetadata(props: PageProps<"/[area]/[category]">): 
   const area = getArea(areaSlug);
   const category = getCategory(categorySlug);
   if (!area || !category || category.hidden) return {};
+  const title = fitTitle(
+    `English-Speaking ${category.name} in ${area.name}, Barcelona`,
+    `English ${category.name} in ${area.name}, Barcelona`,
+    `${category.name} in ${area.name}, Barcelona (English)`,
+  );
+  const count = getPros(area.slug, category.slug).length;
+  const hasListings = count > 0;
+  const lead = hasListings
+    ? `${count} verified English-speaking ${(count === 1 ? category.name : category.pluralName).toLowerCase()} in ${area.name} (${area.district}), Barcelona.`
+    : `English-speaking ${category.pluralName.toLowerCase()} in ${area.name} (${area.district}), Barcelona.`;
+  const description = clipDescription(`${lead} ${category.shortPitch}`);
   return {
-    title: `English-Speaking ${category.name} in ${area.name}, Barcelona`,
-    description: `${category.shortPitch} Serving ${area.name} (${area.district}), Barcelona.`,
-    openGraph: ogFor(`English-Speaking ${category.name} in ${area.name}, Barcelona`, `${category.shortPitch} Serving ${area.name} (${area.district}), Barcelona.`, `/${area.slug}/${category.slug}`),
+    title: titleMeta(title),
+    description,
+    openGraph: ogFor(title, description, `/${area.slug}/${category.slug}`),
+    // A page with no verified listing yet is thin: keep it out of the index until one exists.
+    robots: hasListings ? undefined : { index: false, follow: true },
   };
 }
 
@@ -41,6 +58,10 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   // "English-speaking X in {area}" search/AEO target worth linking.
   const otherCategories = visibleCategories.filter((c) => c.slug !== category.slug);
 
+  const guides = getGuidesForCategory(category.slug);
+  const terms = categoryTerms[category.slug];
+  const aliases = areaAliases[area.slug];
+  const reasons = category.needOptions.filter((n) => !/^other$/i.test(n)).map((n) => n.toLowerCase());
   const faqs = buildCategoryFaqs(area, category, professionals.length > 0);
   const jsonLd = [
     breadcrumbSchema([
@@ -98,6 +119,11 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                   {professionals.length > 0
                     ? `We've verified ${professionals.length} English-speaking ${professionals.length === 1 ? sentenceLower(category.name) : sentenceLower(category.pluralName)} in ${area.name}, listed below with what they specialize in and what languages they speak.`
                     : `We don't have a verified English-speaking ${sentenceLower(category.name)} listed in ${area.name} yet. Tell us what you need and we'll personally find one nearby.`}
+                </p>
+
+                <p className="mt-3 text-sm text-foreground/60 max-w-xl">
+                  Also searched as {humanList(terms.synonyms)} (in Spanish: {terms.es}). {area.name} is also known as {humanList(aliases)}.
+                  {reasons.length > 0 ? ` People contact an English-speaking ${sentenceLower(category.name)} in ${area.name} for ${humanList(reasons)}.` : ""}
                 </p>
 
                 <ul className="mt-6 flex flex-wrap gap-2">
@@ -159,12 +185,14 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
         </section>
       </UnlockProvider>
 
+      <RelatedGuides posts={guides} heading={`Guides on ${sentenceLower(category.pluralName)} and related topics`} />
+
       <section className="container-page py-14 sm:py-20 max-w-3xl">
         <h2 className="text-2xl font-bold tracking-tight mb-6">Questions</h2>
         <div className="flex flex-col divide-y divide-border">
           {faqs.map((f) => (
             <div key={f.question} className="py-4">
-              <p className="font-semibold">{f.question}</p>
+              <h3 className="font-semibold">{f.question}</h3>
               <p className="text-sm text-foreground/60 mt-1">{f.answer}</p>
             </div>
           ))}
@@ -188,6 +216,12 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
 
           <h2 className="text-2xl font-bold tracking-tight mt-10 mb-6">{category.name} in other areas</h2>
           <div className="flex flex-wrap gap-2">
+            <Link
+              href={`/barcelona/${category.slug}`}
+              className="rounded-full border border-brand/40 bg-brand-light px-4 py-2 text-sm font-semibold text-brand hover:bg-white transition-all"
+            >
+              English {category.name} across all of Barcelona
+            </Link>
             {otherAreas.map((a) => (
               <Link
                 key={a.slug}

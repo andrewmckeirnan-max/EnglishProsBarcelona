@@ -33,7 +33,7 @@ export function Header() {
                 {visibleCategories.map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/eixample/${c.slug}`}
+                    href={`/barcelona/${c.slug}`}
                     className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-muted text-sm"
                   >
                     <span>{c.icon}</span>
@@ -109,7 +109,7 @@ export function Header() {
                 {visibleCategories.map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/eixample/${c.slug}`}
+                    href={`/barcelona/${c.slug}`}
                     onClick={closeMobile}
                     className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-muted text-sm"
                   >

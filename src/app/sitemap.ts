@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { areas, visibleCategories } from "@/lib/data";
 import { getAllBlogPosts } from "@/lib/blog";
+import { getProfessionals } from "@/lib/professionals";
+import { getCityProfessionals } from "@/lib/city";
 import { SITE_URL as BASE_URL } from "@/lib/site";
 
 
@@ -26,13 +28,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Only pages with at least one verified listing are worth indexing.
   const categoryPages: MetadataRoute.Sitemap = areas.flatMap((a) =>
-    visibleCategories.map((c) => ({
-      url: `${BASE_URL}/${a.slug}/${c.slug}`,
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    }))
+    visibleCategories
+      .filter((c) => getProfessionals(a.slug, c.slug).length > 0)
+      .map((c) => ({
+        url: `${BASE_URL}/${a.slug}/${c.slug}`,
+        changeFrequency: "weekly" as const,
+        priority: 0.9,
+      }))
   );
 
-  return [...staticPages, ...blogPages, ...areaPages, ...categoryPages];
+  const cityPages: MetadataRoute.Sitemap = visibleCategories
+    .filter((c) => getCityProfessionals(c.slug).length > 0)
+    .map((c) => ({ url: `${BASE_URL}/barcelona/${c.slug}`, changeFrequency: "weekly" as const, priority: 0.95 }));
+
+  return [...staticPages, ...cityPages, ...blogPages, ...areaPages, ...categoryPages];
 }

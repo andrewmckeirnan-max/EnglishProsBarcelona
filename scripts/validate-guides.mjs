@@ -61,7 +61,8 @@ for (const file of files) {
     const ok = h.startsWith("/") && (h === "/" || h === "/blog" || h === "/about" || h === "/partners"
       || (parts[0] === "blog" && parts.length === 2)
       || (parts.length === 1 && areas.has(parts[0]))
-      || (parts.length === 2 && areas.has(parts[0]) && categories.has(parts[1])));
+      || (parts.length === 2 && areas.has(parts[0]) && categories.has(parts[1]))
+      || (parts.length === 2 && parts[0] === "barcelona" && categories.has(parts[1])));
     if (!ok) fail(`bad internal link ${h}`);
     if (parts[0] === "blog" && parts.length === 2 && !slugs.has(parts[1]) && !tsPostSlugs.has(parts[1])) fail(`link to missing guide ${h}`);
   }

@@ -51,7 +51,7 @@ export default function Home() {
           {visibleCategories.map((c) => (
             <Link
               key={c.slug}
-              href={`/eixample/${c.slug}`}
+              href={`/barcelona/${c.slug}`}
               className="rounded-2xl border border-border p-5 hover:border-brand/30 hover:shadow-soft hover:-translate-y-0.5 transition-all bg-surface"
             >
               <span className="text-3xl">{c.icon}</span>

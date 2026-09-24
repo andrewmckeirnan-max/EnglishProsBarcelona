@@ -49,6 +49,10 @@ export function BlogBody({ blocks }: { blocks: BlogBlock[] }) {
             return (
               <p key={i} className="text-foreground/80 leading-relaxed">
                 {block.lead}{" "}
+                <Link href={`/barcelona/${block.categorySlug}`} className="text-brand font-semibold underline decoration-brand/30 underline-offset-2 hover:decoration-brand">
+                  All of Barcelona
+                </Link>
+                {", or by area: "}
                 {areas.map((a, j) => (
                   <span key={a.slug}>
                     <Link href={`/${a.slug}/${block.categorySlug}`} className="text-brand underline decoration-brand/30 underline-offset-2 hover:decoration-brand">

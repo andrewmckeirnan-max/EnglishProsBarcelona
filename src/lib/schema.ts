@@ -3,6 +3,7 @@ import type { Professional } from "./types";
 import { googleMapsSearchUrl } from "./maps";
 
 import { SITE_URL } from "@/lib/site";
+import { categoryTerms, humanList } from "@/lib/seoTerms";
 
 /** Pulls "4.9 (36 reviews)" out of a ratingLabel string like
  * "4.9 (36 reviews) on Google Maps", for genuine schema markup only,
@@ -27,11 +28,12 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function professionalListSchema(area: Area, category: Category, professionals: Professional[]) {
+export function professionalListSchema(area: Area | null, category: Category, professionals: Professional[]) {
+  const where = area ? area.name : "Barcelona";
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `English-speaking ${category.pluralName} in ${area.name}, Barcelona`,
+    name: area ? `English-speaking ${category.pluralName} in ${area.name}, Barcelona` : `English-speaking ${category.pluralName} in Barcelona`,
     itemListElement: professionals.map((p, i) => {
       const rating = parseRating(p.ratingLabel);
       const entry: Record<string, unknown> = {
@@ -39,7 +41,7 @@ export function professionalListSchema(area: Area, category: Category, professio
         name: p.name,
         areaServed: {
           "@type": "Place",
-          name: `${area.name}, Barcelona`,
+          name: area ? `${area.name}, Barcelona` : "Barcelona",
         },
         address: {
           "@type": "PostalAddress",
@@ -48,7 +50,7 @@ export function professionalListSchema(area: Area, category: Category, professio
           addressCountry: "ES",
         },
         knowsLanguage: p.languages,
-        hasMap: googleMapsSearchUrl(p),
+        hasMap: googleMapsSearchUrl(p, where),
         ...(p.bookingUrl ? { url: p.bookingUrl } : {}),
         ...(rating
           ? {
@@ -81,6 +83,7 @@ export function buildCategoryFaqs(
   hasListings: boolean
 ): { question: string; answer: string }[] {
   const lower = category.name.toLowerCase();
+  const terms = categoryTerms[category.slug];
   return [
     {
       question: `Do I need to be a resident of ${area.name} to use this?`,
@@ -89,6 +92,10 @@ export function buildCategoryFaqs(
     {
       question: `How do you confirm a ${lower} actually speaks English?`,
       answer: `We only add a listing after finding an explicit, checkable signal that they offer service in English, such as a review, their own business name, or their website, cross-checked against their real address on Google Maps. We don't guess.`,
+    },
+    {
+      question: `Can I find a ${terms.synonyms[0]} or ${terms.es} in ${area.name}?`,
+      answer: `Yes. This page lists English-speaking ${category.pluralName.toLowerCase()} in ${area.name}, which covers what people often search for as ${humanList(terms.synonyms)}, or in Spanish, ${terms.es}. If you need something more specific, tell us and we'll match you.`,
     },
     {
       question: "Is this free to use?",
@@ -101,8 +108,39 @@ export function buildCategoryFaqs(
         }
       : {
           question: `What happens if no one is listed yet for ${lower} in ${area.name}?`,
-          answer: `We personally check real availability with an English-speaking ${lower} nearby and follow up on WhatsApp, usually the same day, rather than showing you an empty page.`,
+          answer: `We personally check real availability with an English-speaking ${lower} nearby and follow up with you directly, usually the same day, rather than showing you an empty page.`,
         },
+  ];
+}
+
+export function buildCityFaqs(
+  category: Category,
+  count: number,
+  areaNames: string[]
+): { question: string; answer: string }[] {
+  const lower = category.name.toLowerCase();
+  const terms = categoryTerms[category.slug];
+  return [
+    {
+      question: `How do I find an English-speaking ${lower} in Barcelona?`,
+      answer: `Pick your neighbourhood below or tell us what you need, and you'll see the English-speaking ${category.pluralName.toLowerCase()} we've verified in Barcelona${count > 0 ? `, ${count} at the moment` : ""}. Submitting your details unlocks the full ranked list by email with contact details and a map link for each.`,
+    },
+    {
+      question: `How do you know a ${lower} really speaks English?`,
+      answer: "We only list a professional after finding an explicit, checkable signal that they work in English, such as a review, their business name or their website, cross-checked against their real address on Google Maps. We don't guess.",
+    },
+    {
+      question: `Which parts of Barcelona do you cover for ${lower} searches?`,
+      answer: `${humanList(areaNames)}. Each has its own page with the English-speaking ${category.pluralName.toLowerCase()} we've verified there.`,
+    },
+    {
+      question: `I'm looking for a ${terms.synonyms[0]} or ${terms.es} in Barcelona, is this the right place?`,
+      answer: `Yes. This page covers English-speaking ${category.pluralName.toLowerCase()}, which includes what people often search for as ${humanList(terms.synonyms)}, or in Spanish, ${terms.es}.`,
+    },
+    {
+      question: "Is it free to use?",
+      answer: "Yes, always. We're paid by professionals who want to be found by you, never by you.",
+    },
   ];
 }
 

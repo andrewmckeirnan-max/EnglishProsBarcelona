@@ -21,7 +21,7 @@ export function Footer() {
           <ul className="space-y-2">
             {visibleCategories.slice(0, 6).map((c) => (
               <li key={c.slug}>
-                <Link href={`/eixample/${c.slug}`} className="text-foreground/70 hover:text-brand">
+                <Link href={`/barcelona/${c.slug}`} className="text-foreground/70 hover:text-brand">
                   {c.pluralName} in Barcelona
                 </Link>
               </li>

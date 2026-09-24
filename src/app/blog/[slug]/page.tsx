@@ -3,11 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { getAllBlogPosts, getBlogPost } from "@/lib/blog";
+import { RelatedGuides } from "@/components/RelatedGuides";
 import { getCategory } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogBody } from "@/components/BlogBody";
 import { breadcrumbSchema, blogPostingSchema, faqSchema } from "@/lib/schema";
-import { ogFor } from "@/lib/site";
+import { clipDescription, fitTitle, ogFor, titleMeta } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
@@ -18,9 +19,9 @@ export async function generateMetadata(props: PageProps<"/blog/[slug]">): Promis
   const post = getBlogPost(slug);
   if (!post) return {};
   return {
-    title: post.title,
-    description: post.description,
-    openGraph: { ...ogFor(post.title, post.description, `/blog/${post.slug}`), type: "article" as const, publishedTime: post.publishedDate },
+    title: titleMeta(fitTitle(post.title)),
+    description: clipDescription(post.description),
+    openGraph: { ...ogFor(fitTitle(post.title), clipDescription(post.description), `/blog/${post.slug}`), type: "article" as const, publishedTime: post.publishedDate },
   };
 }
 
@@ -99,7 +100,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 c ? (
                   <Link
                     key={c.slug}
-                    href={`/eixample/${c.slug}`}
+                    href={`/barcelona/${c.slug}`}
                     className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm hover:border-brand hover:bg-brand-light transition-all"
                   >
                     {c.icon} {c.pluralName}
@@ -133,6 +134,14 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
           </p>
         </div>
       </article>
+
+      <RelatedGuides
+        heading="More guides"
+        posts={getAllBlogPosts()
+          .filter((p) => p.slug !== post.slug)
+          .sort((a, b) => Number(b.relatedCategorySlugs?.some((c) => post.relatedCategorySlugs?.includes(c)) ?? 0) - Number(a.relatedCategorySlugs?.some((c) => post.relatedCategorySlugs?.includes(c)) ?? 0))
+          .slice(0, 3)}
+      />
     </div>
   );
 }
