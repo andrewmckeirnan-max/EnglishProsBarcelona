@@ -34,11 +34,14 @@ export default function PrivacyPage() {
             <li>Your email address</li>
             <li>What you told us you need (service, area, urgency, and any notes you added)</li>
             <li>The page you submitted the form from</li>
+            <li>If you choose to tell us, how you found us</li>
           </ul>
           <p>
-            We don&apos;t use tracking pixels, ad networks, or third-party analytics that
-            profile you across other sites. Simply browsing the site without submitting the
-            form doesn&apos;t send us any of the above.
+            We don&apos;t use tracking pixels, ad networks, or analytics that profile you across
+            other sites. We do use Vercel Web Analytics, our hosting provider&apos;s privacy-focused,
+            cookie-free page-view counter, to see which pages are visited and roughly where visitors
+            came from (for example a search engine). It doesn&apos;t identify you personally. Simply
+            browsing the site without submitting the form doesn&apos;t send us any of the details above.
           </p>
         </section>
 

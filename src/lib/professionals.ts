@@ -48,7 +48,6 @@ export const professionals: Professional[] = [
     addressArea: "Les Corts",
     lat: 41.3872483,
     lng: 2.1205352,
-    bookingUrl: "http://www.googolmedicalcentre.com/General_practice.html",
   },
   {
     id: "sarria-dermatologist-turo-park",
@@ -313,7 +312,7 @@ export const professionals: Professional[] = [
     addressArea: "Sarrià-Sant Gervasi",
     lat: 41.4022603,
     lng: 2.1304579,
-    bookingUrl: "https://www.teknon.es/en/specialities/fernandez-agrafojo-dora/refractive-surgery",
+    bookingUrl: "https://www.teknon.es/en/",
   },
   {
     id: "poblenou-vet-clinica-veterinaria-poblenou",
@@ -4499,7 +4498,6 @@ export const professionals: Professional[] = [
     specialties: ["Classical homeopathy", "Babies & children"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Gran de Gràcia, 77, Gràcia",
-    bookingUrl: "https://zoeholden.com/en/",
   },
   {
     id: "diagonal-mar-doctor-stefan-botnar",
@@ -4917,7 +4915,7 @@ export const professionals: Professional[] = [
     specialties: ["TMJ / jaw pain", "Headache & migraine", "Neck pain", "Dizziness & tinnitus"],
     languages: ["English", "Spanish", "Catalan"],
     addressArea: "Avinguda de la Riera de Cassoles, 8 bis, Gràcia",
-    bookingUrl: "https://www.fisiocraneo.com/en",
+    bookingUrl: "https://craneolab.com/en",
     ratingLabel: "4.9 (64 reviews) on Google Maps",
   },
   {
@@ -5493,7 +5491,7 @@ export const professionals: Professional[] = [
     specialties: ["24/7 chauffeur service", "Congress & corporate transport", "Multilingual drivers"],
     languages: ["English", "Spanish", "French", "Arabic", "Portuguese", "Italian", "German"],
     addressArea: "Carrer de la Selva de Mar, 72, Poblenou",
-    bookingUrl: "https://minivips.net/",
+    bookingUrl: "https://mvips.net/",
   },
   {
     id: "poblenou-private-chauffeur-felix-drivers",
@@ -5548,7 +5546,7 @@ export const professionals: Professional[] = [
     specialties: ["24/7 chauffeur service", "Congress & corporate transport", "Multilingual drivers"],
     languages: ["English", "Spanish", "French", "Arabic", "Portuguese", "Italian", "German"],
     addressArea: "Barcelona-wide pickup · based in Poblenou",
-    bookingUrl: "https://minivips.net/",
+    bookingUrl: "https://mvips.net/",
   },
   {
     id: "les-corts-private-chauffeur-felix-drivers",
@@ -5570,7 +5568,7 @@ export const professionals: Professional[] = [
     specialties: ["24/7 chauffeur service", "Congress & corporate transport", "Multilingual drivers"],
     languages: ["English", "Spanish", "French", "Arabic", "Portuguese", "Italian", "German"],
     addressArea: "Barcelona-wide pickup · based in Poblenou, minutes from Diagonal Mar",
-    bookingUrl: "https://minivips.net/",
+    bookingUrl: "https://mvips.net/",
   },
   {
     id: "diagonal-mar-private-chauffeur-private-driver-barcelona",

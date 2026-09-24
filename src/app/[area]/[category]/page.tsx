@@ -16,6 +16,7 @@ import { getProfessionals as getPros } from "@/lib/professionals";
 import { getGuidesForCategory } from "@/lib/blog";
 import { categoryTerms, areaAliases, humanList } from "@/lib/seoTerms";
 import { RelatedGuides } from "@/components/RelatedGuides";
+import { AtAGlance } from "@/components/AtAGlance";
 
 export function generateStaticParams() {
   return areas.flatMap((a) => visibleCategories.map((c) => ({ area: a.slug, category: c.slug })));
@@ -172,7 +173,12 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
           </h2>
 
           {professionals.length > 0 ? (
-            <ProfessionalsListSection professionals={professionals} area={area} />
+            <>
+              <div className="mt-4">
+                <AtAGlance professionals={professionals} categoryName={category.name} categoryPluralName={category.pluralName} area={area} />
+              </div>
+              <ProfessionalsListSection professionals={professionals} area={area} />
+            </>
           ) : (
             <div className="rounded-2xl border border-dashed border-border p-8 text-center bg-surface-muted">
               <p className="font-semibold">We don&apos;t have a featured partner in {area.name} yet.</p>

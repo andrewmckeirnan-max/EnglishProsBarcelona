@@ -62,6 +62,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [notes, setNotes] = useState("");
+  const [heardFrom, setHeardFrom] = useState("");
   const [consent, setConsent] = useState(false);
   // Honeypot: real visitors never see or fill this field (off-screen,
   // unlabeled, skipped in tab order). Bots that fill every input trip it,
@@ -137,7 +138,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           name,
           email,
           whatsapp,
-          notes,
+          notes: [heardFrom ? `[Found us via: ${heardFrom}]` : "", notes].filter(Boolean).join("\n"),
           pageUrl: typeof window !== "undefined" ? window.location.href : "",
           company: honeypot,
           consent,
@@ -542,6 +543,20 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
               rows={2}
               className="rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand resize-none"
             />
+            <select
+              value={heardFrom}
+              onChange={(e) => setHeardFrom(e.target.value)}
+              aria-label="How did you find us? (optional)"
+              className="rounded-xl border border-border bg-surface px-4 py-3 text-sm text-foreground/70 focus:outline-none focus:ring-2 focus:ring-brand"
+            >
+              <option value="">How did you find us? (optional)</option>
+              <option value="Google or another search engine">Google or another search engine</option>
+              <option value="ChatGPT or another AI assistant">ChatGPT or another AI assistant</option>
+              <option value="A friend or colleague">A friend or colleague</option>
+              <option value="Facebook, Reddit or social media">Facebook, Reddit or social media</option>
+              <option value="A professional recommended us">A professional recommended us</option>
+              <option value="Somewhere else">Somewhere else</option>
+            </select>
           </div>
           <label className="flex items-start gap-2.5 mt-4 text-xs text-foreground/70 cursor-pointer">
             <input

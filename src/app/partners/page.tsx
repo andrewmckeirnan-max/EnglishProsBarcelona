@@ -139,6 +139,27 @@ export default function PartnersPage() {
         </div>
       </section>
 
+      <section id="badge" className="container-page py-16 sm:py-20 max-w-3xl mx-auto scroll-mt-16">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-center text-balance">Already listed? Let your clients see it</h2>
+        <p className="mt-3 text-foreground/60 text-center max-w-xl mx-auto">
+          Add this badge to your website and link it to your service page. It tells your visitors you are a verified
+          English-speaking practice, and sends people looking for one straight to your listing.
+        </p>
+        <div className="mt-8 grid sm:grid-cols-2 gap-6 items-center">
+          <div className="rounded-2xl border border-border bg-surface p-6 flex justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element -- static SVG badge, shown as members will embed it */}
+            <img src="/badge/listed-on-barcelona-english-pros.svg" alt="Listed on Barcelona English Pros" width={280} height={76} />
+          </div>
+          <div>
+            <p className="text-sm font-semibold mb-2">Copy this into your site</p>
+            <pre className="rounded-xl bg-surface-muted border border-border p-4 text-xs overflow-x-auto whitespace-pre-wrap break-all">{"<a href=\"https://www.barcelonaenglishpros.com/barcelona/dentist\" target=\"_blank\" rel=\"noopener\">\n  <img src=\"https://www.barcelonaenglishpros.com/badge/listed-on-barcelona-english-pros.svg\"\n       alt=\"Listed on Barcelona English Pros\" width=\"280\" height=\"76\" />\n</a>"}</pre>
+            <p className="text-xs text-foreground/50 mt-2">
+              Change the link to your own page, for example /poblenou/dentist or /barcelona/physiotherapist.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="border-t border-border">
         <div className="container-page py-16 sm:py-20 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight max-w-lg mx-auto text-balance">

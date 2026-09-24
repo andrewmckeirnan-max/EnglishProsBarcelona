@@ -14,6 +14,7 @@ import { RelatedGuides } from "@/components/RelatedGuides";
 import { sentenceLower } from "@/lib/text";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCityFaqs } from "@/lib/schema";
 import { clipDescription, fitTitle, ogFor, titleMeta } from "@/lib/site";
+import { AtAGlance } from "@/components/AtAGlance";
 
 export function generateStaticParams() {
   return visibleCategories.map((c) => ({ category: c.slug }));
@@ -165,6 +166,9 @@ export default async function BarcelonaCategoryPage(props: PageProps<"/barcelona
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">
               {category.pluralName} in Barcelona
             </h2>
+            <div className="mt-4">
+              <AtAGlance professionals={professionals} categoryName={category.name} categoryPluralName={category.pluralName} />
+            </div>
             <ProfessionalsListSection professionals={professionals} />
           </section>
         )}

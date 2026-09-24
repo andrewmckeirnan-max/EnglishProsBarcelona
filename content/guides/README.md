@@ -17,10 +17,12 @@ Repo: `C:\Users\ANDREW WILLIAM\Documents\Work\barcelona-pro-directory` (run ever
 5. **Save** as `content/guides/<slug>.json`, matching the schema below.
 6. **Validate:** `node scripts/validate-guides.mjs`. Fix every error. If a guide still fails after two attempts, delete it and move on. Never publish something that fails.
 7. **Build check:** `npm run build` must succeed.
-8. **Publish:** `git add content/guides` (only guide files, plus `content/guides/LOG.md`), commit with a message like `Add guides: <titles>`, `git push origin main`. Nothing else in the repo should be committed by this routine.
+8. **Publish:** `git add content/guides` (guide files, community drafts and `content/guides/LOG.md`), commit with a message like `Add guides: <titles>`, `git push origin main`. Nothing else in the repo should be committed by this routine.
 9. **Notify search engines:** wait until the guide URLs return 200 on `https://www.barcelonaenglishpros.com/blog/<slug>` (poll with curl, up to about 3 minutes after the push), then run `node scripts/indexnow.mjs https://www.barcelonaenglishpros.com/blog/<slug> ...` for each new guide. A 200 or 202 response means it was accepted.
-10. **Log:** append a short entry to `content/guides/LOG.md` (date, slugs, the search-demand phrases used, any caveats).
-11. **Report** a one-paragraph summary of what was published and anything the owner should check.
+10. **Community answer drafts:** for each new guide, write `content/guides/community/<slug>.md` with two short, genuinely helpful answers (80 to 120 words each) to the kind of question people ask in expat communities about that topic, ending with a plain, disclosed pointer to the guide ("I help run Barcelona English Pros, there is a longer guide here"). These are drafts for the owner to post manually; never post anything yourself, and never write anything that pretends to be an independent customer.
+11. **Freshness rotation:** after publishing, take the guide with the oldest `updatedDate` (or `publishedDate`), re-verify its figures and rules against current sources, fix anything that changed, and set `updatedDate` to today. If nothing changed, still set `updatedDate` only if you actually re-checked. Commit it with the same push.
+12. **Log:** append a short entry to `content/guides/LOG.md` (date, slugs, the search-demand phrases used, any caveats).
+13. **Report** a one-paragraph summary of what was published and anything the owner should check.
 
 ## Guide standards
 
@@ -31,6 +33,7 @@ Repo: `C:\Users\ANDREW WILLIAM\Documents\Work\barcelona-pro-directory` (run ever
 - At least one `find-cta` block (links to the category page for every area, generated live). Add internal links to relevant category pages (`/eixample/<category>`), areas, and 1 or 2 related guides.
 - 3 to 5 `faqs` that mirror real autocomplete queries, each answer self-contained in 1 to 3 sentences (these become FAQ structured data and AI-answer material).
 - `title` max 75 characters, `description` 80 to 165 characters, `excerpt` a friendly 1 to 2 sentences.
+- Extractable for AI answers: state the answer in the first sentence of each section, name entities and conditions explicitly (no vague pronouns), and where figures matter put them in a short list or a comparison table inside the text. Every price, fee, deadline or rule carries an "as of" year in the wording (for example "in 2026") and, when sources disagree, says so.
 - Do not name or rank specific listed businesses as "the best". Point to the category pages instead. Never disparage a business.
 - Mention Barcelona and English-speaking angle naturally. Do not claim coverage beyond the areas we list.
 

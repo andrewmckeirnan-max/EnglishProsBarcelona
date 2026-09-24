@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="76" viewBox="0 0 280 76" role="img" aria-label="Listed on Barcelona English Pros">
+  <rect x="1" y="1" width="278" height="74" rx="14" fill="#ffffff" stroke="#e8e3f2" stroke-width="2"/>
+  <circle cx="38" cy="38" r="20" fill="#5b21b6"/>
+  <path d="M28 38.5l7 7 13-14" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="31" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.6" fill="#6b6480">LISTED ON</text>
+  <text x="70" y="52" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="-0.3" fill="#1a1523">Barcelona English Pros</text>
+  <rect x="70" y="59" width="120" height="3" rx="1.5" fill="#ffb020"/>
+</svg>
