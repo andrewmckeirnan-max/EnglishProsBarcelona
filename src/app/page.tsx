@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCheck, ListFilter, Unlock } from "lucide-react";
-import { SearchBar } from "@/components/SearchBar";
 import { LeadForm } from "@/components/LeadForm";
 import { areas, visibleCategories } from "@/lib/data";
 import { professionals } from "@/lib/professionals";
@@ -13,22 +12,33 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — the match form sits beside the headline (not just linked
+          from the header CTA) so it's visible without scrolling or
+          bypassing the trust content below. */}
       <section className="relative overflow-hidden hero-gradient">
-        <div className="container-page pt-16 pb-20 sm:pt-24 sm:pb-28 text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 border border-border text-xs font-semibold px-3 py-1.5 text-brand mb-6 shadow-soft">
-            <CheckCheck className="h-3.5 w-3.5" strokeWidth={2.5} />
-            {verifiedCount} verified professionals &middot; 6 neighbourhoods
-          </span>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-balance max-w-3xl mx-auto">
-            Find an English-speaking professional in Barcelona
-          </h1>
-          <p className="mt-5 text-lg text-foreground/70 max-w-xl mx-auto text-balance">
-            Dentists, doctors, lawyers, tax advisors and more, matched to your
-            neighbourhood, in a language you&apos;re fluent in.
-          </p>
-          <div className="mt-9 max-w-2xl mx-auto">
-            <SearchBar />
+        <div className="container-page pt-16 pb-16 sm:pt-24 sm:pb-20">
+          <div className="grid lg:grid-cols-[1.05fr_440px] gap-10 lg:gap-14 items-start">
+            <div className="text-center lg:text-left">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 border border-border text-xs font-semibold px-3 py-1.5 text-brand mb-6 shadow-soft">
+                <CheckCheck className="h-3.5 w-3.5" strokeWidth={2.5} />
+                {verifiedCount} verified professionals &middot; 6 neighbourhoods
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance max-w-2xl mx-auto lg:mx-0">
+                Find an English-speaking professional in Barcelona
+              </h1>
+              <p className="mt-5 text-lg text-foreground/70 max-w-xl mx-auto lg:mx-0 text-balance">
+                Dentists, doctors, lawyers, tax advisors and more, matched to your
+                neighbourhood, in a language you&apos;re fluent in.
+              </p>
+            </div>
+            <div className="w-full max-w-md mx-auto lg:max-w-none lg:mx-0">
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand mb-2 text-center lg:text-left">
+                Get matched &middot; free &middot; under a minute
+              </p>
+              <div id="find" className="scroll-mt-20">
+                <LeadForm compact />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -94,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="container-page py-16 sm:py-20">
+      <section className="container-page py-16 sm:py-20 pb-20 sm:pb-24">
         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-10 text-center">How it works</h2>
         <div className="grid sm:grid-cols-3 gap-8">
           {[
@@ -110,15 +120,6 @@ export default function Home() {
               <p className="text-sm text-foreground/60 mt-1">{s.body}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Lead form */}
-      <section id="find" className="container-page pb-24 scroll-mt-20">
-        <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl font-semibold mb-1 text-center">Get matched now</h2>
-          <p className="text-foreground/60 mb-6 text-center">Takes under a minute. No cost to you.</p>
-          <LeadForm />
         </div>
       </section>
     </div>
