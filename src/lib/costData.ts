@@ -36,6 +36,7 @@ export const costSources: Record<string, CostSource> = {
   agapeDestination: { name: "Agape Weddings: destination wedding budget in Barcelona (2025)", url: "https://www.agapeweddings.love/post/destination-wedding-cost-barcelona/", year: 2025 },
   weddingsHelp: { name: "Weddings.help: wedding planner in Spain, cost", url: "https://weddings.help/en/blog/wedding-planner-espana-merece-la-pena", year: 2026 },
   cozymeal: { name: "Cozymeal: private chefs in Barcelona", url: "https://www.cozymeal.com/es/barcelona/personal-chefs", year: 2026 },
+  naudin: { name: "Anne-Laure Naudin: rates (Barcelona naturopath)", url: "https://www.annelaurenaudin.com/", year: 2026 },
   movingtospain: { name: "Moving to Spain: dogs and pets guide", url: "https://movingtospain.com/dogs-pets-spain/", year: 2026 },
   idealistaPets: { name: "idealista: moving to Spain with pets", url: "https://www.idealista.com/en/news/lifestyle-in-spain/2026/04/20/848628-moving-to-spain-with-pets-complete-guide-for-2026", year: 2026 },
   ics: { name: "Institut Català de la Salut: public price order (Generalitat de Catalunya)", url: "https://ics.gencat.cat/ca/lics/transparencia/economia-i-finances/preus-publics/", year: 2025 },
@@ -179,6 +180,7 @@ export const costItems: CostItem[] = [
 
   { id: "chiropractor-session", categorySlug: "chiropractor", service: "Chiropractic session", unit: "first visit to follow-up", low: 40, high: 100, note: "First visits are typically about €60 to €90 and follow-up adjustments about €40 to €65. One Barcelona practice lists €80 for a first visit, €55 for a regular adjustment and €40 for children. Some clinics charge the adjustment separately from the first-visit assessment.", ask: ["Does the first-visit price include an adjustment?", "Are packs of sessions available?"], sources: ["allardGolay"], confidence: "limited" },
   { id: "nutritionist-consult", categorySlug: "nutritionist", service: "Nutritionist consultation", unit: "per consultation", low: 25, high: 150, note: "Published sources disagree. One expat directory puts a consultation at €25 to €70 with packages of €210 to €295, while other price guides put a first assessment at €70 to €150 and follow-ups at €40 to €90. Nutritionists and dietitians are different from endocrinologists, who are medical doctors and charge more.", ask: ["Is the meal plan included?", "What do follow-up visits cost?"], sources: ["locallistaNutri"], confidence: "limited" },
+  { id: "naturopath-consult", categorySlug: "naturopath", service: "Naturopath consultation", unit: "follow-up to first consultation", low: 80, high: 130, note: "One Barcelona naturopath publishes €130 for a two-hour first consultation and €80 for a one-hour follow-up or child consultation. Other practices may price differently, and tests such as food intolerance panels are usually extra.", ask: ["How long is the first consultation?", "Are tests or supplements charged separately?"], sources: ["naudin"], confidence: "limited" },
 ];
 
 export function costsForCategory(slug: CategorySlug) {

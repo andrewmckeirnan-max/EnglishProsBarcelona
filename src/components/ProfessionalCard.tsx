@@ -83,7 +83,11 @@ export function ProfessionalCard({
           {professional.partnerTier === "recommended" && (
             <span
               className="inline-flex items-center gap-1 rounded-full bg-brand text-white text-[11px] font-semibold px-2 py-0.5 cursor-help"
-              title="This business pays for priority placement here. It doesn't affect who we think fits your need best, that's based on what you tell us."
+              title={
+                professional.partnerTrial
+                  ? "We are featuring this business while we trial the listing. They have not paid for this placement, and it doesn't affect who we think fits your need best."
+                  : "This business pays for priority placement here. It doesn't affect who we think fits your need best, that's based on what you tell us."
+              }
             >
               Recommended partner
               <span aria-hidden="true" className="inline-flex h-3 w-3 items-center justify-center rounded-full bg-white/25 text-[9px] leading-none">

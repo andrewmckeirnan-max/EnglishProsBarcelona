@@ -358,7 +358,14 @@ export const professionals: Professional[] = [
     specialties: ["Nutrition", "Phytotherapy", "Stress management"],
     languages: ["English", "French", "Spanish"],
     addressArea: "Eixample",
-    bookingUrl: "https://www.annelaurenaudin.com/",
+    // Trial feature: unpaid, so partnerTrial keeps the badge tooltip honest. The link opens her site straight
+    // at the contact/booking section (Wix anchor, checked 2026-09-28; re-check if she redesigns her site) and
+    // carries UTM tags so she can see our referrals in her own analytics.
+    partnerTier: "recommended",
+    partnerSince: "2026-09-28",
+    partnerTrial: true,
+    phoneDisplay: "+34 654 334 119",
+    bookingUrl: "https://www.annelaurenaudin.com/?utm_source=barcelonaenglishpros&utm_medium=directory&utm_campaign=recommended#comp-mp184rm0",
   },
   {
     id: "eixample-tax-advisor-manor-tax",
