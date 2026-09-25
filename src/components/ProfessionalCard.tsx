@@ -4,6 +4,7 @@ import { waLink } from "@/lib/whatsapp";
 import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
 import { parseRating } from "@/lib/text";
 import { StarRating } from "@/components/StarRating";
+import { PartnerProfileCard } from "@/components/PartnerProfileCard";
 
 export function ProfessionalCard({
   professional,
@@ -35,6 +36,11 @@ export function ProfessionalCard({
       : undefined);
 
   const isTopPartner = professional.partnerTier === "top";
+
+  // Featured, recommended and top partners get the standout profile card (unless the list is still locked).
+  if (professional.partnerTier && !locked) {
+    return <PartnerProfileCard professional={professional} rank={rank} />;
+  }
 
   return (
     <div

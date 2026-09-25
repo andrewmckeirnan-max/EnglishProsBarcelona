@@ -112,6 +112,8 @@ export interface Professional {
   whatsappNumber?: string; // E.164 format, only set for verified partners
   /** First name shown on the WhatsApp button ("Connect with Anne-Laure on WhatsApp"). Falls back to plain "WhatsApp". */
   contactName?: string;
+  /** Street address the business publishes itself. Used for the partner profile map and address line. */
+  streetAddress?: string;
   /** The link the primary CTA button uses ("Book" for partners, "Visit
    * website" otherwise). For most listings this is the business's own
    * site; for a partner with a real scheduling link (e.g. Calendly), point

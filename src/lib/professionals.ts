@@ -368,6 +368,7 @@ export const professionals: Professional[] = [
     // The number her own site publishes next to a WhatsApp icon. Confirm with her that it is on WhatsApp.
     whatsappNumber: "+34654334119",
     contactName: "Anne-Laure",
+    streetAddress: "C/ Diputación 238, Centro Marina Pilates",
     // English version of her site, straight to the contact/booking form (same anchor on /en, checked 2026-09-28).
     bookingUrl: "https://www.annelaurenaudin.com/en?utm_source=barcelonaenglishpros&utm_medium=directory&utm_campaign=recommended#comp-mp184rm0",
   },
