@@ -163,7 +163,7 @@ export default function CostCheckerPage() {
           <h2 className="text-2xl font-bold tracking-tight">How we compiled these ranges</h2>
           <p className="mt-3 text-foreground/70 leading-relaxed">
             We read published price guides, clinic price lists and comparison sites, cross-checked each figure against at least two of them wherever
-            they exist, and show the range that the sources agree on, rounded to whole euros. We do not use paid placements, and no listed business
+            they exist, and show the range that the sources agree on, rounded to whole euros. Where an official figure exists we use it and say so: the Catalan health service (ICS) public price order, the Spanish notary fee schedule in the BOE, the DGT licence-exchange fees and the Barcelona council animal census. Everything else comes from published clinic and guide prices. We do not use paid placements, and no listed business
             influences the numbers. Treat every figure as a starting point for a conversation, never as an offer, and confirm the current price and what
             is included before you book. Nothing here is medical, legal, tax or financial advice. Spot a price that looks out of date? Email{" "}
             <a href="mailto:hello@barcelonaenglishpros.com" className="text-brand underline">hello@barcelonaenglishpros.com</a>.

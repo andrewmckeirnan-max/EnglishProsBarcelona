@@ -34,6 +34,23 @@ export const costSources: Record<string, CostSource> = {
   takeachef: { name: "Take a Chef: private chef in Barcelona", url: "https://www.takeachef.com/en-es/private-chef/barcelona", year: 2026 },
   movingtospain: { name: "Moving to Spain: dogs and pets guide", url: "https://movingtospain.com/dogs-pets-spain/", year: 2026 },
   idealistaPets: { name: "idealista: moving to Spain with pets", url: "https://www.idealista.com/en/news/lifestyle-in-spain/2026/04/20/848628-moving-to-spain-with-pets-complete-guide-for-2026", year: 2026 },
+  ics: { name: "Institut Català de la Salut: public price order (Generalitat de Catalunya)", url: "https://ics.gencat.cat/ca/lics/transparencia/economia-i-finances/preus-publics/", year: 2025 },
+  boe: { name: "BOE: Real Decreto 1426/1989, official notary fee schedule", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1989-28111", year: 2011 },
+  dgt: { name: "DGT (Spanish traffic authority): foreign licence exchange fees", url: "https://www.dgt.es/nuestros-servicios/permisos-de-conducir/permisos-extranjeros-y-de-fuerzas-y-cuerpos-de-seguridad/canjes-de-permisos/paises-con-convenio-de-canjes/", year: 2026 },
+  bcnCensus: { name: "Ajuntament de Barcelona: animal census registration", url: "https://seuelectronica.ajuntament.barcelona.cat/oficinavirtual/ca/tramit/20230001613", year: 2026 },
+  ebylife: { name: "Ebylife: personal training prices in Barcelona", url: "https://www.ebylife.com/prices", year: 2026 },
+  operarmeLasik: { name: "Operarme: LASIK price in Barcelona", url: "https://www.operarme.com/ophthalmology-and-oculoplasty/myopia-laser-surgery-cost/barcelona/", year: 2026 },
+  verte: { name: "VERTE Ophthalmology Barcelona: LASIK", url: "https://www.verte.es/en/treatments/lasik-surgery/", year: 2026 },
+  bookimedLasik: { name: "Bookimed: LASIK clinics and costs in Barcelona", url: "https://us-uk.bookimed.com/clinics/country=spain/city=barcelona/procedure=ilasik/", year: 2026 },
+  clinic123: { name: "123.clinic: Invisalign in Spain, cost and clinics", url: "https://www.123.clinic/en/clinic-search/invisalign-full/spain", year: 2026 },
+  turoInvisalign: { name: "Turó Park Clinics: Invisalign in Barcelona", url: "https://turoparkmedical.com/dental-clinic-barcelona/the-invisalign-method-invisible-orthodontics-in-barcelona/", year: 2026 },
+  operarmeDerm: { name: "Operarme: dermatology consultation in Barcelona", url: "https://www.operarme.com/private-consultations/dermatology-consultation-cost/barcelona/", year: 2026 },
+  bookimedDerm: { name: "Bookimed: dermatologist consultation in Barcelona", url: "https://us-uk.bookimed.com/clinics/country=spain/city=barcelona/procedure=consultation-of-dermatologist/", year: 2026 },
+  badal: { name: "Centro Médico Badal: gynaecological service prices", url: "https://centromedicobadal.es/en/prices-gynecological-services/", year: 2026 },
+  operarmeGyn: { name: "Operarme: gynaecology consultation in Barcelona", url: "https://www.operarme.com/private-consultations/consultation-with-gynecologist-cost/barcelona/", year: 2026 },
+  dribo: { name: "Dribo: cost of a driving licence in Barcelona", url: "https://dribo.es/blog/cuanto-cuesta-carnet-conducir-barcelona", year: 2026 },
+  agape: { name: "Agape Weddings: wedding planner cost in Barcelona", url: "https://www.agapeweddings.love/post/how-much-does-a-wedding-planner-cost-in-barcelona-a-comprehensive-guide/", year: 2023 },
+  mynatural: { name: "My Natural Wedding: wedding planner cost in Spain", url: "https://mynaturalwedding.com/en/how-much-does-a-wedding-planner-cost-spain/", year: 2025 },
 };
 
 export interface CostItem {
@@ -91,13 +108,42 @@ export const costItems: CostItem[] = [
   { id: "nie-help", categorySlug: "tax-advisor", service: "Professional help with an NIE", unit: "service fee", low: 100, high: 500, note: "The official government fee is €9.84. The rest is the service fee plus any apostille, sworn translation and notary costs, depending on the route.", ask: ["Is the government fee included?", "Do you handle the appointment and the paperwork?"], sources: ["eresidence"], confidence: "limited" },
 
   // Property / notary
-  { id: "notary-purchase", categorySlug: "notary", service: "Notary fee for a home purchase", unit: "per deed, before VAT", low: 500, high: 1200, note: "Notary fees are set by regulation and are the same at every notary. They come to about 0.1 to 0.5 per cent of the price, which is roughly €850 for a €100,000 home and €1,000 for €250,000.", ask: ["Which extras (copies, translations) are billed on top?"], sources: ["wiseNotary", "idealistaBuying"], confidence: "good" },
+  { id: "notary-purchase", categorySlug: "notary", service: "Notary fee for a home purchase", unit: "per deed, before VAT", low: 500, high: 1200, note: "Notary fees are set by regulation and are the same at every notary. They come to about 0.1 to 0.5 per cent of the price, which is roughly €850 for a €100,000 home and €1,000 for €250,000.", ask: ["Which extras (copies, translations) are billed on top?"], sources: ["boe", "wiseNotary", "idealistaBuying"], confidence: "good" },
   { id: "buying-costs", categorySlug: "property-advisor", service: "Total buying costs on top of the price", unit: "of the purchase price", low: 10, high: 12, currency: "pct", note: "Transfer tax, notary, land registry and valuation together. The transfer tax rate depends on the region and is the biggest part, so check the current Catalan rate.", ask: ["Which taxes apply to this specific property?"], sources: ["idealistaBuying", "wiseNotary"], confidence: "limited" },
 
   { id: "locksmith-change", categorySlug: "locksmith", service: "Locksmith: change a simple lock", unit: "per job", low: 80, high: 200, note: "Labour is roughly €40 to €70 an hour. Out-of-hours callouts can be far higher, and published figures vary widely, so always agree the price before work starts.", ask: ["What is the total price including the call-out and any night surcharge?"], sources: ["rightcasa"], confidence: "limited" },
 
   // Private chef
   { id: "private-chef", categorySlug: "private-chef", service: "Private chef at home", unit: "per guest", low: 44, high: 73, note: "Platform entry prices fall as group size grows, from around €73 a guest for two to €44 for thirteen or more. Menu, season and neighbourhood move the final figure, and premium chefs charge much more.", ask: ["Are ingredients, service and cleaning included?"], sources: ["takeachef"], confidence: "limited" },
+
+  // Official public-sector prices
+  { id: "gp-public-rate", categorySlug: "doctor", service: "Public health centre GP visit, billed rate", unit: "per visit (non-urgent to urgent)", low: 65, high: 90, typical: 65, note: "This is what the Catalan public health service (ICS) bills people who are not covered by the public system, from its 2025 official price order. Residents registered with the public system do not pay it. It is a useful ceiling check for private GP prices.", ask: ["Am I covered by the public system, or will I be billed?"], sources: ["ics"], confidence: "good" },
+
+  // Dermatologist
+  { id: "derm-consult", categorySlug: "dermatologist", service: "Private dermatologist consultation", unit: "per consultation", low: 69, high: 130, note: "Prices start near €70 to €80 at hospital-linked clinics that sell fixed-price consultations. Specialist and English-language private clinics tend to charge toward the top. Procedures and tests are extra.", ask: ["Is a skin check or dermoscopy included?", "Are any tests charged separately?"], sources: ["operarmeDerm", "bookimedDerm"], confidence: "limited" },
+
+  // Gynaecologist
+  { id: "gyn-consult", categorySlug: "obgyn-midwife", service: "Private gynaecology consultation", unit: "per visit", low: 50, high: 140, note: "A simple examination is around €50 to €60, with cytology about €70, and a full visit with ultrasound about €130 to €140. Contraceptive procedures and tests are priced separately.", ask: ["Is an ultrasound or smear test included?"], sources: ["badal", "operarmeGyn"], confidence: "good" },
+
+  // LASIK
+  { id: "lasik", categorySlug: "lasik", service: "LASIK laser eye surgery", unit: "per eye", low: 990, high: 2500, note: "Some clinics advertise from about €1,000 per eye all-inclusive, while premium technology and surgeons can reach €2,500 or more. Check that the pre-operative assessment, aftercare visits and any retreatment are included, and budget for eye drops.", ask: ["What is included, and for how long?", "Is retreatment included, and for how many months?"], sources: ["operarmeLasik", "verte", "bookimedLasik"], confidence: "good" },
+
+  // Orthodontist
+  { id: "invisalign", categorySlug: "orthodontist", service: "Invisalign clear aligners", unit: "per treatment", low: 2950, high: 5460, note: "Barcelona clinics advertise from about €2,950, while the Spanish average is closer to €4,700. Treatment length, the number of aligners and whether retainers and follow-up visits are included move the price. Many clinics offer interest-free instalments.", ask: ["Are retainers and follow-up visits included?", "What if treatment takes longer than planned?"], sources: ["clinic123", "turoInvisalign"], confidence: "limited" },
+
+  // Personal trainer
+  { id: "personal-trainer", categorySlug: "personal-trainer", service: "One-to-one personal training", unit: "per session", low: 40, high: 90, typical: 60, note: "Freelance trainers commonly charge about €40 to €70 a session, and premium private studios about €70 to €90 with packs. Buying a pack of 5, 10 or 20 sessions usually lowers the price per session.", ask: ["What does a pack cost and how long is it valid?", "What is the cancellation policy?"], sources: ["ebylife"], confidence: "limited" },
+
+  // Driving school
+  { id: "driving-lesson", categorySlug: "driving-school", service: "Practical driving lesson", unit: "per lesson", low: 29, high: 45, note: "Traditional Barcelona driving schools charge about €29 to €45 a lesson. Many learners need 20 to 40 lessons before the test.", ask: ["Is the lesson a full hour?", "What are the registration and theory fees?"], sources: ["dribo"], confidence: "limited" },
+  { id: "driving-licence-total", categorySlug: "driving-school", service: "Full car licence (category B) in Barcelona", unit: "total, all fees", low: 800, high: 1500, note: "Includes registration, theory, the fixed DGT exam fees (about €94 for two attempts), a medical certificate (about €30 to €60) and practical lessons. The number of lessons you need is the biggest variable.", ask: ["Is the DGT fee included?", "How many lessons does the pack include?"], sources: ["dribo"], confidence: "limited" },
+  { id: "dgt-exchange", categorySlug: "driving-school", service: "DGT fee to exchange a foreign car licence", unit: "official fee", low: 28, high: 29, note: "Set by the DGT and the same nationwide: €28.87 for a car or motorcycle licence with no exam, €94.05 if exams are required (for example trucks and buses). You also need a medical certificate, priced separately.", ask: ["Does my country have an exchange agreement with Spain?"], sources: ["dgt"], confidence: "good" },
+
+  // Wedding planner
+  { id: "wedding-planner", categorySlug: "wedding-planner", service: "Full wedding planning", unit: "planner fee", low: 2000, high: 5000, note: "Barcelona and Madrid sit at the top of Spanish planner prices. Some planners charge 10 to 20 per cent of the wedding budget instead of a flat fee, and day-of coordination costs less. Venue, catering and other costs come on top.", ask: ["Flat fee or percentage of budget?", "What is included: venue search, vendors, day-of coordination?"], sources: ["agape", "mynatural"], confidence: "limited" },
+
+  // Official pet census
+  { id: "bcn-pet-census", categorySlug: "veterinarian", service: "Registering a pet in the Barcelona animal census", unit: "council fee", low: 0, high: 38, note: "Barcelona's council lists registration as free for animals identified with a microchip, and a €38 fee for those who do not qualify for the exemption. You need a microchip and a health certificate from a vet, and must register within 30 days of moving or acquiring the animal.", ask: ["Which vet certificate does the council require?"], sources: ["bcnCensus"], confidence: "limited" },
 ];
 
 export function costsForCategory(slug: CategorySlug) {
