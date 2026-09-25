@@ -165,6 +165,7 @@ async function sendMatchEmailToVisitor(lead: LeadPayload) {
 
   const email = buildShortlistEmail({
     name: lead.name,
+    categorySlug: category?.slug,
     categoryName: category?.name ?? "professional",
     categoryPluralName: category?.pluralName ?? "professionals",
     areaName: area?.name ?? "your area",

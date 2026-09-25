@@ -35,6 +35,7 @@ export async function GET(request: NextRequest) {
       }) as ReturnType<typeof buildShortlistEmail>
     : buildShortlistEmail({
     name: sample === "full" ? "Sam Carter" : sample === "testname" ? "Test Lead" : undefined,
+    categorySlug: category.slug,
     categoryName: category.name,
     categoryPluralName: category.pluralName,
     areaName: area.name,

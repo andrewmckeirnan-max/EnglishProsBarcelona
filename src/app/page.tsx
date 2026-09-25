@@ -110,7 +110,7 @@ export default function Home() {
           {[
             { Icon: ListFilter, title: "Tell us what you need", body: "Describe it in your own words, or pick a service, area and urgency step by step." },
             { Icon: CheckCheck, title: "See real matches instantly", body: "We show your top vetted options right on the page, not a generic list, before you give us anything." },
-            { Icon: Unlock, title: "Unlock the full ranked list", body: "Add your name, phone and email to unlock every match, with contact details and a map link for each. We also email you a copy." },
+            { Icon: Unlock, title: "Get the full list and typical prices", body: "Add your name, phone and email and we send you every match with contact details and a map link, plus typical prices for that service in Barcelona." },
           ].map((s) => (
             <div key={s.title} className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white shadow-soft">

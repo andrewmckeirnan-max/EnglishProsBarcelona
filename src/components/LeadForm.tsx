@@ -405,8 +405,8 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           </h3>
           <p className="text-sm text-foreground/60 mb-4">
             {lockedCount > 0
-              ? `Here are ${teaseredMatches.length}, real and verified. Add your details to unlock the other ${lockedCount}, ranked with contact details.`
-              : "Real and verified. Add your details and we'll connect you directly, plus keep a copy in your inbox."}
+              ? `Here are ${teaseredMatches.length}, real and verified. Add your details and we will email you the other ${lockedCount}, ranked, with contact details and typical prices for this service in Barcelona.`
+              : "Real and verified. Add your details and we will email you a copy with contact details and typical prices for this service in Barcelona."}
           </p>
           <div className="flex flex-col gap-3">
             {teaseredMatches.map((p, i) => (
@@ -433,7 +433,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             onClick={() => goTo("details")}
             className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition"
           >
-            {lockedCount > 0 ? `Unlock all ${matches.length}` : "Get connected"}
+            Send me the full details and typical prices
           </button>
         </div>
       )}

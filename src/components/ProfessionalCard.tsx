@@ -1,4 +1,4 @@
-import { Lock, Crown } from "lucide-react";
+import { Lock, Crown, Mail } from "lucide-react";
 import type { Professional } from "@/lib/types";
 import { waLink } from "@/lib/whatsapp";
 import { googleMapsSearchUrl, staticMapThumbnailUrl } from "@/lib/maps";
@@ -117,8 +117,8 @@ export function ProfessionalCard({
             href="#get-matched"
             className="flex-1 inline-flex items-center justify-center gap-1.5 text-center rounded-full bg-brand text-white text-sm font-semibold px-4 py-2 hover:bg-brand-dark transition"
           >
-            <Lock className="h-3.5 w-3.5" strokeWidth={2.5} />
-            Unlock contact details
+            <Mail className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} />
+            Send me the full details and typical prices
           </a>
         ) : (
         <>

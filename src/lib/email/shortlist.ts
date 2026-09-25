@@ -1,4 +1,5 @@
-import type { Professional } from "@/lib/types";
+import type { CategorySlug, Professional } from "@/lib/types";
+import { costsForCategory, formatRange } from "@/lib/costData";
 import { googleMapsSearchUrl } from "@/lib/maps";
 import { sentenceLower } from "@/lib/text";
 import { BUSINESS_WHATSAPP_NUMBER, SUPPORT_EMAIL, WHATSAPP_CONFIGURED, waLink } from "@/lib/whatsapp";
@@ -27,6 +28,8 @@ export const FONT = "Helvetica, Arial, sans-serif";
 
 export interface ShortlistInput {
   name?: string;
+  /** Used to add typical Barcelona prices for the profession, when we have them. */
+  categorySlug?: CategorySlug;
   categoryName: string;
   categoryPluralName: string;
   areaName: string;
@@ -184,6 +187,29 @@ export function buildShortlistEmail(input: ShortlistInput): ShortlistEmail {
       ? "Reply to this email and we'll look further for you."
       : "Reply to this email and we'll help you choose.";
 
+  // Typical prices block: sourced ranges from the cost checker data, when the profession has any.
+  const priceItems = input.categorySlug ? costsForCategory(input.categorySlug).slice(0, 4) : [];
+  const costUrl = withUtm(`${EMAIL_SITE_URL}/cost-checker`, "prices");
+  const priceBlock = priceItems.length
+    ? `
+  <tr><td class="px" style="padding:0 32px 16px 32px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-card" style="background:${C.card};border:1px solid ${C.border};border-radius:18px;"><tr><td style="padding:22px 24px;">
+      <div class="t-ink" style="font-family:${FONT};font-size:20px;line-height:24px;font-weight:bold;color:${C.ink};">What it typically costs in Barcelona</div>
+      ${priceItems.map((c) => `<div class="t-ink" style="margin-top:10px;font-family:${FONT};font-size:15px;line-height:22px;color:${C.ink};">${esc(c.service)}: <b>${esc(formatRange(c))}</b> <span class="t-muted" style="color:${C.muted};">${esc(c.unit)}</span></div>`).join("")}
+      <div class="t-muted" style="margin:12px 0 14px 0;font-family:${FONT};font-size:13px;line-height:19px;color:${C.muted};">Published ranges from sources checked in 2026, not quotes. Prices vary by clinic.</div>
+      ${button({ href: costUrl, label: "Check a quote", kind: "ghost", width: 170 })}
+    </td></tr></table>
+  </td></tr>`
+    : "";
+  const textPrices = priceItems.length
+    ? [
+        "WHAT IT TYPICALLY COSTS IN BARCELONA",
+        ...priceItems.map((c) => `- ${c.service}: ${formatRange(c)} (${c.unit})`),
+        "Published ranges, not quotes. Check a quote: " + costUrl,
+        "",
+      ].join("\n")
+    : "";
+
   const cards = matches
     .map((p, i) => {
       const topics = splitList(p.specialties, 3);
@@ -282,6 +308,7 @@ export function buildShortlistEmail(input: ShortlistInput): ShortlistEmail {
   <tr><td class="px t-ink" style="padding:14px 32px 20px 32px;font-family:${FONT};font-size:17px;line-height:26px;color:${C.ink};">
     <b>${esc(greeting)}</b> ${esc(intro)}
   </td></tr>
+${priceBlock}
 ${cards}
 
   <tr><td class="px" style="padding:12px 32px 16px 32px;">
@@ -345,6 +372,7 @@ ${cards}
     "",
     `${greeting} ${intro}`,
     "",
+    textPrices,
     textCards,
     "",
     "ONE SMALL FAVOUR",
