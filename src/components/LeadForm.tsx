@@ -431,7 +431,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
           })()}
           <button
             onClick={() => goTo("details")}
-            className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition"
+            className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 px-6 hover:bg-brand-dark transition"
           >
             Send me the full details and typical prices
           </button>
@@ -587,7 +587,7 @@ export function LeadForm({ defaultAreaSlug, defaultCategorySlug, compact }: Lead
             disabled={status === "submitting" || !consent}
             className="mt-4 w-full rounded-full bg-brand text-white font-semibold py-3 hover:bg-brand-dark transition disabled:opacity-60"
           >
-            {status === "submitting" ? "Sending..." : matches.length > 0 ? "Unlock my full list" : "Find my match"}
+            {status === "submitting" ? "Sending..." : matches.length > 0 ? "Send me my full list" : "Find my match"}
           </button>
           <p className="text-xs text-foreground/50 mt-3 text-center">
             Free, always, for the Barcelona English-speaking community. We&apos;re paid by

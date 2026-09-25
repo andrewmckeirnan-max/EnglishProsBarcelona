@@ -30,7 +30,7 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
         {unlocked
           ? "Unlocked, here's the full ranked list."
           : lockedCount > 0
-            ? `All ${professionals.length} are listed below. Contact details and links for the first ${FREE_PREVIEW_LIMIT} are open, tell us what you need to unlock the other ${lockedCount}.`
+            ? `All ${professionals.length} are listed below. Contact details and links for the first ${FREE_PREVIEW_LIMIT} are open, tell us what you need and we will email you the other ${lockedCount} with contact details and typical prices.`
             : partnerCount > 0
               ? partnerCount === 1
                 ? "Our recommended partner, plus other English-speaking options we found nearby."
