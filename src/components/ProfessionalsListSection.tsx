@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { LockOpen } from "lucide-react";
+import { PartnerReviewsPanel } from "@/components/PartnerReviewsPanel";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
 import { ProfessionalsMap } from "@/components/ProfessionalsMap";
 import { useUnlock } from "@/components/UnlockContext";
@@ -21,6 +22,7 @@ interface Props {
 export function ProfessionalsListSection({ professionals, area }: Props) {
   const { unlocked } = useUnlock();
   const lockedCount = unlocked ? 0 : Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
+  const featuredWithReviews = professionals.find((p) => p.partnerTier && p.reviewsUrl && p.ratingLabel);
   const partnerCount = professionals.filter((p) => p.partnerTier && !p.partnerTrial).length;
   const featuredCount = professionals.filter((p) => p.partnerTrial).length;
 
@@ -47,8 +49,11 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
           ))}
         </div>
         {area && (
-          <div className="hidden lg:block h-[520px] sticky top-24">
-            <ProfessionalsMap professionals={professionals} area={area} />
+          <div className="hidden lg:flex flex-col gap-4 sticky top-24">
+            {featuredWithReviews && <PartnerReviewsPanel professional={featuredWithReviews} />}
+            <div className={featuredWithReviews ? "h-[400px]" : "h-[520px]"}>
+              <ProfessionalsMap professionals={professionals} area={area} />
+            </div>
           </div>
         )}
       </div>

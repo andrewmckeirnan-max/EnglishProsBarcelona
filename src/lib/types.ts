@@ -117,6 +117,9 @@ export interface Professional {
   /** Link to the business's Google Maps listing, where visitors can read all reviews. We show the rating and count
    * and link out, but never copy review text onto our own pages. */
   reviewsUrl?: string;
+  /** Short testimonials the business has given us permission to publish, with the client's first name.
+   * Never paste text copied from Google or other review sites. */
+  testimonials?: { name: string; quote: string }[];
   /** The link the primary CTA button uses ("Book" for partners, "Visit
    * website" otherwise). For most listings this is the business's own
    * site; for a partner with a real scheduling link (e.g. Calendly), point
