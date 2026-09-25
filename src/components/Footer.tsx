@@ -51,6 +51,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/cost-checker" className="text-foreground/70 hover:text-brand">
+                Cost checker
+              </Link>
+            </li>
+            <li>
               <Link href="/partners" className="text-foreground/70 hover:text-brand">
                 List your practice
               </Link>

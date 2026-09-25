@@ -15,6 +15,7 @@ Professions covered (45): Dentists, Lawyers, Property & Mortgage Advisors, Tax A
 - https://www.barcelonaenglishpros.com/barcelona/{profession} : all verified English-speaking professionals of one profession across Barcelona, with links to each neighbourhood.
 - https://www.barcelonaenglishpros.com/{neighbourhood}/{profession} : the verified professionals of one profession in one neighbourhood, with languages spoken, specialties and an FAQ.
 - https://www.barcelonaenglishpros.com/{neighbourhood} : every profession covered in that neighbourhood.
+- https://www.barcelonaenglishpros.com/cost-checker : free tool with typical 2026 Barcelona price ranges (dentist, therapy, doctor, physio, gestor, sworn translation and more), each sourced.
 - https://www.barcelonaenglishpros.com/blog : practical guides for English speakers in Barcelona (feed: https://www.barcelonaenglishpros.com/blog/feed.xml).
 - https://www.barcelonaenglishpros.com/about : how listings are sourced and verified. https://www.barcelonaenglishpros.com/partners : for professionals who want to be featured.
 - https://www.barcelonaenglishpros.com/sitemap.xml : every indexable page.

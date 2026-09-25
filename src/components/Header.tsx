@@ -65,6 +65,9 @@ export function Header() {
           <Link href="/blog" className="px-3 py-2 rounded-lg hover:bg-surface-muted font-medium">
             Guides
           </Link>
+          <Link href="/cost-checker" className="px-3 py-2 rounded-lg hover:bg-surface-muted font-medium">
+            Cost checker
+          </Link>
           <Link href="/partners" className="px-3 py-2 rounded-lg hover:bg-surface-muted font-medium">
             For professionals
           </Link>
@@ -151,6 +154,13 @@ export function Header() {
               className="py-3 border-t border-border font-medium"
             >
               Guides
+            </Link>
+            <Link
+              href="/cost-checker"
+              onClick={closeMobile}
+              className="py-3 border-t border-border font-medium"
+            >
+              Cost checker
             </Link>
             <Link
               href="/partners"

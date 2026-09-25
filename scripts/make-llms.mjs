@@ -38,6 +38,7 @@ Professions covered (${cats.length}): ${cats.map((c) => c.plural).join(", ")}.
 - ${SITE}/barcelona/{profession} : all verified English-speaking professionals of one profession across Barcelona, with links to each neighbourhood.
 - ${SITE}/{neighbourhood}/{profession} : the verified professionals of one profession in one neighbourhood, with languages spoken, specialties and an FAQ.
 - ${SITE}/{neighbourhood} : every profession covered in that neighbourhood.
+- ${SITE}/cost-checker : free tool with typical 2026 Barcelona price ranges (dentist, therapy, doctor, physio, gestor, sworn translation and more), each sourced.
 - ${SITE}/blog : practical guides for English speakers in Barcelona (feed: ${SITE}/blog/feed.xml).
 - ${SITE}/about : how listings are sourced and verified. ${SITE}/partners : for professionals who want to be featured.
 - ${SITE}/sitemap.xml : every indexable page.
