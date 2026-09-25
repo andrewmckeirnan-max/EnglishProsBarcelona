@@ -11,6 +11,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { UnlockProvider } from "@/components/UnlockContext";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedGuides } from "@/components/RelatedGuides";
+import { CostSnippet } from "@/components/CostSnippet";
 import { sentenceLower } from "@/lib/text";
 import { breadcrumbSchema, professionalListSchema, faqSchema, buildCityFaqs } from "@/lib/schema";
 import { clipDescription, fitTitle, ogFor, titleMeta } from "@/lib/site";
@@ -175,6 +176,7 @@ export default async function BarcelonaCategoryPage(props: PageProps<"/barcelona
         )}
       </UnlockProvider>
 
+      <CostSnippet categories={[category.slug]} />
       <RelatedGuides posts={guides} heading={`Guides on ${lowerPlural} and related topics`} />
 
       <section className="container-page py-14 sm:py-20 max-w-3xl">

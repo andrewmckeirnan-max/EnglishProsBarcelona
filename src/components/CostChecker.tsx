@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, AlertTriangle, Info } from "lucide-react";
 import { costItems, costSources, formatRange, judgeQuote, COST_DATA_CHECKED } from "@/lib/costData";
@@ -12,6 +12,12 @@ export function CostChecker({ initialId }: { initialId?: string }) {
   const [id, setId] = useState(initialId ?? costItems[0].id);
   const [quoteText, setQuoteText] = useState("");
   const item = costItems.find((c) => c.id === id) ?? costItems[0];
+
+  // Deep links such as /cost-checker#dental-implant open that service.
+  useEffect(() => {
+    const fromHash = window.location.hash.slice(1);
+    if (fromHash && costItems.some((c) => c.id === fromHash)) setId(fromHash);
+  }, []);
 
   const groups = useMemo(() => {
     const map = new Map<string, typeof costItems>();

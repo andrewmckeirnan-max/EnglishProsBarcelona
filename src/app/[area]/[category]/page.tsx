@@ -16,6 +16,7 @@ import { getProfessionals as getPros } from "@/lib/professionals";
 import { getGuidesForCategory } from "@/lib/blog";
 import { categoryTerms, areaAliases, humanList } from "@/lib/seoTerms";
 import { RelatedGuides } from "@/components/RelatedGuides";
+import { CostSnippet } from "@/components/CostSnippet";
 import { AtAGlance } from "@/components/AtAGlance";
 import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 
@@ -192,6 +193,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
         </section>
       </UnlockProvider>
 
+      <CostSnippet categories={[category.slug]} />
       <RelatedGuides posts={guides} heading={`Guides on ${sentenceLower(category.pluralName)} and related topics`} />
 
       <section className="container-page py-14 sm:py-20 max-w-3xl">

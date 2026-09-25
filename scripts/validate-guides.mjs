@@ -58,7 +58,7 @@ for (const file of files) {
 
   for (const h of hrefs) {
     const parts = h.split("/").filter(Boolean);
-    const ok = h.startsWith("/") && (h === "/" || h === "/blog" || h === "/about" || h === "/partners"
+    const ok = h.startsWith("/") && (h === "/" || h === "/blog" || h === "/about" || h === "/partners" || h === "/cost-checker"
       || (parts[0] === "blog" && parts.length === 2)
       || (parts.length === 1 && areas.has(parts[0]))
       || (parts.length === 2 && areas.has(parts[0]) && categories.has(parts[1]))

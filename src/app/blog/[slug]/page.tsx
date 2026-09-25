@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { getAllBlogPosts, getBlogPost } from "@/lib/blog";
 import { RelatedGuides } from "@/components/RelatedGuides";
+import { CostSnippet } from "@/components/CostSnippet";
 import { getCategory } from "@/lib/data";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogBody } from "@/components/BlogBody";
@@ -91,6 +92,8 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             </div>
           </section>
         )}
+
+        <CostSnippet categories={(post.relatedCategorySlugs ?? [])} heading="Typical prices mentioned in this guide" className="mt-10" />
 
         {relatedCategories.length > 0 && (
           <div className="mt-12 rounded-2xl border border-border bg-surface-muted p-6">
