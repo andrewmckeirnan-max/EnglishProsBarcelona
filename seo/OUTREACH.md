@@ -96,3 +96,50 @@ Barcelona English Pros
 - [ ] Follow up once after 7 to 10 days, then stop.
 - [ ] Track replies in a simple list (site, date sent, reply, outcome).
 - [ ] If someone asks you not to contact them again, do not.
+
+## Personalised drafts for the top three (ready to send after you skim the page named)
+
+### 1. Barcelona Expat Life (contact form: barcelonaexpatlife.com/contact-us/)
+
+Subject: A free Barcelona price checker for your readers
+
+Hi there,
+
+I run Barcelona English Pros, a free directory of English-speaking professionals in Barcelona. I have been looking at your directory and paperwork sections, and I like that you list real organisations for people settling in.
+
+I have just built a free tool that shows typical 2026 prices for about 30 services, with sources, for example dentists, therapists, gestors, sworn translations and driving licences: barcelonaenglishpros.com/cost-checker. It could fit alongside your guides on paperwork and setting up. You are welcome to link to it, and I can send the figures with sources if you are writing about costs.
+
+Two questions, no pressure: is there a free way for us to be listed in your organisation directory, and who is the best person to speak to about partnerships?
+
+Thanks for the useful resource,
+[Name], Barcelona English Pros
+
+### 2. Barcelona Life (via the Advertise page or the Facebook page)
+
+Subject: Prices to go with your English-speaking doctors and dentists pages
+
+Hi Duncan,
+
+I run Barcelona English Pros, a free directory of English-speaking professionals in Barcelona. I read your "Top 5 English Speaking Doctors in Barcelona 2026" and dentists pages, which are a good starting point for newcomers.
+
+Your doctors page says to expect to pay €30 to €100 for a consultation. In our research the published range for a private GP visit is roughly €60 to €120, and English Doctor Barcelona lists €70 to €100 on its own site, so I thought your readers might like a sourced range with what moves the price. I have put these together for about 30 services: barcelonaenglishpros.com/cost-checker.
+
+You are welcome to link to it or borrow the figures with a credit. I also saw you are open to business partners, so I would be glad to have a chat if that is useful.
+
+Best,
+[Name], Barcelona English Pros
+
+### 3. Coming to Spain (email: laetitia@comingtospain.com)
+
+Subject: A free 2026 price tool for readers of your Spain guides
+
+Hi Laetitia,
+
+I run Barcelona English Pros, a free directory of English-speaking professionals in Barcelona. I read your 2026 health insurance guides, including the Sanitas versus Asisa comparison, and found them clear and practical.
+
+Your readers often ask what things cost once they arrive, so I built a free tool with sourced 2026 price ranges for about 30 services, including gestors, sworn translations, private doctors and driving licences: barcelonaenglishpros.com/cost-checker. Feel free to link it in relevant posts, or I can send the underlying figures with sources if you are writing about costs.
+
+If it would help your readers to have a directory of English-speaking professionals in Barcelona to point to, I am happy to talk about that too.
+
+Thanks,
+[Name], Barcelona English Pros
