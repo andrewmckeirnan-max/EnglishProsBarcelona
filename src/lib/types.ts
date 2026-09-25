@@ -43,7 +43,11 @@ export type CategorySlug =
   | "balcony-terrace-design"
   | "wedding-planner"
   | "recruiter"
-  | "private-chef";
+  | "private-chef"
+  | "plumber"
+  | "electrician"
+  | "movers"
+  | "psychiatrist";
 
 export type AreaSlug =
   | "poblenou"

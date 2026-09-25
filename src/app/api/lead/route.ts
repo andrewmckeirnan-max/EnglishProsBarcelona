@@ -115,7 +115,7 @@ const MEDICAL_CATEGORIES = new Set<CategorySlug>([
   "holistic-doctor", "veterinarian", "lasik", "fertility-clinic",
   "plastic-surgeon", "obgyn-midwife", "pediatrician", "osteopath",
   "orthodontist", "podiatrist", "eye-care", "occupational-therapist",
-  "speech-therapist", "family-therapist",
+  "speech-therapist", "family-therapist", "psychiatrist",
 ]);
 const LEGAL_FINANCIAL_CATEGORIES = new Set<CategorySlug>([
   "lawyer", "tax-advisor", "property-advisor", "autonomo-accountant",
@@ -125,6 +125,7 @@ const LEGAL_FINANCIAL_CATEGORIES = new Set<CategorySlug>([
 const HOME_SERVICE_CATEGORIES = new Set<CategorySlug>([
   "air-conditioning", "locksmith", "appliance-repair", "pest-control",
   "balcony-terrace-design", "storage-service", "house-clearance",
+  "plumber", "electrician", "movers",
 ]);
 const LIFESTYLE_CATEGORIES = new Set<CategorySlug>([
   "personal-trainer", "driving-school", "private-chauffeur",

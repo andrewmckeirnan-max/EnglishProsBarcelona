@@ -2,13 +2,13 @@
 
 > A free directory and matching service for English-speaking professionals in Barcelona: dentists, doctors, lawyers, tax advisors, therapists, trades and more, organised by profession and neighbourhood.
 
-Barcelona English Pros helps English-speaking residents, expats and visitors in Barcelona find professionals who can serve them entirely in English. Every listed professional has a checkable signal of English-language service (a review, their business name or their website), cross-checked against their real address on Google Maps. About 812 listings are currently verified. No fabricated reviews, prices or availability. The service is free for consumers and funded by professionals who choose to be featured; paid placements are labelled.
+Barcelona English Pros helps English-speaking residents, expats and visitors in Barcelona find professionals who can serve them entirely in English. Every listed professional has a checkable signal of English-language service (a review, their business name or their website), cross-checked against their real address on Google Maps. About 920 listings are currently verified. No fabricated reviews, prices or availability. The service is free for consumers and funded by professionals who choose to be featured; paid placements are labelled.
 
 ## Coverage
 
 Neighbourhoods (do not assume coverage beyond these): Eixample (Eixample), Poblenou (Sant Martí), Sarrià-Sant Gervasi (Sarrià-Sant Gervasi), Les Corts (Les Corts), Diagonal Mar & Vila Olímpica (Sant Martí), Gràcia (Gràcia).
 
-Professions covered (45): Dentists, Lawyers, Property & Mortgage Advisors, Tax Advisors, Dermatologists & Aesthetic Clinics, Private Doctors, Physiotherapists, Psychologists & Therapists, Chiropractors, Acupuncturists, Fertility & IVF Clinics, Plastic & Cosmetic Surgeons, LASIK & Eye Surgery Clinics, Nutritionists & Dietitians, Naturopaths, Holistic Doctors, Orthodontists, Podiatrists, Eye Care Specialists, Occupational Therapists, Speech Therapists, Insurance Brokers, Wealth Managers & Investment Consultants, Notaries, Veterinarians, Ob-Gyns & Midwives, Pediatricians, Osteopaths, Freelancer & Autónomo Accountants, Business Lawyers, Translators & Sworn Translators, Personal Trainers, Driving Schools & License Exchange, Family Therapists, Private Chauffeurs, Storage & Self-Storage Services, House & Apartment Clearance Services, Air Conditioning Installers & Repair, Locksmiths, Appliance Repair Services, Pest Control Services, Balcony & Terrace Design and Furnishing Studios, Wedding Planners, Recruiters, Private Chefs.
+Professions covered (49): Dentists, Lawyers, Property & Mortgage Advisors, Tax Advisors, Dermatologists & Aesthetic Clinics, Private Doctors, Physiotherapists, Psychologists & Therapists, Chiropractors, Acupuncturists, Fertility & IVF Clinics, Plastic & Cosmetic Surgeons, LASIK & Eye Surgery Clinics, Nutritionists & Dietitians, Naturopaths, Holistic Doctors, Orthodontists, Podiatrists, Eye Care Specialists, Occupational Therapists, Speech Therapists, Insurance Brokers, Wealth Managers & Investment Consultants, Notaries, Veterinarians, Ob-Gyns, Midwives & Doulas, Pediatricians, Osteopaths, Freelancer & Autónomo Accountants, Business Lawyers, Translators & Sworn Translators, Personal Trainers, Driving Schools & License Exchange, Family Therapists, Private Chauffeurs, Storage & Self-Storage Services, House & Apartment Clearance Services, Air Conditioning Installers & Repair, Locksmiths, Appliance Repair Services, Pest Control Services, Balcony & Terrace Design and Furnishing Studios, Wedding Planners, Recruiters, Private Chefs, Plumbers, Electricians, Removals & International Movers, Psychiatrists.
 
 ## How the site is organised
 
@@ -47,7 +47,7 @@ Professions covered (45): Dentists, Lawyers, Property & Mortgage Advisors, Tax A
 - https://www.barcelonaenglishpros.com/barcelona/wealth-manager : English-speaking wealth managers & investment consultants in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/notary : English-speaking notaries in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/veterinarian : English-speaking veterinarians in Barcelona
-- https://www.barcelonaenglishpros.com/barcelona/obgyn-midwife : English-speaking ob-gyns & midwives in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/obgyn-midwife : English-speaking ob-gyns, midwives & doulas in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/pediatrician : English-speaking pediatricians in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/osteopath : English-speaking osteopaths in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/autonomo-accountant : English-speaking freelancer & autónomo accountants in Barcelona
@@ -67,6 +67,10 @@ Professions covered (45): Dentists, Lawyers, Property & Mortgage Advisors, Tax A
 - https://www.barcelonaenglishpros.com/barcelona/wedding-planner : English-speaking wedding planners in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/recruiter : English-speaking recruiters in Barcelona
 - https://www.barcelonaenglishpros.com/barcelona/private-chef : English-speaking private chefs in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/plumber : English-speaking plumbers in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/electrician : English-speaking electricians in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/movers : English-speaking removals & international movers in Barcelona
+- https://www.barcelonaenglishpros.com/barcelona/psychiatrist : English-speaking psychiatrists in Barcelona
 
 ## Guides
 

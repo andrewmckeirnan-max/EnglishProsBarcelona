@@ -22,7 +22,7 @@ export const categoryTerms: Record<CategorySlug, { synonyms: string[]; es: strin
   lasik: { synonyms: ["laser eye surgery", "eye laser clinic"], es: "cirugía ocular láser" },
   "fertility-clinic": { synonyms: ["IVF clinic", "fertility specialist"], es: "clínica de fertilidad" },
   "plastic-surgeon": { synonyms: ["cosmetic surgeon", "aesthetic surgery"], es: "cirujano plástico" },
-  "obgyn-midwife": { synonyms: ["gynaecologist", "OB-GYN", "midwife", "obstetrician"], es: "ginecólogo" },
+  "obgyn-midwife": { synonyms: ["gynaecologist", "OB-GYN", "midwife", "obstetrician", "doula", "lactation consultant", "baby sleep consultant"], es: "ginecólogo" },
   pediatrician: { synonyms: ["children's doctor", "kids doctor", "paediatrician"], es: "pediatra" },
   osteopath: { synonyms: ["osteopathy clinic", "osteopathic treatment"], es: "osteópata" },
   "autonomo-accountant": { synonyms: ["freelance accountant", "self-employed accountant", "gestor for autónomos"], es: "gestor para autónomos" },
@@ -50,6 +50,10 @@ export const categoryTerms: Record<CategorySlug, { synonyms: string[]; es: strin
   "wedding-planner": { synonyms: ["destination wedding planner", "elopement planner"], es: "wedding planner" },
   recruiter: { synonyms: ["headhunter", "recruitment agency", "recruitment consultant"], es: "reclutador" },
   "private-chef": { synonyms: ["personal chef", "home chef", "villa chef"], es: "chef privado" },
+  plumber: { synonyms: ["emergency plumber", "leak repair", "boiler engineer"], es: "fontanero" },
+  electrician: { synonyms: ["emergency electrician", "electrical repair", "rewiring"], es: "electricista" },
+  movers: { synonyms: ["removals", "moving company", "international movers", "removal company"], es: "mudanzas" },
+  psychiatrist: { synonyms: ["ADHD specialist", "medication review", "mental health doctor"], es: "psiquiatra" },
 };
 
 // Other names people use for each neighbourhood we cover (spellings without
