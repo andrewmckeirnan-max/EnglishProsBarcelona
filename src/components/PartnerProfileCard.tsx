@@ -68,13 +68,32 @@ export function PartnerProfileCard({ professional: p, rank }: { professional: Pr
               {categoryName} &middot; {p.addressArea}
             </p>
           </div>
-          {rating && (
-            <div className="flex items-center gap-1.5 text-sm">
-              <StarRating value={Number(rating.value)} size={15} />
-              <span className="font-semibold">{rating.value}</span>
-              <span className="text-foreground/50 text-xs">({rating.count})</span>
-            </div>
-          )}
+          {rating &&
+            (() => {
+              const inner = (
+                <>
+                  <StarRating value={Number(rating.value)} size={15} />
+                  <span className="font-semibold">{rating.value}</span>
+                  <span className="text-foreground/50 text-xs">
+                    ({rating.count}
+                    {p.reviewsUrl ? " Google reviews" : ""})
+                  </span>
+                </>
+              );
+              return p.reviewsUrl ? (
+                <a
+                  href={p.reviewsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Read the reviews on Google Maps"
+                  className="flex items-center gap-1.5 text-sm hover:underline"
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div className="flex items-center gap-1.5 text-sm">{inner}</div>
+              );
+            })()}
         </div>
 
         <p className="flex items-center gap-1.5 text-xs text-foreground/50 mt-2">
@@ -91,6 +110,18 @@ export function PartnerProfileCard({ professional: p, rank }: { professional: Pr
         </div>
 
         {p.bio && <p className="text-sm text-foreground/70 mt-3 leading-relaxed">{p.bio}</p>}
+
+        {p.reviewsUrl && rating && (
+          <a
+            href={p.reviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+          >
+            Read all {rating.count} reviews on Google
+            <ExternalLink className="h-3.5 w-3.5" strokeWidth={2.5} />
+          </a>
+        )}
 
         <div className="mt-4 grid grid-cols-2 gap-2">
           {p.bookingUrl && (

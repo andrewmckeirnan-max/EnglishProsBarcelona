@@ -369,6 +369,9 @@ export const professionals: Professional[] = [
     whatsappNumber: "+34654334119",
     contactName: "Anne-Laure",
     streetAddress: "C/ Diputación 238, Centro Marina Pilates",
+    // Google Maps rating and count read on 2026-09-28. Refresh occasionally, it only ever goes stale, never wrong-by-design.
+    ratingLabel: "5.0 (46 reviews) on Google Maps",
+    reviewsUrl: "https://www.google.com/maps/place/Anne-Laure+Naudin+%E2%80%93+Natur%C3%B3pata+en+Barcelona/@41.3883306,2.1645946,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a3960b9c3c45:0x26f33d1edc6a0135!8m2!3d41.3883306!4d2.1645946!16s%2Fg%2F11gtxkm6p6",
     // English version of her site, straight to the contact/booking form (same anchor on /en, checked 2026-09-28).
     bookingUrl: "https://www.annelaurenaudin.com/en?utm_source=barcelonaenglishpros&utm_medium=directory&utm_campaign=recommended#comp-mp184rm0",
   },

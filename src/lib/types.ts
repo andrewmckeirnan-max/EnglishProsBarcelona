@@ -114,6 +114,9 @@ export interface Professional {
   contactName?: string;
   /** Street address the business publishes itself. Used for the partner profile map and address line. */
   streetAddress?: string;
+  /** Link to the business's Google Maps listing, where visitors can read all reviews. We show the rating and count
+   * and link out, but never copy review text onto our own pages. */
+  reviewsUrl?: string;
   /** The link the primary CTA button uses ("Book" for partners, "Visit
    * website" otherwise). For most listings this is the business's own
    * site; for a partner with a real scheduling link (e.g. Calendly), point
