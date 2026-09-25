@@ -26,6 +26,7 @@ Updated 2026-09-28. Tick items as they are done. "Owner" means it needs the site
 - [ ] Set up Meta Business Suite scheduling. Full auto-posting through Meta's API only once the content proves itself.
 
 ## 4. Backlinks and mentions
+- [ ] Send the outreach messages in `seo/OUTREACH.md` (18 sites, three message templates). Note: a Google Business Profile is not an option, because Google excludes online-only and lead-generation businesses.
 - [ ] Ask Barcelona expat sites to link the cost checker: Barcelona Metropolitan, Angloinfo, Expatica, relocation blogs.
 - [ ] Tool directories: AlternativeTo, Toolify.
 - [ ] Product Hunt or Indie Hackers launch of the free cost checker.
