@@ -17,6 +17,7 @@ import { getGuidesForCategory } from "@/lib/blog";
 import { categoryTerms, areaAliases, humanList } from "@/lib/seoTerms";
 import { RelatedGuides } from "@/components/RelatedGuides";
 import { CostSnippet } from "@/components/CostSnippet";
+import { nearestProfessionals } from "@/lib/nearby";
 import { AtAGlance } from "@/components/AtAGlance";
 import { FREE_PREVIEW_LIMIT } from "@/lib/constants";
 
@@ -56,6 +57,7 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
   if (!area || !category || category.hidden) notFound();
 
   const professionals = getProfessionals(area.slug, category.slug);
+  const nearest = professionals.length === 0 ? nearestProfessionals(area, category.slug) : null;
   const otherAreas = areas.filter((a) => a.slug !== area.slug);
   // Every other profession, not just a handful — each one is a distinct
   // "English-speaking X in {area}" search/AEO target worth linking.
@@ -182,13 +184,24 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
               <ProfessionalsListSection professionals={professionals} area={area} />
             </>
           ) : (
-            <div className="rounded-2xl border border-dashed border-border p-8 text-center bg-surface-muted">
-              <p className="font-semibold">We don&apos;t have a featured partner in {area.name} yet.</p>
-              <p className="text-sm text-foreground/60 mt-1 max-w-md mx-auto">
-                Tell us what you need using the form above and we&apos;ll hand-match you with a
-                vetted English-speaking {sentenceLower(category.name)} nearby.
-              </p>
-            </div>
+            <>
+              <div className="rounded-2xl border border-dashed border-border p-6 text-center bg-surface-muted">
+                <p className="font-semibold">We don&apos;t have an English-speaking {sentenceLower(category.name)} listed in {area.name} yet.</p>
+                <p className="text-sm text-foreground/60 mt-1 max-w-md mx-auto">
+                  {nearest
+                    ? `The nearest are in ${nearest.area.name}, roughly ${nearest.km} km away, listed below. Tell us what you need using the form above and we will hand-match you.`
+                    : "Tell us what you need using the form above and we will hand-match you with a vetted English-speaking professional nearby."}
+                </p>
+              </div>
+              {nearest && (
+                <div className="mt-8">
+                  <h3 className="text-lg font-bold tracking-tight mb-4">
+                    Nearest: {category.pluralName} in {nearest.area.name}
+                  </h3>
+                  <ProfessionalsListSection professionals={nearest.professionals} />
+                </div>
+              )}
+            </>
           )}
         </section>
       </UnlockProvider>
