@@ -10,7 +10,7 @@ Ordered by fit. "Route" is the contact route the site publishes.
 |---|---|---|---|---|
 | 1 | Barcelona Expat Life (barcelonaexpatlife.com) | Active 2026 expat platform, directory, events, guides | Already lists English-speaking businesses and paperwork guides. Has an "Add Organisation" listing and an Advertise page | Contact form: barcelonaexpatlife.com/contact-us/ |
 | 2 | Barcelona Life (barcelona-life.com) | Run by Duncan Rhodes, expat guide since 2009 | Recommends English-speaking doctors, dentists, gestors, lawyers. Says it is open to business partners | Advertise page, Facebook page, newsletter |
-| 3 | Coming to Spain (comingtospain.com) | Run by Laetitia Woue, active 2026 | Writes Barcelona and Spain relocation guides and recommends vetted providers | Email on site: laetitia@comingtospain.com, contact form |
+| 3 | Coming to Spain (comingtospain.com) | Run by Laetitia Woue, active 2026 | COMPETITOR: she sells paid visa, tax and lawyer-referral help and takes referral fees. Low priority. Offer only the free cost checker, never the directory | Email on site: laetitia@comingtospain.com, contact form |
 | 4 | Moving to Barcelona (movingtobarcelona.com) | Georgia, active since 2005 | Has a business directory and an Advertise section | Contact page, Instagram |
 | 5 | A Way Abroad (findawayabroad.com) | Founded by Kat | Has a "Write for Us" section for expat tips | Contact page, write-for-us form |
 | 6 | Barcelona Blonde (barcelonablonde.com) | Jessica, long-running English expat blog | Popular for people moving to Barcelona | Contact page on her site, Twitter/X @holayessica |
@@ -89,6 +89,10 @@ Would a short call this week or next suit?
 [Name]
 Barcelona English Pros
 
+## Competitor check before you send
+
+Some relocation sites earn fees for introducing readers to tax advisors, lawyers and other providers. Our directory does the same job, so they may see us as a competitor. For those (Coming to Spain, and probably Going to Barcelona, BCN Life and Reloc Barcelona), either send only the free cost checker with no directory offer, or make an honest partnership offer that says who gets what. Blogs that only earn from ads or affiliate links are better first targets.
+
 ## Sending checklist
 
 - [ ] Use the contact route shown, not a personal email you found elsewhere.
@@ -129,7 +133,7 @@ You are welcome to link to it or borrow the figures with a credit. I also saw yo
 Best,
 [Name], Barcelona English Pros
 
-### 3. Coming to Spain (email: laetitia@comingtospain.com)
+### 3. Coming to Spain (email: laetitia@comingtospain.com). LOW PRIORITY, she earns referral fees, so treat her as a competitor. Cost tool only, no directory offer.
 
 Subject: A free 2026 price tool for readers of your Spain guides
 
@@ -138,8 +142,6 @@ Hi Laetitia,
 I run Barcelona English Pros, a free directory of English-speaking professionals in Barcelona. I read your 2026 health insurance guides, including the Sanitas versus Asisa comparison, and found them clear and practical.
 
 Your readers often ask what things cost once they arrive, so I built a free tool with sourced 2026 price ranges for about 30 services, including gestors, sworn translations, private doctors and driving licences: barcelonaenglishpros.com/cost-checker. Feel free to link it in relevant posts, or I can send the underlying figures with sources if you are writing about costs.
-
-If it would help your readers to have a directory of English-speaking professionals in Barcelona to point to, I am happy to talk about that too.
 
 Thanks,
 [Name], Barcelona English Pros
