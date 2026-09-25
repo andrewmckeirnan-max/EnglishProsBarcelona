@@ -126,42 +126,16 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
                     : `We don't have a verified English-speaking ${sentenceLower(category.name)} listed in ${area.name} yet. Tell us what you need and we'll personally find one nearby.`}
                 </p>
 
-                <p className="mt-3 text-sm text-foreground/60 max-w-xl">
-                  Also searched as {humanList(terms.synonyms)} (in Spanish: {terms.es}). {area.name} is also known as {humanList(aliases)}.
-                  {reasons.length > 0 ? ` People contact an English-speaking ${sentenceLower(category.name)} in ${area.name} for ${humanList(reasons)}.` : ""}
-                </p>
+                {professionals.length > 0 && (
+                  <a
+                    href="#professionals-list"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand text-white text-sm font-semibold px-5 py-3 hover:bg-brand-dark transition-colors shadow-soft"
+                  >
+                    See the {professionals.length} English-speaking {professionals.length === 1 ? sentenceLower(category.name) : sentenceLower(category.pluralName)} below
+                    <span aria-hidden="true">↓</span>
+                  </a>
+                )}
 
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {category.seoKeywords.map((k) => (
-                    <li key={k} className="text-xs rounded-full bg-white/70 border border-border px-3 py-1 text-foreground/60 capitalize">
-                      {k}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
-                  <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold flex items-center gap-1.5">
-                      <Languages className="h-4 w-4 text-brand" strokeWidth={2} />
-                      English-first
-                    </p>
-                    <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
-                  </div>
-                  <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold flex items-center gap-1.5">
-                      <MapPinned className="h-4 w-4 text-brand" strokeWidth={2} />
-                      Local to {area.name}
-                    </p>
-                    <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
-                  </div>
-                  <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold flex items-center gap-1.5">
-                      <MessageCircle className="h-4 w-4 text-brand" strokeWidth={2} />
-                      {WHATSAPP_CONFIGURED ? "WhatsApp friendly" : "Real human help"}
-                    </p>
-                    <p className="text-foreground/60 mt-1">{WHATSAPP_CONFIGURED ? "Fast replies, no phone-call anxiety." : "Stuck? Reply to your email and we'll help you choose."}</p>
-                  </div>
-                </div>
               </div>
 
               <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
@@ -203,6 +177,50 @@ export default async function CategoryPage(props: PageProps<"/[area]/[category]"
               )}
             </>
           )}
+        </section>
+        <section className="container-page pb-14 sm:pb-16">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-bold tracking-tight mb-3">
+              About English-speaking {sentenceLower(category.pluralName)} in {area.name}
+            </h2>
+                    <p className="mt-3 text-sm text-foreground/60 max-w-xl">
+                      Also searched as {humanList(terms.synonyms)} (in Spanish: {terms.es}). {area.name} is also known as {humanList(aliases)}.
+                      {reasons.length > 0 ? ` People contact an English-speaking ${sentenceLower(category.name)} in ${area.name} for ${humanList(reasons)}.` : ""}
+                    </p>
+
+                    <ul className="mt-6 flex flex-wrap gap-2">
+                      {category.seoKeywords.map((k) => (
+                        <li key={k} className="text-xs rounded-full bg-white/70 border border-border px-3 py-1 text-foreground/60 capitalize">
+                          {k}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
+                      <div className="rounded-xl bg-white/60 border border-border p-4">
+                        <p className="font-semibold flex items-center gap-1.5">
+                          <Languages className="h-4 w-4 text-brand" strokeWidth={2} />
+                          English-first
+                        </p>
+                        <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
+                      </div>
+                      <div className="rounded-xl bg-white/60 border border-border p-4">
+                        <p className="font-semibold flex items-center gap-1.5">
+                          <MapPinned className="h-4 w-4 text-brand" strokeWidth={2} />
+                          Local to {area.name}
+                        </p>
+                        <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
+                      </div>
+                      <div className="rounded-xl bg-white/60 border border-border p-4">
+                        <p className="font-semibold flex items-center gap-1.5">
+                          <MessageCircle className="h-4 w-4 text-brand" strokeWidth={2} />
+                          {WHATSAPP_CONFIGURED ? "WhatsApp friendly" : "Real human help"}
+                        </p>
+                        <p className="text-foreground/60 mt-1">{WHATSAPP_CONFIGURED ? "Fast replies, no phone-call anxiety." : "Stuck? Reply to your email and we'll help you choose."}</p>
+                      </div>
+                    </div>
+
+          </div>
         </section>
       </UnlockProvider>
 

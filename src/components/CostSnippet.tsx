@@ -29,7 +29,7 @@ export function CostSnippet({
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-xs text-foreground/50">Published ranges, not quotes. Prices vary by clinic.</p>
+        <p className="mt-3 text-xs text-foreground/50">Typical market ranges from published sources, not the fees of any professional listed here.</p>
         <Link href="/cost-checker" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
           Check a quote with the free cost checker <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
         </Link>

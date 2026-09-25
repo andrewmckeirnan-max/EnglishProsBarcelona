@@ -98,7 +98,7 @@ export default function CostCheckerPage() {
             <p className="font-semibold text-foreground">How to read this</p>
             <ul className="mt-2 list-disc pl-5 space-y-2">
               <li>Ranges come from {distinctSourceCount()} published price guides and clinic price lists, checked {checked}.</li>
-              <li>They are not quotes. Prices vary by clinic, neighbourhood and case.</li>
+              <li>They are market ranges, not the fees of any professional listed on this site, and not quotes. Prices vary by clinic, neighbourhood and case.</li>
               <li>Where fewer sources exist we say so on the item.</li>
               <li>Central and English-speaking clinics often sit toward the top of a range.</li>
             </ul>

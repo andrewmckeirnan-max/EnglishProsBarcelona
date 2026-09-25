@@ -103,35 +103,16 @@ export default async function BarcelonaCategoryPage(props: PageProps<"/barcelona
                     ? `We've verified ${professionals.length} English-speaking ${professionals.length === 1 ? lower : lowerPlural} across Barcelona, each with a checkable sign that they work in English. Choose your neighbourhood below or tell us what you need.`
                     : `We're still verifying English-speaking ${lowerPlural} in Barcelona. Tell us what you need and we'll personally find one nearby.`}
                 </p>
-                <p className="mt-3 text-sm text-foreground/60 max-w-xl">
-                  You may also be looking for a {humanList(terms.synonyms)}
-                  {terms.es ? ` (in Spanish: ${terms.es})` : ""}.
-                  {reasons.length > 0 ? ` People contact an English-speaking ${lower} in Barcelona for ${humanList(reasons)}.` : ""}
-                </p>
 
-                <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
-                  <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold flex items-center gap-1.5">
-                      <Languages className="h-4 w-4 text-brand" strokeWidth={2} />
-                      English-first
-                    </p>
-                    <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
-                  </div>
-                  <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold flex items-center gap-1.5">
-                      <MapPinned className="h-4 w-4 text-brand" strokeWidth={2} />
-                      Six neighbourhoods
-                    </p>
-                    <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
-                  </div>
-                  <div className="rounded-xl bg-white/60 border border-border p-4">
-                    <p className="font-semibold flex items-center gap-1.5">
-                      <ShieldCheck className="h-4 w-4 text-brand" strokeWidth={2} />
-                      Verified
-                    </p>
-                    <p className="text-foreground/60 mt-1">A checkable English signal for each.</p>
-                  </div>
-                </div>
+                {professionals.length > 0 && (
+                  <a
+                    href="#professionals-list"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand text-white text-sm font-semibold px-5 py-3 hover:bg-brand-dark transition-colors shadow-soft"
+                  >
+                    See the {professionals.length} English-speaking {professionals.length === 1 ? lower : lowerPlural} below
+                    <span aria-hidden="true">↓</span>
+                  </a>
+                )}
               </div>
 
               <div id="get-matched" className="lg:sticky lg:top-24 scroll-mt-24">
@@ -174,6 +155,42 @@ export default async function BarcelonaCategoryPage(props: PageProps<"/barcelona
             <ProfessionalsListSection professionals={professionals} />
           </section>
         )}
+
+        <section className="container-page pb-14 sm:pb-16">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-bold tracking-tight mb-3">About English-speaking {lowerPlural} in Barcelona</h2>
+                    <p className="mt-3 text-sm text-foreground/60 max-w-xl">
+                      You may also be looking for a {humanList(terms.synonyms)}
+                      {terms.es ? ` (in Spanish: ${terms.es})` : ""}.
+                      {reasons.length > 0 ? ` People contact an English-speaking ${lower} in Barcelona for ${humanList(reasons)}.` : ""}
+                    </p>
+
+                    <div className="mt-8 grid sm:grid-cols-3 gap-4 text-sm">
+                      <div className="rounded-xl bg-white/60 border border-border p-4">
+                        <p className="font-semibold flex items-center gap-1.5">
+                          <Languages className="h-4 w-4 text-brand" strokeWidth={2} />
+                          English-first
+                        </p>
+                        <p className="text-foreground/60 mt-1">No language barrier, ever.</p>
+                      </div>
+                      <div className="rounded-xl bg-white/60 border border-border p-4">
+                        <p className="font-semibold flex items-center gap-1.5">
+                          <MapPinned className="h-4 w-4 text-brand" strokeWidth={2} />
+                          Six neighbourhoods
+                        </p>
+                        <p className="text-foreground/60 mt-1">Matched near where you live or work.</p>
+                      </div>
+                      <div className="rounded-xl bg-white/60 border border-border p-4">
+                        <p className="font-semibold flex items-center gap-1.5">
+                          <ShieldCheck className="h-4 w-4 text-brand" strokeWidth={2} />
+                          Verified
+                        </p>
+                        <p className="text-foreground/60 mt-1">A checkable English signal for each.</p>
+                      </div>
+                    </div>
+
+          </div>
+        </section>
       </UnlockProvider>
 
       <CostSnippet categories={[category.slug]} />

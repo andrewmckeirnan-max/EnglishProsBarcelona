@@ -196,7 +196,7 @@ export function buildShortlistEmail(input: ShortlistInput): ShortlistEmail {
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="bg-card" style="background:${C.card};border:1px solid ${C.border};border-radius:18px;"><tr><td style="padding:22px 24px;">
       <div class="t-ink" style="font-family:${FONT};font-size:20px;line-height:24px;font-weight:bold;color:${C.ink};">What it typically costs in Barcelona</div>
       ${priceItems.map((c) => `<div class="t-ink" style="margin-top:10px;font-family:${FONT};font-size:15px;line-height:22px;color:${C.ink};">${esc(c.service)}: <b>${esc(formatRange(c))}</b> <span class="t-muted" style="color:${C.muted};">${esc(c.unit)}</span></div>`).join("")}
-      <div class="t-muted" style="margin:12px 0 14px 0;font-family:${FONT};font-size:13px;line-height:19px;color:${C.muted};">Published ranges from sources checked in 2026, not quotes. Prices vary by clinic.</div>
+      <div class="t-muted" style="margin:12px 0 14px 0;font-family:${FONT};font-size:13px;line-height:19px;color:${C.muted};">Typical market ranges from published sources checked in 2026, not the fees of the professionals below.</div>
       ${button({ href: costUrl, label: "Check a quote", kind: "ghost", width: 170 })}
     </td></tr></table>
   </td></tr>`
@@ -205,7 +205,7 @@ export function buildShortlistEmail(input: ShortlistInput): ShortlistEmail {
     ? [
         "WHAT IT TYPICALLY COSTS IN BARCELONA",
         ...priceItems.map((c) => `- ${c.service}: ${formatRange(c)} (${c.unit})`),
-        "Published ranges, not quotes. Check a quote: " + costUrl,
+        "Typical market ranges, not the fees of the professionals above. Check a quote: " + costUrl,
         "",
       ].join("\n")
     : "";
