@@ -99,8 +99,8 @@ export interface Professional {
    * partnerTier. Used to order same-tier "recommended" partners
    * first-come-first-served rather than arbitrarily. */
   partnerSince?: string;
-  /** True while a listing is featured as an unpaid trial. The badge tooltip then says the business has not
-   * paid for the placement, so visitors are never told something untrue. Remove it once they sign. */
+  /** Shown as a neutral "Featured" badge (no claim either way about payment). Remove it once they sign as a paying
+   * partner, so the badge and tooltip say so. */
   partnerTrial?: boolean;
   isPlaceholder: boolean; // TRUE = demo data, must be replaced with a verified real business before this page goes live
   specialties: string[];

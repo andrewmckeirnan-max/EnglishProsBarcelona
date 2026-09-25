@@ -21,7 +21,8 @@ interface Props {
 export function ProfessionalsListSection({ professionals, area }: Props) {
   const { unlocked } = useUnlock();
   const lockedCount = unlocked ? 0 : Math.max(professionals.length - FREE_PREVIEW_LIMIT, 0);
-  const partnerCount = professionals.filter((p) => p.partnerTier).length;
+  const partnerCount = professionals.filter((p) => p.partnerTier && !p.partnerTrial).length;
+  const featuredCount = professionals.filter((p) => p.partnerTrial).length;
 
   return (
     <>
@@ -31,7 +32,9 @@ export function ProfessionalsListSection({ professionals, area }: Props) {
           ? "Unlocked, here's the full ranked list."
           : lockedCount > 0
             ? `All ${professionals.length} are listed below. Contact details and links for the first ${FREE_PREVIEW_LIMIT} are open, tell us what you need and we will email you the other ${lockedCount} with contact details and typical prices.`
-            : partnerCount > 0
+                        : featuredCount > 0 && partnerCount === 0
+              ? "A featured listing, plus other English-speaking options we found nearby."
+              : partnerCount > 0
               ? partnerCount === 1
                 ? "Our recommended partner, plus other English-speaking options we found nearby."
                 : "Our recommended partners, plus other English-speaking options we found nearby."
