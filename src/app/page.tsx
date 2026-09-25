@@ -8,7 +8,7 @@ import { professionals } from "@/lib/professionals";
 export default function Home() {
   // Real, computed from the live dataset, not a placeholder stat - never
   // drifts out of sync as more listings get added.
-  const verifiedCount = professionals.length;
+  const verifiedCount = new Set(professionals.filter((p) => !p.isPlaceholder).map((p) => p.name)).size;
 
   return (
     <div>
