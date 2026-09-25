@@ -110,6 +110,8 @@ export interface Professional {
   lng?: number;
   phoneDisplay?: string; // only set once a real, verified partner is onboarded
   whatsappNumber?: string; // E.164 format, only set for verified partners
+  /** First name shown on the WhatsApp button ("Connect with Anne-Laure on WhatsApp"). Falls back to plain "WhatsApp". */
+  contactName?: string;
   /** The link the primary CTA button uses ("Book" for partners, "Visit
    * website" otherwise). For most listings this is the business's own
    * site; for a partner with a real scheduling link (e.g. Calendly), point

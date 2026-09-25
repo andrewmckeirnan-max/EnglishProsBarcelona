@@ -133,7 +133,7 @@ export function ProfessionalCard({
             rel="noopener noreferrer"
             className="flex-1 text-center rounded-full bg-[#25D366] text-white text-sm font-semibold px-4 py-2 hover:opacity-90 transition"
           >
-            WhatsApp
+            {professional.contactName ? `Connect with ${professional.contactName} on WhatsApp` : "WhatsApp"}
           </a>
         )}
         {professional.bookingUrl && (

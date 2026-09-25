@@ -365,7 +365,11 @@ export const professionals: Professional[] = [
     partnerSince: "2026-09-28",
     partnerTrial: true,
     phoneDisplay: "+34 654 334 119",
-    bookingUrl: "https://www.annelaurenaudin.com/?utm_source=barcelonaenglishpros&utm_medium=directory&utm_campaign=recommended#comp-mp184rm0",
+    // The number her own site publishes next to a WhatsApp icon. Confirm with her that it is on WhatsApp.
+    whatsappNumber: "+34654334119",
+    contactName: "Anne-Laure",
+    // English version of her site, straight to the contact/booking form (same anchor on /en, checked 2026-09-28).
+    bookingUrl: "https://www.annelaurenaudin.com/en?utm_source=barcelonaenglishpros&utm_medium=directory&utm_campaign=recommended#comp-mp184rm0",
   },
   {
     id: "eixample-tax-advisor-manor-tax",
