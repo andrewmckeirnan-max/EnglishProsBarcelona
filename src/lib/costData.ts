@@ -61,6 +61,9 @@ export const costSources: Record<string, CostSource> = {
   box2box: { name: "Box2Box: storage unit prices in Barcelona", url: "https://www.box2boxstorage.com/es-en/blog/storage-unit-rental-barcelona", year: 2026 },
   spainPest: { name: "Spain Pest Guide: pest control costs in Spain", url: "https://spainpestguide.com/blog/hidden-costs-pests-spain-property/", year: 2026 },
   transfers: { name: "GetYourGuide: Barcelona airport transfers", url: "https://www.getyourguide.com/barcelona-l45/airport-transfers-tc153/", year: 2026 },
+  allardGolay: { name: "Allard & Golay chiropractors: prices", url: "https://www.quiropracticoallardgolay.com", year: 2026 },
+  locallistaNutri: { name: "Locallista: English-speaking nutritionists in Barcelona", url: "https://www.locallista.com/en/bcn/nutritionists", year: 2026 },
+  englishDoctor: { name: "English Doctor Barcelona: services and fees", url: "https://www.englishdoctorbarcelona.com", year: 2026 },
 };
 
 export interface CostItem {
@@ -97,7 +100,7 @@ export const costItems: CostItem[] = [
   { id: "dental-whitening", categorySlug: "dentist", service: "Teeth whitening", unit: "per treatment", low: 200, high: 500, note: "In-clinic whitening costs more than take-home trays.", ask: ["In-clinic or take-home?"], sources: ["cityclinic", "umt"], confidence: "good" },
 
   // Doctor
-  { id: "gp-private", categorySlug: "doctor", service: "Private GP appointment", unit: "per visit", low: 60, high: 120, note: "Clinics that serve patients entirely in English tend to sit toward the top of the range. Home visits and specialists cost more.", ask: ["Will the doctor conduct the whole visit in English?", "Are tests charged separately?"], sources: ["traveldoctores"], confidence: "limited" },
+  { id: "gp-private", categorySlug: "doctor", service: "Private GP appointment", unit: "per visit", low: 60, high: 120, note: "Clinics that serve patients entirely in English tend to sit toward the top of the range. Home visits and specialists cost more.", ask: ["Will the doctor conduct the whole visit in English?", "Are tests charged separately?"], sources: ["traveldoctores", "englishDoctor"], confidence: "good" },
   { id: "gp-online", categorySlug: "doctor", service: "Online doctor consultation", unit: "per consultation", low: 25, high: 40, note: "Quick telemedicine calls, often with a digital prescription. Not suitable for anything needing an examination.", ask: ["Is the prescription valid at Spanish pharmacies?"], sources: ["traveldoctores"], confidence: "limited" },
 
   // Psychologist
@@ -167,6 +170,9 @@ export const costItems: CostItem[] = [
   { id: "storage-3m2", categorySlug: "storage-service", service: "Storage unit, 3 m²", unit: "per month", low: 79, high: 150, note: "Roughly €100 to €150 at traditional operators and around €80 at lower-priced providers. Compare what is included, such as pickup, insurance and access hours.", ask: ["Is insurance included?", "Can I access it whenever I like?"], sources: ["box2box"], confidence: "limited" },
   { id: "pest-control", categorySlug: "pest-control", service: "Pest control treatment for a flat", unit: "per visit", low: 80, high: 200, note: "A standard cockroach or insect treatment is about €80 to €150, and annual contracts for an apartment run about €200 to €350. Termite inspections in risk areas cost around €150 to €300.", ask: ["Is a follow-up visit included?", "Is there a warranty period?"], sources: ["spainPest"], confidence: "limited" },
   { id: "airport-transfer", categorySlug: "private-chauffeur", service: "Private airport transfer", unit: "one way", low: 70, high: 95, note: "Private chauffeur transfers from Barcelona airport start at roughly €70 to €95, against about €32 for a taxi to the city centre. The private price includes meet and greet and a vehicle sized to your group. Hourly chauffeur rates are usually quoted on request.", ask: ["Is meet and greet and waiting time included?", "Is the price fixed or metered?"], sources: ["transfers"], confidence: "limited" },
+
+  { id: "chiropractor-session", categorySlug: "chiropractor", service: "Chiropractic session", unit: "first visit to follow-up", low: 40, high: 100, note: "First visits are typically about €60 to €90 and follow-up adjustments about €40 to €65. One Barcelona practice lists €80 for a first visit, €55 for a regular adjustment and €40 for children. Some clinics charge the adjustment separately from the first-visit assessment.", ask: ["Does the first-visit price include an adjustment?", "Are packs of sessions available?"], sources: ["allardGolay"], confidence: "limited" },
+  { id: "nutritionist-consult", categorySlug: "nutritionist", service: "Nutritionist consultation", unit: "per consultation", low: 25, high: 150, note: "Published sources disagree. One expat directory puts a consultation at €25 to €70 with packages of €210 to €295, while other price guides put a first assessment at €70 to €150 and follow-ups at €40 to €90. Nutritionists and dietitians are different from endocrinologists, who are medical doctors and charge more.", ask: ["Is the meal plan included?", "What do follow-up visits cost?"], sources: ["locallistaNutri"], confidence: "limited" },
 ];
 
 export function costsForCategory(slug: CategorySlug) {
