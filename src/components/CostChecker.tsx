@@ -2,11 +2,22 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, AlertTriangle, Info } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertTriangle, Info, ChevronDown } from "lucide-react";
 import { costItems, costSources, formatRange, judgeQuote, COST_DATA_CHECKED } from "@/lib/costData";
 import { categories } from "@/lib/data";
 
 const groupNames = Object.fromEntries(categories.map((c) => [c.slug, c.name]));
+
+const quickPicks: { id: string; label: string }[] = [
+  { id: "dental-filling", label: "Dentist" },
+  { id: "therapy-session", label: "Therapist" },
+  { id: "gp-private", label: "Private doctor" },
+  { id: "physio-session", label: "Physio" },
+  { id: "gestor-monthly", label: "Gestor" },
+  { id: "sworn-translation", label: "Sworn translation" },
+  { id: "lasik", label: "LASIK" },
+  { id: "wedding-planner", label: "Wedding planner" },
+];
 
 export function CostChecker({ initialId }: { initialId?: string }) {
   const [id, setId] = useState(initialId ?? costItems[0].id);
@@ -40,28 +51,52 @@ export function CostChecker({ initialId }: { initialId?: string }) {
 
   return (
     <div className="rounded-2xl border border-border bg-surface shadow-soft p-5 sm:p-7">
-      <label htmlFor="cost-service" className="block text-sm font-semibold mb-2">
+      <label htmlFor="cost-service" className="block text-lg sm:text-xl font-bold tracking-tight">
         What do you need a price for?
       </label>
-      <select
-        id="cost-service"
-        value={id}
-        onChange={(e) => {
-          setId(e.target.value);
-          setQuoteText("");
-        }}
-        className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-base"
-      >
-        {groups.map(([group, items]) => (
-          <optgroup key={group} label={group}>
-            {items.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.service}
-              </option>
-            ))}
-          </optgroup>
+      <p className="text-sm text-foreground/60 mt-1 mb-3">Tap a quick pick, or open the menu to choose from {costItems.length} services.</p>
+      <div className="flex flex-wrap gap-2 mb-3">
+        {quickPicks.map((q) => (
+          <button
+            key={q.id}
+            type="button"
+            onClick={() => {
+              setId(q.id);
+              setQuoteText("");
+            }}
+            aria-pressed={id === q.id}
+            className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold transition ${
+              id === q.id ? "border-brand bg-brand text-white" : "border-brand/30 bg-brand-light text-brand hover:border-brand"
+            }`}
+          >
+            {q.label}
+          </button>
         ))}
-      </select>
+      </div>
+      <div className="relative">
+        <select
+          id="cost-service"
+          value={id}
+          onChange={(e) => {
+            setId(e.target.value);
+            setQuoteText("");
+          }}
+          className="w-full appearance-none rounded-xl border-2 border-brand bg-brand-light/50 pl-4 pr-12 py-4 text-lg font-semibold shadow-soft cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand/20"
+        >
+          {groups.map(([group, items]) => (
+            <optgroup key={group} label={group}>
+              {items.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.service}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white">
+          <ChevronDown className="h-5 w-5" strokeWidth={2.5} />
+        </span>
+      </div>
 
       <div className="mt-6" aria-live="polite">
         <p className="text-sm text-foreground/60">Typical range in Barcelona, 2026</p>

@@ -365,7 +365,7 @@ export const professionals: Professional[] = [
     partnerSince: "2026-09-28",
     partnerTrial: true,
     phoneDisplay: "+34 654 334 119",
-    // The number her own site publishes next to a WhatsApp icon. Confirm with her that it is on WhatsApp.
+    // The number her own site publishes next to a WhatsApp icon. Owner confirmed it works on WhatsApp (2026-09-28).
     whatsappNumber: "+34654334119",
     contactName: "Anne-Laure",
     streetAddress: "C/ Diputación 238, Centro Marina Pilates",
